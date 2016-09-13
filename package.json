@@ -1,0 +1,9 @@
+{
+  "main": "index.md",
+  "name": "nndl",
+  "typewriter": {
+    "title": "神经网络与深度学习",
+    "description": "神经网络与深度学习",
+    "url": "https://nndl.github.io/",
+    "github": "https://github.com/nndl/nndl.github.io",
+}
