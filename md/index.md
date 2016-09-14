@@ -32,3 +32,9 @@
 
 请在[微博](http://weibo.com/xpqiu/home?wvr=5)关注关于本书的最新信息。
 
+
+
+## 深度学习讨论班
+
+[2016年秋季](seminar2016fall)
+
