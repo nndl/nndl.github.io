@@ -1,6 +1,23 @@
+---
+title: 神经网络与深度学习
+description: 《神经网络与深度学习》
+date: 2016-09-22
+categories:
+- 机器学习
+- 人工神经网络
+- 深度学习
+tags:
+- 机器学习
+- 人工智能
+- 深度学习
+- 卷积神经网络
+- 循环神经网络
+- 自然语言处理
+- 表示学习
+published: true
+---
 # 神经网络与深度学习
-作者：[邱锡鹏](http://weibo.com/xpqiu)
-
+作者：[邱锡鹏](http://nlp.fudan.edu.cn/xpqiu)  微博：[@邱锡鹏](http://weibo.com/xpqiu)
 ## 关于本书
 
 
@@ -11,7 +28,7 @@
 1. [绪论](ch1.pdf)
 2. [数学基础](ch2.pdf)
 3. [机器学习概述](ch3.pdf)
-4. 感知器
+4. [感知器](ch4.pdf)
 5. 前馈神经网络
 6. 卷积神经网络
 7. 循环神经网络
@@ -44,4 +61,8 @@
 ## 深度学习讨论班
 
 [2016年秋季](seminar2016fall)
+
+##致谢
+
+本页面由[Typora](http://www.typora.io/)编辑。
 
