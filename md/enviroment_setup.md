@@ -82,7 +82,11 @@ first, and then
 
 	pip install --upgrade $TF_BINARY_URL
 
+If you are trying to install gpu version of tensorflow, you also need to add CUDA lib path to `LD_LIBRARY_PATH` variable. CUDA installation path defaults to `/usr/local/cuda-7.5/lib64`, type `which nvcc` if you can't find any nvcc, then you should find cuda bin directory and put cuda binary path to `PATH` variable.
+
 > `$TF_BINARY_URL` will be expanded to the url you set in `export TF_BINARY_URL=` 
+
+> in fact you can install cuda any where you want, as long as your cuda version is compatible with your gpu driver, and you add cuda lib path to `$TF_BINARY_URL` and cuda bin path to `PATH`, you'll be fine.
 
 ####Check the install
 
