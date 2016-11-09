@@ -31,9 +31,9 @@ published: true
 4. [感知器](ch4.pdf)
 5. [前馈神经网络](ch5.pdf)
 6. [卷积神经网络](ch6.pdf)
-7. 循环神经网络
-8. 神经网络语言模型
-9. 词嵌入
+7. [循环神经网络](ch7.pdf)
+8. 词嵌入与语言模型
+9. ​
 10. ​
 
 
@@ -55,6 +55,31 @@ published: true
 非常感谢！
 
 请在[微博](http://weibo.com/xpqiu/home?wvr=5)关注关于本书的最新信息。
+
+
+
+##推荐课程
+
+#### Stat212b：Topics Course on Deep Learning
+
+[http://joanbruna.github.io/stat212b/](http://joanbruna.github.io/stat212b/)
+
+加州大学伯克利分校统计系Joan Bruna（Yann LeCun博士后）
+ 以统计的角度讲解DL。
+
+#### CS224d: Deep Learning for Natural Language Processing
+
+[http://cs224d.stanford.edu/](http://cs224d.stanford.edu/)
+
+斯坦福大学 Richard Socher
+ 主要讲解自然语言处理领域的各种深度学习模型
+
+#### CS231n:Convolutional Neural Networks for Visual Recognition
+
+[http://cs231n.stanford.edu/](http://cs231n.stanford.edu/)
+
+斯坦福大学 Fei-Fei Li Andrej Karpathy
+ 主要讲解CNN、RNN在图像领域的应用
 
 
 
