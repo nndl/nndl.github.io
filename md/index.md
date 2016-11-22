@@ -33,17 +33,25 @@ published: true
 6. [卷积神经网络](ch6.pdf)
 7. [循环神经网络](ch7.pdf)
 8. 词嵌入与语言模型
-9. ​
-10. ​
+9. 注意力机制与外部记忆
 
 
 
+
+
+
+##实现
+###Theano
+https://github.com/nndl/nndl.github.io/tree/master/theano
+
+###Tensorflow
+https://github.com/nndl/nndl.github.io/tree/master/tensorflow
 
 
 
 ## 反馈意见
 
-如果您有任何意见、评论以及建议，请通过GitHub的[Issues](https://github.com/nndl/textbook-comments/issues)页面进行反馈。你的名字将会出现的本书的致谢列表。
+如果您有任何意见、评论以及建议，请通过GitHub的[Issues](https://github.com/nndl/nndl.github.io/issues)页面进行反馈。你的名字将会出现的本书的致谢列表。
 
 反馈意见包括但不限于：
 
