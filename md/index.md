@@ -20,8 +20,9 @@ published: true
 作者：[邱锡鹏](http://nlp.fudan.edu.cn/xpqiu)  微博：[@邱锡鹏](http://weibo.com/xpqiu)
 ## 关于本书
 
-
 神经网络与深度学习技术目前在学术界和工业界取得了广泛的成功，并逐渐受到了高度重视。本课程主要介绍神经网络与深度学习中的基础知识、主要模型（卷积神经网络、递归神经网络等）以及在计算机视觉、自然语言处理等领域的应用。
+
+要获取更新提醒，请关注https://github.com/nndl/nndl.github.io
 
 ##内容
 
