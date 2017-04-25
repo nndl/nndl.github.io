@@ -27,7 +27,7 @@ published: true
 ##内容
 
 1. [绪论](chap-绪论.pdf)
-2. [数学基础](ch2.pdf)
+2. [数学基础](chap-数学基础.pdf)
 3. [机器学习概述](ch3.pdf)
 4. [感知器](ch4.pdf)
 5. [前馈神经网络](ch5.pdf)
@@ -56,6 +56,8 @@ https://github.com/nndl/nndl.github.io/tree/master/tensorflow
 ## 反馈意见
 
 如果您有任何意见、评论以及建议，请通过GitHub的[Issues](https://github.com/nndl/nndl.github.io/issues)页面进行反馈。你的名字将会出现的本书的致谢列表。
+
+致谢列表：感谢李浩、胡可鑫等同学指出书中的错误。
 
 反馈意见包括但不限于：
 
