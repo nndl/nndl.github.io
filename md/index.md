@@ -24,34 +24,29 @@ published: true
 
 要获取更新提醒，请关注https://github.com/nndl/nndl.github.io
 
+本书的示例代码，见https://github.com/nndl/nndl-codes
+
 ##内容
 
 1. [绪论](chap-绪论.pdf)
-2. [数学基础](chap-数学基础.pdf)
-3. [机器学习概述](ch3.pdf)
-4. [感知器](ch4.pdf)
-5. [前馈神经网络](ch5.pdf)
-6. [卷积神经网络](chap-卷积神经网络.pdf)
-7. [循环神经网络](chap-循环神经网络.pdf)
-8. 网络正则化
-9. 注意力机制与外部记忆
-10. 无监督学习
-11. 概率图模型
-12. [深度生成模型](ch11.pdf)
-13. [词嵌入与语言模型](ch12.pdf)
-14. [深度强化学习](chap - 深度强化学习.pdf)
+2. [机器学习概述](ch3.pdf)
+3. [感知器](ch4.pdf)
+4. [前馈神经网络](chap-前馈神经网络.pdf)
+5. [卷积神经网络](chap-卷积神经网络.pdf)
+6. [循环神经网络](chap-循环神经网络.pdf)
+7. [网络正则化与优化](chap-网络正则化与优化)
+8. 注意力机制与外部记忆
+9. 无监督学习
+10. 概率图模型
+11. [深度生成模型](ch11.pdf)
+12. [词嵌入与语言模型](chap-语言模型与词嵌入.pdf)
+13. [深度强化学习](chap - 深度强化学习.pdf)
+14. [数学基础](chap-数学基础.pdf)
 
 
 
 
 
-
-##实现
-###Theano
-https://github.com/nndl/nndl.github.io/tree/master/theano
-
-###Tensorflow
-https://github.com/nndl/nndl.github.io/tree/master/tensorflow
 
 
 
