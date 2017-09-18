@@ -29,7 +29,7 @@ published: true
 ##内容
 
 1. [绪论](chap-绪论.pdf)
-2. [数学基础](chap-数学基础)
+2. [数学基础](chap-数学基础.pdf)
 3. [机器学习概述](ch3.pdf)
 4. [感知器](ch4.pdf)
 5. [前馈神经网络](chap-前馈神经网络.pdf)
