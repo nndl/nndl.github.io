@@ -28,8 +28,6 @@ published: true
 
 课程练习，见https://github.com/nndl/exercise
 
-
-
 ##内容
 
 1. [绪论](chap-绪论.pdf)
@@ -50,19 +48,13 @@ published: true
 16. [数学基础](chap-数学基础.pdf)  (updated 2018-5-8)
 
 
-
-
-
-
-
-
 ## 反馈意见
 
 如果您有任何意见、评论以及建议，请通过GitHub的[Issues](https://github.com/nndl/nndl.github.io/issues)页面进行反馈。你的名字将会出现的本书的致谢列表。
 
 致谢列表：感谢张钧瑞、李浩、胡可鑫、韦鹏辉、徐国海等同学指出书中的错误。
 
-反馈意见包括但不限于：
+反馈意见包括但不限于：（因为分开排版关系，页码错误请忽略。）
 
 * 打字错误
 * 描述错误: 比如“感知器是非线性分类器”
