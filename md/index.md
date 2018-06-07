@@ -40,8 +40,8 @@ published: true
 8. [注意力与记忆机制](chap-注意力与记忆机制.pdf)
 9. 应用
 10. [无监督学习](chap-无监督学习.pdf)
-11. [概率图模型](chap-概率图模型.pdf)(updated 2018-5-8)
-12. [深度信念网络](chap-深度信念网络.pdf)
+11. [概率图模型](chap-概率图模型.pdf) [[ppt](./ppt/chap-概率图模型.pptx)] (updated 2018-5-8)
+12. [深度信念网络](chap-深度信念网络.pdf) [[ppt](./ppt/chap-深度信念网络.pptx)] (updated 2018-6-7)
 13. [深度生成模型](chap-深度生成模型.pdf)
 14. [深度强化学习](chap-深度强化学习.pdf)
 15. [词嵌入与语言模型](chap-语言模型与词嵌入.pdf)
