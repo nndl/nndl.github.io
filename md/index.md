@@ -42,9 +42,9 @@ published: true
 10. [无监督学习](chap-无监督学习.pdf)
 11. [概率图模型](chap-概率图模型.pdf) [[ppt](./ppt/chap-概率图模型.pptx)] (updated 2018-5-8)
 12. [深度信念网络](chap-深度信念网络.pdf) [[ppt](./ppt/chap-深度信念网络.pptx)] (updated 2018-6-7)
-13. [深度生成模型](chap-深度生成模型.pdf)
+13. [深度生成模型](chap-深度生成模型.pdf)[[ppt](./ppt/chap-深度生成模型.pptx)]
 14. [序列生成模型](chap-序列生成模型.pdf)    一个过时版本：[词嵌入与语言模型](chap-语言模型与词嵌入.pdf)
-15. [深度强化学习](chap-深度强化学习.pdf)
+15. [深度强化学习](chap-深度强化学习.pdf)  [[ppt](./ppt/chap-深度强化学习.pptx)] (updated 2018-6-15)
 16. [数学基础](chap-数学基础.pdf)  (updated 2018-6-12)
 
 
