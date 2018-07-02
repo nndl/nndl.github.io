@@ -2,7 +2,14 @@
 
 ## 卷积
 
- p 表示零填充大小（zero-padding）， s 表示步长（stride），d表示膨胀率（dilation）。
+| 5x5              | 9x9              |              |
+| ---------------- | ---------------- | ------------ |
+|                  |                  |              |
+| m=3,p = 0 ,s = 1 | m=3,p = 2 ,s = 2 | p = 0 ,s = 1 |
+|                  |                  |              |
+| m=3,p = 2 ,s = 1 | m=5,p = 4 ,s = 1 |              |
+
+ p 表示零填充大小（zero-padding）， s 表示步长（stride）。
 
 ## 转置卷积
 
@@ -21,7 +28,7 @@
 |                                          |                   |
 | :--------------------------------------: | :---------------: |
 | <img width="150px" src="cnn-dilation.gif"> |                   |
-|            p = 0, s = 1, d=2             | p = 0, s = 1, d=2 |
+|            p = 0, s = 1, d=2             | p = 0, s = 1, d=1 |
  p 表示零填充大小（zero-padding）， s 表示步长（stride），d表示膨胀率（dilation）。
 
 图片修改自： Vincent Dumoulin, Francesco Visin - [A guide to convolution arithmetic
