@@ -1,4 +1,4 @@
----
+﻿---
 title: 神经网络与深度学习
 description: 《神经网络与深度学习》
 date: 2016-09-22
@@ -30,7 +30,7 @@ published: true
 
 ##内容
 
-1. [绪论](chap-绪论.pdf)
+1. [绪论](chap-绪论.pdf)[[ppt](./ppt/chap-绪论.pptx)]
 2. [机器学习概述](chap-机器学习概述.pdf)  [[ppt](./ppt/chap-机器学习概述.pptx)] (updated 2018-6-25)
 3. [线性模型](chap-线性模型.pdf) [[ppt](./ppt/chap-线性模型.pptx)] 
 4. [前馈神经网络](chap-前馈神经网络.pdf) [[ppt](./ppt/chap-前馈神经网络.pptx)]
