@@ -1,4 +1,4 @@
-﻿---
+---
 title: 神经网络与深度学习
 description: 《神经网络与深度学习》
 date: 2016-09-22
@@ -27,6 +27,10 @@ published: true
 示例代码，见https://github.com/nndl/nndl-codes
 
 课程练习，见https://github.com/nndl/exercise
+
+## 概要
+
+《神经网络与深度学习》3小时课程概要  [ppt](./ppt/神经网络与深度学习-3小时.pptx)(72M)   [ppt](./ppt/神经网络与深度学习-3小时.pdf) (72M) 
 
 ##内容
 
