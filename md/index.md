@@ -42,8 +42,8 @@ published: true
 6. [循环神经网络](chap-循环神经网络.pdf) [[ppt](./ppt/chap-循环神经网络.pptx)]   (updated 2018-3-12)
 7. [网络优化与正则化](chap-网络优化与正则化.pdf)  [[ppt](./ppt/chap-网络优化与正则化.pptx)]  (updated 2018-3-12)
 8. [注意力与记忆机制](chap-注意力与记忆机制.pdf) [[ppt](./ppt/chap-注意力与记忆机制.pptx)]
-9. [模型独立的学习方式](chap-模型独立的学习方式.pdf)
-10. [无监督学习](chap-无监督学习.pdf) [[ppt](./ppt/chap-无监督学习.pptx)]
+9. [无监督学习](chap-无监督学习.pdf) [[ppt](./ppt/chap-无监督学习.pptx)] (updated 2018-9-28)
+10. [模型独立的学习方式](chap-模型独立的学习方式.pdf)
 11. [概率图模型](chap-概率图模型.pdf) [[ppt](./ppt/chap-概率图模型.pptx)] (updated 2018-5-8)
 12. [深度信念网络](chap-深度信念网络.pdf) [[ppt](./ppt/chap-深度信念网络.pptx)] (updated 2018-6-7)
 13. [深度生成模型](chap-深度生成模型.pdf)[[ppt](./ppt/chap-深度生成模型.pptx)] (updated 2018-6-25)
