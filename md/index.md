@@ -37,7 +37,7 @@ published: true
 1. [绪论](chap-绪论.pdf)[[ppt](./ppt/chap-绪论.pptx)] (updated 2018-9-12)
 2. [机器学习概述](chap-机器学习概述.pdf)  [[ppt](./ppt/chap-机器学习概述.pptx)] (updated 2018-6-25)
 3. [线性模型](chap-线性模型.pdf) [[ppt](./ppt/chap-线性模型.pptx)] 
-4. [前馈神经网络](chap-前馈神经网络.pdf) [[ppt](./ppt/chap-前馈神经网络.pptx)]
+4. [前馈神经网络](chap-前馈神经网络.pdf) [[ppt](./ppt/chap-前馈神经网络.pptx)] (updated 2019-03-05)
 5. [卷积神经网络](chap-卷积神经网络.pdf) [[ppt](./ppt/chap-卷积神经网络.pptx)]
 6. [循环神经网络](chap-循环神经网络.pdf) [[ppt](./ppt/chap-循环神经网络.pptx)]   (updated 2018-3-12)
 7. [网络优化与正则化](chap-网络优化与正则化.pdf)  [[ppt](./ppt/chap-网络优化与正则化.pptx)]  (updated 2018-3-12)
@@ -95,10 +95,6 @@ published: true
  主要讲解CNN、RNN在图像领域的应用
 
 
-
-## 深度学习讨论班
-
-[2016年秋季](seminar2016fall)
 
 ##致谢
 
