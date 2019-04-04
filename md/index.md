@@ -39,7 +39,7 @@ published: true
 3. [线性模型](chap-线性模型.pdf) [[ppt](./ppt/chap-线性模型.pptx)]  (updated 2019-4-4)
 4. [前馈神经网络](chap-前馈神经网络.pdf) [[ppt](./ppt/chap-前馈神经网络.pptx)] (updated 2019-4-4)
 5. [卷积神经网络](chap-卷积神经网络.pdf) [[ppt](./ppt/chap-卷积神经网络.pptx)]  (updated 2019-4-4)
-6. [循环神经网络](chap-循环神经网络.pdf) [[ppt](./ppt/chap-循环神经网络.pptx)]   (updated 2019-4-42)
+6. [循环神经网络](chap-循环神经网络.pdf) [[ppt](./ppt/chap-循环神经网络.pptx)]   (updated 2019-4-4)
 7. [网络优化与正则化](chap-网络优化与正则化.pdf)  [[ppt](./ppt/chap-网络优化与正则化.pptx)]  (updated 2019-4-4)
 8. [注意力机制与外部记忆](chap-注意力机制与外部记忆.pdf) [[ppt](./ppt/chap-注意力机制与外部记忆.pptx)]  (updated 2019-4-4)
 9. [无监督学习](chap-无监督学习.pdf) [[ppt](./ppt/chap-无监督学习.pptx)] (updated 2019-4-4)
@@ -56,7 +56,7 @@ published: true
 
 如果您有任何意见、评论以及建议，请通过GitHub的[Issues](https://github.com/nndl/nndl.github.io/issues)页面进行反馈。你的名字将会出现的本书的致谢列表。
 
-致谢列表：感谢张钧瑞、李浩、胡可鑫、韦鹏辉、徐国海等同学指出书中的错误。
+致谢列表：感谢王利锋、张钧瑞、李浩、胡可鑫、韦鹏辉、徐国海等同学指出书中的错误。
 
 反馈意见包括但不限于：（因为分开排版关系，页码错误请忽略。）
 
