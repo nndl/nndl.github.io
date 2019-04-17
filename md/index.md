@@ -34,7 +34,7 @@ published: true
 
 《神经网络与深度学习》3小时课程概要  [ppt](./ppt/神经网络与深度学习-3小时.pptx)(72M)   [pdf](./ppt/神经网络与深度学习-3小时.pdf) (12M) 
 
-全书内容 [pdf](nndl-book.pdf) (updated 2019-4-10)、[ipad版](nndl-book-ipad.pdf) (updated 2019-4-10)
+全书内容 [pdf](nndl-book.pdf) (updated 2019-4-18)、[ipad版](nndl-book-ipad.pdf) (updated 2019-4-18)
 
 ##章节内容
 
@@ -52,7 +52,7 @@ published: true
 12. [深度信念网络](chap-深度信念网络.pdf) [[ppt](./ppt/chap-深度信念网络.pptx)] (updated 2019-4-4)
 13. [深度生成模型](chap-深度生成模型.pdf)[[ppt](./ppt/chap-深度生成模型.pptx)] (updated 2019-4-4)
 14. [深度强化学习](chap-深度强化学习.pdf)  [[ppt](./ppt/chap-深度强化学习.pptx)] (updated 2019-4-4)
-15. [序列生成模型](chap-序列生成模型.pdf)   (updated 2019-4-4)  一个过时版本：[词嵌入与语言模型](chap-语言模型与词嵌入.pdf)
+15. [序列生成模型](chap-序列生成模型.pdf) [[ppt](./ppt/chap-序列生成模型.pptx)]   (updated 2019-4-4)  一个过时版本：[词嵌入与语言模型](chap-语言模型与词嵌入.pdf)
 16. [数学基础](chap-数学基础.pdf)   (updated 2019-4-4)
 
 
