@@ -34,26 +34,26 @@ published: true
 
 《神经网络与深度学习》3小时课程概要  [ppt](./ppt/神经网络与深度学习-3小时.pptx)(72M)   [pdf](./ppt/神经网络与深度学习-3小时.pdf) (12M) 
 
-全书内容 [pdf](nndl-book.pdf) (updated 2019-4-10)、[ipad版](nndl-book-ipad.pdf) (updated 2019-4-10)
+全书内容 [pdf](nndl-book.pdf) (updated 2019-4-18)、[ipad版](nndl-book-ipad.pdf) (updated 2019-4-18，请忽略版式问题)
 
 ##章节内容
 
-1. [绪论](chap-绪论.pdf)[[ppt](./ppt/chap-绪论.pptx)] (updated 2019-4-4)
-2. [机器学习概述](chap-机器学习概述.pdf)  [[ppt](./ppt/chap-机器学习概述.pptx)] (updated 2019-4-4)
-3. [线性模型](chap-线性模型.pdf) [[ppt](./ppt/chap-线性模型.pptx)]  (updated 2019-4-4)
-4. [前馈神经网络](chap-前馈神经网络.pdf) [[ppt](./ppt/chap-前馈神经网络.pptx)] (updated 2019-4-4)
-5. [卷积神经网络](chap-卷积神经网络.pdf) [[ppt](./ppt/chap-卷积神经网络.pptx)]  (updated 2019-4-4)
-6. [循环神经网络](chap-循环神经网络.pdf) [[ppt](./ppt/chap-循环神经网络.pptx)]   (updated 2019-4-4)
-7. [网络优化与正则化](chap-网络优化与正则化.pdf)  [[ppt](./ppt/chap-网络优化与正则化.pptx)]  (updated 2019-4-4)
-8. [注意力机制与外部记忆](chap-注意力机制与外部记忆.pdf) [[ppt](./ppt/chap-注意力机制与外部记忆.pptx)]  (updated 2019-4-4)
-9. [无监督学习](chap-无监督学习.pdf) [[ppt](./ppt/chap-无监督学习.pptx)] (updated 2019-4-4)
-10. [模型独立的学习方式](chap-模型独立的学习方式.pdf) (updated 2019-4-4)
-11. [概率图模型](chap-概率图模型.pdf) [[ppt](./ppt/chap-概率图模型.pptx)] (updated 2019-4-4)
-12. [深度信念网络](chap-深度信念网络.pdf) [[ppt](./ppt/chap-深度信念网络.pptx)] (updated 2019-4-4)
-13. [深度生成模型](chap-深度生成模型.pdf)[[ppt](./ppt/chap-深度生成模型.pptx)] (updated 2019-4-4)
-14. [深度强化学习](chap-深度强化学习.pdf)  [[ppt](./ppt/chap-深度强化学习.pptx)] (updated 2019-4-4)
-15. [序列生成模型](chap-序列生成模型.pdf)   (updated 2019-4-4)  一个过时版本：[词嵌入与语言模型](chap-语言模型与词嵌入.pdf)
-16. [数学基础](chap-数学基础.pdf)   (updated 2019-4-4)
+1. 绪论[[ppt](./ppt/chap-绪论.pptx)] (updated 2019-4-4)
+2. 机器学习概述  [[ppt](./ppt/chap-机器学习概述.pptx)] (updated 2019-4-4)
+3. 线性模型 [[ppt](./ppt/chap-线性模型.pptx)]  (updated 2019-4-4)
+4. 前馈神经网络 [[ppt](./ppt/chap-前馈神经网络.pptx)] (updated 2019-4-4)
+5. 卷积神经网络 [[ppt](./ppt/chap-卷积神经网络.pptx)]  (updated 2019-4-4)
+6. 循环神经网络 [[ppt](./ppt/chap-循环神经网络.pptx)]   (updated 2019-4-4)
+7. 网络优化与正则化  [[ppt](./ppt/chap-网络优化与正则化.pptx)]  (updated 2019-4-4)
+8. 注意力机制与外部记忆 [[ppt](./ppt/chap-注意力机制与外部记忆.pptx)]  (updated 2019-4-4)
+9. 无监督学习 [[ppt](./ppt/chap-无监督学习.pptx)] (updated 2019-4-4)
+10. 模型独立的学习方式 (updated 2019-4-4)
+11. 概率图模型 [[ppt](./ppt/chap-概率图模型.pptx)] (updated 2019-4-4)
+12. 深度信念网络 [[ppt](./ppt/chap-深度信念网络.pptx)] (updated 2019-4-4)
+13. 深度生成模型[[ppt](./ppt/chap-深度生成模型.pptx)] (updated 2019-4-4)
+14. 深度强化学习  [[ppt](./ppt/chap-深度强化学习.pptx)] (updated 2019-4-4)
+15. 序列生成模型 [[ppt](./ppt/chap-序列生成模型.pptx)]   (updated 2019-4-4)  一个过时版本：[词嵌入与语言模型](chap-语言模型与词嵌入.pdf)
+16. 数学基础   (updated 2019-4-4)
 
 
 ## 反馈意见
