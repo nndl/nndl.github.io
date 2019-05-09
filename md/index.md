@@ -36,7 +36,7 @@ published: true
 
 全书内容 [pdf](nndl-book.pdf) (updated 2019-5-5)、[ipad版](nndl-book-ipad.pdf) (updated 2019-5-5，请忽略版式问题)
 
-##章节内容
+## 章节内容
 
 1. 绪论[[ppt](./ppt/chap-绪论.pptx)] 
 2. 机器学习概述  [[ppt](./ppt/chap-机器学习概述.pptx)] 
@@ -73,7 +73,7 @@ published: true
 
 
 
-##推荐课程
+## 推荐课程
 
 #### Stat212b：Topics Course on Deep Learning
 
@@ -98,7 +98,7 @@ published: true
 
 
 
-##致谢
+## 致谢
 
 本页面由[Typora](http://www.typora.io/)编辑。
 
