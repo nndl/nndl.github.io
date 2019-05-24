@@ -73,7 +73,7 @@ published: true
 
 
 
-##推荐课程
+## 推荐课程
 
 #### Stat212b：Topics Course on Deep Learning
 
@@ -98,7 +98,7 @@ published: true
 
 
 
-##致谢
+## 致谢
 
 本页面由[Typora](http://www.typora.io/)编辑。
 
