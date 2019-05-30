@@ -34,9 +34,9 @@ published: true
 
 《神经网络与深度学习》3小时课程概要  [ppt](./ppt/神经网络与深度学习-3小时.pptx)(72M)   [pdf](./ppt/神经网络与深度学习-3小时.pdf) (12M) 
 
-全书内容 [pdf](nndl-book.pdf) (updated 2019-5-5)、[ipad版](nndl-book-ipad.pdf) (updated 2019-5-5，请忽略版式问题)
+全书内容 [pdf](nndl-book.pdf) (updated 2019-5-24)、[ipad版](nndl-book-ipad.pdf) (updated 2019-5-24，请忽略版式问题)
 
-## 章节内容
+### 章节内容
 
 1. 绪论[[ppt](./ppt/chap-绪论.pptx)] 
 2. 机器学习概述  [[ppt](./ppt/chap-机器学习概述.pptx)] 
