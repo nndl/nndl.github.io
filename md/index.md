@@ -34,7 +34,7 @@ published: true
 
 《神经网络与深度学习》3小时课程概要  [ppt](./ppt/神经网络与深度学习-3小时.pptx)(72M)   [pdf](./ppt/神经网络与深度学习-3小时.pdf) (12M) 
 
-全书内容 [pdf](nndl-book.pdf) (updated 2019-5-24)、[ipad版](nndl-book-ipad.pdf) (updated 2019-5-24，请忽略版式问题)
+全书内容 [pdf](nndl-book.pdf) (updated 2019-07-11)、[ipad版](nndl-book-ipad.pdf) (updated 2019-07-11，请忽略版式问题)
 
 ### 章节内容
 
@@ -69,7 +69,7 @@ published: true
 
 非常感谢！
 
-致谢列表：感谢王利锋、张钧瑞、李浩、胡可鑫、韦鹏辉、徐国海、侯宇蓬、任强、王少敬等同学指出书中的错误。
+致谢列表：感谢王利锋、林同茂、张钧瑞、李浩、胡可鑫、韦鹏辉、徐国海、侯宇蓬、任强、王少敬、肖耀等同学指出书中的错误。
 
 
 
