@@ -49,13 +49,13 @@ published: true
 7. 网络优化与正则化  [[ppt](./ppt/chap-网络优化与正则化.pptx)]  
 8. 注意力机制与外部记忆 [[ppt](./ppt/chap-注意力机制与外部记忆.pptx)]  
 9. 无监督学习 [[ppt](./ppt/chap-无监督学习.pptx)] 
-10. 模型独立的学习方式 
+10. 模型独立的学习方式 [[ppt](./ppt/chap-模型独立的学习方式.pptx)] 
 11. 概率图模型 [[ppt](./ppt/chap-概率图模型.pptx)] 
 12. 深度信念网络 [[ppt](./ppt/chap-深度信念网络.pptx)] 
 13. 深度生成模型[[ppt](./ppt/chap-深度生成模型.pptx)] 
 14. 深度强化学习  [[ppt](./ppt/chap-深度强化学习.pptx)] 
 15. 序列生成模型 [[ppt](./ppt/chap-序列生成模型.pptx)]     一个过时版本：[词嵌入与语言模型](chap-语言模型与词嵌入.pdf)
-16. 数学基础   
+16. 数学基础 
 
 
 ## 反馈意见
