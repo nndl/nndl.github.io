@@ -26,8 +26,6 @@ published: true
 
 要获取更新提醒，请关注https://github.com/nndl/nndl.github.io
 
-示例代码，见https://github.com/nndl/nndl-codes
-
 课程练习，见https://github.com/nndl/exercise
 
 ## 概要
