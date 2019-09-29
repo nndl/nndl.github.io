@@ -32,8 +32,13 @@ published: true
 
 《神经网络与深度学习》3小时课程概要  [ppt](./ppt/神经网络与深度学习-3小时.pptx)(72M)   [pdf](./ppt/神经网络与深度学习-3小时.pdf) (12M) 
 
+全书内容 [pdf](nndl-book.pdf) (updated 2019-09-29)、[ipad版](nndl-book-ipad.pdf) (updated 2019-09-29，请忽略版式问题)
 
-全书内容 [pdf](nndl-book.pdf) (updated 2019-07-23)、[ipad版](nndl-book-ipad.pdf) (updated 2019-07-23，请忽略版式问题)
+2019-09-29更新说明：
+
+1. 更新向量符号：将所有粗体英文字母改为粗斜体
+2. 调整绪论的小节顺序
+3. 修改issue中的部分错误
 
 
 ### 章节内容
@@ -69,36 +74,4 @@ published: true
 
 非常感谢！
 
-致谢列表：感谢王利锋、林同茂、张钧瑞、李浩、胡可鑫、韦鹏辉、徐国海、侯宇蓬、任强、王少敬、肖耀等同学指出书中的错误。
-
-
-
-## 推荐课程
-
-#### Stat212b：Topics Course on Deep Learning
-
-[http://joanbruna.github.io/stat212b/](http://joanbruna.github.io/stat212b/)
-
-加州大学伯克利分校统计系Joan Bruna（Yann LeCun博士后）
- 以统计的角度讲解DL。
-
-#### CS224d: Deep Learning for Natural Language Processing
-
-[http://cs224d.stanford.edu/](http://cs224d.stanford.edu/)
-
-斯坦福大学 Richard Socher
- 主要讲解自然语言处理领域的各种深度学习模型
-
-#### CS231n:Convolutional Neural Networks for Visual Recognition
-
-[http://cs231n.stanford.edu/](http://cs231n.stanford.edu/)
-
-斯坦福大学 Fei-Fei Li Andrej Karpathy
- 主要讲解CNN、RNN在图像领域的应用
-
-
-
-## 致谢
-
-本页面由[Typora](http://www.typora.io/)编辑。
-
+致谢列表：感谢王利锋、林同茂、张钧瑞、李浩、胡可鑫、韦鹏辉、徐国海、侯宇蓬、任强、王少敬、肖耀、李鹏等同学指出书中的错误。
