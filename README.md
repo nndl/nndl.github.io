@@ -1,7 +1,7 @@
 # nndl.github.io
 网站： https://nndl.github.io
 
-最简代码：https://github.com/wangyi-fudan/wymlp
+最简参考代码：https://github.com/wangyi-fudan/wymlp
 
 2019-10-25更新说明：
 
