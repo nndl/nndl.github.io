@@ -1,6 +1,10 @@
 # nndl.github.io
 网站： https://nndl.github.io
 
+2019-10-26更新说明：
+
+1. 修改typos
+
 2019-10-25更新说明：
 
 1. 修改typos
