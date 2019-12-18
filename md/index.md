@@ -28,11 +28,13 @@ published: true
 
 课程练习，见https://github.com/nndl/exercise
 
+豆瓣评分：https://book.douban.com/subject/33409947/
+
 ## 概要
 
 《神经网络与深度学习》3小时课程概要  [ppt](./ppt/神经网络与深度学习-3小时.pptx)(72M)   [pdf](./ppt/神经网络与深度学习-3小时.pdf) (12M) 
 
-全书内容 [pdf](nndl-book.pdf) (updated 2019-12-16)、[ipad版](nndl-book-ipad.pdf) (updated 2019-12-16，请忽略版式问题)
+全书内容 [pdf](nndl-book.pdf) (updated 2019-12-18)、[ipad版](nndl-book-ipad.pdf) (updated 2019-12-18，请忽略版式问题)
 
 更新说明：https://github.com/nndl/nndl.github.io
 
