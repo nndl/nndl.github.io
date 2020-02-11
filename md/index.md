@@ -32,7 +32,7 @@ published: true
 
 ## 概要
 
-**全书内容** [pdf](nndl-book.pdf) (updated 2020-01-03) （推荐用iPad阅读）
+**全书内容** [pdf](nndl-book.pdf) (updated 2020-02-11) （推荐用iPad阅读）
 
 更新说明：https://github.com/nndl/nndl.github.io
 
