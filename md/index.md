@@ -26,13 +26,15 @@ published: true
 
 要获取更新提醒，请关注https://github.com/nndl/nndl.github.io
 
-课程练习，见https://github.com/nndl/exercise
+课后习题分享讨论：https://github.com/nndl/solutions
+
+编程练习：https://github.com/nndl/exercise
 
 豆瓣评分：https://book.douban.com/subject/33409947/
 
 ## 概要
 
-**全书内容** [pdf](nndl-book.pdf) (updated 2020-02-11) （推荐用iPad阅读）
+**全书内容** [pdf](nndl-book.pdf) (updated 2020-03-07) （推荐用iPad阅读）
 
 更新说明：https://github.com/nndl/nndl.github.io
 
