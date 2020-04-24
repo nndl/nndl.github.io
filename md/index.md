@@ -30,6 +30,8 @@ published: true
 
 实践性：本书在网站上配套了针对每章知识点的编程练习，使得读者在学习过程中可以将理论和实践密切结合，加深对知识点的理解，并具备分析问题和解决问题的能力。
 
+<img style="float: right;margin-left: auto;  margin-right: auto;" src="nndl.jpg">
+
 要获取更新提醒，请关注https://github.com/nndl/nndl.github.io
 
 课后习题分享讨论：https://github.com/nndl/solutions
@@ -37,6 +39,10 @@ published: true
 编程练习：https://github.com/nndl/exercise
 
 豆瓣评分：https://book.douban.com/subject/33409947/
+
+纸质版购买链接：<a href="https://u.jd.com/q50KLI" target="_blank">京东</a> <a href="http://product.dangdang.com/28538371.html" target="_blank">当当</a>
+
+*蒲公英封面:希望这本教材能够帮助更多的学生进入深度学习以及人工智能领域，他们会为人工智能领域注入新的生机与活力。*
 
 ## 概要
 
@@ -63,7 +69,7 @@ published: true
 12. 深度信念网络 [[ppt](./ppt/chap-深度信念网络.pptx)] 
 13. 深度生成模型[[ppt](./ppt/chap-深度生成模型.pptx)] 
 14. 深度强化学习  [[ppt](./ppt/chap-深度强化学习.pptx)] 
-15. 序列生成模型 [[ppt](./ppt/chap-序列生成模型.pptx)]     一个过时版本：[词嵌入与语言模型](chap-语言模型与词嵌入.pdf)
+15. 序列生成模型 [[ppt](./ppt/chap-序列生成模型.pptx)]     一个过时版本：[词嵌入与语言模型](./old-chap/chap-语言模型与词嵌入.pdf)
 16. 数学基础 
 
 
