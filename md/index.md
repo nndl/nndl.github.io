@@ -40,7 +40,7 @@ published: true
 
 豆瓣评分：https://book.douban.com/subject/33409947/
 
-纸质版购买链接：<a href="https://u.jd.com/q50KLI" target="_blank">京东</a> <a href="http://product.dangdang.com/28538371.html" target="_blank">当当</a>
+纸质版购买链接：<a href="https://u.jd.com/q50KLI" target="_blank">京东</a> <a href="http://union.dangdang.com/transfer.php?from=P-340342&ad_type=10&sys_id=1&backurl=http%3A%2F%2Fproduct.dangdang.com%2F28538371.html" target="_blank">当当</a>
 
 *蒲公英封面:希望这本教材能够帮助更多的学生进入深度学习以及人工智能领域，他们会为人工智能领域注入新的生机与活力。*
 
