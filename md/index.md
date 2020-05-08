@@ -50,6 +50,8 @@ published: true
 
 更新说明：https://github.com/nndl/nndl.github.io
 
+《神经网络与深度学习》印刷版 [勘误表](./errata.html) 
+
 《神经网络与深度学习》3小时课程概要  [ppt](./ppt/神经网络与深度学习-3小时.pptx)(72M)   [pdf](./ppt/神经网络与深度学习-3小时.pdf) (12M) 
 
 
