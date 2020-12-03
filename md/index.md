@@ -40,7 +40,7 @@ published: true
 
 豆瓣评分：https://book.douban.com/subject/33409947/
 
-纸质版购买链接：<a href="https://u.jd.com/jCib3t" target="_blank">京东</a> <a href="http://union.dangdang.com/transfer.php?from=P-340342&ad_type=10&sys_id=1&backurl=http%3A%2F%2Fproduct.dangdang.com%2F28538371.html" target="_blank">当当</a>
+纸质版购买链接：<a href="https://item.jd.com/12851292.html" target="_blank">京东</a> <a href="http://union.dangdang.com/transfer.php?from=P-340342&ad_type=10&sys_id=1&backurl=http%3A%2F%2Fproduct.dangdang.com%2F28538371.html" target="_blank">当当</a>
 
 *蒲公英封面:希望这本教材能够帮助更多的学生进入深度学习以及人工智能领域，他们会为人工智能领域注入新的生机与活力。*
 
@@ -73,6 +73,30 @@ published: true
 14. 深度强化学习  [[ppt](./ppt/chap-深度强化学习.pptx)] 
 15. 序列生成模型 [[ppt](./ppt/chap-序列生成模型.pptx)]     一个过时版本：[词嵌入与语言模型](./old-chap/chap-语言模型与词嵌入.pdf)
 16. 数学基础 
+
+
+
+## 引用信息
+
+```
+邱锡鹏，神经网络与深度学习，机械工业出版社，https://nndl.github.io/, 2020.
+```
+
+
+
+```
+@book{qiu2020nndl,
+title = {神经网络与深度学习},
+publisher = {机械工业出版社},
+year = {2020},
+author = {邱锡鹏},
+address = {北京},
+isbn = {9787111649687},
+url = {https://nndl.github.io/},
+}
+```
+
+
 
 
 ## 反馈意见
