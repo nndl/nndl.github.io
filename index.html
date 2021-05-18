@@ -2,14 +2,16 @@
 <html>
 <head>
 <meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
-<title>神经网络与深度学习</title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+
+<link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
 html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
 body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
 iframe { margin: auto; }
 a.url { word-break: break-all; }
 a:active, a:hover { outline: 0px; }
 .in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
-#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 40px; }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
 #write.first-line-indent p { text-indent: 2em; }
 #write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
 #write.first-line-indent li { margin-left: 2em; }
@@ -65,7 +67,7 @@ div.hr:focus { cursor: none; }
 #write pre.ty-contain-cm { white-space: normal; }
 .CodeMirror-gutters { margin-right: 4px; }
 .md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
-.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
 #write .md-fences.mock-cm { white-space: pre-wrap; }
 .md-fences.md-fences-with-lineno { padding-left: 0px; }
 #write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
@@ -77,6 +79,7 @@ div.hr:focus { cursor: none; }
 li div { padding-top: 0px; }
 blockquote { margin: 1rem 0px; }
 li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
 li { margin: 0px; position: relative; }
 blockquote > :last-child { margin-bottom: 0px; }
 blockquote > :first-child, li > :first-child { margin-top: 0px; }
@@ -86,10 +89,10 @@ blockquote > :first-child, li > :first-child { margin-top: 0px; }
   body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
   #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
   .typora-export * { -webkit-print-color-adjust: exact; }
-  html.blink-to-pdf { font-size: 13px; }
   .typora-export #write { break-after: avoid; }
   .typora-export #write::after { height: 0px; }
   .is-mac table { break-inside: avoid; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
 }
 .footnote-line { margin-top: 0.714em; font-size: 0.7em; }
 a img, img a { cursor: pointer; }
@@ -100,6 +103,7 @@ p > .md-image:only-child { display: inline-block; width: 100%; }
 #write .MathJax_Display { margin: 0.8em 0px 0px; }
 .md-math-block { width: 100%; }
 .md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
 .md-task-list-item { position: relative; list-style-type: none; }
 .task-list-item.md-task-list-item { padding-left: 0px; }
@@ -135,11 +139,12 @@ code { text-align: left; vertical-align: initial; }
 a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
 .md-inline-math .MathJax_SVG .noError { display: none !important; }
 .html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
-.md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
+.md-fences-math .MathJax_SVG_Display, .md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: visible; display: block !important; }
 .MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
 .MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
 .MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
-.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; zoom: 90%; }
+#math-inline-preview-content { zoom: 1.1; }
 .MathJax_SVG * { transition: none 0s ease 0s; }
 .MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
 .os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
@@ -150,13 +155,61 @@ table tr th { border-bottom: 0px; }
 video { max-width: 100%; display: block; margin: 0px auto; }
 iframe { max-width: 100%; width: 100%; border: none; }
 .highlight td, .highlight tr { border: 0px; }
-svg[id^="mermaidChart"] { line-height: 1em; }
 mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
 .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
-mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
 @media print {
   .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
 }
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-require-zoom-fix foreignobject { font-size: var(--mermaid-font-zoom); }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-math .MathJax_SVG_Display { margin-top: 8px; cursor: default; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
 
 
 .CodeMirror { height: auto; }
@@ -227,6 +280,14 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
 .CodeMirror div.CodeMirror-cursor { visibility: hidden; }
 .CodeMirror-focused div.CodeMirror-cursor { visibility: inherit; }
 .cm-searching { background: rgba(255, 255, 0, 0.4); }
+span.cm-underlined { text-decoration: underline; }
+span.cm-strikethrough { text-decoration: line-through; }
+.cm-tw-syntaxerror { color: rgb(255, 255, 255); background-color: rgb(153, 0, 0); }
+.cm-tw-deleted { text-decoration: line-through; }
+.cm-tw-header5 { font-weight: 700; }
+.cm-tw-listitem:first-child { padding-left: 10px; }
+.cm-tw-box { border-style: solid; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-color: inherit; border-top-width: 0px !important; }
+.cm-tw-underline { text-decoration: underline; }
 @media print {
   .CodeMirror div.CodeMirror-cursor { visibility: hidden; }
 }
@@ -417,7 +478,7 @@ table {
     word-break: initial;
 }
 table tr {
-    border-top: 1px solid #dfe2e5;
+    border: 1px solid #dfe2e5;
     margin: 0;
     padding: 0;
 }
@@ -425,24 +486,24 @@ table tr:nth-child(2n),
 thead {
     background-color: #f8f8f8;
 }
-table tr th {
+table th {
     font-weight: bold;
     border: 1px solid #dfe2e5;
     border-bottom: 0;
     margin: 0;
     padding: 6px 13px;
 }
-table tr td {
+table td {
     border: 1px solid #dfe2e5;
     margin: 0;
     padding: 6px 13px;
 }
-table tr th:first-child,
-table tr td:first-child {
+table th:first-child,
+table td:first-child {
     margin-top: 0;
 }
-table tr th:last-child,
-table tr td:last-child {
+table th:last-child,
+table td:last-child {
     margin-bottom: 0;
 }
 
@@ -591,9 +652,9 @@ header, .context-menu, .megamenu-content, footer{
     color: #b4654d;
 }
 
-.html-for-mac .context-menu {
+/*.html-for-mac {
     --item-hover-bg-color: #E6F0FE;
-}
+}*/
 
 #md-notification .btn {
     border: 0;
@@ -601,6 +662,7 @@ header, .context-menu, .megamenu-content, footer{
 
 .dropdown-menu .divider {
     border-color: #e5e5e5;
+    opacity: 0.4;
 }
 
 .ty-preferences .window-content {
@@ -612,10 +674,16 @@ header, .context-menu, .megamenu-content, footer{
     background: #999;
 }
 
- .typora-export li, .typora-export p, .typora-export,  .footnote-line {white-space: normal;} 
-</style>
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+ :root {--mermaid-font-zoom:2em ;}  .typora-export li, .typora-export p, .typora-export,  .footnote-line {white-space: normal;} 
+</style><title>神经网络与深度学习</title>
 </head>
-<body class='typora-export os-windows'>
-<div id='write'  class=''><h1><a name="神经网络与深度学习" class="md-header-anchor"></a><span>神经网络与深度学习</span></h1><p><span>作者：</span><a href='https://xpqiu.github.io/'><span>邱锡鹏</span></a><span>  知乎：</span><a href='https://www.zhihu.com/people/xpqiu'><span>@邱锡鹏</span></a></p><h2><a name="关于本书" class="md-header-anchor"></a><span>关于本书</span></h2><p><span>近年来，以机器学习、知识图谱为代表的人工智能技术逐渐变得普及。从车牌识别、人脸识别、语音识别、智能助手、推荐系统到自动驾驶，人们在日常生活中都可能有意无意地用到了人工智能技术。这些技术的背后都离不开人工智能领域研究者的长期努力。特别是最近这几年，得益于数据的增多、计算能力的增强、学习算法的成熟以及应用场景的丰富，越来越多的人开始关注这个“崭新”的研究领域：深度学习。深度学习以神经网络为主要模型，一开始用来解决机器学习中的表示学习问题。但是由于其强大的能力，深度学习越来越多地用来解决一些通用人工智能问题，比如推理、决策等。目前，深度学习技术在学术界和工业界取得了广泛的成功，受到高度重视，并掀起新一轮的人工智能热潮。</span></p><p><span>主要特点：</span></p><p><span>系统性：系统地整理了神经网络和深度学习的知识体系。鉴于深度学习涉及的知识点较多，本书从机器学习的基本概念、神经网络模型以及概率图模型三个层面来串联深度学习所涉及的知识点，使读者对深度学习技术的理解更具系统性、条理性和全面性。</span></p><p><span>可读性：本书在编排上由浅入深，在语言表达上力求通俗易懂，并通过增加图例、示例以及必要的数学推导来理解抽象的概念。同时，附录简要介绍了本书所涉及的必要数学知识，便于读者查用。</span></p><p><span>实践性：本书在网站上配套了针对每章知识点的编程练习，使得读者在学习过程中可以将理论和实践密切结合，加深对知识点的理解，并具备分析问题和解决问题的能力。</span></p><p><span class='md-image'><img style="float: right;margin-left: auto;  margin-right: auto;" src="nndl.jpg"></span></p><p><span>要获取更新提醒，请关注</span><a href='https://github.com/nndl/nndl.github.io' target='_blank' class='url'>https://github.com/nndl/nndl.github.io</a></p><p><span>课后习题分享讨论：</span><a href='https://github.com/nndl/solutions' target='_blank' class='url'>https://github.com/nndl/solutions</a></p><p><span>编程练习：</span><a href='https://github.com/nndl/exercise' target='_blank' class='url'>https://github.com/nndl/exercise</a></p><p><span>豆瓣评分：</span><a href='https://book.douban.com/subject/33409947/' target='_blank' class='url'>https://book.douban.com/subject/33409947/</a></p><p><span>纸质版购买链接：</span><a href="https://item.jd.com/12851292.html" target="_blank"><span>京东</span></a><span> </span><a href="http://union.dangdang.com/transfer.php?from=P-340342&ad_type=10&sys_id=1&backurl=http%3A%2F%2Fproduct.dangdang.com%2F28538371.html" target="_blank"><span>当当</span></a></p><p><em><span>蒲公英封面:希望这本教材能够帮助更多的学生进入深度学习以及人工智能领域，他们会为人工智能领域注入新的生机与活力。</span></em></p><h2><a name="概要" class="md-header-anchor"></a><span>概要</span></h2><p><strong><span>全书内容</span></strong><span> </span><a href='nndl-book.pdf'><span>pdf</span></a><span> (updated 2020-04-09) （推荐用iPad阅读）</span></p><p><span>更新说明：</span><a href='https://github.com/nndl/nndl.github.io' target='_blank' class='url'>https://github.com/nndl/nndl.github.io</a></p><p><span>《神经网络与深度学习》印刷版 </span><a href='./errata.html'><span>勘误表</span></a><span> </span></p><p><span>《神经网络与深度学习》3小时课程概要  </span><a href='./ppt/神经网络与深度学习-3小时.pptx'><span>ppt</span></a><span>(72M)   </span><a href='./ppt/神经网络与深度学习-3小时.pdf'><span>pdf</span></a><span> (12M) </span></p><h3><a name="章节内容" class="md-header-anchor"></a><span>章节内容</span></h3><ol start='' ><li><span>绪论[</span><a href='./ppt/chap-绪论.pptx'><span>ppt</span></a><span>] </span></li><li><span>机器学习概述  [</span><a href='./ppt/chap-机器学习概述.pptx'><span>ppt</span></a><span>] </span></li><li><span>线性模型 [</span><a href='./ppt/chap-线性模型.pptx'><span>ppt</span></a><span>]  </span></li><li><span>前馈神经网络 [</span><a href='./ppt/chap-前馈神经网络.pptx'><span>ppt</span></a><span>] </span></li><li><span>卷积神经网络 [</span><a href='./ppt/chap-卷积神经网络.pptx'><span>ppt</span></a><span>]  </span></li><li><span>循环神经网络 [</span><a href='./ppt/chap-循环神经网络.pptx'><span>ppt</span></a><span>]   </span></li><li><span>网络优化与正则化  [</span><a href='./ppt/chap-网络优化与正则化.pptx'><span>ppt</span></a><span>]  </span></li><li><span>注意力机制与外部记忆 [</span><a href='./ppt/chap-注意力机制与外部记忆.pptx'><span>ppt</span></a><span>]  </span></li><li><span>无监督学习 [</span><a href='./ppt/chap-无监督学习.pptx'><span>ppt</span></a><span>] </span></li><li><span>模型独立的学习方式 [</span><a href='./ppt/chap-模型独立的学习方式.pptx'><span>ppt</span></a><span>] </span></li><li><span>概率图模型 [</span><a href='./ppt/chap-概率图模型.pptx'><span>ppt</span></a><span>] </span></li><li><span>深度信念网络 [</span><a href='./ppt/chap-深度信念网络.pptx'><span>ppt</span></a><span>] </span></li><li><span>深度生成模型[</span><a href='./ppt/chap-深度生成模型.pptx'><span>ppt</span></a><span>] </span></li><li><span>深度强化学习  [</span><a href='./ppt/chap-深度强化学习.pptx'><span>ppt</span></a><span>] </span></li><li><span>序列生成模型 [</span><a href='./ppt/chap-序列生成模型.pptx'><span>ppt</span></a><span>]     一个过时版本：</span><a href='./old-chap/chap-语言模型与词嵌入.pdf'><span>词嵌入与语言模型</span></a></li><li><span>数学基础 </span></li></ol><p>&nbsp;</p><h2><a name="引用信息" class="md-header-anchor"></a><span>引用信息</span></h2><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded md-focus" lang=""><div class="CodeMirror cm-s-inner CodeMirror-wrap CodeMirror-focused" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 533px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">邱锡鹏，神经网络与深度学习，机械工业出版社，https://nndl.github.io/, 2020.</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 23px;"></div><div class="CodeMirror-gutters" style="display: none; height: 23px;"></div></div></div></pre><p>&nbsp;</p><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang=""><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre>x</pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">@book{qiu2020nndl,</span></pre></div><div class="" style="position: relative;"><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">title = {神经网络与深度学习},</span></pre></div><div class="" style="position: relative;"><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">publisher = {机械工业出版社},</span></pre></div><div class="" style="position: relative;"><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">year = {2020},</span></pre></div><div class="" style="position: relative;"><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">author = {邱锡鹏},</span></pre></div><div class="" style="position: relative;"><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">address = {北京},</span></pre></div><div class="" style="position: relative;"><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">isbn = {9787111649687},</span></pre></div><div class="" style="position: relative;"><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">url = {https://nndl.github.io/},</span></pre></div><div class="" style="position: relative;"><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 207px;"></div><div class="CodeMirror-gutters" style="display: none; height: 207px;"></div></div></div></pre><p>&nbsp;</p><h2><a name="反馈意见" class="md-header-anchor"></a><span>反馈意见</span></h2><p><span>如果您有任何意见、评论以及建议（先确认最新版本中是否已经修正），请通过GitHub的</span><a href='https://github.com/nndl/nndl.github.io/issues'><span>Issues</span></a><span>页面进行反馈。如果错误比较重要，我会在本书中进行致谢。</span></p><p><span>反馈意见包括但不限于：（因为分开排版关系，页码错误请忽略。）</span></p><ul><li><span>打字错误</span></li><li><span>描述错误: 比如“感知器是非线性分类器”</span></li><li><span>评论</span></li><li><span>建议</span></li></ul><p><span>非常感谢！</span></p><p><span>致谢列表：感谢王利锋、林同茂、张钧瑞、李浩、胡可鑫、韦鹏辉、徐国海、侯宇蓬、任强、王少敬、肖耀、李鹏等同学指出书中的错误。</span></p></div>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><h1 id='神经网络与深度学习'><span>神经网络与深度学习</span></h1><p><span>作者：</span><a href='https://xpqiu.github.io/'><span>邱锡鹏</span></a><span>  知乎：</span><a href='https://www.zhihu.com/people/xpqiu'><span>@邱锡鹏</span></a></p><h2 id='关于本书'><span>关于本书</span></h2><p><span>近年来，以机器学习、知识图谱为代表的人工智能技术逐渐变得普及。从车牌识别、人脸识别、语音识别、智能助手、推荐系统到自动驾驶，人们在日常生活中都可能有意无意地用到了人工智能技术。这些技术的背后都离不开人工智能领域研究者的长期努力。特别是最近这几年，得益于数据的增多、计算能力的增强、学习算法的成熟以及应用场景的丰富，越来越多的人开始关注这个“崭新”的研究领域：深度学习。深度学习以神经网络为主要模型，一开始用来解决机器学习中的表示学习问题。但是由于其强大的能力，深度学习越来越多地用来解决一些通用人工智能问题，比如推理、决策等。目前，深度学习技术在学术界和工业界取得了广泛的成功，受到高度重视，并掀起新一轮的人工智能热潮。</span></p><p><span>主要特点：</span></p><p><span>系统性：系统地整理了神经网络和深度学习的知识体系。鉴于深度学习涉及的知识点较多，本书从机器学习的基本概念、神经网络模型以及概率图模型三个层面来串联深度学习所涉及的知识点，使读者对深度学习技术的理解更具系统性、条理性和全面性。</span></p><p><span>可读性：本书在编排上由浅入深，在语言表达上力求通俗易懂，并通过增加图例、示例以及必要的数学推导来理解抽象的概念。同时，附录简要介绍了本书所涉及的必要数学知识，便于读者查用。</span></p><p><span>实践性：本书在网站上配套了针对每章知识点的编程练习，使得读者在学习过程中可以将理论和实践密切结合，加深对知识点的理解，并具备分析问题和解决问题的能力。</span></p><p><span class='md-image'><img style="float: right;margin-left: auto;  margin-right: auto;" src="nndl.jpg"></span></p><p><span>要获取更新提醒，请关注</span><a href='https://github.com/nndl/nndl.github.io' target='_blank' class='url'>https://github.com/nndl/nndl.github.io</a></p><p><span>课后习题分享讨论：</span><a href='https://github.com/nndl/solutions' target='_blank' class='url'>https://github.com/nndl/solutions</a></p><p><span>编程练习：</span><a href='https://github.com/nndl/exercise' target='_blank' class='url'>https://github.com/nndl/exercise</a></p><p><span>豆瓣评分：</span><a href='https://book.douban.com/subject/33409947/' target='_blank' class='url'>https://book.douban.com/subject/33409947/</a></p><p><span>纸质版购买链接：</span><a href="https://item.jd.com/12851292.html" target="_blank"><span>京东</span></a><span> </span><a href="http://union.dangdang.com/transfer.php?from=P-340342&ad_type=10&sys_id=1&backurl=http%3A%2F%2Fproduct.dangdang.com%2F28538371.html" target="_blank"><span>当当</span></a></p><p><em><span>蒲公英封面:希望这本教材能够帮助更多的学生进入深度学习以及人工智能领域，他们会为人工智能领域注入新的生机与活力。</span></em></p><h2 id='概要'><span>概要</span></h2><p><strong><span>全书内容</span></strong><span> </span><a href='nndl-book.pdf'><span>pdf</span></a><span> (updated 2021-05-18) （推荐用iPad阅读）</span></p><p><span>更新说明：</span><a href='https://github.com/nndl/nndl.github.io' target='_blank' class='url'>https://github.com/nndl/nndl.github.io</a></p><p><span>《神经网络与深度学习》印刷版 </span><a href='./errata.html'><span>勘误表</span></a><span> </span></p><p><span>《神经网络与深度学习》3小时课程概要  </span><a href='./ppt/神经网络与深度学习-3小时.pptx'><span>ppt</span></a><span>(72M)   </span><a href='./ppt/神经网络与深度学习-3小时.pdf'><span>pdf</span></a><span> (12M) </span></p><h3 id='章节内容'><span>章节内容</span></h3><ol start='' ><li><span>绪论[</span><a href='./ppt/chap-绪论.pptx'><span>ppt</span></a><span>] </span></li><li><span>机器学习概述  [</span><a href='./ppt/chap-机器学习概述.pptx'><span>ppt</span></a><span>] </span></li><li><span>线性模型 [</span><a href='./ppt/chap-线性模型.pptx'><span>ppt</span></a><span>]  </span></li><li><span>前馈神经网络 [</span><a href='./ppt/chap-前馈神经网络.pptx'><span>ppt</span></a><span>] </span></li><li><span>卷积神经网络 [</span><a href='./ppt/chap-卷积神经网络.pptx'><span>ppt</span></a><span>]  </span></li><li><span>循环神经网络 [</span><a href='./ppt/chap-循环神经网络.pptx'><span>ppt</span></a><span>]   </span></li><li><span>网络优化与正则化  [</span><a href='./ppt/chap-网络优化与正则化.pptx'><span>ppt</span></a><span>]  </span></li><li><span>注意力机制与外部记忆 [</span><a href='./ppt/chap-注意力机制与外部记忆.pptx'><span>ppt</span></a><span>]  </span></li><li><span>无监督学习 [</span><a href='./ppt/chap-无监督学习.pptx'><span>ppt</span></a><span>] </span></li><li><span>模型独立的学习方式 [</span><a href='./ppt/chap-模型独立的学习方式.pptx'><span>ppt</span></a><span>] </span></li><li><span>概率图模型 [</span><a href='./ppt/chap-概率图模型.pptx'><span>ppt</span></a><span>] </span></li><li><span>深度信念网络 [</span><a href='./ppt/chap-深度信念网络.pptx'><span>ppt</span></a><span>] </span></li><li><span>深度生成模型[</span><a href='./ppt/chap-深度生成模型.pptx'><span>ppt</span></a><span>] </span></li><li><span>深度强化学习  [</span><a href='./ppt/chap-深度强化学习.pptx'><span>ppt</span></a><span>] </span></li><li><span>序列生成模型 [</span><a href='./ppt/chap-序列生成模型.pptx'><span>ppt</span></a><span>]     一个过时版本：</span><a href='./old-chap/chap-语言模型与词嵌入.pdf'><span>词嵌入与语言模型</span></a></li><li><span>数学基础 </span></li></ol><p>&nbsp;</p><h2 id='引用信息'><span>引用信息</span></h2><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang=""><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.5px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">邱锡鹏，神经网络与深度学习，机械工业出版社，https://nndl.github.io/, 2020.</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 23px;"></div><div class="CodeMirror-gutters" style="display: none; height: 23px;"></div></div></div></pre><p>&nbsp;</p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang=""><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.5px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">@book{qiu2020nndl,</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">title = {神经网络与深度学习},</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">publisher = {机械工业出版社},</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">year = {2020},</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">author = {邱锡鹏},</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">address = {北京},</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">isbn = {9787111649687},</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">url = {https://nndl.github.io/},</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 207px;"></div><div class="CodeMirror-gutters" style="display: none; height: 207px;"></div></div></div></pre><p>&nbsp;</p><h2 id='反馈意见'><span>反馈意见</span></h2><p><span>如果您有任何意见、评论以及建议（先确认最新版本中是否已经修正），请通过GitHub的</span><a href='https://github.com/nndl/nndl.github.io/issues'><span>Issues</span></a><span>页面进行反馈。如果错误比较重要，我会在本书中进行致谢。</span></p><p><span>反馈意见包括但不限于：（因为分开排版关系，页码错误请忽略。）</span></p><ul><li><span>打字错误</span></li><li><span>描述错误: 比如“感知器是非线性分类器”</span></li><li><span>评论</span></li><li><span>建议</span></li></ul><p><span>非常感谢！</span></p><p><span>致谢列表：感谢王利锋、林同茂、张钧瑞、李浩、胡可鑫、韦鹏辉、徐国海、侯宇蓬、任强、王少敬、肖耀、李鹏等同学指出书中的错误。</span></p></div></div>
 </body>
 </html>
