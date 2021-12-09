@@ -17,7 +17,7 @@
 |           m = 3, p = 0, s = 1            |           m = 3, p = 0, s = 1            |
 | :--------------------------------------: | :--------------------------------------: |
 | <img width="250px" src="cnn-dilation-in_7_out_3.gif"> | <img width="250px" src="cnn-dilation.gif"> |
-|                   d=1                    |                   d=2                    |
+|                   d=2                    |                   d=3                    |
   m表示卷积核大小，p 表示零填充大小（zero-padding）， s 表示步长（stride），d表示膨胀率（dilation）。
 
 图片修改自： Vincent Dumoulin, Francesco Visin - [A guide to convolution arithmetic
