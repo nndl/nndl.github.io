@@ -34,7 +34,7 @@ published: true
 
 ### 纸质书购买连接
 
-**蒲公英书**：<a href="https://item.jd.com/12851292.html" target="_blank">京东</a> <a href="http://union.dangdang.com/transfer.php?from=P-340342&ad_type=10&sys_id=1&backurl=http%3A%2F%2Fproduct.dangdang.com%2F28538371.html" target="_blank">当当</a>   **蒲公英书实践篇**：[京东](https://item.jd.com/13262435.html) [当当](http://product.dangdang.com/29439138.html?_ddclickunion=P-295132-57139_64_0__1|ad_type=0|sys_id=1#dd_refer=https%3A%2F%2Fc.duomai.com%2Ftrack.php%3Fsite_id%3D57139%26aid%3D64%26euid%3D%26t%3Dhttp%3A%2F%2Fproduct.dangdang.com%2F29439138.html)
+**蒲公英书**：<a href="https://item.jd.com/12851292.html" target="_blank">京东</a> <a href="http://union.dangdang.com/transfer.php?from=P-340342&ad_type=10&sys_id=1&backurl=http%3A%2F%2Fproduct.dangdang.com%2F28538371.html" target="_blank">当当</a>   **蒲公英书实践篇**：[京东](https://item.jd.com/13262435.html) [当当](http://product.dangdang.com/29439138.html?_ddclickunion=P-295132-57139_64_0__1|ad_type=0|sys_id=1#dd_refer=https%3A%2F%2Fc.duomai.com%2Ftrack.php%3Fsite_id%3D57139%26aid%3D64%26euid%3D%26t%3Dhttp%3A%2F%2Fproduct.dangdang.com%2F29439138.html) **套装**：[京东](https://item.jd.com/13345599.html) [当当](http://product.dangdang.com/29449496.html) 
 
 
 
