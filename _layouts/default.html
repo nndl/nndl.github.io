@@ -11,7 +11,7 @@
   {%- endunless -%}
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 </head>
-<body>
+<body{% if page.url contains '/viz/' %} class="viz-page"{% endif %}>
   <header class="site-header">
     <div class="wrapper">
       <a class="site-title" href="{{ '/' | relative_url }}">{{ site.title }}</a>

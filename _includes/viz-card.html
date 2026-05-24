@@ -1,0 +1,28 @@
+{%- comment -%}
+  通用可视化卡片：用于 v/ 目录下的可视化资源页。
+  参数：include viz-card.html url=... title=... blurb=... thumb=... external=false
+  - url:      详情页或外链 URL
+  - title:    卡片标题
+  - blurb:    一句话说明
+  - thumb:    缩略图 URL（可空；空则只显示占位）
+  - external: 是否为外链（true 时新窗口打开）
+{%- endcomment -%}
+{%- assign target_attr = '' -%}
+{%- if include.external -%}
+  {%- assign target_attr = ' target="_blank" rel="noopener"' -%}
+{%- endif -%}
+<a class="viz-card" href="{{ include.url }}"{{ target_attr }}>
+  <div class="viz-card__thumb">
+    <div class="viz-thumb-placeholder" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a13 13 0 010 18M12 3a13 13 0 000 18"/></svg>
+      <span>{{ include.title }}</span>
+    </div>
+    {%- if include.thumb -%}
+      <img src="{{ include.thumb }}" alt="{{ include.title }}" loading="lazy" onerror="this.style.display='none'">
+    {%- endif -%}
+  </div>
+  <div class="viz-card__body">
+    <h3>{{ include.title }}{%- if include.external %} ↗{%- endif -%}</h3>
+    <p>{{ include.blurb }}</p>
+  </div>
+</a>

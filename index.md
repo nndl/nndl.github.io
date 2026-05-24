@@ -19,7 +19,7 @@ description: 邱锡鹏《神经网络与深度学习》《大模型与智能体�
 ## 配套资源
 
 <div class="resource-grid">
-  <a class="resource-card" href="{{ '/v/' | relative_url }}">
+  <a class="resource-card" href="{{ '/viz/' | relative_url }}">
     <h3>可视化资源</h3>
     <p>卷积、序列建模、注意力、扩散、优化等概念的动图与交互演示。</p>
   </a>

@@ -1,10 +1,10 @@
 ---
 layout: default
 title: 优化算法对比
-permalink: /v/optimizers/
+permalink: /viz/optimizers/
 ---
 
-<a class="viz-back" href="{{ '/v/' | relative_url }}">可视化资源</a>
+<a class="viz-back" href="{{ '/viz/' | relative_url }}">可视化资源</a>
 
 # 优化算法对比
 
@@ -13,13 +13,13 @@ permalink: /v/optimizers/
 ## 三维损失面上的优化轨迹
 
 <figure class="viz-figure viz-figure--wide">
-  <img src="{{ '/v/opt-3d.gif' | relative_url }}" alt="三维损失面上的优化器对比" loading="lazy">
+  <img src="{{ '/viz/opt-3d.gif' | relative_url }}" alt="三维损失面上的优化器对比" loading="lazy">
   <figcaption>不同优化器在三维损失面上的轨迹对比。</figcaption>
-  <small class="viz-figure__source">来源：邱锡鹏 · 原创动画（视频版本：<a href="{{ '/v/opt-3d.mov' | relative_url }}">opt-3d.mov</a>）</small>
+  <small class="viz-figure__source">来源：邱锡鹏 · 原创动画（视频版本：<a href="{{ '/viz/opt-3d.mov' | relative_url }}">opt-3d.mov</a>）</small>
 </figure>
 
 <p class="viz-attr">
-  本页 GIF 由作者制作，原始视频版本：<a href="{{ '/v/opt-3d.mov' | relative_url }}">opt-3d.mov</a>
+  本页 GIF 由作者制作，原始视频版本：<a href="{{ '/viz/opt-3d.mov' | relative_url }}">opt-3d.mov</a>
 </p>
 
 ## 交互式资源

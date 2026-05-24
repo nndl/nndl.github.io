@@ -1,10 +1,10 @@
 ---
 layout: default
 title: 扩散模型
-permalink: /v/diffusion/
+permalink: /viz/diffusion/
 ---
 
-<a class="viz-back" href="{{ '/v/' | relative_url }}">可视化资源</a>
+<a class="viz-back" href="{{ '/viz/' | relative_url }}">可视化资源</a>
 
 # 扩散模型
 

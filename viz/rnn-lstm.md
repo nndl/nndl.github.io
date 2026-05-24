@@ -1,10 +1,10 @@
 ---
 layout: default
 title: 循环神经网络与门控机制
-permalink: /v/rnn-lstm/
+permalink: /viz/rnn-lstm/
 ---
 
-<a class="viz-back" href="{{ '/v/' | relative_url }}">可视化资源</a>
+<a class="viz-back" href="{{ '/viz/' | relative_url }}">可视化资源</a>
 
 # 循环神经网络与门控机制
 
@@ -63,7 +63,7 @@ GRU 把 LSTM 的三个门简化为两个（更新门 + 重置门），合并细�
 
 <p class="viz-attr">
   图片来源：Chris Olah — <a href="https://colah.github.io/posts/2015-08-Understanding-LSTMs/">Understanding LSTM Networks</a>（CC-BY 许可，已注明出处）。
-  <br><em>TODO：如需镜像至本站，下载至 <code>assets/v/</code> 并替换 <code>src</code>。</em>
+  <br><em>TODO：如需镜像至本站，下载至 <code>assets/viz/</code> 并替换 <code>src</code>。</em>
 </p>
 
 ## 字符级 RNN 生成

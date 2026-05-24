@@ -1,10 +1,10 @@
 ---
 layout: default
 title: 转置卷积与空洞卷积演示
-permalink: /v/cnn-conv-more/
+permalink: /viz/cnn-conv-more/
 ---
 
-<a class="viz-back" href="{{ '/v/' | relative_url }}">可视化资源</a>
+<a class="viz-back" href="{{ '/viz/' | relative_url }}">可视化资源</a>
 
 # 转置卷积与空洞卷积
 
@@ -14,22 +14,22 @@ permalink: /v/cnn-conv-more/
 
 <div class="figure-grid figure-grid--2col">
   <figure class="viz-figure">
-    <img src="{{ '/v/cnn-no_padding_no_strides.gif' | relative_url }}" alt="标准卷积 s=1" loading="lazy">
+    <img src="{{ '/viz/cnn-no_padding_no_strides.gif' | relative_url }}" alt="标准卷积 s=1" loading="lazy">
     <figcaption>标准卷积 · <code>m = 3</code> · <code>p = 0</code> · <code>s = 1</code></figcaption>
     <small class="viz-figure__source">来源：<a href="https://github.com/vdumoulin/conv_arithmetic">vdumoulin/conv_arithmetic</a>（MIT）</small>
   </figure>
   <figure class="viz-figure">
-    <img src="{{ '/v/cnn-no_padding_strides.gif' | relative_url }}" alt="标准卷积 s=2" loading="lazy">
+    <img src="{{ '/viz/cnn-no_padding_strides.gif' | relative_url }}" alt="标准卷积 s=2" loading="lazy">
     <figcaption>标准卷积 · <code>m = 3</code> · <code>p = 0</code> · <code>s = 2</code></figcaption>
     <small class="viz-figure__source">来源：<a href="https://github.com/vdumoulin/conv_arithmetic">vdumoulin/conv_arithmetic</a>（MIT）</small>
   </figure>
   <figure class="viz-figure">
-    <img src="{{ '/v/cnn-no_padding_no_strides_transposed.gif' | relative_url }}" alt="转置卷积 s=1" loading="lazy">
+    <img src="{{ '/viz/cnn-no_padding_no_strides_transposed.gif' | relative_url }}" alt="转置卷积 s=1" loading="lazy">
     <figcaption>转置卷积 · <code>m = 3</code> · <code>p = 0</code> · <code>s = 1</code></figcaption>
     <small class="viz-figure__source">来源：<a href="https://github.com/vdumoulin/conv_arithmetic">vdumoulin/conv_arithmetic</a>（MIT）</small>
   </figure>
   <figure class="viz-figure">
-    <img src="{{ '/v/cnn-no_padding_strides_transposed.gif' | relative_url }}" alt="转置卷积 s=2" loading="lazy">
+    <img src="{{ '/viz/cnn-no_padding_strides_transposed.gif' | relative_url }}" alt="转置卷积 s=2" loading="lazy">
     <figcaption>转置卷积 · <code>m = 3</code> · <code>p = 0</code> · <code>s = 2</code></figcaption>
     <small class="viz-figure__source">来源：<a href="https://github.com/vdumoulin/conv_arithmetic">vdumoulin/conv_arithmetic</a>（MIT）</small>
   </figure>
@@ -41,12 +41,12 @@ permalink: /v/cnn-conv-more/
 
 <div class="figure-grid figure-grid--2col">
   <figure class="viz-figure">
-    <img src="{{ '/v/cnn-dilation-in_7_out_3.gif' | relative_url }}" alt="d=1 标准卷积" loading="lazy">
+    <img src="{{ '/viz/cnn-dilation-in_7_out_3.gif' | relative_url }}" alt="d=1 标准卷积" loading="lazy">
     <figcaption><code>d = 1</code>（等价于标准卷积）</figcaption>
     <small class="viz-figure__source">来源：<a href="https://github.com/vdumoulin/conv_arithmetic">vdumoulin/conv_arithmetic</a>（MIT）</small>
   </figure>
   <figure class="viz-figure">
-    <img src="{{ '/v/cnn-dilation.gif' | relative_url }}" alt="d=2 空洞卷积" loading="lazy">
+    <img src="{{ '/viz/cnn-dilation.gif' | relative_url }}" alt="d=2 空洞卷积" loading="lazy">
     <figcaption><code>d = 2</code>（感受野扩大）</figcaption>
     <small class="viz-figure__source">来源：<a href="https://github.com/vdumoulin/conv_arithmetic">vdumoulin/conv_arithmetic</a>（MIT）</small>
   </figure>

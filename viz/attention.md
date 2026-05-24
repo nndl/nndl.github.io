@@ -1,10 +1,10 @@
 ---
 layout: default
 title: 注意力机制
-permalink: /v/attention/
+permalink: /viz/attention/
 ---
 
-<a class="viz-back" href="{{ '/v/' | relative_url }}">可视化资源</a>
+<a class="viz-back" href="{{ '/viz/' | relative_url }}">可视化资源</a>
 
 # 注意力机制
 
