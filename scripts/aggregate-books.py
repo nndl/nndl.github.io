@@ -1,8 +1,8 @@
 """Aggregate per-book _meta.yml files into _data/books.yml.
 
 Reads sibling repos in the workspace root:
-- ../nndl/v2/_meta.yml         (理论书 v2)
-- ../nndl/ge/_meta.yml         (通识版)
+- ../nndl/nndl-v2/_meta.yml    (理论书 v2)
+- ../nndl/nndl-ge/_meta.yml    (通识版)
 - ../nndl-practice/_meta.yml   (案例与实践)
 - ../llm-agent/_meta.yml       (大模型与智能体)
 
@@ -21,25 +21,24 @@ PORTAL = Path(__file__).resolve().parents[1]
 ROOT = PORTAL.parent
 
 META_PATHS = [
-    ROOT / "nndl"          / "v2" / "_meta.yml",
+    ROOT / "nndl"          / "nndl-v2" / "_meta.yml",
     ROOT / "nndl-practice" / "_meta.yml",
-    ROOT / "nndl"          / "ge" / "_meta.yml",
+    ROOT / "nndl"          / "nndl-ge" / "_meta.yml",
     ROOT / "llm-agent"     / "_meta.yml",
 ]
 
+missing = [p for p in META_PATHS if not p.exists()]
+if missing:
+    sys.exit(
+        "Missing _meta.yml files (refusing to write partial books.yml):\n"
+        + "\n".join(f"  - {p.relative_to(ROOT)}" for p in missing)
+    )
+
 books = []
 for p in META_PATHS:
-    rel = p.relative_to(ROOT)
-    if not p.exists():
-        print(f"[skip] {rel} missing")
-        continue
     data = yaml.safe_load(p.read_text(encoding="utf-8"))
     books.append(data)
-    print(f"[read] {rel} -> key={data.get('key')}")
-
-if not books:
-    sys.exit("\nNo _meta.yml files found. Per-book repos not yet populated;\n"
-             "_data/books.yml left as-is (hand-maintained initial version).")
+    print(f"[read] {p.relative_to(ROOT)} -> key={data.get('key')}")
 
 out = PORTAL / "_data" / "books.yml"
 header = (

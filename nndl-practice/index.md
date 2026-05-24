@@ -24,17 +24,6 @@ permalink: /nndl-practice/
   </a>
 </div>
 
-## 章节案例
-
-> *（待补充：按章节列出案例标题、对应理论书章节、notebook 链接、数据集说明。）*
-
-| 章节 | 案例 | Notebook |
-|------|------|----------|
-| 第 2 章 | 鸢尾花分类（线性模型） | *待补充* |
-| 第 4 章 | MNIST 手写数字识别（前馈网络） | *待补充* |
-| 第 5 章 | CIFAR-10 图像分类（CNN） | *待补充* |
-| ... | ... | ... |
-
 ## 反馈
 
 通过 <a href="{{ book.repo }}/issues">{{ book.repo | replace: 'https://github.com/', '' }} Issues</a> 提交意见与勘误。
