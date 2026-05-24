@@ -1,0 +1,14 @@
+title: 蒲公英书系列
+description: 邱锡鹏《神经网络与深度学习》《大模型与智能体》系列图书主页
+author: 邱锡鹏
+url: https://nndl.github.io
+
+markdown: kramdown
+permalink: pretty
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor/
+  - scripts/

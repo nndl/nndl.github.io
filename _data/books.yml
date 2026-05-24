@@ -1,0 +1,99 @@
+# 初始版本：手工维护。
+# 待各书仓库的 _meta.yml 就绪后，由 scripts/aggregate-books.py 自动生成。
+# 顺序即首页书架显示顺序。
+
+- key: theory
+  title: 神经网络与深度学习
+  subtitle: 第 2 版（蒲公英书）
+  short_title: 神经网络与深度学习
+  cover: /assets/covers/nndl-2-cover.png
+  url: /nndl2/
+  blurb: 系统介绍神经网络与深度学习的理论与方法，覆盖从感知机到 Transformer 的完整脉络，适合系统学习。
+  authors: 邱锡鹏
+  publisher: 机械工业出版社
+  year: 2025
+  status: published
+  repo: https://github.com/nndl/nndl
+  repo_path: v2
+  douban:
+    url: https://book.douban.com/subject/35044046/
+    rating: "9.4"
+  links:
+    - { label: 京东购买, url: https://item.jd.com/12851292.html }
+    - { label: 京东套装（理论+实践）, url: https://item.jd.com/13345599.html }
+    - { label: 当当购买, url: http://product.dangdang.com/28538371.html }
+  parts:
+    - title: 机器学习基础
+      chapters:
+        - { num: 1, title: 绪论 }
+        - { num: 2, title: 机器学习概述 }
+        - { num: 3, title: 线性模型 }
+    - title: 基础模型
+      chapters:
+        - { num: 4, title: 前馈神经网络 }
+        - { num: 5, title: 卷积神经网络 }
+        - { num: 6, title: 循环神经网络 }
+        - { num: 7, title: 网络优化与正则化 }
+        - { num: 8, title: 注意力机制与Transformer }
+        - { num: 9, title: 图神经网络 }
+    - title: 进阶主题
+      chapters:
+        - { num: 10, title: 无监督学习 }
+        - { num: 11, title: 模型独立的学习方式 }
+        - { num: 12, title: 深度强化学习 }
+        - { num: 13, title: 大语言模型与智能体 }
+        - { num: 14, title: 概率图模型 }
+        - { num: 15, title: 深度信念网络 }
+        - { num: 16, title: 深度生成模型 }
+  appendix:
+    - { title: 数学基础 }
+
+- key: practice
+  title: 神经网络与深度学习：案例与实践
+  subtitle: 实践篇
+  short_title: 案例与实践
+  cover: /assets/covers/nndl-practice-cover.jpg
+  url: /practice/
+  blurb: 配套理论书的实战教程，覆盖经典模型与典型任务的端到端案例。提供 PyTorch 与 PaddlePaddle 两套实现。
+  authors: 邱锡鹏、飞桨教材编写组
+  publisher: 机械工业出版社
+  year: 2023
+  status: published
+  repo: https://github.com/nndl/nndl-practice
+  douban:
+    url: "#"     # TODO: 替换为案例与实践豆瓣页面 URL
+    rating: ""
+  links:
+    - { label: 京东购买, url: https://item.jd.com/13262435.html }
+    - { label: 京东套装（理论+实践）, url: https://item.jd.com/13345599.html }
+
+- key: ge
+  title: 神经网络与深度学习（通识版）
+  subtitle: 面向更广读者的入门读本
+  short_title: 通识版
+  cover: /assets/covers/nndl-ge-cover.png
+  url: /ge/
+  blurb: 以更直观的方式介绍神经网络与深度学习的核心思想，弱化数学推导，适合非专业读者与入门学习。
+  authors: 邱锡鹏
+  publisher: 机械工业出版社
+  year: 2026
+  status: forthcoming
+  repo: https://github.com/nndl/nndl
+  repo_path: ge
+  douban: null
+  links: []
+
+- key: llm-agent
+  title: 大模型与智能体
+  subtitle: 从基础原理到系统构建与未来展望
+  short_title: 大模型与智能体
+  cover: /assets/covers/lma-cover-small.jpg
+  url: /llm-agent/
+  blurb: 围绕共用基础、大模型、智能体、边界与未来四条主线，系统讲解大模型与智能体的原理、构建与前沿。
+  authors: 邱锡鹏
+  publisher: 机械工业出版社
+  year: 2026
+  status: forthcoming
+  repo: https://github.com/nndl/llm-agent
+  douban: null
+  links: []
