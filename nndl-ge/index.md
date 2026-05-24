@@ -2,7 +2,7 @@
 layout: book
 title: 神经网络与深度学习（通识版）
 book_key: ge
-permalink: /ge/
+permalink: /nndl-ge/
 ---
 
 {%- assign book = site.data.books | where: "key", page.book_key | first -%}

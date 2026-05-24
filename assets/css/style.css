@@ -198,6 +198,16 @@ body {
 
 .gh-stars.loaded svg { color: #f59e0b; }
 
+.gh-stars.failed { display: none; }
+
+.book-card-mini__foot .gh-stars {
+  padding: 3px 9px 3px 7px;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  gap: 4px;
+  min-width: 36px;
+}
+
 /* ---------- Content ---------- */
 .site-content {
   padding: 64px 0 100px;

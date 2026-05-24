@@ -30,6 +30,15 @@
           {%- endif -%}
         </span>
       {%- endif -%}
+      {%- if include.book.repo -%}
+        {%- assign repo_slug = include.book.repo | remove: 'https://github.com/' | remove: 'http://github.com/' | replace: '.git', '' -%}
+        <span class="gh-stars" data-gh-stars="{{ repo_slug }}" title="GitHub Stars · {{ repo_slug }}">
+          <svg viewBox="0 0 16 16" width="11" height="11" fill="currentColor" aria-hidden="true">
+            <path d="M8 .25l2.36 4.78 5.27.77-3.81 3.71.9 5.25L8 12.27l-4.72 2.49.9-5.25L.37 5.8l5.27-.77L8 .25z"/>
+          </svg>
+          <span data-gh-count>—</span>
+        </span>
+      {%- endif -%}
       <span class="book-card-mini__cta">了解更多</span>
     </div>
   </div>

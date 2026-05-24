@@ -7,14 +7,14 @@
   subtitle: 第 2 版（蒲公英书）
   short_title: 神经网络与深度学习
   cover: /assets/covers/nndl-2-cover.png
-  url: /nndl2/
+  url: /nndl-v2/
   blurb: 系统介绍神经网络与深度学习的理论与方法，覆盖从感知机到 Transformer 的完整脉络，适合系统学习。
   authors: 邱锡鹏
   publisher: 机械工业出版社
   year: 2025
   status: published
   repo: https://github.com/nndl/nndl
-  repo_path: v2
+  repo_path: nndl-v2
   douban:
     url: https://book.douban.com/subject/35044046/
     rating: "9.4"
@@ -53,7 +53,7 @@
   subtitle: 实践篇
   short_title: 案例与实践
   cover: /assets/covers/nndl-practice-cover.jpg
-  url: /practice/
+  url: /nndl-practice/
   blurb: 配套理论书的实战教程，覆盖经典模型与典型任务的端到端案例。提供 PyTorch 与 PaddlePaddle 两套实现。
   authors: 邱锡鹏、飞桨教材编写组
   publisher: 机械工业出版社
@@ -72,14 +72,14 @@
   subtitle: 面向更广读者的入门读本
   short_title: 通识版
   cover: /assets/covers/nndl-ge-cover.png
-  url: /ge/
+  url: /nndl-ge/
   blurb: 以更直观的方式介绍神经网络与深度学习的核心思想，弱化数学推导，适合非专业读者与入门学习。
   authors: 邱锡鹏
   publisher: 机械工业出版社
   year: 2026
   status: forthcoming
   repo: https://github.com/nndl/nndl
-  repo_path: ge
+  repo_path: nndl-ge
   douban: null
   links: []
 

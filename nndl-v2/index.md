@@ -2,7 +2,7 @@
 layout: book
 title: 神经网络与深度学习
 book_key: theory
-permalink: /nndl2/
+permalink: /nndl-v2/
 ---
 
 {%- assign book = site.data.books | where: "key", page.book_key | first -%}
@@ -42,11 +42,11 @@ permalink: /nndl2/
 ## 配套资源
 
 <div class="resource-grid">
-  <a class="resource-card" href="{{ '/practice/' | relative_url }}">
+  <a class="resource-card" href="{{ '/nndl-practice/' | relative_url }}">
     <h3>案例与实践</h3>
     <p>配套实战教程，含 PyTorch 实现。</p>
   </a>
-  <a class="resource-card" href="{{ '/ge/' | relative_url }}">
+  <a class="resource-card" href="{{ '/nndl-ge/' | relative_url }}">
     <h3>通识版</h3>
     <p>面向更广读者的入门读本，弱化数学推导。</p>
   </a>
@@ -55,7 +55,7 @@ permalink: /nndl2/
 ## 第一版归档
 
 <div class="archive-note">
-  <p>第一版 PDF 与勘误保留在 <a href="{{ book.repo }}/tree/main/legacy/v1">legacy/v1</a> 目录。</p>
+  <p>第一版 PDF 与勘误保留在 <a href="{{ book.repo }}/tree/main/legacy/nndl-v1">legacy/nndl-v1</a> 目录。</p>
 </div>
 
 ## 引用
