@@ -2,6 +2,8 @@
 layout: default
 title: 循环神经网络与门控机制
 permalink: /viz/rnn-lstm/
+redirect_from:
+  - /v/rnn-lstm/
 ---
 
 <a class="viz-back" href="{{ '/viz/' | relative_url }}">可视化资源</a>

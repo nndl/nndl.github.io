@@ -2,6 +2,8 @@
 layout: default
 title: LLM 内部结构（3D）
 permalink: /viz/llm-internals/
+redirect_from:
+  - /v/llm-internals/
 ---
 
 <a class="viz-back" href="{{ '/viz/' | relative_url }}">可视化资源</a>

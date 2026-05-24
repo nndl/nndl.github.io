@@ -2,6 +2,8 @@
 layout: default
 title: GoogLeNet 结构
 permalink: /viz/cnn-googlenet/
+redirect_from:
+  - /v/cnn-googlenet/
 ---
 
 <a class="viz-back" href="{{ '/viz/' | relative_url }}">可视化资源</a>

@@ -2,6 +2,8 @@
 layout: default
 title: 注意力机制
 permalink: /viz/attention/
+redirect_from:
+  - /v/attention/
 ---
 
 <a class="viz-back" href="{{ '/viz/' | relative_url }}">可视化资源</a>

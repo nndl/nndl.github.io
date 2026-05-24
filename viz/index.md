@@ -2,6 +2,8 @@
 layout: default
 title: 可视化资源
 permalink: /viz/
+redirect_from:
+  - /v/
 ---
 
 # 可视化资源

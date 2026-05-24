@@ -3,6 +3,8 @@ layout: book
 title: 神经网络与深度学习
 book_key: theory
 permalink: /nndl-v2/
+redirect_from:
+  - /nndl2/
 ---
 
 {%- assign book = site.data.books | where: "key", page.book_key | first -%}

@@ -2,6 +2,8 @@
 layout: default
 title: t-SNE 与降维
 permalink: /viz/tsne/
+redirect_from:
+  - /v/tsne/
 ---
 
 <a class="viz-back" href="{{ '/viz/' | relative_url }}">可视化资源</a>

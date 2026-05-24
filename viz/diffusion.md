@@ -2,6 +2,8 @@
 layout: default
 title: 扩散模型
 permalink: /viz/diffusion/
+redirect_from:
+  - /v/diffusion/
 ---
 
 <a class="viz-back" href="{{ '/viz/' | relative_url }}">可视化资源</a>

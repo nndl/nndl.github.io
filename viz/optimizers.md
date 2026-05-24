@@ -2,6 +2,8 @@
 layout: default
 title: 优化算法对比
 permalink: /viz/optimizers/
+redirect_from:
+  - /v/optimizers/
 ---
 
 <a class="viz-back" href="{{ '/viz/' | relative_url }}">可视化资源</a>

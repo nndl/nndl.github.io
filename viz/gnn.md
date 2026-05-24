@@ -2,6 +2,8 @@
 layout: default
 title: 图神经网络
 permalink: /viz/gnn/
+redirect_from:
+  - /v/gnn/
 ---
 
 <a class="viz-back" href="{{ '/viz/' | relative_url }}">可视化资源</a>

@@ -6,6 +6,10 @@ url: https://nndl.github.io
 markdown: kramdown
 permalink: pretty
 
+plugins:
+  - jekyll-redirect-from
+  - jekyll-sitemap
+
 exclude:
   - README.md
   - Gemfile

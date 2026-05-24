@@ -2,6 +2,8 @@
 layout: default
 title: 基于 Transformer 的序列到序列模型
 permalink: /viz/sgm-seq2seq-transformer/
+redirect_from:
+  - /v/sgm-seq2seq-transformer/
 ---
 
 <a class="viz-back" href="{{ '/viz/' | relative_url }}">可视化资源</a>

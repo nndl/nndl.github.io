@@ -3,6 +3,9 @@ layout: book
 title: 神经网络与深度学习（通识版）
 book_key: ge
 permalink: /nndl-ge/
+redirect_from:
+  - /ge/
+  - /intro/
 ---
 
 {%- assign book = site.data.books | where: "key", page.book_key | first -%}

@@ -2,6 +2,8 @@
 layout: default
 title: 位置编码
 permalink: /viz/positional-encoding/
+redirect_from:
+  - /v/positional-encoding/
 ---
 
 <a class="viz-back" href="{{ '/viz/' | relative_url }}">可视化资源</a>

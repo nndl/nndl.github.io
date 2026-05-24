@@ -5,6 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% if page.title and page.title != site.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
   <meta name="description" content="{{ page.description | default: site.description }}">
+  <meta property="og:type" content="{% if page.layout == 'book' %}book{% else %}website{% endif %}">
+  <meta property="og:title" content="{% if page.title and page.title != site.title %}{{ page.title }} · {% endif %}{{ site.title }}">
+  <meta property="og:description" content="{{ page.description | default: site.description }}">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  {%- if page.book_key -%}
+    {%- assign _ogbook = site.data.books | where: "key", page.book_key | first -%}
+    <meta property="og:image" content="{{ _ogbook.cover | absolute_url }}">
+  {%- else -%}
+    <meta property="og:image" content="{{ '/assets/covers/nndl-2-cover.png' | absolute_url }}">
+  {%- endif -%}
+  <meta name="twitter:card" content="summary_large_image">
   {%- unless jekyll.environment == "preview" -%}
   <link rel="preconnect" href="https://fonts.loli.net" crossorigin>
   <link rel="stylesheet" href="https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@400;600;700;900&display=swap">

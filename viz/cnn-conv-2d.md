@@ -2,6 +2,8 @@
 layout: default
 title: 二维卷积演示
 permalink: /viz/cnn-conv-2d/
+redirect_from:
+  - /v/cnn-conv-2d/
 ---
 
 <a class="viz-back" href="{{ '/viz/' | relative_url }}">可视化资源</a>

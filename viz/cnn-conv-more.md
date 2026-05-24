@@ -2,6 +2,8 @@
 layout: default
 title: 转置卷积与空洞卷积演示
 permalink: /viz/cnn-conv-more/
+redirect_from:
+  - /v/cnn-conv-more/
 ---
 
 <a class="viz-back" href="{{ '/viz/' | relative_url }}">可视化资源</a>

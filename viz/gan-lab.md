@@ -2,6 +2,8 @@
 layout: default
 title: GAN Lab
 permalink: /viz/gan-lab/
+redirect_from:
+  - /v/gan-lab/
 ---
 
 <a class="viz-back" href="{{ '/viz/' | relative_url }}">可视化资源</a>

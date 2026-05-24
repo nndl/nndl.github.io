@@ -2,6 +2,8 @@
 layout: default
 title: GridWorld 强化学习
 permalink: /viz/rl-gridworld/
+redirect_from:
+  - /v/rl-gridworld/
 ---
 
 <a class="viz-back" href="{{ '/viz/' | relative_url }}">可视化资源</a>
