@@ -20,19 +20,14 @@ permalink: /llm-agent/
   </a>
 </div>
 
-## 内容结构
+## 章节目录
 
-### 第一部分　共用基础
-> *（待补充：表征学习、Transformer、预训练等共用基础内容概览。）*
-
-### 第二部分　大模型
-> *（待补充：训练范式、对齐、推理、评测等。）*
-
-### 第三部分　智能体
-> *（待补充：感知、规划、工具使用、执行、记忆、多智能体等。）*
-
-### 第四部分　边界与未来
-> *（待补充：能力边界、安全与对齐、社会影响、未来展望。）*
+{% for part in book.parts %}
+<h3>{{ part.title }}</h3>
+<ol>
+{% for ch in part.chapters %}  <li value="{{ ch.num }}">{{ ch.title }}</li>
+{% endfor %}</ol>
+{% endfor %}
 
 ## 反馈
 
