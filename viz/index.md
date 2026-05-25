@@ -160,5 +160,5 @@ redirect_from:
 ---
 
 <p style="color: var(--color-text-muted); font-size: 0.9rem;">
-  欢迎贡献新的可视化资源：fork 仓库并在 <code>v/</code> 下添加 markdown 与素材后提 PR。
+  欢迎贡献新的可视化资源：fork 仓库并在 <code>viz/</code> 下添加 markdown 与素材后提 PR。
 </p>
