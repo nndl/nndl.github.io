@@ -22,7 +22,20 @@ layout: default
         <p class="book-hero__subtitle">{{ book.subtitle }}</p>
       {%- endif -%}
       <p class="book-hero__byline">
-        {{ book.authors }}<span class="sep">·</span>{{ book.publisher }}<span class="sep">·</span>{{ book.year }}
+        {%- assign byline_parts = "" | split: "," -%}
+        {%- if book.authors and book.authors != "" -%}
+          {%- assign byline_parts = byline_parts | push: book.authors -%}
+        {%- endif -%}
+        {%- if book.publisher and book.publisher != "" -%}
+          {%- assign byline_parts = byline_parts | push: book.publisher -%}
+        {%- endif -%}
+        {%- if book.year and book.year != "" -%}
+          {%- assign byline_parts = byline_parts | push: book.year -%}
+        {%- endif -%}
+        {%- for part in byline_parts -%}
+          {%- unless forloop.first -%}<span class="sep">·</span>{%- endunless -%}
+          {{ part }}
+        {%- endfor -%}
       </p>
       <p class="book-hero__blurb">{{ book.blurb }}</p>
       {%- if book.douban and book.douban.url and book.douban.url != '#' -%}

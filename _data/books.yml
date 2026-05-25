@@ -158,7 +158,7 @@
   url: /llm-agent/
   blurb: 围绕共用基础、大模型、智能体、边界与未来四条主线，系统讲解大模型与智能体的原理、构建与前沿。
   authors: 邱锡鹏
-  publisher: 机械工业出版社
+  publisher: ""    # 出版社尚未确定
   year: 2026
   status: forthcoming
   repo: https://github.com/nndl/llm-agent
