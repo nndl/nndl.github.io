@@ -10,7 +10,11 @@ layout: default
         <svg class="cover-placeholder__icon" viewBox="0 0 24 24" width="48" height="48"><circle cx="12" cy="12" r="1.5" fill="currentColor"/><g stroke="currentColor" stroke-width="0.7" fill="none"><line x1="12" y1="12" x2="12" y2="3"/><line x1="12" y1="12" x2="12" y2="21"/><line x1="12" y1="12" x2="3" y2="12"/><line x1="12" y1="12" x2="21" y2="12"/><line x1="12" y1="12" x2="5.6" y2="5.6"/><line x1="12" y1="12" x2="18.4" y2="18.4"/><line x1="12" y1="12" x2="5.6" y2="18.4"/><line x1="12" y1="12" x2="18.4" y2="5.6"/></g><g fill="currentColor"><circle cx="12" cy="3" r="0.8"/><circle cx="12" cy="21" r="0.8"/><circle cx="3" cy="12" r="0.8"/><circle cx="21" cy="12" r="0.8"/><circle cx="5.6" cy="5.6" r="0.8"/><circle cx="18.4" cy="18.4" r="0.8"/><circle cx="5.6" cy="18.4" r="0.8"/><circle cx="18.4" cy="5.6" r="0.8"/></g></svg>
         <span class="cover-placeholder__title">{{ book.title }}</span>
       </div>
-      <img src="{{ book.cover | relative_url }}" alt="" onerror="this.style.display='none'">
+      {%- assign cover_webp = book.cover | replace: '.png', '.webp' | replace: '.jpg', '.webp' | replace: '.jpeg', '.webp' -%}
+      <picture>
+        <source srcset="{{ cover_webp | relative_url }}" type="image/webp">
+        <img src="{{ book.cover | relative_url }}" alt="" onerror="this.style.display='none'">
+      </picture>
       {%- if book.status == 'forthcoming' -%}
         <span class="book-badge book-badge--lg">即将出版</span>
       {%- endif -%}
