@@ -1,6 +1,6 @@
 # nndl.github.io
 
-[蒲公英书系列](https://nndl.github.io) 的导航门户。
+[蒲公英书系列](https://nndl.ai) 的导航门户（旧域 `nndl.github.io` 会自动 301 到 `nndl.ai`；备用域 `nndl.tech` 整域转发至此）。
 
 本仓库是 [nndl 组织](https://github.com/nndl) 下系列图书的总入口。每本书的章节正文、习题、勘误托管在各自的仓库：
 
