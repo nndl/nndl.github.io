@@ -19,31 +19,71 @@ description: 邱锡鹏《神经网络与深度学习》《大模型与智能体�
 ## 配套资源
 
 <div class="resource-grid">
-  <a class="resource-card" href="{{ '/viz/' | relative_url }}">
+  <div class="resource-card resource-card--list">
     <h3>可视化资源</h3>
-    <p>卷积、序列建模、注意力、扩散、优化等概念的动图与交互演示。</p>
-  </a>
-  <a class="resource-card" href="https://github.com/nndl">
+    <p>书中关键概念的动图与交互演示：</p>
+    <div class="repo-chip-grid">
+      <a class="repo-chip" href="{{ '/viz/#第-5-章--卷积神经网络' | relative_url }}">
+        <span class="repo-chip__title">卷积</span>
+        <code class="repo-chip__repo">第 5 章</code>
+      </a>
+      <a class="repo-chip" href="{{ '/viz/#第-6-章--循环神经网络' | relative_url }}">
+        <span class="repo-chip__title">序列建模</span>
+        <code class="repo-chip__repo">第 6 章</code>
+      </a>
+      <a class="repo-chip" href="{{ '/viz/#第-7-章--网络优化与正则化' | relative_url }}">
+        <span class="repo-chip__title">网络优化</span>
+        <code class="repo-chip__repo">第 7 章</code>
+      </a>
+      <a class="repo-chip" href="{{ '/viz/#第-8-章--注意力机制与-transformer' | relative_url }}">
+        <span class="repo-chip__title">注意力 / Transformer</span>
+        <code class="repo-chip__repo">第 8 章</code>
+      </a>
+      <a class="repo-chip repo-chip--more" href="{{ '/viz/' | relative_url }}">
+        <span class="repo-chip__title">查看全部</span>
+        <code class="repo-chip__repo">→</code>
+      </a>
+    </div>
+  </div>
+  <div class="resource-card resource-card--list">
     <h3>各书仓库</h3>
-    <p>每本书的章节正文、习题、勘误托管在 nndl 组织下的独立仓库。</p>
-  </a>
-  <a class="resource-card" href="https://github.com/nndl/nndl/issues">
+    <p>每本书的章节正文、习题、勘误托管在独立仓库：</p>
+    <div class="repo-chip-grid">
+      {%- for book in site.data.books -%}
+        {%- assign repo_slug = book.repo | remove: 'https://github.com/' | remove: 'http://github.com/' | replace: '.git', '' -%}
+        <a class="repo-chip" href="{{ book.repo }}" title="到 {{ repo_slug }} 仓库主页">
+          <span class="repo-chip__title">{{ book.short_title }}</span>
+          <code class="repo-chip__repo">{{ repo_slug }}</code>
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+  <div class="resource-card resource-card--list">
     <h3>反馈与勘误</h3>
-    <p>请到对应书的仓库提交 Issue。理论书 v2 在 <code>nndl/nndl</code>。</p>
-  </a>
+    <p>请到对应书的仓库提交 Issue：</p>
+    <div class="repo-chip-grid">
+      {%- for book in site.data.books -%}
+        {%- assign repo_slug = book.repo | remove: 'https://github.com/' | remove: 'http://github.com/' | replace: '.git', '' -%}
+        <a class="repo-chip" href="{{ book.repo }}/issues" title="提交 Issue 到 {{ repo_slug }}">
+          <span class="repo-chip__title">{{ book.short_title }}</span>
+          <code class="repo-chip__repo">{{ repo_slug }}</code>
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
 </div>
 
 ## 引用
 
 ```
-邱锡鹏，神经网络与深度学习（第二版），机械工业出版社，https://nndl.github.io/, 2025.
+邱锡鹏，神经网络与深度学习（第二版），机械工业出版社，https://nndl.github.io/, 2026.
 ```
 
 ```bibtex
-@book{qiu2025nndl,
+@book{qiu2026nndl,
   title     = {神经网络与深度学习（第二版）},
   publisher = {机械工业出版社},
-  year      = {2025},
+  year      = {2026},
   author    = {邱锡鹏},
   address   = {北京},
   url       = {https://nndl.github.io/},
