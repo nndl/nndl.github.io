@@ -677,9 +677,10 @@ tbody tr:hover { background: var(--color-bg-section); }
 
 .book-card-mini__cover {
   flex-shrink: 0;
+  align-self: flex-start;
   width: 110px;
   position: relative;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 600 / 848;
 }
 
 .book-card-mini__cover img {
@@ -934,7 +935,7 @@ a.douban-badge:hover {
   flex-shrink: 0;
   position: relative;
   z-index: 1;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 600 / 848;
 }
 
 .book-hero__cover img {
@@ -1516,7 +1517,7 @@ a.douban-badge:hover {
     text-align: center;
     padding: 20px;
   }
-  .book-card-mini__cover { width: 140px; }
+  .book-card-mini__cover { width: 140px; align-self: center; }
   .book-card-mini__body { width: 100%; align-items: center; }
   .book-card-mini__foot { justify-content: center; }
   .book-hero {
