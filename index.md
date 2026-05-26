@@ -76,7 +76,7 @@ description: 邱锡鹏《神经网络与深度学习》《大模型与智能体�
 ## 引用
 
 ```
-邱锡鹏，神经网络与深度学习（第二版），机械工业出版社，https://nndl.ai/, 2026.
+邱锡鹏，神经网络与深度学习（第二版），机械工业出版社，https://nndl.github.io/, 2026.
 ```
 
 ```bibtex
@@ -86,6 +86,6 @@ description: 邱锡鹏《神经网络与深度学习》《大模型与智能体�
   year      = {2026},
   author    = {邱锡鹏},
   address   = {北京},
-  url       = {https://nndl.ai/},
+  url       = {https://nndl.github.io/},
 }
 ```
