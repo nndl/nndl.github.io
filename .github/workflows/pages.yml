@@ -1,0 +1,67 @@
+name: Build and deploy site
+
+# Replaces the default Jekyll Pages build so we can fetch GitHub star
+# counts at build time without committing _data/gh_stars.yml back to
+# the repo. The data file is generated in-job and discarded with the
+# runner — it never enters git history.
+#
+# Requires Repo Settings -> Pages -> Source = "GitHub Actions" once.
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '0 4 * * *'   # daily 04:00 UTC = 12:00 Beijing, refresh stars
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - run: pip install pyyaml
+
+      - name: Refresh GitHub star counts (ephemeral, not committed)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/fetch-gh-stars.py
+
+      - uses: actions/configure-pages@v5
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+          bundler-cache: true
+
+      - name: Build with Jekyll
+        env:
+          JEKYLL_ENV: production
+        run: bundle exec jekyll build
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

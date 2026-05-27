@@ -198,8 +198,6 @@ body {
 
 .gh-stars.loaded svg { color: #f59e0b; }
 
-.gh-stars.failed { display: none; }
-
 .book-card-mini__foot .gh-stars {
   padding: 3px 9px 3px 7px;
   font-size: 0.78rem;
@@ -876,7 +874,6 @@ tbody tr:hover { background: var(--color-bg-section); }
    uses the loaded color directly instead of the plain star. */
 .gh-stars--brand .brand-mark--github { color: #57606a; }
 .gh-stars--brand.loaded .brand-mark--github { color: #1f2328; }
-.gh-stars--brand.failed { display: none; }
 
 .douban-badge strong {
   color: #1b1b1b;

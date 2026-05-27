@@ -1,0 +1,15 @@
+{%- comment -%}
+  Render formatted GitHub star count from _data/gh_stars.yml.
+  Usage: {% include gh-star-count.html slug=repo_slug %}
+  Output matches the JS fmt() in default.html: 1234 -> "1.2k", 1000 -> "1k".
+  Falls back to "—" when slug is missing from the data file.
+{%- endcomment -%}
+{%- assign n = site.data.gh_stars[include.slug] -%}
+{%- if n -%}
+  {%- if n >= 1000 -%}
+    {%- assign tenths = n | plus: 50 | divided_by: 100 -%}
+    {%- assign whole = tenths | divided_by: 10 -%}
+    {%- assign frac = tenths | modulo: 10 -%}
+    {%- if frac == 0 -%}{{ whole }}k{%- else -%}{{ whole }}.{{ frac }}k{%- endif -%}
+  {%- else -%}{{ n }}{%- endif -%}
+{%- else -%}—{%- endif -%}
