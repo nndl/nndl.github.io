@@ -9,7 +9,7 @@
 | 神经网络与深度学习（v2） | [nndl/nndl](https://github.com/nndl/nndl) `v2/` |
 | 通识版 | [nndl/nndl](https://github.com/nndl/nndl) `ge/` |
 | 案例与实践 | [nndl/nndl-practice](https://github.com/nndl/nndl-practice) |
-| 大模型与智能体 | [nndl/llm-agent](https://github.com/nndl/llm-agent) |
+| 大模型与智能体 | [nndl/llm-beginner](https://github.com/nndl/llm-beginner) |
 
 ## 本地开发
 
