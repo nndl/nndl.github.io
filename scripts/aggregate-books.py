@@ -4,7 +4,7 @@ Reads sibling repos in the workspace root:
 - ../nndl/nndl-v2/_meta.yml    (理论书 v2)
 - ../nndl/nndl-ge/_meta.yml    (通识版)
 - ../nndl-practice/_meta.yml   (案例与实践)
-- ../llm-agent/_meta.yml       (大模型与智能体)
+- ../llm-beginner/_meta.yml    (大模型与智能体；元数据随 llm-beginner 仓库维护)
 
 Missing files are skipped with a warning. Output order follows META_PATHS.
 """
@@ -24,7 +24,7 @@ META_PATHS = [
     ROOT / "nndl"          / "nndl-v2" / "_meta.yml",
     ROOT / "nndl-practice" / "_meta.yml",
     ROOT / "nndl"          / "nndl-ge" / "_meta.yml",
-    ROOT / "llm-agent"     / "_meta.yml",
+    ROOT / "llm-beginner"  / "_meta.yml",
 ]
 
 missing = [p for p in META_PATHS if not p.exists()]
