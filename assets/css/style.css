@@ -1537,6 +1537,11 @@ a.douban-badge:hover {
   margin: 0 10px;
   color: var(--color-border-strong);
 }
+.site-footer .brand-icon {
+  vertical-align: -2px;
+  margin-right: 5px;
+  opacity: 0.9;
+}
 
 /* ---------- Mobile ---------- */
 @media (max-width: 900px) {
