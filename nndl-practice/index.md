@@ -11,18 +11,22 @@ redirect_from:
 
 ## 关于本书
 
-《神经网络与深度学习：案例与实践》是配套理论书（"蒲公英书"）的实战教程，覆盖各类经典模型与典型任务的端到端案例。提供 **PyTorch** 与 **PaddlePaddle** 两套实现。
+《神经网络与深度学习：案例与实践》是配套理论书（"蒲公英书"）的实战教程，每一类经典模型对应一个端到端案例，可运行 notebook + 实现要点 README + pytest sanity 测试。
 
 ## 代码仓库
 
 <div class="resource-grid">
   <a class="resource-card" href="{{ book.repo }}/tree/main/pytorch">
-    <h3>PyTorch 版</h3>
-    <p>主推实现，跟随主流框架更新。位于 <code>nndl/nndl-practice</code> 仓库的 <code>pytorch/</code> 子目录。</p>
+    <h3>PyTorch 版（主推）</h3>
+    <p>10 章覆盖：实践基础 / 机器学习 / 线性模型 / 前馈 / 卷积 / 循环 / 优化与正则化 / 注意力 / 图神经网络 / 大语言模型与智能体。位于 <code>nndl/nndl-practice</code> 仓库的 <code>pytorch/</code> 子目录，跟随主流框架更新。</p>
   </a>
   <a class="resource-card" href="https://github.com/nndl/practice-in-paddle">
     <h3>PaddlePaddle 版</h3>
-    <p>第一版印刷书指向的官方实现版本。</p>
+    <p>第一版印刷书指向的官方实现，独立仓库 <code>nndl/practice-in-paddle</code>，按当时印刷版冻结。</p>
+  </a>
+  <a class="resource-card" href="{{ book.repo }}/tree/main/legacy">
+    <h3>历史练习 <code>legacy/</code></h3>
+    <p>原 <code>nndl/exercise</code> 仓库（2017–2024）的章末编程练习（numpy / 早期 PyTorch），对应<strong>理论书第 1 版</strong>。改名后整体归档到本仓库 <code>legacy/</code> 下。</p>
   </a>
 </div>
 

@@ -72,7 +72,7 @@
   short_title: 案例与实践
   cover: /assets/covers/nndl-practice-cover.jpg
   url: /nndl-practice/
-  blurb: 配套理论书的实战教程，覆盖经典模型与典型任务的端到端案例。提供 PyTorch 与 PaddlePaddle 两套实现。
+  blurb: 配套理论书的实战教程。PyTorch 主推实现已覆盖 10 章，从前馈神经网络到大语言模型与智能体，每章含可运行 notebook 与 sanity 测试；PaddlePaddle 版（第 1 版印刷书指向）独立保留。
   authors: 邱锡鹏、飞桨教材编写组
   publisher: 机械工业出版社
   year: 2023
