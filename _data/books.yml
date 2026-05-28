@@ -6,7 +6,7 @@
   subtitle: 第 2 版（蒲公英书）
   short_title: 神经网络与深度学习
   cover: /assets/covers/nndl-2-cover.png
-  pdf: https://github.com/nndl/nndl/releases/download/book-nndl-v2/nndl-v2.pdf
+  pdf: https://github.com/nndl/nndl/releases/download/book-pdf/nndl-v2.pdf
   url: /nndl-v2/
   blurb: 系统介绍神经网络与深度学习的理论与方法，覆盖从感知机到 Transformer 的完整脉络，适合系统学习。
   authors: 邱锡鹏
@@ -112,7 +112,7 @@
   subtitle: 面向更广读者的入门读本
   short_title: 通识版
   cover: /assets/covers/nndl-ge-cover.png
-  pdf: https://github.com/nndl/nndl/releases/download/book-nndl-ge/nndl-ge.pdf
+  pdf: https://github.com/nndl/nndl/releases/download/book-pdf/nndl-ge.pdf
   url: /nndl-ge/
   blurb: 以更直观的方式介绍神经网络与深度学习的核心思想，弱化数学推导，适合非专业读者与入门学习。
   authors: 邱锡鹏
