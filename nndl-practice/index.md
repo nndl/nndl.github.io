@@ -29,3 +29,5 @@ redirect_from:
 ## 反馈
 
 通过 <a href="{{ book.repo }}/issues">{{ book.repo | replace: 'https://github.com/', '' }} Issues</a> 提交意见与勘误。
+
+> 本书定位于动手实战，配合理论书一起读效果最好。系列内不同读者的搭配建议见 [**阅读路径**]({{ '/reading-path/' | relative_url }})。

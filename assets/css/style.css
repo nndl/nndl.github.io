@@ -206,6 +206,17 @@ body {
   min-width: 36px;
 }
 
+.gh-stars--lg {
+  padding: 6px 14px 6px 12px;
+  font-size: 0.88rem;
+  line-height: 1.4;
+  gap: 5px;
+  min-width: 0;
+}
+
+.gh-stars--lg strong { font-size: 1.05rem; line-height: 1.4; color: #1b1b1b; font-weight: 700; }
+.gh-stars--lg .brand-mark--github { width: 14px; height: 14px; }
+
 /* ---------- Content ---------- */
 .site-content {
   padding: 64px 0 100px;
@@ -898,6 +909,51 @@ a.douban-badge:hover {
 .douban-badge--lg strong { font-size: 1.05rem; }
 .douban-badge--lg svg { width: 14px; height: 14px; }
 
+/* ---------- PDF download badge ---------- */
+.pdf-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 9px 3px 7px;
+  border-radius: 999px;
+  background: #fef2f2;
+  border: 1px solid #fca5a5;
+  color: #991b1b;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  line-height: 1.4;
+  font-feature-settings: "tnum";
+}
+
+.pdf-badge .brand-mark--pdf { color: #dc2626; flex-shrink: 0; }
+
+a.pdf-badge:hover {
+  background: #fee2e2;
+  border-color: #f87171;
+  color: #7f1d1d;
+  transform: translateY(-1px);
+  text-decoration: none;
+}
+
+.pdf-badge--lg {
+  padding: 6px 14px 6px 12px;
+  font-size: 0.88rem;
+  margin-bottom: 18px;
+  gap: 5px;
+}
+
+.pdf-badge--lg strong { font-size: 1.05rem; line-height: 1.4; font-weight: 700; }
+.pdf-badge--lg .brand-mark--pdf { width: 14px; height: 16px; }
+
+.book-card-mini__foot .pdf-badge {
+  padding: 3px 9px 3px 7px;
+  font-size: 0.74rem;
+  line-height: 1.4;
+  gap: 4px;
+}
+
 /* ---------- Book detail page ---------- */
 .book-hero {
   display: flex;
@@ -942,20 +998,15 @@ a.douban-badge:hover {
   height: 100%;
   border-radius: var(--radius-sm);
   box-shadow: var(--shadow-book);
-  transform: rotate(-2deg);
   transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   object-fit: cover;
   display: block;
   z-index: 1;
 }
 
-.book-hero__cover .cover-placeholder {
-  transform: rotate(-2deg);
-}
-
 .book-hero:hover .book-hero__cover img,
 .book-hero:hover .book-hero__cover .cover-placeholder {
-  transform: rotate(0deg) scale(1.03);
+  transform: scale(1.03);
 }
 
 .book-hero__meta {
@@ -996,6 +1047,20 @@ a.douban-badge:hover {
   margin: 0 0 20px;
 }
 
+.book-hero__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin: 0 0 18px;
+}
+
+.book-hero__badges .douban-badge--lg,
+.book-hero__badges .pdf-badge--lg,
+.book-hero__badges .gh-stars--lg {
+  margin-bottom: 0;
+}
+
 .archive-note {
   padding: 14px 20px;
   background: var(--color-bg-section);
@@ -1005,6 +1070,27 @@ a.douban-badge:hover {
 }
 
 .archive-note p { margin: 0; }
+
+.reading-path-callout {
+  margin: 32px 0 12px;
+  padding: 20px 24px;
+  background: var(--color-bg-section);
+  border-left: 3px solid var(--color-accent);
+  border-radius: var(--radius-sm);
+}
+
+.reading-path-callout h2 {
+  margin: 0 0 8px;
+  font-size: 1.15rem;
+  border: none;
+  padding: 0;
+}
+
+.reading-path-callout p {
+  margin: 0;
+  line-height: 1.85;
+  font-size: 0.98rem;
+}
 
 /* ---------- Exercises index ---------- */
 .exercises-index { margin: 24px 0 48px; }
@@ -1501,6 +1587,29 @@ a.douban-badge:hover {
 }
 
 .repo-chip:hover .repo-chip__repo { color: var(--color-accent); }
+
+.repo-chip--pdf {
+  background: #fef2f2;
+  border-color: #fecaca;
+}
+
+.repo-chip--pdf:hover {
+  background: #fee2e2;
+  border-color: #f87171;
+  color: #991b1b;
+}
+
+.repo-chip--pdf .repo-chip__repo {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: #991b1b;
+  font-weight: 600;
+}
+
+.repo-chip--pdf .brand-mark--pdf { color: #dc2626; }
+.repo-chip--pdf:hover .brand-mark--pdf { color: #b91c1c; }
+.repo-chip--pdf:hover .repo-chip__repo { color: #7f1d1d; }
 
 /* ---------- Footer ---------- */
 .site-footer {

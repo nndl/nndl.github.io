@@ -46,13 +46,19 @@ redirect_from:
 <div class="resource-grid">
   <a class="resource-card" href="{{ '/nndl-practice/' | relative_url }}">
     <h3>案例与实践</h3>
-    <p>配套实战教程，含 PyTorch 实现。</p>
+    <p>配套实战教程，含 PyTorch 实现。想边读边写代码可以搭配它。</p>
   </a>
   <a class="resource-card" href="{{ '/nndl-ge/' | relative_url }}">
     <h3>通识版</h3>
-    <p>面向更广读者的入门读本，弱化数学推导。</p>
+    <p>面向更广读者的入门读本，弱化数学推导。预习或科普可从它入手。</p>
+  </a>
+  <a class="resource-card" href="{{ '/llm-agent/' | relative_url }}">
+    <h3>大模型与智能体</h3>
+    <p>专门讲大模型与智能体的姊妹书。学完本书第 8 章（注意力机制与 Transformer）和第 13 章（大语言模型与智能体）后可深入这本。</p>
   </a>
 </div>
+
+> 想了解本书与系列内其他几本的差别、判断哪本更适合自己？参考 [**阅读路径与选书建议**]({{ '/reading-path/' | relative_url }})。
 
 ## 第一版归档
 

@@ -19,7 +19,7 @@ redirect_from:
 - **蒲公英书（第 2 版）**：理论体系完整，适合系统学习与研究入门。
 - **通识版**：聚焦核心思想与直观理解，作为先导读物或通识课教材。
 
-读者可根据自身背景选择：偏直观选通识版，偏系统选第 2 版，二者主题与脉络一致。
+读者可根据自身背景选择：偏直观选通识版，偏系统选第 2 版，二者主题与脉络一致。完整系列（含案例与实践、大模型与智能体）的选书建议见 [**阅读路径**]({{ '/reading-path/' | relative_url }})。
 
 ## GitHub 仓库
 
@@ -30,10 +30,31 @@ redirect_from:
   </a>
 </div>
 
-## 内容预告
+## 章节目录
 
-> *（待补充：章节大纲、面向读者、配套教学资源。）*
+<ol>
+{% for ch in book.chapters %}  <li value="{{ ch.num }}">{{ ch.title }}</li>
+{% endfor %}</ol>
+
+## 配套资源
+
+<div class="resource-grid">
+  <a class="resource-card" href="{{ '/nndl-v2/' | relative_url }}">
+    <h3>蒲公英书（第 2 版）</h3>
+    <p>理论体系完整版，含完整数学推导与系统化的模型族谱。学完通识版可直接进阶。</p>
+  </a>
+  <a class="resource-card" href="{{ '/llm-agent/' | relative_url }}">
+    <h3>大模型与智能体</h3>
+    <p>专门讲大模型与智能体的姊妹书，主题与通识版后半部分（大语言模型 / 智能体 / 具身智能）衔接。</p>
+  </a>
+  <a class="resource-card" href="{{ '/nndl-practice/' | relative_url }}">
+    <h3>案例与实践</h3>
+    <p>动手实战教程。想边读边写代码可以搭配它。</p>
+  </a>
+</div>
+
+不确定从哪本入手？看 [**阅读路径与选书建议**]({{ '/reading-path/' | relative_url }})。
 
 ## 反馈
 
-本书目前为预告，欢迎通过 <a href="{{ book.repo }}/issues">{{ book.repo | replace: 'https://github.com/', '' }} Issues</a> 提出建议。
+本书目前为预告，欢迎通过 <a href="{{ book.repo }}/issues">{{ book.repo | replace: 'https://github.com/', '' }} Issues</a> 提出期待的章节内容、表达方式或案例建议。

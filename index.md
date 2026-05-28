@@ -16,6 +16,11 @@ description: 邱锡鹏《神经网络与深度学习》《大模型与智能体�
   {%- endfor -%}
 </section>
 
+<aside class="reading-path-callout">
+  <h2>不确定从哪本开始？</h2>
+  <p>四本书分别面向不同读者：零基础读者可以从 <a href="{{ '/nndl-ge/' | relative_url }}">通识版</a> 入手；专业学生主修 <a href="{{ '/nndl-v2/' | relative_url }}">第 2 版</a> 并搭配 <a href="{{ '/nndl-practice/' | relative_url }}">案例与实践</a>；想深入大模型方向则进 <a href="{{ '/llm-agent/' | relative_url }}">大模型与智能体</a>。完整的选书路径与主题对照见 <a href="{{ '/reading-path/' | relative_url }}"><strong>阅读路径与选书建议</strong></a>。</p>
+</aside>
+
 ## 配套资源
 
 <div class="resource-grid">

@@ -42,6 +42,18 @@ layout: default
         {%- endfor -%}
       </p>
       <p class="book-hero__blurb">{{ book.blurb }}</p>
+      <div class="book-hero__badges">
+      {%- if book.repo -%}
+        {%- assign repo_slug = book.repo | remove: 'https://github.com/' | remove: 'http://github.com/' | replace: '.git', '' -%}
+        {%- assign gh_n = site.data.gh_stars[repo_slug] -%}
+        <a class="gh-stars gh-stars--brand gh-stars--lg{% if gh_n %} loaded{% endif %}" href="{{ book.repo }}" target="_blank" rel="noopener" data-gh-stars="{{ repo_slug }}" title="GitHub · {{ repo_slug }}">
+          <svg class="brand-mark brand-mark--github" viewBox="0 0 16 16" width="14" height="14" fill="currentColor" aria-hidden="true">
+            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+          </svg>
+          <strong data-gh-count>{% include gh-star-count.html slug=repo_slug %}</strong>
+          <span>GitHub</span>
+        </a>
+      {%- endif -%}
       {%- if book.douban and book.douban.url and book.douban.url != '#' -%}
         <a class="douban-badge douban-badge--lg" href="{{ book.douban.url }}" target="_blank" rel="noopener" title="在豆瓣查看">
           <svg viewBox="0 0 20 20" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M10 1.5l2.6 5.27 5.82.85-4.21 4.1.99 5.79L10 14.78l-5.2 2.73.99-5.79L1.58 7.62l5.82-.85L10 1.5z"/></svg>
@@ -53,17 +65,17 @@ layout: default
           {%- endif -%}
         </a>
       {%- endif -%}
-      {%- if book.repo -%}
-        {%- assign repo_slug = book.repo | remove: 'https://github.com/' | remove: 'http://github.com/' | replace: '.git', '' -%}
-        {%- assign gh_n = site.data.gh_stars[repo_slug] -%}
-        <a class="gh-stars gh-stars--brand{% if gh_n %} loaded{% endif %}" href="{{ book.repo }}" target="_blank" rel="noopener" data-gh-stars="{{ repo_slug }}" title="GitHub · {{ repo_slug }}">
-          <svg class="brand-mark brand-mark--github" viewBox="0 0 16 16" width="14" height="14" fill="currentColor" aria-hidden="true">
-            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+      {%- if book.pdf and book.pdf != '' -%}
+        <a class="pdf-badge pdf-badge--lg" href="{{ book.pdf | relative_url }}" title="下载 {{ book.short_title }} PDF" download>
+          <svg class="brand-mark brand-mark--pdf" viewBox="0 0 16 16" width="14" height="16" fill="currentColor" aria-hidden="true">
+            <path d="M3 0h7.5L14 3.5V15a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V1a1 1 0 0 1 1-1zm7 1.5V4h2.5L10 1.5z"/>
+            <text x="8" y="12.5" text-anchor="middle" font-size="5.2" font-weight="700" font-family="Helvetica, Arial, sans-serif" fill="#fff">PDF</text>
           </svg>
-          <strong data-gh-count>{% include gh-star-count.html slug=repo_slug %}</strong>
-          <span>GitHub</span>
+          <strong>PDF</strong>
+          <span>下载全书</span>
         </a>
       {%- endif -%}
+      </div>
       {%- if book.links and book.links.size > 0 -%}
         <div class="btn-row">
           {%- for link in book.links -%}
