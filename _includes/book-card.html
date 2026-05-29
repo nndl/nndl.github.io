@@ -8,9 +8,14 @@
       <svg class="cover-placeholder__icon" viewBox="0 0 24 24" width="32" height="32"><circle cx="12" cy="12" r="1.5" fill="currentColor"/><g stroke="currentColor" stroke-width="0.7" fill="none"><line x1="12" y1="12" x2="12" y2="3"/><line x1="12" y1="12" x2="12" y2="21"/><line x1="12" y1="12" x2="3" y2="12"/><line x1="12" y1="12" x2="21" y2="12"/><line x1="12" y1="12" x2="5.6" y2="5.6"/><line x1="12" y1="12" x2="18.4" y2="18.4"/><line x1="12" y1="12" x2="5.6" y2="18.4"/><line x1="12" y1="12" x2="18.4" y2="5.6"/></g><g fill="currentColor"><circle cx="12" cy="3" r="0.8"/><circle cx="12" cy="21" r="0.8"/><circle cx="3" cy="12" r="0.8"/><circle cx="21" cy="12" r="0.8"/><circle cx="5.6" cy="5.6" r="0.8"/><circle cx="18.4" cy="18.4" r="0.8"/><circle cx="5.6" cy="18.4" r="0.8"/><circle cx="18.4" cy="5.6" r="0.8"/></g></svg>
       <span class="cover-placeholder__title">{{ include.book.title }}</span>
     </div>
-    {%- assign cover_webp = include.book.cover | replace: '.png', '.webp' | replace: '.jpg', '.webp' | replace: '.jpeg', '.webp' -%}
+    {%- assign cover_webp = include.book.cover_webp -%}
+    {%- unless cover_webp -%}
+      {%- assign guessed_cover_webp = include.book.cover | replace: '.png', '.webp' | replace: '.jpg', '.webp' | replace: '.jpeg', '.webp' -%}
+      {%- assign cover_webp_file = site.static_files | where: "path", guessed_cover_webp | first -%}
+      {%- if cover_webp_file -%}{%- assign cover_webp = guessed_cover_webp -%}{%- endif -%}
+    {%- endunless -%}
     <picture>
-      <source srcset="{{ cover_webp | relative_url }}" type="image/webp">
+      {%- if cover_webp -%}<source srcset="{{ cover_webp | relative_url }}" type="image/webp">{%- endif -%}
       <img src="{{ include.book.cover | relative_url }}" alt="" loading="lazy" onerror="this.style.display='none'">
     </picture>
     {%- if include.book.status == 'forthcoming' -%}

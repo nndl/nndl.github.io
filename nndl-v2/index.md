@@ -11,7 +11,7 @@ redirect_from:
 
 ## 关于本书
 
-《神经网络与深度学习》（即"蒲公英书"）系统介绍了神经网络与深度学习的基础理论、典型模型和应用方法。第 2 版相对第一版进行了全面更新，新增 Transformer、扩散模型、大语言模型等近年来的关键内容。
+《神经网络与深度学习》（即"蒲公英书"）系统介绍了神经网络与深度学习的基础理论、典型模型和应用方法。第二版相对第一版进行了全面更新，新增 Transformer、扩散模型、大语言模型等近年来的关键内容。
 
 ## GitHub 仓库
 
@@ -65,20 +65,3 @@ redirect_from:
 <div class="archive-note">
   <p>第一版 PDF 与勘误保留在 <a href="{{ book.repo }}/tree/main/legacy/nndl-v1">legacy/nndl-v1</a> 目录。</p>
 </div>
-
-## 引用
-
-```
-邱锡鹏，神经网络与深度学习（第二版），机械工业出版社，https://nndl.ai/, 2026.
-```
-
-```bibtex
-@book{qiu2026nndl,
-  title     = {神经网络与深度学习（第二版）},
-  publisher = {机械工业出版社},
-  year      = {2026},
-  author    = {邱锡鹏},
-  address   = {北京},
-  url       = {https://nndl.ai/},
-}
-```

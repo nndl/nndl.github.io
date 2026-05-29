@@ -26,9 +26,15 @@ redirect_from:
   </a>
   <a class="resource-card" href="{{ book.repo }}/tree/main/legacy">
     <h3>历史练习 <code>legacy/</code></h3>
-    <p>原 <code>nndl/exercise</code> 仓库（2017–2024）的章末编程练习（numpy / 早期 PyTorch），对应<strong>理论书第 1 版</strong>。改名后整体归档到本仓库 <code>legacy/</code> 下。</p>
+    <p>原 <code>nndl/exercise</code> 仓库（2017–2024）的章末编程练习（numpy / 早期 PyTorch），对应<strong>理论书第一版</strong>。改名后整体归档到本仓库 <code>legacy/</code> 下。</p>
   </a>
 </div>
+
+## 章节目录
+
+<ol>
+{% for ch in book.chapters %}  <li value="{{ ch.num }}">{{ ch.title }}</li>
+{% endfor %}</ol>
 
 ## 反馈
 

@@ -4,12 +4,45 @@ title: 主页
 description: 邱锡鹏《神经网络与深度学习》《大模型与智能体》系列图书主页
 ---
 
-<section class="home-hero">
-  <p class="eyebrow">系列丛书</p>
-  <h1><span class="accent">蒲公英</span>书系列</h1>
-  <p class="home-hero__lede">一套面向不同读者的人工智能教材：从入门通识，到系统理论，到工程实践，再到大模型与智能体前沿。作者：<a href="https://xpqiu.github.io/">邱锡鹏</a>。</p>
+<section class="home-hero" aria-labelledby="home-title">
+  <div class="home-hero__copy">
+    <p class="eyebrow">系列丛书</p>
+    <h1 id="home-title"><span class="accent">蒲公英</span>书系列</h1>
+    <p class="home-hero__lede">从通识入门、理论主线、实践 notebook，到大模型与智能体前沿，把人工智能学习路径、配套代码和可视化资源汇集在同一入口。作者：<a href="https://xpqiu.github.io/">邱锡鹏</a>。</p>
+    <div class="home-hero__actions" aria-label="主页快捷入口">
+      <a class="btn btn-primary" href="{{ '/reading-path/' | relative_url }}">阅读路径</a>
+      <a class="btn btn-secondary" href="{{ '/viz/' | relative_url }}">可视化资源</a>
+    </div>
+    <div class="home-hero__stats" aria-label="站点概览">
+      <span><strong>{{ site.data.books | size }}</strong>本书</span>
+      <span><strong>PDF</strong>开放下载</span>
+      <span><strong>GitHub</strong>持续更新</span>
+    </div>
+  </div>
+  <div class="home-hero__visual" aria-label="蒲公英书系列封面">
+    <div class="home-hero__shelf">
+      {%- for book in site.data.books -%}
+        {%- assign cover_webp = book.cover_webp -%}
+        {%- unless cover_webp -%}
+          {%- assign guessed_cover_webp = book.cover | replace: '.png', '.webp' | replace: '.jpg', '.webp' | replace: '.jpeg', '.webp' -%}
+          {%- assign cover_webp_file = site.static_files | where: "path", guessed_cover_webp | first -%}
+          {%- if cover_webp_file -%}{%- assign cover_webp = guessed_cover_webp -%}{%- endif -%}
+        {%- endunless -%}
+        <a class="home-cover home-cover--{{ forloop.index }}" href="{{ book.url | relative_url }}" aria-label="{{ book.title }}">
+          <picture>
+            {%- if cover_webp -%}<source srcset="{{ cover_webp | relative_url }}" type="image/webp">{%- endif -%}
+            <img src="{{ book.cover | relative_url }}" alt="{{ book.title }}" loading="{% if forloop.index <= 2 %}eager{% else %}lazy{% endif %}">
+          </picture>
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
 </section>
 
+<div class="home-section-head">
+  <p class="eyebrow">书目入口</p>
+  <h2>按学习阶段选择</h2>
+</div>
 <section class="book-grid">
   {%- for book in site.data.books -%}
     {%- include book-card.html book=book -%}
@@ -18,7 +51,7 @@ description: 邱锡鹏《神经网络与深度学习》《大模型与智能体�
 
 <aside class="reading-path-callout">
   <h2>不确定从哪本开始？</h2>
-  <p>四本书分别面向不同读者：零基础读者可以从 <a href="{{ '/nndl-ge/' | relative_url }}">通识版</a> 入手；专业学生主修 <a href="{{ '/nndl-v2/' | relative_url }}">第 2 版</a> 并搭配 <a href="{{ '/nndl-practice/' | relative_url }}">案例与实践</a>；想深入大模型方向则进 <a href="{{ '/llm-agent/' | relative_url }}">大模型与智能体</a>。完整的选书路径与主题对照见 <a href="{{ '/reading-path/' | relative_url }}"><strong>阅读路径与选书建议</strong></a>。</p>
+  <p>四本书分别面向不同读者：零基础读者可以从 <a href="{{ '/nndl-ge/' | relative_url }}">通识版</a> 入手；专业学生主修 <a href="{{ '/nndl-v2/' | relative_url }}">第二版</a> 并搭配 <a href="{{ '/nndl-practice/' | relative_url }}">案例与实践</a>；想深入大模型方向则进 <a href="{{ '/llm-agent/' | relative_url }}">大模型与智能体</a>。完整的选书路径与主题对照见 <a href="{{ '/reading-path/' | relative_url }}"><strong>阅读路径与选书建议</strong></a>。</p>
 </aside>
 
 ## 配套资源
@@ -77,20 +110,3 @@ description: 邱锡鹏《神经网络与深度学习》《大模型与智能体�
     </div>
   </div>
 </div>
-
-## 引用
-
-```
-邱锡鹏，神经网络与深度学习（第二版），机械工业出版社，https://nndl.ai/, 2026.
-```
-
-```bibtex
-@book{qiu2026nndl,
-  title     = {神经网络与深度学习（第二版）},
-  publisher = {机械工业出版社},
-  year      = {2026},
-  author    = {邱锡鹏},
-  address   = {北京},
-  url       = {https://nndl.ai/},
-}
-```

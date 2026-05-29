@@ -31,13 +31,13 @@ permalink: /llm-agent/
 
 ## 阅读前提
 
-第一篇"共用基础"（第 1–3 章）会从神经网络与 Transformer 基础讲起，没有深度学习背景的读者也可以直接入门。如果想要更系统的理论铺垫，建议先读 [《神经网络与深度学习》第 2 版]({{ '/nndl-v2/' | relative_url }}) 第 4–8 章。
+第一篇"共用基础"（第 1–3 章）会从神经网络与 Transformer 基础讲起，没有深度学习背景的读者也可以直接入门。如果想要更系统的理论铺垫，建议先读 [《神经网络与深度学习》第二版]({{ '/nndl-v2/' | relative_url }}) 第 4–8 章。
 
 ## 配套资源
 
 <div class="resource-grid">
   <a class="resource-card" href="{{ '/nndl-v2/' | relative_url }}">
-    <h3>蒲公英书（第 2 版）</h3>
+    <h3>蒲公英书（第二版）</h3>
     <p>系列理论主干，本书第一篇的扩展版本。第 8 章 Transformer、第 13 章大语言模型与智能体两节与本书直接呼应。</p>
   </a>
   <a class="resource-card" href="{{ '/nndl-ge/' | relative_url }}">

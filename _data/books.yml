@@ -3,7 +3,7 @@
 
 - key: theory
   title: 神经网络与深度学习
-  subtitle: 第 2 版（蒲公英书）
+  subtitle: 第二版（蒲公英书）
   short_title: 神经网络与深度学习
   cover: /assets/covers/nndl-2-cover.png
   pdf: https://github.com/nndl/nndl/releases/download/book-pdf/nndl-v2.pdf
@@ -68,14 +68,15 @@
   - title: 数学基础
 - key: practice
   title: 神经网络与深度学习：案例与实践
-  subtitle: 实践篇
+  subtitle: 实践篇（第二版）
   short_title: 案例与实践
-  cover: /assets/covers/nndl-practice-cover.jpg
+  cover: /assets/covers/nndl-practice-cover2.png
+  pdf: https://github.com/nndl/nndl-practice/releases/download/book-pdf/nndl-practice.pdf
   url: /nndl-practice/
-  blurb: 配套理论书的实战教程。PyTorch 主推实现已覆盖 10 章，从前馈神经网络到大语言模型与智能体，每章含可运行 notebook 与 sanity 测试；PaddlePaddle 版（第 1 版印刷书指向）独立保留。
-  authors: 邱锡鹏、飞桨教材编写组
+  blurb: 配套理论书的实战教程。PyTorch 主推实现已覆盖 10 章，从前馈神经网络到大语言模型与智能体，每章含可运行 notebook 与 sanity 测试；PaddlePaddle 版（第一版印刷书指向）独立保留。
+  authors: 邱锡鹏
   publisher: 机械工业出版社
-  year: 2023
+  year: 2026
   status: published
   repo: https://github.com/nndl/nndl-practice
   douban:
