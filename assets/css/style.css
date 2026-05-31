@@ -2491,6 +2491,59 @@ a.pdf-badge:hover {
 .repo-chip--pdf:hover .brand-mark--pdf { color: #b91c1c; }
 .repo-chip--pdf:hover .repo-chip__repo { color: #7f1d1d; }
 
+/* ---------- 交互演示通用控件（/viz/ 自制交互页共用） ---------- */
+.vizui { font-family: var(--font-sans); color: var(--color-text); margin: 24px 0 8px; }
+.vizui * { box-sizing: border-box; }
+.vizui__lead { color: var(--color-text-soft); max-width: 62ch; margin: 0 0 20px; }
+.vizui-panel {
+  background: var(--color-bg-pure); border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); padding: 18px 20px; margin: 14px 0;
+}
+.vizui-panel__title {
+  font-size: .82rem; letter-spacing: .04em; color: var(--color-text-muted);
+  margin: 0 0 12px; font-weight: 600;
+}
+.vizui-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; }
+.vizui-field { display: flex; align-items: center; gap: 10px; font-size: .92rem; color: var(--color-text-soft); }
+.vizui-field output, .vizui-num { font: 700 1.15rem var(--font-mono); color: var(--color-accent); min-width: 2ch; text-align: center; }
+.vizui input[type=range] { accent-color: var(--color-accent); cursor: pointer; height: 22px; }
+.vizui-btn {
+  appearance: none; font: inherit; font-size: .92rem; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;
+  padding: 8px 16px; border-radius: var(--radius-md); border: 1px solid var(--color-border-strong);
+  background: var(--color-bg-pure); color: var(--color-text-soft); transition: all .18s var(--ease-out);
+}
+.vizui-btn:hover { border-color: var(--color-accent); color: var(--color-accent); }
+.vizui-btn--go { background: var(--color-accent); border-color: var(--color-accent); color: #fff; }
+.vizui-btn--go:hover { background: var(--color-accent-hover); border-color: var(--color-accent-hover); color: #fff; }
+.vizui-spacer { flex: 1 1 8px; }
+.vizui-pill {
+  font: 600 .92rem var(--font-mono); color: var(--color-text); background: var(--color-bg-section);
+  border: 1px solid var(--color-border); border-radius: 999px; padding: 6px 14px;
+}
+.vizui-grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.vizui-chart { width: 100%; height: auto; display: block; }
+.vizui-caption {
+  margin: 14px 0 4px; padding: 13px 16px; border-radius: var(--radius-md);
+  background: linear-gradient(120deg, var(--color-accent-soft), rgba(183, 121, 31, .08));
+  border: 1px solid rgba(21, 94, 117, .16); font-size: .93rem; line-height: 1.6; color: var(--color-text-soft);
+}
+.vizui-caption b { color: var(--color-accent); }
+.vizui-legend { display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: .82rem; color: var(--color-text-muted); margin: 2px 0 10px; align-items: center; }
+.vizui-legend span { display: inline-flex; align-items: center; gap: 6px; }
+.vizui-legend i { display: inline-block; width: 22px; height: 3px; border-radius: 2px; }
+.vizui-legend i.dot { width: 11px; height: 11px; border-radius: 50%; }
+.vizui-why { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin: 22px 0 6px; }
+.vizui-why .card {
+  border: 1px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-bg-pure);
+  padding: 14px 16px; border-left: 4px solid var(--wc, var(--color-accent));
+}
+.vizui-why .card b { display: block; margin-bottom: 5px; color: var(--color-text); }
+.vizui-why .card p { margin: 0; font-size: .88rem; color: var(--color-text-muted); line-height: 1.6; }
+@media (max-width: 620px) {
+  .vizui-grid2 { grid-template-columns: 1fr; }
+  .vizui-bar .vizui-spacer { flex-basis: 100%; height: 0; }
+}
+
 /* ---------- Footer ---------- */
 .site-footer {
   border-top: 1px solid var(--color-border);
