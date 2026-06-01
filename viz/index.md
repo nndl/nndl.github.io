@@ -33,12 +33,15 @@ redirect_from:
 
 <div class="viz-grid">
   {% include viz-card.html url="/viz/overfitting/" title="过拟合实验台" blurb="拖动模型复杂度，看曲线从欠拟合到过拟合，训练/测试误差的 U 型对比。" %}
+  {% include viz-card.html url="/viz/early-stopping/" title="早停：见好就收" blurb="训练误差一路降、验证误差先降后升，停在 U 形谷底——见好就收的早停。" %}
   {% include viz-card.html url="/viz/gradient-descent/" title="梯度下降下山" blurb="小球沿曲线下山找最低点；调学习率看收敛、震荡，体会局部最优陷阱。" %}
   {% include viz-card.html url="/viz/bias-variance/" title="偏差与方差" blurb="同复杂度在多份数据上学出多条曲线，看是‘齐刷刷地偏’还是‘乱七八糟地飘’。" %}
+  {% include viz-card.html url="/viz/double-descent/" title="双下降现象" blurb="测试误差降→升→再降：模型大到参数比数据还多，反而比经典最优更好（挑战偏差方差）。" %}
   {% include viz-card.html url="/viz/precision-recall/" title="精确率与召回率" blurb="拖判定阈值，看混淆矩阵、精确率与召回率此消彼长，以及 ROC 曲线。" %}
   {% include viz-card.html url="/viz/regularization/" title="正则化 L1 / L2" blurb="调正则强度，看 L2 让权重一起缩、L1 把一些权重压到 0（稀疏 / 特征选择）。" %}
   {% include viz-card.html url="/viz/decision-tree/" title="决策树与信息增益" blurb="按信息增益一刀刀切分平面，看决策树怎样把交叠的两类逐步分纯。" %}
   {% include viz-card.html url="/viz/knn/" title="k 近邻 KNN" blurb="拖查询点，看最近 k 个邻居投票分类；k 小决策边界碎、k 大边界平。" %}
+  {% include viz-card.html url="/viz/bagging/" title="集成学习 Bagging" blurb="多个高方差弱模型一平均就变平滑、方差骤降，看一堆杂乱细线收敛成一条干净金线（随机森林核心）。" %}
 </div>
 
 ## 第 3 章 · 线性模型
@@ -91,16 +94,23 @@ redirect_from:
      thumb="https://poloclub.github.io/cnn-explainer/assets/figures/preview.png" %}
   {% include viz-card.html url="/viz/conv-kernel/" title="卷积核手动滑动" blurb="3×3 核在图上一格格滑过，换边缘/竖线/锐化核，看同一张图被‘看’出不同特征。" %}
   {% include viz-card.html url="/viz/pooling/" title="汇聚（池化）" blurb="2×2 窗口扫过特征图，最大 / 平均汇聚把它缩小、保留要点（平移不变）。" %}
+  {% include viz-card.html url="/viz/receptive-field/" title="感受野" blurb="拖层数，看顶层一个神经元的感受野（蓝色锥）怎样随深度张开——深度换广度。" %}
 </div>
 
 ## 第 6 章 · 循环神经网络
 
 <div class="viz-grid">
+  {% include viz-card.html url="/viz/rnn-unroll/" title="RNN 按时间展开" blurb="一个词一个词地读，隐状态像一张滚动的便签把上文压进向量；每步都用同一套权重，所以能处理任意长度。" %}
+  {% include viz-card.html url="/viz/rnn-counter/" title="RNN 当计数器" blurb="喂一串括号，看某个隐状态神经元自己学成计数器——遇“(”加一、遇“)”减一，隐状态里原来存着看得懂的信息。" %}
+  {% include viz-card.html url="/viz/bptt-vanishing/" title="梯度消失与爆炸" blurb="误差沿时间回传，每退一步乘一次循环权重 w；拖 w 看久远梯度按 wᵏ 消失或爆炸——RNN 记不住长程的根因。" %}
+  {% include viz-card.html url="/viz/lstm-gates/" title="LSTM 门控记忆" blurb="细胞状态像一条传送带，调遗忘 / 输入 / 输出三道门：遗忘门≈1 时，存进去的值能跨越很多步几乎不衰减。" %}
   {% include viz-card.html
      url="/viz/rnn-lstm/"
      title="RNN / LSTM / GRU"
      blurb="交互实验台：切换三种结构、编辑输入序列、单步观察门的开合与记忆沿时间的演化。"
      thumb="https://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-chain.png" %}
+  {% include viz-card.html url="/viz/bidirectional-rnn/" title="双向 RNN" blurb="“我买了苹果手机”——点词看单向只能看左边，双向再跑一个反向 RNN 补上右文，“苹果”才从水果变品牌。" %}
+  {% include viz-card.html url="/viz/char-rnn/" title="字符级 RNN 生成" blurb="一个字母一个字母地写：靠隐状态记着上文，q 后面自然接 u，字符拼成合理的词——更细颗粒的自回归。" %}
 </div>
 
 ## 第 7 章 · 网络优化与正则化
@@ -115,9 +125,12 @@ redirect_from:
   {% include viz-card.html url="/viz/adam/" title="自适应优化器 Adam" blurb="窄长山谷里 SGD / 动量 / Adam 三球赛跑，看 Adam 每参数自适应学习率又快又稳。" %}
   {% include viz-card.html url="/viz/dropout/" title="Dropout" blurb="训练时随机关掉一部分神经元，逼网络学冗余表示、防过拟合；测试时再全开。" %}
   {% include viz-card.html url="/viz/batchnorm/" title="批归一化 BatchNorm" blurb="把每批激活减均值除标准差拉回‘均值0方差1’，让深层网络训练又快又稳。" %}
+  {% include viz-card.html url="/viz/layernorm/" title="层归一化 vs 批归一化" blurb="切换 BatchNorm（按列跨样本）与 LayerNorm（按行跨特征），看归一化沿哪个方向算——Transformer 为何偏爱 LayerNorm。" %}
 </div>
 
 ## 第 8 章 · 注意力机制与 Transformer
+
+### 注意力机制
 
 <div class="viz-grid">
   {% include viz-card.html
@@ -125,37 +138,37 @@ redirect_from:
      title="注意力机制"
      blurb="编码—解码注意力、自注意力与多头注意力的可视化。"
      thumb="https://jalammar.github.io/images/t/transformer_decoding_2.gif" %}
-  {% include viz-card.html
-     url="/viz/positional-encoding/"
-     title="位置编码"
-     blurb="Transformer 中正弦/余弦位置编码的几何直观与不同位置的相似度模式。"
-     thumb="https://jalammar.github.io/images/t/transformer_positional_encoding_example.png" %}
   {% include viz-card.html url="/viz/self-attention/" title="点词看注意力" blurb="点句子里的一个词，看自注意力把它连向相关的词（如“它”指向“小猫”）。" %}
   {% include viz-card.html url="/viz/embeddings/" title="词向量类比" blurb="二维语义空间里‘国王−男人+女人≈王后’，看词与词的关系就是向量方向。" %}
   {% include viz-card.html url="/viz/qkv-attention/" title="QKV 注意力计算" blurb="拆开注意力的算法：Query·Key 算分数→softmax→对 Value 加权，看“它”怎么算出指向“猫”。" %}
+  {% include viz-card.html url="/viz/attention-scaling/" title="注意力为何除以 √d" blurb="拖维度看不缩放的 softmax 怎样饱和成一根独大，÷√d 后又稳住——缩放点积注意力的由来。" %}
   {% include viz-card.html url="/viz/multi-head/" title="多头注意力" blurb="三个注意力头并排，各看相邻 / 指代 / 句首一种关系——多头分工再合议。" %}
-  {% include viz-card.html url="/viz/causal-mask/" title="因果掩码" blurb="给注意力盖上因果掩码，每个词只能看自己和左边，保证自回归生成不偷看答案。" %}
-  {% include viz-card.html url="/viz/rope/" title="RoPE 旋转位置编码" blurb="位置编码成旋转角度，两词的注意力分数只取决于相对位置——更稳、还能外推到更长序列。" %}
-</div>
-
-### 序列建模专题
-
-> 跨 CNN / RNN / Transformer 的 Seq2Seq 横向对比，便于理解各架构在序列任务上的权衡。
-
-<div class="viz-grid">
   {% include viz-card.html
      url="/viz/sgm-seq2seq-rnn/"
-     title="基于 RNN"
+     title="Seq2Seq · 基于 RNN"
      blurb="编码器—解码器结构的循环神经网络 Seq2Seq，常用于机器翻译。"
      thumb="/viz/sgm-seq2seq-rnn-mt.gif" %}
   {% include viz-card.html
      url="/viz/sgm-seq2seq-cnn/"
-     title="基于卷积"
+     title="Seq2Seq · 基于卷积"
      blurb="WaveNet 与 fairseq 卷积 Seq2Seq：用卷积代替循环，可并行训练。"
      thumb="/viz/sgm-seq2seq-cnn-mt.gif" %}
+</div>
+
+### Transformer
+
+<div class="viz-grid">
+  {% include viz-card.html
+     url="/viz/positional-encoding/"
+     title="正弦位置编码"
+     blurb="拖查询位置看位置编码热力图：不同频率的正弦给每个位置唯一编码，相近位置编码也相近。"
+     thumb="/assets/viz/positional-encoding.svg" %}
+  {% include viz-card.html url="/viz/causal-mask/" title="因果掩码" blurb="给注意力盖上因果掩码，每个词只能看自己和左边，保证自回归生成不偷看答案。" %}
+  {% include viz-card.html url="/viz/masked-lm/" title="掩码语言模型" blurb="盖住一个词让模型双向猜（BERT），对照只看左的因果模型——双向理解为何更全面。" %}
+  {% include viz-card.html url="/viz/rope/" title="RoPE 旋转位置编码" blurb="位置编码成旋转角度，两词的注意力分数只取决于相对位置——更稳、还能外推到更长序列。" %}
   {% include viz-card.html
      url="/viz/sgm-seq2seq-transformer/"
-     title="Transformer"
+     title="Seq2Seq · 基于 Transformer"
      blurb="基于自注意力机制，可并行处理整个序列，是当前大模型的基础架构。"
      thumb="/viz/sgm-seq2seq-transformer.gif" %}
 </div>
@@ -168,6 +181,8 @@ redirect_from:
      title="GNN 消息传递"
      blurb="distill.pub 互动文章：节点 / 边特征如何在消息传递中聚合更新。"
      thumb="https://distill.pub/2021/gnn-intro/thumbnail.jpg" %}
+  {% include viz-card.html url="/viz/gnn-message-passing/" title="消息传递与过平滑" blurb="节点沿边把特征传给邻居取平均，拖层数看信息扩散，以及层数太多时所有节点趋同的‘过平滑’。" %}
+  {% include viz-card.html url="/viz/gcn-node-classification/" title="GCN 半监督节点分类" blurb="只标 2 个节点，标签沿边一层层扩散，看一张社交网络图自动分成两派——少量标签 + 图结构带动全图。" %}
 </div>
 
 ## 第 10 章 · 无监督学习
@@ -183,6 +198,12 @@ redirect_from:
      thumb="https://distill.pub/2016/misread-tsne/thumbnail.jpg" %}
 </div>
 
+## 第 11 章 · 模型独立的学习方式
+
+<div class="viz-grid">
+  {% include viz-card.html url="/viz/adaboost/" title="AdaBoost 提升法" blurb="弱分类器一根接一根：每轮放大上轮分错的样本、最后加权投票，看一串横竖刀拼出贴合斜线的“楼梯”。" %}
+</div>
+
 ## 第 12 章 · 深度强化学习
 
 <div class="viz-grid">
@@ -192,6 +213,7 @@ redirect_from:
      blurb="Karpathy 的 REINFORCEjs：在网格世界里实时观察价值迭代、Q-Learning、Policy Gradient。"
      thumb="https://cs.stanford.edu/people/karpathy/reinforcejs/img/dpsolved.jpeg" %}
   {% include viz-card.html url="/viz/bandit/" title="多臂老虎机" blurb="几台隐藏中奖率的老虎机，ε-greedy 在探索与利用之间权衡，估计逐渐变准。" %}
+  {% include viz-card.html url="/viz/explore-exploit/" title="探索 vs 利用" blurb="拖探索率 ε，看总收益的倒 U 曲线：太贪会锁死次优、太浪等于乱试，中间有甜点。" %}
   {% include viz-card.html url="/viz/value-iteration/" title="价值迭代" blurb="网格世界里价值从宝藏一格格扩散，箭头连成一条避开陷阱、通往宝藏的最优路线。" %}
 </div>
 
@@ -203,14 +225,32 @@ redirect_from:
      title="LLM 内部结构（3D）"
      blurb="bbycroft.net/llm：3D 交互式 GPT 内部张量流动演示，从 token 到 logit 的全过程。" %}
   {% include viz-card.html url="/viz/tokenization/" title="词元化" blurb="输入文字看它被切成一个个词元；也解释了模型为什么数不清 strawberry 里有几个 r。" %}
+  {% include viz-card.html url="/viz/bpe/" title="BPE 子词合并" blurb="从字符起步，反复合并最高频相邻对，看“est”“low”这样的子词怎样被一步步学出来。" %}
   {% include viz-card.html url="/viz/temperature/" title="温度采样" blurb="调‘温度’看模型挑下一个词的概率条重塑：低温保守稳定、高温有创意也容易胡说。" %}
+  {% include viz-card.html url="/viz/top-k-top-p/" title="top-k 与 top-p 采样" blurb="切 top-k / top-p，看截断候选词表怎么砍掉长尾、控制生成稳重还是放飞（配合温度）。" %}
   {% include viz-card.html url="/viz/next-word/" title="下一词预测" blurb="用 bigram 语言模型按概率接词成句，看“按概率接龙”为什么会跑题、重复。" %}
+  {% include viz-card.html url="/viz/autoregressive/" title="自回归逐词生成" blurb="一个字一个字预测、写下、再喂回输入，动态看 GPT 怎样把句子“接”出来。" %}
+  {% include viz-card.html url="/viz/perplexity/" title="困惑度" blurb="切换好/一般/随机模型，看同一句话的困惑度差多少——模型读句子时有多惊讶。" %}
   {% include viz-card.html url="/viz/beam-search/" title="束搜索与贪心" blurb="解码树上贪心 vs 束搜索：贪心掉进局部最优，束搜索留 k 条找到整体更优的句子。" %}
   {% include viz-card.html url="/viz/scaling-laws/" title="缩放定律" blurb="损失随规模按幂律下降（log-log 直线），用小模型外推预测大模型，还有不可约下限。" %}
+  {% include viz-card.html url="/viz/contrastive/" title="对比学习与 CLIP" blurb="点训练，看图文相似度矩阵的对角线怎样点亮——CLIP 用配对图文拉近正样本、推远负样本。" %}
   {% include viz-card.html url="/viz/moe/" title="混合专家 MoE" blurb="路由器把每个词只派给少数几个‘专家’子网络，参数海量但每次只算一小部分。" %}
   {% include viz-card.html url="/viz/kv-cache/" title="KV 缓存与 O(n²)" blurb="自回归生成时注意力是 O(n²)，KV 缓存把历史键值存起来复用，降到线性。" %}
+  {% include viz-card.html url="/viz/speculative-decoding/" title="投机解码" blurb="小模型起草几个字、大模型并行核验采纳，看它如何在不改结果的前提下加速生成。" %}
   {% include viz-card.html url="/viz/quantization/" title="量化" blurb="把连续权重吸附到离散档位，fp32→int8/int4 看体积缩小与精度损失的权衡。" %}
   {% include viz-card.html url="/viz/lora/" title="LoRA 低秩微调" blurb="冻结大权重矩阵，只训两个小矩阵 A·B，微调参数从 d² 骤降到 2dr。" %}
+</div>
+
+## 第 14 章 · 概率图模型
+
+<div class="viz-grid">
+  {% include viz-card.html url="/viz/hmm-viterbi/" title="HMM 维特比解码" blurb="天气看不见，只看见带没带伞——用动态规划在网格里逐列挑最优前驱，回溯出最可能的隐藏天气序列。" %}
+</div>
+
+## 第 15 章 · 深度信念网络
+
+<div class="viz-grid">
+  {% include viz-card.html url="/viz/rbm-reconstruction/" title="RBM 编码与重构" blurb="两层网络来回采样：把带噪数字编码成几个特征隐单元，再只凭它们重构回来——噪声被滤掉，叠起来就是深度信念网络。" %}
 </div>
 
 ## 第 16 章 · 深度生成模型
@@ -222,6 +262,7 @@ redirect_from:
      blurb="前向加噪、反向去噪过程，以及与 GAN / VAE 的对比。"
      thumb="https://lilianweng.github.io/posts/2021-07-11-diffusion-models/DDPM.png" %}
   {% include viz-card.html url="/viz/diffusion-noise/" title="扩散：加噪与去噪" blurb="把一张图的每个像素一步步掺成彩色雪花，再从噪声里去噪生成——亲手体会扩散模型画图的原理。" thumb="/assets/viz/diffusion-noise.jpg" %}
+  {% include viz-card.html url="/viz/vae/" title="VAE 潜空间" blurb="拖动二维潜变量，看解码出的脸连续变形——潜空间平滑、随便取一点就能采样生成。" %}
   {% include viz-card.html
      url="/viz/gan-lab/"
      title="GAN Lab"
