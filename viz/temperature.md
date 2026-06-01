@@ -28,10 +28,10 @@ redirect_from:
 
 # 温度采样
 
-大模型每写一个字，其实都是在一堆候选词里``抽签''——每个词有多大概率被抽中，由模型算出来。但抽签的``随机程度''可以调，这个旋钮就叫``温度''。温度低，它几乎只抽最稳的那个，保守但容易重复；温度高，连冷门词都有机会，有创意但也容易胡说。拖一下温度，看概率条怎么变。
+大模型每写一个字，其实都是在一堆候选词里“抽签”——每个词有多大概率被抽中，由模型算出来。但抽签的“随机程度”可以调，这个旋钮就叫“温度”。温度低，它几乎只抽最稳的那个，保守但容易重复；温度高，连冷门词都有机会，有创意但也容易胡说。拖一下温度，看概率条怎么变。
 
 <section class="vizui tplab" id="tplab">
-  <p class="vizui__lead">下面是模型预测``今天天气真''之后可能接的词，以及各自的概率。温度只改变``抽签''的随机程度，不改变模型的原始打分。</p>
+  <p class="vizui__lead">下面是模型预测“今天天气真”之后可能接的词，以及各自的概率。温度只改变“抽签”的随机程度，不改变模型的原始打分。</p>
 
   <p class="ctx">今天天气真 <b id="ctxLast">…</b></p>
 
@@ -60,7 +60,7 @@ redirect_from:
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-accent)"><b>低温（→0）</b><p>几乎总抽概率最高的词，输出稳定、可复现，但容易呆板、重复。</p></div>
     <div class="card" style="--wc:var(--color-gold)"><b>高温（→大）</b><p>各词概率被拉平，冷门词也可能冒出来，更有创意，但也更容易跑题、胡说。</p></div>
-    <div class="card" style="--wc:var(--color-forest)"><b>top-p 截断</b><p>只在``最可能的一撮''词里抽签，砍掉长尾里那些离谱的选项，兼顾多样和靠谱。</p></div>
+    <div class="card" style="--wc:var(--color-forest)"><b>top-p 截断</b><p>只在“最可能的一撮”词里抽签，砍掉长尾里那些离谱的选项，兼顾多样和靠谱。</p></div>
   </div>
 </section>
 
@@ -114,8 +114,8 @@ function caption(p,keep){
   var top=p.map(function(v,i){return i;}).sort(function(a,b){return p[b]-p[a];})[0];
   var keptN=TOKS.filter(function(t,i){return keep[i];}).length;
   var msg;
-  if(T<=0.4)msg="<b>温度很低（"+T.toFixed(2)+"）：</b>``"+TOKS[top]+"''几乎独占概率，模型基本只会输出它——稳定但呆板。";
-  else if(T>=1.5)msg="<b>温度很高（"+T.toFixed(2)+"）：</b>概率被拉平，连``蓝''``鸭''这种离谱的词都有机会——有创意，也容易胡说。";
+  if(T<=0.4)msg="<b>温度很低（"+T.toFixed(2)+"）：</b>“"+TOKS[top]+"”几乎独占概率，模型基本只会输出它——稳定但呆板。";
+  else if(T>=1.5)msg="<b>温度很高（"+T.toFixed(2)+"）：</b>概率被拉平，连“蓝”“鸭”这种离谱的词都有机会——有创意，也容易胡说。";
   else msg="温度 "+T.toFixed(2)+"：概率分布比较均衡。";
   if(topp<0.999)msg+=" top-p 把候选砍到最可能的 <b>"+keptN+"</b> 个，长尾里的离谱词被排除。";
   el.innerHTML=msg;

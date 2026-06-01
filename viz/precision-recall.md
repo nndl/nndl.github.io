@@ -36,10 +36,10 @@ redirect_from:
 
 # 精确率与召回率
 
-判断一个模型``准不准''，光看准确率往往不够。比如查垃圾邮件：你可以把阈值调得很松，把可疑的全拦下来——召回率（该抓的都抓到了）很高，但精确率（抓的里面有多少真是垃圾）会下降，好邮件也被误杀。这两个指标天生此消彼长。拖动判定阈值，亲眼看它俩怎么互相拉扯。
+判断一个模型“准不准”，光看准确率往往不够。比如查垃圾邮件：你可以把阈值调得很松，把可疑的全拦下来——召回率（该抓的都抓到了）很高，但精确率（抓的里面有多少真是垃圾）会下降，好邮件也被误杀。这两个指标天生此消彼长。拖动判定阈值，亲眼看它俩怎么互相拉扯。
 
 <section class="vizui prlab" id="prlab">
-  <p class="vizui__lead">每个点是一封邮件：<span style="color:var(--color-accent-light);font-weight:600">蓝点=真垃圾</span>，<span style="color:#b5524a;font-weight:600">红点=正常邮件</span>，横轴是模型打的``垃圾分''。竖线右边会被判为垃圾。拖动它看四种结果和指标怎么变。</p>
+  <p class="vizui__lead">每个点是一封邮件：<span style="color:var(--color-accent-light);font-weight:600">蓝点=真垃圾</span>，<span style="color:#b5524a;font-weight:600">红点=正常邮件</span>，横轴是模型打的“垃圾分”。竖线右边会被判为垃圾。拖动它看四种结果和指标怎么变。</p>
 
   <div class="vizui-panel">
     <div class="vizui-bar">

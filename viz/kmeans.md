@@ -21,10 +21,10 @@ redirect_from:
 
 # K-means 聚类
 
-给一堆没有标签的点，怎么让机器自动把它们分成几组？K-means 用一个特别朴素的来回办法：先随手撒下几个``中心''，然后不停重复两步——每个点投靠离它最近的中心、每个中心挪到自己那群点的正中央。要不了几轮，中心就各自落进一团点里。看它自己把点分好组。
+给一堆没有标签的点，怎么让机器自动把它们分成几组？K-means 用一个特别朴素的来回办法：先随手撒下几个“中心”，然后不停重复两步——每个点投靠离它最近的中心、每个中心挪到自己那群点的正中央。要不了几轮，中心就各自落进一团点里。看它自己把点分好组。
 
 <section class="vizui kmlab" id="kmlab">
-  <p class="vizui__lead">大菱形是``聚类中心'',小点按颜色表示当前归属。每走一步：① 每个点投靠最近的中心；② 中心移到自己那群点的平均位置。重复到不再变化。</p>
+  <p class="vizui__lead">大菱形是“聚类中心”,小点按颜色表示当前归属。每走一步：① 每个点投靠最近的中心；② 中心移到自己那群点的平均位置。重复到不再变化。</p>
 
   <div class="vizui-panel">
     <div class="vizui-bar">
@@ -118,8 +118,8 @@ function draw(){
 }
 function caption(){
   var el=document.getElementById("caption");
-  if(converged){el.innerHTML="<b>聚类完成！</b>"+k+" 个中心各自落进了一团点的中央，所有点被自动分成了 "+k+" 组——全程没有用到任何标签。试试换个 k，或``重撒中心''看会不会分得不一样。";return;}
-  if(step===0){el.innerHTML="点``自动聚类''。"+k+" 个中心刚随机撒下，灰点还没归组。看它们怎样一步步各就各位。";return;}
+  if(converged){el.innerHTML="<b>聚类完成！</b>"+k+" 个中心各自落进了一团点的中央，所有点被自动分成了 "+k+" 组——全程没有用到任何标签。试试换个 k，或“重撒中心”看会不会分得不一样。";return;}
+  if(step===0){el.innerHTML="点“自动聚类”。"+k+" 个中心刚随机撒下，灰点还没归组。看它们怎样一步步各就各位。";return;}
   el.innerHTML="第 "+step+" 步：每个点已投靠最近的中心（同色），中心也移到了各自群点的中央。还没稳定，继续。";
 }
 function render(){document.getElementById("kVal").textContent=k;draw();caption();}

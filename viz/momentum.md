@@ -22,7 +22,7 @@ redirect_from:
 
 # 学习率与动量
 
-训练神经网络就是``下山''找最低点。但很多损失面像一条又窄又长的山谷：普通梯度下降会在两侧山壁之间来回横跳、磨磨蹭蹭才到底。给它加上``动量''（像下坡的小球积累惯性），横跳被抵消、顺着谷底加速——这就是 Momentum、Adam 这些优化器的核心思想。看两个小球赛跑。
+训练神经网络就是“下山”找最低点。但很多损失面像一条又窄又长的山谷：普通梯度下降会在两侧山壁之间来回横跳、磨磨蹭蹭才到底。给它加上“动量”（像下坡的小球积累惯性），横跳被抵消、顺着谷底加速——这就是 Momentum、Adam 这些优化器的核心思想。看两个小球赛跑。
 
 <section class="vizui mtlab" id="mtlab">
   <p class="vizui__lead">红球是普通梯度下降，绿球带动量。两球从同一点出发，金点是谷底（最低点）。调节学习率和动量，看谁先到、谁会震荡甚至冲出去。</p>
@@ -56,7 +56,7 @@ redirect_from:
   <div class="vizui-caption" id="caption"></div>
 
   <div class="vizui-why">
-    <div class="card" style="--wc:#b5524a"><b>学习率太大</b><p>步子迈太大，在陡的方向上越跳越远，直接冲出山谷——训练``发散''。</p></div>
+    <div class="card" style="--wc:#b5524a"><b>学习率太大</b><p>步子迈太大，在陡的方向上越跳越远，直接冲出山谷——训练“发散”。</p></div>
     <div class="card" style="--wc:var(--color-text-muted)"><b>学习率太小</b><p>稳是稳，但每步挪一点点，要很多步才到底，训练很慢。</p></div>
     <div class="card" style="--wc:var(--color-forest)"><b>加上动量</b><p>惯性抵消了来回横跳，又在平缓方向上越滚越快，更稳更快地到达谷底。</p></div>
   </div>
@@ -114,10 +114,10 @@ function draw(){
 function caption(){
   var el=document.getElementById("caption");
   if(divergedS){el.innerHTML="<b>红球发散了！</b>学习率 "+lr.toFixed(3)+" 在陡峭方向上步子太大，普通梯度下降越跳越远冲出了山谷。绿球靠动量仍稳稳收敛——这正是动量的好处。";return;}
-  if(step===0){el.innerHTML="点``开始''。注意红球（普通梯度下降）会在山谷两壁间来回横跳，绿球（带动量）则顺着谷底加速。";return;}
+  if(step===0){el.innerHTML="点“开始”。注意红球（普通梯度下降）会在山谷两壁间来回横跳，绿球（带动量）则顺着谷底加速。";return;}
   var dS=dist(posS), dM=dist(posM);
   if(dM<0.05 && dS>0.3){el.innerHTML="第 "+step+" 步：<b>绿球已经到底</b>，红球还在半路横跳。同样的学习率，动量明显更快。";return;}
-  el.innerHTML="第 "+step+" 步：红球离谷底 "+dS.toFixed(2)+"，绿球 "+dM.toFixed(2)+"。"+(beta<0.3?"把``动量''调大些，看绿球如何甩开红球。":"");
+  el.innerHTML="第 "+step+" 步：红球离谷底 "+dS.toFixed(2)+"，绿球 "+dM.toFixed(2)+"。"+(beta<0.3?"把“动量”调大些，看绿球如何甩开红球。":"");
 }
 function render(){draw();caption();}
 

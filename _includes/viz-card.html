@@ -11,14 +11,22 @@
 {%- if include.external -%}
   {%- assign target_attr = ' target="_blank" rel="noopener"' -%}
 {%- endif -%}
+{%- comment -%} 无 thumb 且为站内交互页时，自动用 /assets/viz/<slug>.svg；文件不存在则 onerror 退回占位图 {%- endcomment -%}
+{%- assign thumb_src = include.thumb -%}
+{%- unless thumb_src -%}
+  {%- if include.external != true and include.url contains '/viz/' -%}
+    {%- assign _slug = include.url | remove_first: '/viz/' | remove: '/' -%}
+    {%- if _slug != '' -%}{%- assign thumb_src = '/assets/viz/' | append: _slug | append: '.svg' -%}{%- endif -%}
+  {%- endif -%}
+{%- endunless -%}
 <a class="viz-card" href="{{ include.url }}"{{ target_attr }}>
   <div class="viz-card__thumb">
     <div class="viz-thumb-placeholder" aria-hidden="true">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a13 13 0 010 18M12 3a13 13 0 000 18"/></svg>
       <span>{{ include.title }}</span>
     </div>
-    {%- if include.thumb -%}
-      <img src="{{ include.thumb }}" alt="{{ include.title }}" loading="lazy" onerror="this.style.display='none'">
+    {%- if thumb_src -%}
+      <img src="{{ thumb_src }}" alt="{{ include.title }}" loading="lazy" onerror="this.style.display='none'">
     {%- endif -%}
   </div>
   <div class="viz-card__body">

@@ -18,10 +18,10 @@ redirect_from:
 
 # 扩散模型：加噪与去噪
 
-扩散模型（像 Stable Diffusion）画图的思路出奇地巧。**第一步好懂**：拿一张清晰的图，一点点往上加噪声，加够多步，它就变成一团纯噪声——这叫``前向加噪''，规则固定、谁都会。**真正学的是反过来**：训练一个模型，让它看着一团噪声，一步步把噪声去掉、还原出图来。学会了``去噪'',从纯噪声出发就能生成全新的图。拖动下面的滑块，看一颗``心''怎样被打成噪声、又怎样被还原。
+扩散模型（像 Stable Diffusion）画图的思路出奇地巧。**第一步好懂**：拿一张清晰的图，一点点往上加噪声，加够多步，它就变成一团纯噪声——这叫“前向加噪”，规则固定、谁都会。**真正学的是反过来**：训练一个模型，让它看着一团噪声，一步步把噪声去掉、还原出图来。学会了“去噪”,从纯噪声出发就能生成全新的图。拖动下面的滑块，看一颗“心”怎样被打成噪声、又怎样被还原。
 
 <section class="vizui dflab" id="dflab">
-  <p class="vizui__lead">滑块从左到右 = 时间往前 = 噪声越来越多。``加噪''是固定规则；``去噪''是扩散模型真正学到的本事（这里因为知道原图所以能精确还原，真实模型则是<b>估计</b>每一步该去掉多少噪声）。</p>
+  <p class="vizui__lead">滑块从左到右 = 时间往前 = 噪声越来越多。“加噪”是固定规则；“去噪”是扩散模型真正学到的本事（这里因为知道原图所以能精确还原，真实模型则是<b>估计</b>每一步该去掉多少噪声）。</p>
 
   <div class="vizui-panel">
     <div class="vizui-bar">
@@ -46,8 +46,8 @@ redirect_from:
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-accent)"><b>前向：加噪（固定）</b><p>每步加一点高斯噪声，足够多步后图像彻底变成噪声。规则写死，不用学。</p></div>
-    <div class="card" style="--wc:var(--color-gold)"><b>反向：去噪（要学）</b><p>训练模型预测``这一步混进了多少噪声'',减掉它，一步步把图还原出来。</p></div>
-    <div class="card" style="--wc:var(--color-forest)"><b>生成新图</b><p>学会去噪后，随便给一团噪声，反复去噪，就能``无中生有''画出全新的图。</p></div>
+    <div class="card" style="--wc:var(--color-gold)"><b>反向：去噪（要学）</b><p>训练模型预测“这一步混进了多少噪声”,减掉它，一步步把图还原出来。</p></div>
+    <div class="card" style="--wc:var(--color-forest)"><b>生成新图</b><p>学会去噪后，随便给一团噪声，反复去噪，就能“无中生有”画出全新的图。</p></div>
   </div>
 </section>
 
@@ -88,7 +88,7 @@ function draw(){
 function caption(){
   var el=document.getElementById("caption");
   if(s<0.03)el.innerHTML="<b>t=0：</b>这是清晰的原图（点云）。往右拖滑块，给它一步步加噪声。";
-  else if(s>0.95)el.innerHTML="<b>t=100%：</b>形状已经被噪声彻底淹没，变成一团随机点。扩散模型训练时见过无数这样的``噪声↔图''配对。";
+  else if(s>0.95)el.innerHTML="<b>t=100%：</b>形状已经被噪声彻底淹没，变成一团随机点。扩散模型训练时见过无数这样的“噪声↔图”配对。";
   else el.innerHTML="<b>t="+Math.round(s*100)+"%：</b>"+(playing==="rev"?"正在去噪——噪声一步步被减掉，心形重新浮现。这就是扩散模型学到的本事。":"噪声越来越多，形状逐渐模糊。这一步规则是固定的，不用学。");
 }
 function render(){document.getElementById("tVal").textContent=Math.round(s*100)+"%";document.getElementById("t").value=s;draw();caption();}

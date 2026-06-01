@@ -29,10 +29,10 @@ redirect_from:
 
 # 词向量类比
 
-模型把每个词变成一串数字（一个``向量''），相近意思的词靠得近。神奇的是，这些向量还藏着``关系''：``国王''减去``男人''、再加上``女人'',结果竟然正好落在``王后''附近——因为``性别''这层关系，在向量空间里是一个固定的方向。下面用二维示意图看看这种``词向量算术''。
+模型把每个词变成一串数字（一个“向量”），相近意思的词靠得近。神奇的是，这些向量还藏着“关系”：“国王”减去“男人”、再加上“女人”,结果竟然正好落在“王后”附近——因为“性别”这层关系，在向量空间里是一个固定的方向。下面用二维示意图看看这种“词向量算术”。
 
 <section class="vizui emlab" id="emlab">
-  <p class="vizui__lead">真实词向量有几百维，这里压成二维示意。选一个类比``A 之于 B，正如 C 之于 ？'',看蓝色关系箭头被平移到 C 上，金点落在哪个词附近。</p>
+  <p class="vizui__lead">真实词向量有几百维，这里压成二维示意。选一个类比“A 之于 B，正如 C 之于 ？”,看蓝色关系箭头被平移到 C 上，金点落在哪个词附近。</p>
 
   <div class="vizui-panel">
     <div class="ana" id="ana"></div>
@@ -46,8 +46,8 @@ redirect_from:
   <div class="vizui-caption" id="caption"></div>
 
   <div class="vizui-why">
-    <div class="card" style="--wc:var(--color-accent)"><b>关系 = 方向</b><p>``男→女''和``国王→王后''是同一个方向、同一段位移——性别这层意思被编码成了一个向量。</p></div>
-    <div class="card" style="--wc:var(--color-gold)"><b>词向量算术</b><p>B − A + C 把``A→B''的关系搬到 C 上，落点附近的词就是类比的答案。</p></div>
+    <div class="card" style="--wc:var(--color-accent)"><b>关系 = 方向</b><p>“男→女”和“国王→王后”是同一个方向、同一段位移——性别这层意思被编码成了一个向量。</p></div>
+    <div class="card" style="--wc:var(--color-gold)"><b>词向量算术</b><p>B − A + C 把“A→B”的关系搬到 C 上，落点附近的词就是类比的答案。</p></div>
     <div class="card" style="--wc:var(--color-forest)"><b>怎么来的</b><p>这些向量不是人工设定，而是模型读海量文本、根据上下文自动学出来的。</p></div>
   </div>
 </section>
@@ -106,7 +106,7 @@ function render(){
   caption(an,ans);
 }
 function caption(an,ans){
-  document.getElementById("caption").innerHTML="``"+an.a+"''之于``"+an.b+"'',正如``"+an.c+"''之于<b>``"+ans+"''</b>。蓝色箭头（"+an.a+"→"+an.b+"）被原样搬到"+an.c+"身上，落点正好挨着"+ans+"——同一种关系，就是向量空间里同一个方向。";
+  document.getElementById("caption").innerHTML="“"+an.a+"”之于“"+an.b+"”,正如“"+an.c+"”之于<b>“"+ans+"”</b>。蓝色箭头（"+an.a+"→"+an.b+"）被原样搬到"+an.c+"身上，落点正好挨着"+ans+"——同一种关系，就是向量空间里同一个方向。";
 }
 document.getElementById("ana").addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;ai=+b.dataset.i;document.querySelectorAll("#ana button").forEach(function(x,i){x.classList.toggle("on",i===ai);});render();});
 (function build(){var h=document.getElementById("ana");ANALOGIES.forEach(function(an,i){var b=document.createElement("button");b.type="button";b.dataset.i=i;b.className=i===0?"on":"";b.textContent=an.a+" : "+an.b+" :: "+an.c+" : ?";h.appendChild(b);});})();

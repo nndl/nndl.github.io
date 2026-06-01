@@ -30,7 +30,7 @@ redirect_from:
 
 # 感知器画线
 
-最早的神经元模型``感知器''要做一件简单的事：在平面上画一条线，把两类点分开。它怎么学会这条线的？办法很笨却很有效——每看到一个被分错的点，就把线朝着``纠正它''的方向挪一点，反复多遍，直到一个都不分错。看它自己把线转到位。
+最早的神经元模型“感知器”要做一件简单的事：在平面上画一条线，把两类点分开。它怎么学会这条线的？办法很笨却很有效——每看到一个被分错的点，就把线朝着“纠正它”的方向挪一点，反复多遍，直到一个都不分错。看它自己把线转到位。
 
 <section class="vizui pclab" id="pclab">
   <p class="vizui__lead">蓝点和红点是两类数据，黑线是感知器当前画的分界线。带金圈的是它正在检查的点；只要还有分错的，它就继续调整这条线。你也可以选支笔，<b>在图上点几下加自己的点</b>。</p>
@@ -57,7 +57,7 @@ redirect_from:
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-accent)"><b>看一个点</b><p>感知器逐个检查数据点：分对了就跳过，分错了就动手调整。</p></div>
-    <div class="card" style="--wc:var(--color-gold)"><b>纠正一点点</b><p>把分界线朝着``让这个点回到正确一侧''的方向挪一小步——这就是``学习''。</p></div>
+    <div class="card" style="--wc:var(--color-gold)"><b>纠正一点点</b><p>把分界线朝着“让这个点回到正确一侧”的方向挪一小步——这就是“学习”。</p></div>
     <div class="card" style="--wc:var(--color-forest)"><b>反复直到分开</b><p>只要两类点本来能用一条直线分开，这个笨办法保证最终一个都不分错。</p></div>
   </div>
 </section>
@@ -116,7 +116,7 @@ function draw(){
 function caption(){
   var el=document.getElementById("caption"), e=errCount();
   if(solved||(e===0&&(w[0]||w[1]))){el.innerHTML="<b>分开了！</b>感知器找到一条线，把两类点完全分到两边，一个都不错。只要数据本来线性可分，这个笨办法一定能成功。";return;}
-  if(pass===0&&checking<0){el.innerHTML="点``开始学习''。感知器会逐个检查点，发现分错的就把线挪一下。";return;}
+  if(pass===0&&checking<0){el.innerHTML="点“开始学习”。感知器会逐个检查点，发现分错的就把线挪一下。";return;}
   if(wrong>=0){el.innerHTML="发现一个<b>分错的点</b>（金色虚圈），把分界线朝着纠正它的方向挪了一步。当前还有 "+e+" 个分错。";return;}
   el.innerHTML="这个点分对了，跳过。还剩 "+e+" 个分错的点要处理。";
 }

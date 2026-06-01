@@ -25,10 +25,10 @@ redirect_from:
 
 # 过拟合实验台
 
-机器学习要的是``学到规律''，而不是``背下答案''。同一批数据，模型太简单会``欠拟合''、抓不住趋势；太复杂又会``过拟合''、把噪声也当成规律背下来。拖动下面的``模型复杂度''滑块，亲眼看看这条曲线怎样从太直、到刚好、再到扭成麻花。
+机器学习要的是“学到规律”，而不是“背下答案”。同一批数据，模型太简单会“欠拟合”、抓不住趋势；太复杂又会“过拟合”、把噪声也当成规律背下来。拖动下面的“模型复杂度”滑块，亲眼看看这条曲线怎样从太直、到刚好、再到扭成麻花。
 
 <section class="vizui oflab" id="oflab">
-  <p class="vizui__lead">蓝点是``训练数据''（带噪声）。金色曲线是模型拟合的结果，灰色虚线是背后真正的规律。右图是``考试成绩''：训练误差 vs 没见过的测试误差。</p>
+  <p class="vizui__lead">蓝点是“训练数据”（带噪声）。金色曲线是模型拟合的结果，灰色虚线是背后真正的规律。右图是“考试成绩”：训练误差 vs 没见过的测试误差。</p>
 
   <div class="vizui-panel">
     <div class="vizui-bar">
@@ -68,7 +68,7 @@ redirect_from:
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-text-muted)"><b>欠拟合（太简单）</b><p>复杂度太低，曲线连训练点的大趋势都跟不上，训练和测试误差都高。</p></div>
-    <div class="card" style="--wc:var(--color-forest)"><b>恰到好处</b><p>曲线贴合数据又保持平滑，测试误差最低——这才是``学到规律''。</p></div>
+    <div class="card" style="--wc:var(--color-forest)"><b>恰到好处</b><p>曲线贴合数据又保持平滑，测试误差最低——这才是“学到规律”。</p></div>
     <div class="card" style="--wc:#b5524a"><b>过拟合（太复杂）</b><p>曲线扭来扭去穿过每个训练点，把噪声也背了下来；训练误差几乎为零，测试误差却飙升。</p></div>
   </div>
 </section>
@@ -170,7 +170,7 @@ function drawErr(){
 function caption(){
   var el=document.getElementById("caption"),tr=trainErr[deg].toFixed(3),te=testErr[deg].toFixed(3);
   var msg;
-  if(deg<=2){msg="复杂度 = "+deg+"：曲线太``直''，连训练点的趋势都跟不上——这是<b>欠拟合</b>。（测试误差 "+te+"）";}
+  if(deg<=2){msg="复杂度 = "+deg+"：曲线太“直”，连训练点的趋势都跟不上——这是<b>欠拟合</b>。（测试误差 "+te+"）";}
   else if(deg>=bestDeg+3){msg="复杂度 = "+deg+"：曲线扭来扭去硬穿过每个训练点，把噪声也背了下来——这是<b>过拟合</b>。训练误差低到 "+tr+"，可测试误差却涨到 <b>"+te+"</b>。";}
   else if(Math.abs(deg-bestDeg)<=1){msg="复杂度 = "+deg+"：曲线既贴合数据、又保持平滑——<b>恰到好处</b>，测试误差最低（"+te+"）。";}
   else {msg="复杂度 = "+deg+"：训练误差 "+tr+"，测试误差 "+te+"。继续加大复杂度，留意测试误差什么时候开始反弹。";}

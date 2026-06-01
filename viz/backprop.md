@@ -27,10 +27,10 @@ redirect_from:
 
 # 反向传播
 
-神经网络是怎么``学''的？先正向算一遍，得到一个误差（loss）；再反着走一遍，把这个误差顺着计算图一层层传回去，算出``每个权重该往哪个方向调、调多少''——这就是反向传播，深度学习的引擎。它的全部秘密就是高中学过的链式法则。下面这个只有几个节点的迷你网络，让你一步步看清楚。
+神经网络是怎么“学”的？先正向算一遍，得到一个误差（loss）；再反着走一遍，把这个误差顺着计算图一层层传回去，算出“每个权重该往哪个方向调、调多少”——这就是反向传播，深度学习的引擎。它的全部秘密就是高中学过的链式法则。下面这个只有几个节点的迷你网络，让你一步步看清楚。
 
 <section class="vizui bplab" id="bplab">
-  <p class="vizui__lead">绿框是要学的参数（w₁ w₂ b），蓝色数字是<b>正向</b>算出的值，金色数字是<b>反向</b>传回的梯度。目标是让输出 a 逼近 1。点``训练一步''反复看 loss 怎么降下来。</p>
+  <p class="vizui__lead">绿框是要学的参数（w₁ w₂ b），蓝色数字是<b>正向</b>算出的值，金色数字是<b>反向</b>传回的梯度。目标是让输出 a 逼近 1。点“训练一步”反复看 loss 怎么降下来。</p>
 
   <div class="vizui-panel">
     <div class="vizui-bar">
@@ -59,8 +59,8 @@ redirect_from:
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-accent)"><b>正向：算误差</b><p>输入沿计算图往前算，一路到输出 a 和误差 loss。</p></div>
-    <div class="card" style="--wc:var(--color-gold)"><b>反向：链式法则</b><p>从 loss 出发往回走，每个节点把``上游梯度''乘以``本地导数'',就得到自己的梯度。</p></div>
-    <div class="card" style="--wc:var(--color-forest)"><b>更新：沿梯度下降</b><p>每个权重朝梯度的反方向挪一小步，loss 就会下降一点；反复多步即``训练''。</p></div>
+    <div class="card" style="--wc:var(--color-gold)"><b>反向：链式法则</b><p>从 loss 出发往回走，每个节点把“上游梯度”乘以“本地导数”,就得到自己的梯度。</p></div>
+    <div class="card" style="--wc:var(--color-forest)"><b>更新：沿梯度下降</b><p>每个权重朝梯度的反方向挪一小步，loss 就会下降一点；反复多步即“训练”。</p></div>
   </div>
 </section>
 
@@ -115,15 +115,15 @@ function drawLoss(){
 }
 function explain(){
   var el=document.getElementById("explain");
-  if(mode==="init"){el.innerHTML="先点``正向传播''算出 loss。";return;}
+  if(mode==="init"){el.innerHTML="先点“正向传播”算出 loss。";return;}
   if(mode==="forward"){el.innerHTML="正向算完：输出 a = <b>"+N.a.v.toFixed(2)+"</b>，离目标 1 还差一截，loss = <b>"+N.loss.v.toFixed(3)+"</b>。";return;}
   el.innerHTML="反向传播（链式法则）：<br>∇a = 2(a−1) = "+N.a.g.toFixed(2)+"<br>∇z = ∇a × a(1−a) = "+N.z.g.toFixed(3)+"<br>∇w₁ = ∇z × x₁ = <b>"+N.w1.g.toFixed(3)+"</b>　∇w₂ = ∇z × x₂ = <b>"+N.w2.g.toFixed(3)+"</b><br>每个权重就照这个梯度往反方向挪一步。";
 }
 function caption(){
   var el=document.getElementById("caption");
   if(mode==="init")el.innerHTML="这个迷你网络：z = w₁x₁ + w₂x₂ + b，再过 σ 得到输出 a，目标让 a→1。先正向、再反向，看梯度怎么算出来。";
-  else if(mode==="forward")el.innerHTML="<b>正向传播完成。</b>蓝色是各节点的值。现在点``反向传播'',看误差怎样顺着金色路径传回每个参数。";
-  else el.innerHTML="<b>反向传播完成。</b>金色 ∇ 是每个节点的梯度——注意它是从右边的 loss 一路乘回来的（链式法则）。点``训练一步''让参数按梯度更新、loss 下降。";
+  else if(mode==="forward")el.innerHTML="<b>正向传播完成。</b>蓝色是各节点的值。现在点“反向传播”,看误差怎样顺着金色路径传回每个参数。";
+  else el.innerHTML="<b>反向传播完成。</b>金色 ∇ 是每个节点的梯度——注意它是从右边的 loss 一路乘回来的（链式法则）。点“训练一步”让参数按梯度更新、loss 下降。";
   document.getElementById("lossLbl").textContent="loss "+(N.loss.v!==undefined?N.loss.v.toFixed(3):"—");
 }
 function render(){drawGraph();drawLoss();explain();caption();}

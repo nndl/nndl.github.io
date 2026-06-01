@@ -21,10 +21,10 @@ redirect_from:
 
 # 神经元拼曲线
 
-神经网络凭什么能拟合各种复杂的关系？秘密其实很朴素：每个神经元（配上 ReLU 这种激活函数）只会做一件最简单的事——画一条``折一下''的线。但把很多条这样的折线叠加起来，就能拼出任意复杂的曲线。拖动``神经元个数''，看金色的拟合曲线怎样一步步贴近灰色目标。
+神经网络凭什么能拟合各种复杂的关系？秘密其实很朴素：每个神经元（配上 ReLU 这种激活函数）只会做一件最简单的事——画一条“折一下”的线。但把很多条这样的折线叠加起来，就能拼出任意复杂的曲线。拖动“神经元个数”，看金色的拟合曲线怎样一步步贴近灰色目标。
 
 <section class="vizui nclab" id="nclab">
-  <p class="vizui__lead">灰色虚线是要拟合的目标曲线。淡蓝细线是每个神经元各自贡献的``折线'',金色粗线是它们叠加出来的结果。神经元越多，金线越贴合目标。</p>
+  <p class="vizui__lead">灰色虚线是要拟合的目标曲线。淡蓝细线是每个神经元各自贡献的“折线”,金色粗线是它们叠加出来的结果。神经元越多，金线越贴合目标。</p>
 
   <div class="vizui-panel">
     <div class="vizui-bar">
@@ -50,7 +50,7 @@ redirect_from:
   <div class="vizui-caption" id="caption"></div>
 
   <div class="vizui-why">
-    <div class="card" style="--wc:var(--color-accent)"><b>一个神经元 = 一条折线</b><p>ReLU 让每个神经元在某个位置``折一下''：之前是平的，之后是一段斜线。</p></div>
+    <div class="card" style="--wc:var(--color-accent)"><b>一个神经元 = 一条折线</b><p>ReLU 让每个神经元在某个位置“折一下”：之前是平的，之后是一段斜线。</p></div>
     <div class="card" style="--wc:var(--color-gold)"><b>叠加 = 拼形状</b><p>把许多折线加在一起，折点越多，拼出的曲线就越精细。</p></div>
     <div class="card" style="--wc:var(--color-forest)"><b>万能近似</b><p>理论上，只要神经元够多，这样一层网络就能逼近几乎任意连续函数。</p></div>
   </div>
@@ -63,7 +63,7 @@ redirect_from:
 var NS=90, XMIN=-3, XMAX=3, YMIN=-1.5, YMAX=1.5, m=3, playing=false, timer=null, model=null;
 function target(x){return 1.7/(1+Math.exp(-1.8*(x+0.4)))-0.85;}   /* 平滑非振荡的 S 形目标，避免均匀采样混叠 */
 
-/* 折线插值：把目标在 m+1 等距点上取样、连成折线；每个``折点''就是一个 ReLU 神经元。
+/* 折线插值：把目标在 m+1 等距点上取样、连成折线；每个“折点”就是一个 ReLU 神经元。
    神经元越多 → 折点越密 → 误差稳定下降。 */
 function fit(mm){
   var n=mm+1, pts=[], j;                               /* n 段，n+1 个采样点 */
@@ -100,7 +100,7 @@ function caption(){
   var el=document.getElementById("caption"),e=rmse(model);
   document.getElementById("err").textContent="误差 "+e.toFixed(3);
   if(m<=1)el.innerHTML="<b>只有 1 个神经元</b>：整条线只能折一个弯，离弯弯绕绕的目标差得远。";
-  else if(m>=8)el.innerHTML="<b>"+m+" 个神经元</b>：这么多折线叠起来，金线已经几乎贴住目标了。神经元越多，能拼出的形状越精细——这就是神经网络``万能近似''的直觉。";
+  else if(m>=8)el.innerHTML="<b>"+m+" 个神经元</b>：这么多折线叠起来，金线已经几乎贴住目标了。神经元越多，能拼出的形状越精细——这就是神经网络“万能近似”的直觉。";
   else el.innerHTML="<b>"+m+" 个神经元</b>：拟合误差 "+e.toFixed(3)+"。继续增加神经元，看金线怎样越来越贴合灰色目标。";
 }
 function render(){model=fit(m);document.getElementById("mVal").textContent=m;draw();caption();}

@@ -31,10 +31,10 @@ redirect_from:
 
 # 多臂老虎机
 
-面前四台老虎机，每台中奖率不同，但你事先不知道。想赢得最多，就得在两件事之间权衡：**利用**——一直拉目前看起来最好的那台；**探索**——偶尔试试别的，万一有更好的呢？只利用，可能一开始就押错、错过真正的好机器；只探索，又白白浪费机会。这就是强化学习里最核心的``探索 vs 利用''难题。
+面前四台老虎机，每台中奖率不同，但你事先不知道。想赢得最多，就得在两件事之间权衡：**利用**——一直拉目前看起来最好的那台；**探索**——偶尔试试别的，万一有更好的呢？只利用，可能一开始就押错、错过真正的好机器；只探索，又白白浪费机会。这就是强化学习里最核心的“探索 vs 利用”难题。
 
 <section class="vizui bdlab" id="bdlab">
-  <p class="vizui__lead">点任意一台老虎机拉一下（赢了变绿、输了变红）；或用下面的 ε-greedy 自动玩——它绝大多数时候拉最好的，偶尔随机探索一台。``估计胜率''会随着拉的次数越来越准。</p>
+  <p class="vizui__lead">点任意一台老虎机拉一下（赢了变绿、输了变红）；或用下面的 ε-greedy 自动玩——它绝大多数时候拉最好的，偶尔随机探索一台。“估计胜率”会随着拉的次数越来越准。</p>
 
   <div class="vizui-panel">
     <div class="arms" id="arms"></div>
@@ -109,8 +109,8 @@ function render(){
 function caption(total){
   var el=document.getElementById("caption"), be=bestEst();
   if(total<4)el.innerHTML="刚开始，每台都还没怎么试过，估计很不准。多拉几次，或让 ε-greedy 自动玩。";
-  else if(total<25)el.innerHTML="试探阶段：估计胜率还在抖动。注意 ε-greedy 会优先拉当前最好的``"+NAMES[be]+"'',但偶尔也去碰碰别的——别太早下结论。";
-  else el.innerHTML="拉得越多估计越准。现在看起来最好的是<b>老虎机 "+NAMES[be]+"</b>（估计 "+(Q(be)*100).toFixed(0)+"%）。点``揭晓真实概率''对一下，看 ε-greedy 找对了没有。";
+  else if(total<25)el.innerHTML="试探阶段：估计胜率还在抖动。注意 ε-greedy 会优先拉当前最好的“"+NAMES[be]+"”,但偶尔也去碰碰别的——别太早下结论。";
+  else el.innerHTML="拉得越多估计越准。现在看起来最好的是<b>老虎机 "+NAMES[be]+"</b>（估计 "+(Q(be)*100).toFixed(0)+"%）。点“揭晓真实概率”对一下，看 ε-greedy 找对了没有。";
 }
 
 document.getElementById("eps").addEventListener("input",function(e){eps=+e.target.value;document.getElementById("epsVal").textContent=eps.toFixed(2);});

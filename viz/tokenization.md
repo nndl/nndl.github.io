@@ -24,10 +24,10 @@ redirect_from:
 
 # 词元化
 
-大模型读不懂``字''，它读的是``词元''（token）——一段文字会先被切成一个个词元，模型再逐个处理。切法挺反直觉：常见词是一整块，生僻长词被拆成几片，每个汉字往往单独一块，连空格都算进词元里。这也解释了一个经典糗事：模型数不清``strawberry''里有几个 r——因为它压根没看见一个个字母。在下面输入文字，看它被切成什么。
+大模型读不懂“字”，它读的是“词元”（token）——一段文字会先被切成一个个词元，模型再逐个处理。切法挺反直觉：常见词是一整块，生僻长词被拆成几片，每个汉字往往单独一块，连空格都算进词元里。这也解释了一个经典糗事：模型数不清“strawberry”里有几个 r——因为它压根没看见一个个字母。在下面输入文字，看它被切成什么。
 
 <section class="vizui tklab" id="tklab">
-  <p class="vizui__lead">下面是一个``示意版''分词器（非真实 GPT，但抓住了关键规律）。试试预设例子，或自己输入。</p>
+  <p class="vizui__lead">下面是一个“示意版”分词器（非真实 GPT，但抓住了关键规律）。试试预设例子，或自己输入。</p>
 
   <div class="vizui-panel">
     <input class="tkinput" id="text" type="text" value="strawberry" autocomplete="off" spellcheck="false">
@@ -49,7 +49,7 @@ redirect_from:
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-accent)"><b>常见词一整块</b><p>越常见的词越可能是单独一个词元；生僻或长的词被拆成几片（子词）。</p></div>
     <div class="card" style="--wc:var(--color-gold)"><b>汉字按字切</b><p>中文通常一个字一个词元，所以同样信息量，中文往往比英文占更多词元。</p></div>
-    <div class="card" style="--wc:var(--color-forest)"><b>看不见字母</b><p>模型眼里``strawberry''是一两块词元，不是 10 个字母——所以让它数 r 常常出错。</p></div>
+    <div class="card" style="--wc:var(--color-forest)"><b>看不见字母</b><p>模型眼里“strawberry”是一两块词元，不是 10 个字母——所以让它数 r 常常出错。</p></div>
   </div>
 </section>
 
@@ -102,7 +102,7 @@ function render(){
 function caption(s,toks){
   var el=document.getElementById("caption"), n=toks.length, chars=s.replace(/\s/g,"").length;
   var msg;
-  if(/strawberry/i.test(s)) msg="``strawberry''被切成 <b>"+n+"</b> 个词元，而不是 10 个字母。模型从没单独看见过每个 r，所以一让它数 r 就容易答错。";
+  if(/strawberry/i.test(s)) msg="“strawberry”被切成 <b>"+n+"</b> 个词元，而不是 10 个字母。模型从没单独看见过每个 r，所以一让它数 r 就容易答错。";
   else if(/[一-鿿]/.test(s)&&!/[A-Za-z]/.test(s)) msg="这串中文被切成 <b>"+n+"</b> 个词元——基本一个字一个。中文信息密度高，同样意思常比英文占更多词元。";
   else if(/[0-9]{4,}/.test(s)) msg="数字被切成一块块（每几位一个词元），而不是一位一位——这也是大模型算数容易出错的原因之一。";
   else msg="这段文字被切成 <b>"+n+"</b> 个词元。常见词是一整块，空格通常归到后一个词的前面（␣）。";

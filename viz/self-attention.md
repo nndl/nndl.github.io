@@ -29,16 +29,16 @@ redirect_from:
 
 # 点词看注意力
 
-Transformer（也就是当下大模型的核心）能读懂长句子，靠的是``自注意力''：句子里的每个词，都会去``看''其他词，再决定自己的含义。比如``它''到底指谁？模型就是靠注意力把``它''连回``小猫''的。**点下面句子里的任意一个词，看看它在注意谁。**
+Transformer（也就是当下大模型的核心）能读懂长句子，靠的是“自注意力”：句子里的每个词，都会去“看”其他词，再决定自己的含义。比如“它”到底指谁？模型就是靠注意力把“它”连回“小猫”的。**点下面句子里的任意一个词，看看它在注意谁。**
 
 <section class="vizui attlab" id="attlab">
-  <p class="vizui__lead">连线越粗、词底色越深，表示当前这个词对它的``注意力''越强。换``注意力头''能看到模型同时在用好几套不同的看法。</p>
+  <p class="vizui__lead">连线越粗、词底色越深，表示当前这个词对它的“注意力”越强。换“注意力头”能看到模型同时在用好几套不同的看法。</p>
 
   <div class="vizui-panel">
     <div class="vizui-bar">
       <span class="vizui-field"><label for="sent">例句</label>
         <select class="vizui-pill" id="sent" style="padding:6px 12px;cursor:pointer">
-          <option value="0">小猫追老鼠（``它''指谁？）</option>
+          <option value="0">小猫追老鼠（“它”指谁？）</option>
           <option value="1">东京是日本的首都</option>
         </select>
       </span>
@@ -57,15 +57,15 @@ Transformer（也就是当下大模型的核心）能读懂长句子，靠的是
       <div class="att-words" id="words"></div>
     </div>
     <div class="att-readout" id="readout"></div>
-    <div class="att-hint">点不同的词试试 · 切换上方``注意力头''看不同模式</div>
+    <div class="att-hint">点不同的词试试 · 切换上方“注意力头”看不同模式</div>
   </div>
 
   <div class="vizui-caption" id="caption"></div>
 
   <div class="vizui-why">
-    <div class="card" style="--wc:var(--color-accent)"><b>语义关联</b><p>把含义相关的词连起来，比如代词``它''连回``小猫''、``首都''连向``东京''。这是理解句子的关键。</p></div>
+    <div class="card" style="--wc:var(--color-accent)"><b>语义关联</b><p>把含义相关的词连起来，比如代词“它”连回“小猫”、“首都”连向“东京”。这是理解句子的关键。</p></div>
     <div class="card" style="--wc:var(--color-forest)"><b>相邻局部</b><p>主要关注左右挨着的词，负责把短语、搭配粘合在一起。</p></div>
-    <div class="card" style="--wc:var(--color-gold)"><b>多个头并行</b><p>真实模型有很多个``头'',各看一种关系，合起来才读懂整句——这里只展示三种示意。</p></div>
+    <div class="card" style="--wc:var(--color-gold)"><b>多个头并行</b><p>真实模型有很多个“头”,各看一种关系，合起来才读懂整句——这里只展示三种示意。</p></div>
   </div>
 </section>
 
@@ -73,7 +73,7 @@ Transformer（也就是当下大模型的核心）能读懂长句子，靠的是
 <script>
 (function(){
 "use strict";
-/* links：有向带权 [query 索引, key 索引, 权重]，表示``query 这个词去看 key''的强度 */
+/* links：有向带权 [query 索引, key 索引, 权重]，表示“query 这个词去看 key”的强度 */
 var SENTS=[
   {toks:["小猫","追","老鼠","，","因为","它","饿","了"],
    links:[[5,0,1.6],[1,0,1.0],[1,2,1.0],[6,5,1.2],[6,0,0.5],[4,6,0.8]], focus:5},
@@ -143,15 +143,15 @@ function draw(){
   var ranked=row.map(function(v,k){return [k,v];}).filter(function(p){return p[0]!==sel;}).sort(function(a,b){return b[1]-a[1];});
   var toks=SENTS[si].toks;
   var top=ranked[0], second=ranked[1];
-  document.getElementById("readout").innerHTML="``<b>"+toks[sel]+"</b>'' 最关注 → ``<b>"+toks[top[0]]+"</b>''（"+Math.round(top[1]*100)+"%）"+
-    (second&&second[1]>0.08?"，其次 ``"+toks[second[0]]+"''（"+Math.round(second[1]*100)+"%）":"");
+  document.getElementById("readout").innerHTML="“<b>"+toks[sel]+"</b>” 最关注 → “<b>"+toks[top[0]]+"</b>”（"+Math.round(top[1]*100)+"%）"+
+    (second&&second[1]>0.08?"，其次 “"+toks[second[0]]+"”（"+Math.round(second[1]*100)+"%）":"");
 }
 
 function caption(){
   var el=document.getElementById("caption"), names=["语义关联","相邻局部","句首锚点"];
-  var txt={0:"这一``头''专看含义关系：点``它'',连线最粗的指向``小猫''——模型就是这样判断代词指代谁的。",
-           1:"这一``头''主要关注左右相邻的词，负责把短语粘合起来；语义上不相关的远处词几乎不看。",
-           2:"这一``头''让大多数词都去看句子开头——这是真实模型里常见的一种``锚点''模式。"};
+  var txt={0:"这一“头”专看含义关系：点“它”,连线最粗的指向“小猫”——模型就是这样判断代词指代谁的。",
+           1:"这一“头”主要关注左右相邻的词，负责把短语粘合起来；语义上不相关的远处词几乎不看。",
+           2:"这一“头”让大多数词都去看句子开头——这是真实模型里常见的一种“锚点”模式。"};
   el.innerHTML="<b>当前注意力头："+names[head]+"</b>　"+txt[head];
 }
 
@@ -162,7 +162,7 @@ document.getElementById("heads").addEventListener("click",function(e){var b=e.ta
 document.getElementById("sent").addEventListener("change",function(e){si=+e.target.value;loadSent();sel=SENTS[si].focus;draw();});
 window.addEventListener("resize",function(){if(sel!=null)draw();});
 
-/* 启动：默认选中``焦点词''演示一次 */
+/* 启动：默认选中“焦点词”演示一次 */
 loadSent(); caption();
 setTimeout(function(){sel=SENTS[si].focus;draw();},600);
 })();

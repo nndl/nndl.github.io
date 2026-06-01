@@ -27,10 +27,10 @@ redirect_from:
 
 # 激活函数与梯度消失
 
-神经元在把信号往下传之前，会先过一道``激活函数''掰个弯。常见的有 Sigmoid、Tanh、ReLU。它们长相差不多，但有个要命的区别藏在``导数''里——而导数决定了训练时梯度能不能顺利地一层层往回传。这就是为什么深层网络早年那么难训，以及 ReLU 后来为什么一统天下。
+神经元在把信号往下传之前，会先过一道“激活函数”掰个弯。常见的有 Sigmoid、Tanh、ReLU。它们长相差不多，但有个要命的区别藏在“导数”里——而导数决定了训练时梯度能不能顺利地一层层往回传。这就是为什么深层网络早年那么难训，以及 ReLU 后来为什么一统天下。
 
 <section class="vizui aclab" id="aclab">
-  <p class="vizui__lead">蓝线是激活函数本身，金色虚线是它的导数。拖动下面的 x，看某一点的函数值和导数；再看``梯度连乘''那栏——导数小于 1，多乘几层就趋近于零。</p>
+  <p class="vizui__lead">蓝线是激活函数本身，金色虚线是它的导数。拖动下面的 x，看某一点的函数值和导数；再看“梯度连乘”那栏——导数小于 1，多乘几层就趋近于零。</p>
 
   <div class="vizui-panel">
     <div class="vizui-bar">
@@ -74,7 +74,7 @@ redirect_from:
   <div class="vizui-why">
     <div class="card" style="--wc:#b5524a"><b>Sigmoid / Tanh 会饱和</b><p>两端又平又缓，导数趋近 0。多层连乘后梯度几乎消失，深层网络学不动。</p></div>
     <div class="card" style="--wc:var(--color-forest)"><b>ReLU 不消失</b><p>正半轴导数恒为 1，梯度原样传下去——这是它成为深度网络默认激活函数的关键。</p></div>
-    <div class="card" style="--wc:var(--color-text-muted)"><b>代价</b><p>ReLU 负半轴导数为 0，神经元可能``死掉'';于是有了 LeakyReLU、GELU 等改进。</p></div>
+    <div class="card" style="--wc:var(--color-text-muted)"><b>代价</b><p>ReLU 负半轴导数为 0，神经元可能“死掉”;于是有了 LeakyReLU、GELU 等改进。</p></div>
   </div>
 </section>
 
@@ -127,7 +127,7 @@ function caption(){
   var msg;
   if(cur==="relu"){
     if(x0>0)msg="<b>ReLU：</b>x>0 处导数恒为 <b>1</b>，"+depth+" 层连乘还是 1——梯度原样传到底，不会消失。这就是 ReLU 的杀手锏。";
-    else msg="<b>ReLU：</b>x<0 处导数为 <b>0</b>，梯度被掐断，这个神经元``死''了。把 x 拖到正半轴看对比。";
+    else msg="<b>ReLU：</b>x<0 处导数为 <b>0</b>，梯度被掐断，这个神经元“死”了。把 x 拖到正半轴看对比。";
   }else if(cur==="sigmoid"){
     msg="<b>Sigmoid：</b>导数最大也只有 0.25，在 x="+x0.toFixed(1)+" 处更是只有 <b>"+d.toFixed(3)+"</b>。每层乘一次，"+depth+" 层后只剩 <b>"+(rem<0.001?rem.toExponential(1):(rem*100).toFixed(1)+"%")+"</b>——这就是梯度消失。";
   }else{

@@ -106,7 +106,7 @@ details.deep .eq sub{font-size:.74em;}
 
 # 循环神经网络与门控机制
 
-循环神经网络是用来处理``一连串''数据（一句话、一段语音、一串股价）的。它每次只看一个，靠一份不断更新的``记忆''把前后串起来。难点在于：**很久以前看到的东西，常常没传到后面就被忘光了。** 下面用一个小实验直观感受这件事——以及 LSTM 是怎么把记忆守住的。
+循环神经网络是用来处理“一连串”数据（一句话、一段语音、一串股价）的。它每次只看一个，靠一份不断更新的“记忆”把前后串起来。难点在于：**很久以前看到的东西，常常没传到后面就被忘光了。** 下面用一个小实验直观感受这件事——以及 LSTM 是怎么把记忆守住的。
 
 <section class="memlab" id="memlab">
   <p class="memlab__lead">游戏规则：先给两个网络看同一个数字，让它们记住；接着不停塞新数字进去干扰。走到最后，谁还记得最初那个数字？</p>
@@ -157,7 +157,7 @@ details.deep .eq sub{font-size:.74em;}
       </div>
       <div class="whycard" style="--wc:var(--good)">
         <b>LSTM：传送带 + 闸门</b>
-        <p>另设一条专门的记忆传送带。几扇``闸门''决定何时保留旧记忆、何时才写入新内容——重要信息于是能一路保留。试着把上面的``记忆闸门''往``容易忘''方向拉，看 LSTM 怎样退化成普通 RNN。</p>
+        <p>另设一条专门的记忆传送带。几扇“闸门”决定何时保留旧记忆、何时才写入新内容——重要信息于是能一路保留。试着把上面的“记忆闸门”往“容易忘”方向拉，看 LSTM 怎样退化成普通 RNN。</p>
       </div>
       <div class="whycard" style="--wc:var(--color-accent-light)">
         <b>GRU：精简版 LSTM</b>
@@ -176,7 +176,7 @@ details.deep .eq sub{font-size:.74em;}
       细胞状态 c<sub>t</sub> = f<sub>t</sub> ⊙ c<sub>t-1</sub> + i<sub>t</sub> ⊙ c̃<sub>t</sub><br>
       隐藏状态 h<sub>t</sub> = o<sub>t</sub> ⊙ tanh(c<sub>t</sub>)
     </p>
-    <p style="font-size:.9rem;color:var(--color-text-muted);">上面实验里的``记忆闸门''就对应遗忘门 f：拉到``记得牢''即 f≈1（旧记忆几乎全留），拉到``容易忘''即 f 变小（旧记忆迅速流失）。</p>
+    <p style="font-size:.9rem;color:var(--color-text-muted);">上面实验里的“记忆闸门”就对应遗忘门 f：拉到“记得牢”即 f≈1（旧记忆几乎全留），拉到“容易忘”即 f 变小（旧记忆迅速流失）。</p>
   </details>
 </section>
 
@@ -282,7 +282,7 @@ function caption(){
     return;
   }
   var rv=Math.round(rnn[T-1]), lv=Math.round(lstm[T-1]);
-  el.innerHTML="结束！最初要记的是 <b>"+sig+"</b>。普通 RNN 现在记成了 <b>"+rv+"</b>（被冲掉了），LSTM 还记成 <b>"+lv+"</b>（基本守住）。这就是 LSTM 的``闸门''在长距离记忆上的作用。";
+  el.innerHTML="结束！最初要记的是 <b>"+sig+"</b>。普通 RNN 现在记成了 <b>"+rv+"</b>（被冲掉了），LSTM 还记成 <b>"+lv+"</b>（基本守住）。这就是 LSTM 的“闸门”在长距离记忆上的作用。";
 }
 
 function render(){
