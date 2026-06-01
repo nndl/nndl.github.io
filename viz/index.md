@@ -221,7 +221,7 @@ redirect_from:
      title="扩散模型"
      blurb="前向加噪、反向去噪过程，以及与 GAN / VAE 的对比。"
      thumb="https://lilianweng.github.io/posts/2021-07-11-diffusion-models/DDPM.png" %}
-  {% include viz-card.html url="/viz/diffusion-noise/" title="扩散：加噪与去噪" blurb="看一颗‘心’被一步步打成噪声、再被去噪还原——亲手体会扩散模型生成图的原理。" %}
+  {% include viz-card.html url="/viz/diffusion-noise/" title="扩散：加噪与去噪" blurb="把一张图的每个像素一步步掺成彩色雪花，再从噪声里去噪生成——亲手体会扩散模型画图的原理。" thumb="/assets/viz/diffusion-noise.jpg" %}
   {% include viz-card.html
      url="/viz/gan-lab/"
      title="GAN Lab"
