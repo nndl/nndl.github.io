@@ -109,9 +109,9 @@ function drawCode(s){
 function caption(N,err){
   var el=document.getElementById("caption"),tc=PRESETS[pi].u.length;
   if(N===0)el.innerHTML="阈值太高：所有隐单元都被压成 0，什么也重构不出来（误差 100%）。把<b>稀疏强度</b>调小一点。";
-  else if(N>tc+1)el.innerHTML="<b>几乎没稀疏（λ≈0）：</b>"+N+" 个单元都微微激活，相邻单元的虚假激活给重构添了毛刺——误差 <b>"+err.toFixed(0)+"%</b>。加点稀疏约束，反而更干净。";
-  else if(err>15)el.innerHTML="<b>稀疏过头：</b>只剩 <b>"+N+"</b> 个单元，把真特征也砍掉了，重构开始失真——误差 <b>"+err.toFixed(0)+"%</b>。";
-  else el.innerHTML="<b>甜点区：</b>只有 <b>"+N+"</b> 个隐单元被激活，却几乎完美重构（误差 <b>"+err.toFixed(0)+"%</b>）——这个信号本就由这几个“特征”叠加而成。稀疏编码既<b>省</b>又<b>干净</b>。";
+  else if(err<=5&&N<=tc)el.innerHTML="<b>甜点区：</b>只有 <b>"+N+"</b> 个隐单元被激活，就几乎完美重构（误差 <b>"+err.toFixed(0)+"%</b>）——这个信号本就由这几个“特征”叠加而成。稀疏编码既<b>省</b>又<b>干净</b>。";
+  else if(N>tc)el.innerHTML="<b>稀疏不足：</b>"+N+" 个单元都在激活，多余单元的虚假激活给重构添了毛刺——误差 <b>"+err.toFixed(0)+"%</b>。把稀疏强度调高，砍掉杂波、只留真特征。";
+  else el.innerHTML="<b>稀疏过头：</b>只剩 <b>"+N+"</b> 个单元，连真特征也被砍掉，重构开始失真——误差 <b>"+err.toFixed(0)+"%</b>。";
 }
 function render(){
   var s=encode(),xr=reconstruct(s),N=s.filter(function(v){return v>lambda;}).length,err=relErr(xr);
