@@ -67,9 +67,9 @@ function render(){
   for(var v=0;v<=MAXD;v++)E(svg,"text",{x:pl-5,y:py(v)+3,"text-anchor":"end","class":"lbl"},v);
   E(svg,"text",{x:pl-5,y:pt-4,"text-anchor":"end","class":"lbl"},"深度");
   // 深度折线（到 step）
-  var dd=depths().d,pts=[];for(var s=0;s<=step;s++)pts.push((pl+s*bw)+","+py(Math.max(0,dd[s])));
-  if(step>=1){E(svg,"polygon",{points:(pl)+","+(H-pb)+" "+pts.join(" ")+" "+(pl+step*bw)+","+(H-pb),"class":"area"});E(svg,"polyline",{points:pts.join(" "),"class":"depth"});}
-  for(var s2=0;s2<=step;s2++)E(svg,"circle",{cx:pl+s2*bw,cy:py(Math.max(0,dd[s2])),r:3,fill:"var(--color-accent)"});
+  var dd=depths().d,pts=[];var xd=function(s){return s===0?pl:pl+(s-0.5)*bw;};for(var s=0;s<=step;s++)pts.push(xd(s)+","+py(Math.max(0,dd[s])));
+  if(step>=1){E(svg,"polygon",{points:(pl)+","+(H-pb)+" "+pts.join(" ")+" "+xd(step)+","+(H-pb),"class":"area"});E(svg,"polyline",{points:pts.join(" "),"class":"depth"});}
+  for(var s2=0;s2<=step;s2++)E(svg,"circle",{cx:xd(s2),cy:py(Math.max(0,dd[s2])),r:3,fill:"var(--color-accent)"});
   var curd=dd[step];
   document.getElementById("stat").textContent="深度 "+curd;
   caption(curd);

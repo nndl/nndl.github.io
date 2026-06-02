@@ -64,12 +64,13 @@ function E(p,t,a,txt){var e=document.createElementNS(SVGNS,t);for(var k in a)e.s
 function col(v){return v<0?"#2563eb":"#b5524a";}
 function render(){
   var svg=document.getElementById("plane");while(svg.firstChild)svg.removeChild(svg.firstChild);
+  var defs=E(svg,"defs",{});[["ruArrowG","var(--color-forest)"],["ruArrowS","#9aa3a8"]].forEach(function(m){var mk=E(defs,"marker",{id:m[0],markerUnits:"userSpaceOnUse",markerWidth:8,markerHeight:8,refX:6,refY:3,orient:"auto"});E(mk,"path",{d:"M0,0 L6,3 L0,6 z",fill:m[1]});});
   for(var t=0;t<step;t++){
     var cx=x0+t*colW+30;
     // recurrence arrow from prev hidden chain
-    if(t>0)E(svg,"line",{x1:x0+(t-1)*colW+30+22,y1:cellY+16,x2:cx-22,y2:cellY+16,"class":"rec","marker-end":""});
+    if(t>0)E(svg,"line",{x1:x0+(t-1)*colW+30+22,y1:cellY+16,x2:cx-22,y2:cellY+16,"class":"rec","marker-end":"url(#ruArrowG)"});
     // input arrow
-    E(svg,"line",{x1:cx,y1:tokY-4,x2:cx,y2:cellY+34,"class":"inp"});
+    E(svg,"line",{x1:cx,y1:tokY-4,x2:cx,y2:cellY+34,"class":"inp","marker-end":"url(#ruArrowS)"});
     // token
     var w=Math.max(34,toks[t].length*15+12);
     E(svg,"rect",{x:cx-w/2,y:tokY,width:w,height:28,rx:5,"class":"tok"});

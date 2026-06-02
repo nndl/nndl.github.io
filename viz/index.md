@@ -191,6 +191,7 @@ redirect_from:
   {% include viz-card.html url="/viz/kmeans/" title="K-means 聚类" blurb="随机撒下中心，反复“投靠最近中心→中心移到群中央”，看点被自动分成几组。" %}
   {% include viz-card.html url="/viz/pca/" title="PCA 主成分分析" blurb="二维点云自动找出最铺得开的主成分方向，沿它投影把二维压成一维。" %}
   {% include viz-card.html url="/viz/gmm/" title="高斯混合与 EM" blurb="高斯混合软聚类，EM 交替算归属概率 / 更新高斯；交界处的点是‘混色’的（对比 K-means 硬分配）。" %}
+  {% include viz-card.html url="/viz/sparse-autoencoder/" title="稀疏自编码器" blurb="编码器把输入压成隐层、解码器再重构；稀疏约束逼大多数隐单元为 0——拖稀疏强度，看少数几个“特征”怎样既省又干净地重建信号。" %}
   {% include viz-card.html
      url="/viz/tsne/"
      title="t-SNE 与降维"
@@ -245,6 +246,7 @@ redirect_from:
 
 <div class="viz-grid">
   {% include viz-card.html url="/viz/hmm-viterbi/" title="HMM 维特比解码" blurb="天气看不见，只看见带没带伞——用动态规划在网格里逐列挑最优前驱，回溯出最可能的隐藏天气序列。" %}
+  {% include viz-card.html url="/viz/gmm/" title="高斯混合与 EM" blurb="含隐变量 z 的概率模型：每个点先选一个高斯、再采样得到坐标；EM 反推每个点的归属概率 P(z|x) 并更新各高斯。" %}
 </div>
 
 ## 第 15 章 · 深度信念网络

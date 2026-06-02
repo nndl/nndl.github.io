@@ -109,7 +109,7 @@ function caption(){
   var el=document.getElementById("caption"),name=PN[curIdx];
   if(step===0){el.innerHTML="一张带噪的数字“<b>"+name+"</b>”（随机翻了几个像素）。点“下一步”，先把它编码成隐单元。";return;}
   var a=encode(v0),best=0;for(var k=1;k<K;k++)if(a[k]>a[best])best=k;
-  if(step===1){el.innerHTML="<b>编码 v→h：</b>每个隐单元拿自己的特征模板和输入比对——最像“<b>"+PN[best]+"</b>”的那个被强烈激活（"+(a[best]*100).toFixed(0)+"%），其余几乎不亮。35 个像素压成了 3 个数。";return;}
+  if(step===1){el.innerHTML="<b>编码 v→h：</b>每个隐单元拿自己的特征模板和输入比对——最像“<b>"+PN[best]+"</b>”的那个被强烈激活（"+(a[best]*100).toFixed(0)+"%），其余明显更弱。35 个像素压成了 3 个数。";return;}
   if(step===2){el.innerHTML="<b>重构 h→v′：</b>只凭激活的隐单元把图像画回来。它只会画自己学过的特征，画不出噪点——于是输入被<b>去噪</b>，干净的“"+PN[best]+"”回来了。";return;}
   el.innerHTML="<b>再采样一轮：</b>把重构 v′ 再编码、再重构，图像几乎不变——已落入能量低谷、采样稳定。RBM 训练（对比散度）正是这样来回采样的；多个 RBM 叠起来就是<b>深度信念网络</b>。";
 }

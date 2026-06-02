@@ -87,11 +87,12 @@ function render(){
   var full=d*d, lora=2*d*r, ratio=full/lora;
   var host=document.getElementById("pcompare");host.innerHTML="";
   function row(label,val,frac,col){return '<span style="font-size:.85rem">'+label+'</span><div class="pbar" style="background:'+col+';width:'+Math.max(4,frac*100)+'%"></div><b style="font-family:var(--font-mono)">'+val+'</b>';}
-  host.innerHTML=row("全量微调 d²",full+" 个",1,"#cdd6d4")+row("LoRA 2·d·r",lora+" 个",lora/full,"var(--color-accent)");
+  host.innerHTML=row("全量微调 d²",full+" 个",1,"#cdd6d4")+row("LoRA 2·d·r",lora+" 个",Math.min(1,lora/full),"var(--color-accent)");
   caption(full,lora,ratio);
 }
 function caption(full,lora,ratio){
-  document.getElementById("caption").innerHTML="d="+d+"、r="+r+"：全量微调要训 <b>"+full+"</b> 个参数，LoRA 只训 <b style='color:var(--color-accent)'>"+lora+"</b> 个，省了 <b>"+ratio.toFixed(1)+"×</b>。真实模型里 d 是几千，省得更夸张——比如 d=4096、r=8，比例是 4096/16 = <b>256×</b>。";
+  var saved=(lora<full)?("省了 <b>"+ratio.toFixed(1)+"×</b>"):("反而<b>更多</b>——r 太大就不省了（低秩补丁只在 r≪d 时划算）");
+  document.getElementById("caption").innerHTML="d="+d+"、r="+r+"：全量微调要训 <b>"+full+"</b> 个参数，LoRA 训 <b style='color:var(--color-accent)'>"+lora+"</b> 个，"+saved+"。真实模型里 d 是几千，省得更夸张——比如 d=4096、r=8，比例是 4096/16 = <b>256×</b>。";
 }
 document.getElementById("d").addEventListener("input",function(e){d=+e.target.value;render();});
 document.getElementById("r").addEventListener("input",function(e){r=+e.target.value;render();});

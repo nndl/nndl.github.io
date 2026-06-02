@@ -311,6 +311,29 @@ def _t_llm_internals():
     b.append(text(lx + 1.5 * step, 144, "logits", 10, AXIS))
     return svg("".join(b))
 
+def _t_sparse_autoencoder():
+    b = []
+    inx, outx, hx = 46, 274, 160
+    iny = [60, 90, 120, 150]
+    hy = [34 + i * (142.0 / 11) for i in range(12)]
+    active = [2, 6, 9]
+    for hi in active:
+        for yy in iny:
+            b.append(line(inx + 9, yy + 8, hx - 6.5, hy[hi], TEAL, 1, op=0.22))
+            b.append(line(hx + 6.5, hy[hi], outx - 9, yy + 8, TEAL, 1, op=0.22))
+    for yy in iny:
+        b.append(rect(inx - 9, yy, 18, 16, TEALF, TEAL, 1.4, rx=3))
+        b.append(rect(outx - 9, yy, 18, 16, TEALF, TEAL, 1.4, rx=3))
+    for i, yy in enumerate(hy):
+        on = i in active
+        b.append(circ(hx, yy, 6.5, TEAL if on else "#dfe3e6", "#fff" if on else AXIS, 2 if on else 1.2))
+    b.append(text(103, 26, "编码", 10, AXIS))
+    b.append(text(217, 26, "解码", 10, AXIS))
+    b.append(text(inx, 180, "输入", 10, AXIS))
+    b.append(text(outx, 180, "重构", 10, AXIS))
+    b.append(text(hx, 196, "稀疏隐层（多数为 0）", 10, AXIS))
+    return svg("".join(b))
+
 # slug -> draw function. Add new entries here.
 THUMBS = {
     "rnn-unroll": _t_rnn_unroll,
@@ -324,6 +347,7 @@ THUMBS = {
     "adaboost": _t_adaboost,
     "rbm-reconstruction": _t_rbm_reconstruction,
     "llm-internals": _t_llm_internals,
+    "sparse-autoencoder": _t_sparse_autoencoder,
 }
 
 # ---------------------------------------------------------------- validation

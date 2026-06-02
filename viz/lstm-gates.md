@@ -76,6 +76,7 @@ function render(){
 }
 function caption(hold){
   var el=document.getElementById("caption");
+  if(hold===0){el.innerHTML="<b>输入门=0：</b>这一步没有写入任何值，细胞状态一直贴着 0——把<b>输入门</b>调大，才有记忆可让遗忘门去守住。";return;}
   if(f>=0.97)el.innerHTML="<b>遗忘门≈1：</b>存入的值几乎原样保留，金线一路走平——记忆撑过了大约 <b>"+hold+"</b> 步、几乎不衰减。普通 RNN 这时早就忘光了，这就是 LSTM 记得久的秘密。";
   else if(f>=0.8)el.innerHTML="<b>遗忘门="+f.toFixed(2)+"：</b>记忆缓慢漏掉，金线逐步下滑，保持约 "+hold+" 步。把遗忘门再调高，记忆撑得更久。";
   else el.innerHTML="<b>遗忘门="+f.toFixed(2)+"（偏小）：</b>记忆很快漏光，只撑了约 "+hold+" 步——退化得像普通 RNN。把遗忘门调到接近 1 试试。";
