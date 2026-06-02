@@ -34,7 +34,7 @@ redirect_from:
       <span class="vizui-spacer"></span>
       <span class="vizui-pill" id="stat">0 次合并</span>
     </div>
-    <svg id="plane" viewBox="0 0 470 270" role="img" aria-label="BPE 合并"></svg>
+    <svg id="plane" viewBox="0 0 470 300" role="img" aria-label="BPE 合并"></svg>
   </div>
 
   <div class="vizui-caption" id="caption"></div>
@@ -54,7 +54,13 @@ var init=[{w:["l","o","w"],f:5},{w:["l","o","w","e","r"],f:2},{w:["n","e","w","e
 var toks,merges,timer=null;
 function reset(){toks=init.map(function(c){return {w:c.w.slice(),f:c.f};});merges=[];}
 reset();
-function bestPair(){var cnt={};toks.forEach(function(t){for(var i=0;i<t.w.length-1;i++){var p=t.w[i]+""+t.w[i+1];cnt[p]=(cnt[p]||0)+t.f;}});var best=null,bc=0;for(var p in cnt)if(cnt[p]>bc){bc=cnt[p];best=p;}return best?{a:best.split("")[0],b:best.split("")[1],c:bc}:null;}
+/* 用 '#' 作配对键分隔符（语料里都是字母，绝不会出现 '#'）：保证 es+t 与 e+st 不会撞键、且能正确还原成员 */
+function bestPair(){
+  var cnt={},info={};
+  toks.forEach(function(t){for(var i=0;i<t.w.length-1;i++){var a=t.w[i],b=t.w[i+1],key=a+"#"+b;cnt[key]=(cnt[key]||0)+t.f;info[key]=[a,b];}});
+  var best=null,bc=0;for(var k in cnt)if(cnt[k]>bc){bc=cnt[k];best=k;}
+  return best?{a:info[best][0],b:info[best][1],c:bc}:null;
+}
 function doMerge(){var bp=bestPair();if(!bp)return false;var m=bp.a+bp.b;merges.push({a:bp.a,b:bp.b,m:m,c:bp.c});toks.forEach(function(t){var nw=[];for(var i=0;i<t.w.length;i++){if(i<t.w.length-1&&t.w[i]===bp.a&&t.w[i+1]===bp.b){nw.push(m);i++;}else nw.push(t.w[i]);}t.w=nw;});return true;}
 var SVGNS="http://www.w3.org/2000/svg";
 function E(p,t,a,txt){var e=document.createElementNS(SVGNS,t);for(var k in a)e.setAttribute(k,a[k]);if(txt!=null)e.textContent=txt;p.appendChild(e);return e;}
@@ -72,11 +78,11 @@ function render(){
     }
     E(svg,"text",{x:x+8,y:y+18,"class":"lbl"},"×"+t.f);
   }
-  E(svg,"text",{x:20,y:200,"class":"lbl"},"已学合并规则：");
-  var rx=20;
-  for(var k=0;k<merges.length;k++){var s=merges[k].a+"+"+merges[k].b+"→"+merges[k].m;E(svg,"text",{x:rx,y:222,"class":"rule"},s);rx+=s.length*7.5+14;if(rx>430){rx=20;}}
-  if(nb)E(svg,"text",{x:20,y:252,"class":"lbl"},"下一步：合并最高频对 “"+nb.a+nb.b+"”（出现 "+nb.c+" 次）");
-  else E(svg,"text",{x:20,y:252,"class":"lbl",style:"fill:var(--color-forest);font-weight:600"},"没有可再合并的高频对了（每个词已基本整块）。");
+  if(nb)E(svg,"text",{x:20,y:186,"class":"lbl"},"下一步：合并最高频对 “"+nb.a+nb.b+"”（出现 "+nb.c+" 次）");
+  else E(svg,"text",{x:20,y:186,"class":"lbl",style:"fill:var(--color-forest);font-weight:600"},"没有可再合并的高频对了（每个词已基本整块）。");
+  E(svg,"text",{x:20,y:212,"class":"lbl"},"已学合并规则：");
+  var rx=20,ry=232;
+  for(var k=0;k<merges.length;k++){var s=merges[k].a+"+"+merges[k].b+"→"+merges[k].m;E(svg,"text",{x:rx,y:ry,"class":"rule"},s);rx+=s.length*7.5+14;if(rx>430){rx=20;ry+=18;}}
   document.getElementById("stat").textContent=merges.length+" 次合并";
   caption(nb);
 }

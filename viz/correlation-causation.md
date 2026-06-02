@@ -21,7 +21,7 @@ redirect_from:
 
 # 相关不等于因果
 
-一个经典的例子：城市里**冰淇淋销量**越高，**溺水人数**也越多，两者高度相关。难道吃冰淇淋会让人溺水？当然不是——背后藏着一个共同的原因：**气温**。天一热，冰淇淋卖得多，下水游泳的人也多、溺水自然多。是气温同时推高了两者，它俩之间并没有直接的因果关系。这就是数据分析最容易踩的坑：看到相关，就以为有因果。下面把隐藏的气温“控制住”，看那条相关性怎么凭空消失。
+一个经典的例子：城市里**冰淇淋销量**越高，**溺水人数**也越多，两者高度相关。难道吃冰淇淋会让人溺水？当然不是——背后藏着一个共同的原因：**气温**。天一热，冰淇淋卖得多，下水游泳的人也多、溺水自然多。是气温同时推高了两者，它俩之间并没有直接的因果关系。这就是数据分析最容易踩的坑：看到相关，就以为有因果。下面把隐藏的气温“控制住”，看那条相关性怎么大幅减弱。
 
 <section class="cclab vizui" id="cclab">
   <p class="vizui__lead">每个点是某一天：横轴冰淇淋销量、纵轴溺水人数，颜色是当天气温（<span style="color:#2563eb">蓝=凉</span> → <span style="color:#b5524a">红=热</span>）。整体看是一条明显的上升趋势（强相关）。但把气温固定在某个范围内再看……</p>
@@ -40,7 +40,7 @@ redirect_from:
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-accent)"><b>共同原因 = 混淆变量</b><p>气温同时推高冰淇淋和溺水，制造出两者的假相关——它叫“混淆变量”。</p></div>
-    <div class="card" style="--wc:var(--color-forest)"><b>控制变量</b><p>把气温固定在一个小范围内再看，冰淇淋和溺水的相关就消失了——证明没有直接因果。</p></div>
+    <div class="card" style="--wc:var(--color-forest)"><b>控制变量</b><p>把气温固定在一个小范围内再看，冰淇淋和溺水的相关就大幅减弱——说明并无直接因果。</p></div>
     <div class="card" style="--wc:var(--color-gold)"><b>所以要小心</b><p>看到相关别急着下因果结论；要靠对照实验或控制混淆变量才能验证因果。</p></div>
   </div>
 </section>
@@ -79,7 +79,7 @@ function draw(){
 function caption(rAll,rBand,nb){
   var el=document.getElementById("caption");
   if(!ctrl)el.innerHTML="<b>总体相关 r = "+rAll.toFixed(2)+"</b>，很强——冰淇淋越多、溺水越多，一条清晰的上升趋势。勾上方框，把气温“控制”在一个小范围内再看。";
-  else el.innerHTML="只看气温相近的那 "+nb+" 天（同色点），冰淇淋和溺水的相关掉到了 <b>r = "+rBand.toFixed(2)+"</b>——几乎没关系了！原来那条强相关全是<b>气温</b>这个共同原因造出来的假象，两者之间并没有因果。";
+  else el.innerHTML="只看气温相近的那 "+nb+" 天（同色点），冰淇淋和溺水的相关掉到了 <b>r = "+rBand.toFixed(2)+"</b>——大幅减弱！原来那条强相关大半是<b>气温</b>这个共同原因造出来的假象，两者之间并没有直接因果。";
 }
 document.getElementById("ctrl").addEventListener("change",function(e){ctrl=e.target.checked;document.getElementById("zf").style.display=ctrl?"inline-flex":"none";draw();});
 document.getElementById("z").addEventListener("input",function(e){z0=+e.target.value;draw();});

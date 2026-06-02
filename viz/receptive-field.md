@@ -49,10 +49,10 @@ redirect_from:
 (function(){
 "use strict";
 var K=21, center=10, L=1;
-var SVGNS="http://www.w3.org/2000/svg",W=560,H=320,padX=30,padY=26;
+var SVGNS="http://www.w3.org/2000/svg",W=560,H=320,padX=46,padY=26;
 function nx(j){return padX+j*((W-2*padX)/(K-1));}
 function ny(r){return (H-padY)-r*((H-2*padY)/6);}
-function E(p,t,a){var e=document.createElementNS(SVGNS,t);for(var k in a)e.setAttribute(k,a[k]);p.appendChild(e);return e;}
+function E(p,t,a,txt){var e=document.createElementNS(SVGNS,t);for(var k in a)e.setAttribute(k,a[k]);if(txt!=null)e.textContent=txt;p.appendChild(e);return e;}
 function render(){
   var svg=document.getElementById("plane");while(svg.firstChild)svg.removeChild(svg.firstChild);
   // 锥形：顶层神经元(center,row L) 向下张到输入 [center-L, center+L]

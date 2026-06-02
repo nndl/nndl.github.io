@@ -65,7 +65,7 @@ function buildGrid(){
     else{var cls="c";
       if(s===step-1){ // 当前步
         if(!cache||j===s)cls+=" now"; else cls+=" cached";
-      }else cls+=" done";
+      }else{cls+=cache?" done":" now";}
       c.className=cls;}
     h.appendChild(c);
   }

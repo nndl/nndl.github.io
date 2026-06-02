@@ -77,7 +77,7 @@ function render(){
   var bins=hist(meanGetter,TRIALS);
   // 理论高斯标准差 = 原std/√n，转成直方图高度比例需匹配峰值，这里只画形状（按 max 归一）
   var sd=stat.std/Math.sqrt(n);
-  drawHist("plot",bins,sd>0.002?sd*Math.SQRT2*1.0:0.01);   /* 用 sd 控制钟形宽度 */
+  drawHist("plot",bins,sd>0.002?sd:0.01);   /* 高斯宽度 = 均值分布的标准差 sd = 原std/√n（与直方图同峰归一） */
   caption(sd);
 }
 function caption(sd){

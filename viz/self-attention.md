@@ -122,8 +122,9 @@ function draw(){
   words.forEach(function(el){el.style.background="";el.classList.remove("q");});
   if(sel==null){document.getElementById("readout").innerHTML="";return;}
   var row=mats[head][sel];
-  function cx(el){return el.offsetLeft+el.offsetWidth/2;}
-  function ty(el){return el.offsetTop;}
+  var sRect=stage.getBoundingClientRect();
+  function cx(el){var r=el.getBoundingClientRect();return r.left-sRect.left+r.width/2;}
+  function ty(el){var r=el.getBoundingClientRect();return r.top-sRect.top;}
   var qx=cx(words[sel]), qy=ty(words[sel]);
   // 连线（按权重从小到大画，强的在上层）
   var order=[]; for(var k=0;k<row.length;k++) if(k!==sel) order.push(k);

@@ -33,7 +33,7 @@ redirect_from:
       <span class="vizui-spacer"></span>
       <span class="vizui-pill" id="stat">—</span>
     </div>
-    <svg id="plane" viewBox="0 0 360 330" role="img" aria-label="归一化网格"></svg>
+    <svg id="plane" viewBox="0 0 360 340" role="img" aria-label="归一化网格"></svg>
   </div>
 
   <div class="vizui-caption" id="caption"></div>
@@ -58,7 +58,7 @@ function norm(m){
   else { for(i=0;i<N;i++){var mu2=0;for(j=0;j<D;j++)mu2+=raw[i][j];mu2/=D;var sd2=0;for(j=0;j<D;j++)sd2+=(raw[i][j]-mu2)*(raw[i][j]-mu2);sd2=Math.sqrt(sd2/D)||1;for(j=0;j<D;j++)out[i][j]=(raw[i][j]-mu2)/sd2;} }
   return out;
 }
-var SVGNS="http://www.w3.org/2000/svg",cw=52,ch=30,x0=58,y0=24,y1=200;
+var SVGNS="http://www.w3.org/2000/svg",cw=52,ch=30,x0=58,y0=38,y1=206;
 function col(v,lo,hi){var t=(v-lo)/(hi-lo);t=t<0?0:t>1?1:t;var b=[37,99,235],w=[245,245,245],r=[181,82,74];var a,c;if(t<0.5){a=t/0.5;c=[b[0]+(w[0]-b[0])*a,b[1]+(w[1]-b[1])*a,b[2]+(w[2]-b[2])*a];}else{a=(t-0.5)/0.5;c=[w[0]+(r[0]-w[0])*a,w[1]+(r[1]-w[1])*a,w[2]+(r[2]-w[2])*a];}return"rgb("+(c[0]|0)+","+(c[1]|0)+","+(c[2]|0)+")";}
 function E(p,t,a,txt){var e=document.createElementNS(SVGNS,t);for(var k in a)e.setAttribute(k,a[k]);if(txt!=null)e.textContent=txt;p.appendChild(e);return e;}
 function grid(svg,data,gy,lo,hi){
@@ -74,7 +74,7 @@ function render(){
   var nd=norm(mode);
   E(svg,"text",{x:x0,y:14,"class":"lbl",style:"font-weight:600"},"原始数据");
   grid(svg,raw,y0,-2.5,9.5);
-  E(svg,"text",{x:x0,y:y1-10,"class":"lbl",style:"font-weight:600"},"归一化后（均值0·方差1）");
+  E(svg,"text",{x:x0,y:y1-24,"class":"lbl",style:"font-weight:600"},"归一化后（均值0·方差1）");
   grid(svg,nd,y1,-1.8,1.8);
   // 金框：BN 圈一列，LN 圈一行（演示第1组）
   if(mode==="bn"){ E(svg,"rect",{x:x0-1,y:y0-1,width:cw+2,height:N*ch+2,"class":"grp"}); E(svg,"rect",{x:x0-1,y:y1-1,width:cw+2,height:N*ch+2,"class":"grp"}); }

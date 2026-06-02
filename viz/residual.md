@@ -23,7 +23,7 @@ redirect_from:
 网络越深，本该越强，但早年一深就训不动——因为反向传播时，梯度要穿过每一层、一路连乘小于 1 的数，传到底层就几乎归零（梯度消失）。残差连接（ResNet 的核心）加了一条“跳线”：每个模块的输出 = 输入 + 这个模块学到的修正。反向求导时，这条跳线给梯度留了一条**直通的高速路**（导数里多了个 +1），于是梯度怎么都不会被乘没。正因如此，几百上千层的网络才训得起来，Transformer 里也到处是它。拖动深度，对比两边梯度传到底层还剩多少。
 
 <section class="reslab vizui" id="reslab">
-  <p class="vizui__lead">每个色块是一层，颜色越亮表示反向传播时梯度传到这一层还越强。梯度从顶部（输出）往下传到底部（输入）。左边普通堆叠，右边每层带一条绿色跳线。</p>
+  <p class="vizui__lead">每个色块是一层，颜色越深（浓）表示反向传播时梯度传到这一层还越强、越浅（发白）表示越弱。梯度从顶部（输出）往下传到底部（输入）。左边普通堆叠，右边每层带一条绿色跳线。</p>
 
   <div class="vizui-panel">
     <div class="vizui-bar">
@@ -62,7 +62,7 @@ function drawCol(id,residual){
     var mag=residual?1:Math.pow(decay,fromTop);
     var y=top+k*bh;
     E(svg,"rect",{x:40,y:y+1,width:W-80,height:bh-2,rx:3,fill:tealOf(Math.max(0.04,mag)),"class":"blk"});
-    if(residual){E(svg,"path",{d:"M"+(W-40)+","+(y+bh/2)+" C"+(W-18)+","+(y+bh/2)+" "+(W-18)+","+(y+bh+bh/2)+" "+(W-40)+","+(y+bh+bh/2),"class":"skip"});}
+    if(residual&&k<N-1){E(svg,"path",{d:"M"+(W-40)+","+(y+bh/2)+" C"+(W-18)+","+(y+bh/2)+" "+(W-18)+","+(y+bh+bh/2)+" "+(W-40)+","+(y+bh+bh/2),"class":"skip"});}
   }
   E(svg,"text",{x:W/2,y:10,"text-anchor":"middle","class":"flow"}).textContent="输出 ↑ 梯度";
   E(svg,"text",{x:W/2,y:H-2,"text-anchor":"middle","class":"flow"}).textContent="输入（底层）";
@@ -75,7 +75,7 @@ function render(){
   caption(rem);
 }
 function caption(rem){
-  document.getElementById("caption").innerHTML="深度 "+N+" 层时，梯度传到最底层：普通网络只剩 <b style='color:#b5524a'>"+(rem<0.001?rem.toExponential(1):(rem*100).toFixed(1)+"%")+"</b>（底部几乎全黑——学不动），残差网络靠跳线<b style='color:var(--color-forest)'>≈100%</b>保住（整列都亮）。深度越大，差距越悬殊。";
+  document.getElementById("caption").innerHTML="深度 "+N+" 层时，梯度传到最底层：普通网络只剩 <b style='color:#b5524a'>"+(rem<0.001?rem.toExponential(1):(rem*100).toFixed(1)+"%")+"</b>（底部几乎褪成白色——学不动），残差网络靠跳线<b style='color:var(--color-forest)'>≈100%</b>保住（整列都是深色）。深度越大，差距越悬殊。";
 }
 document.getElementById("n").addEventListener("input",function(e){N=+e.target.value;render();});
 render();

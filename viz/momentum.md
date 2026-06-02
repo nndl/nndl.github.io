@@ -91,7 +91,7 @@ function stepOnce(){
 /* ---------- 绘图 ---------- */
 var SVGNS="http://www.w3.org/2000/svg", W=480,H=240,pad=18;
 function wx(x){return pad+(x+3)/6*(W-2*pad);}
-function wy(y){return pad+(1.2-y)/2.4*(H-2*pad);}
+function wy(y){return pad+(1.5-y)/3.0*(H-2*pad);}
 function E(p,t,a){var e=document.createElementNS(SVGNS,t);for(var k in a)e.setAttribute(k,a[k]);p.appendChild(e);return e;}
 function poly(svg,arr,cls){if(arr.length<2)return;var pts=arr.map(function(p){return wx(p.x)+","+wy(p.y);});E(svg,"polyline",{points:pts.join(" "),"class":cls});}
 function draw(){
@@ -113,7 +113,11 @@ function draw(){
 
 function caption(){
   var el=document.getElementById("caption");
-  if(divergedS){el.innerHTML="<b>红球发散了！</b>学习率 "+lr.toFixed(3)+" 在陡峭方向上步子太大，普通梯度下降越跳越远冲出了山谷。绿球靠动量仍稳稳收敛——这正是动量的好处。";return;}
+  if(divergedS){
+    if(dist(posM)>6)el.innerHTML="<b>两个球都发散了！</b>学习率 "+lr.toFixed(3)+" 太大——这个陡峭方向上步子过大，连动量也拉不住，双双冲出了山谷。把学习率调小些。";
+    else el.innerHTML="<b>红球发散了！</b>学习率 "+lr.toFixed(3)+" 在陡峭方向上步子太大，普通梯度下降越跳越远冲出了山谷。绿球靠动量仍稳稳收敛——这正是动量的好处。";
+    return;
+  }
   if(step===0){el.innerHTML="点“开始”。注意红球（普通梯度下降）会在山谷两壁间来回横跳，绿球（带动量）则顺着谷底加速。";return;}
   var dS=dist(posS), dM=dist(posM);
   if(dM<0.05 && dS>0.3){el.innerHTML="第 "+step+" 步：<b>绿球已经到底</b>，红球还在半路横跳。同样的学习率，动量明显更快。";return;}

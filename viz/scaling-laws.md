@@ -55,7 +55,7 @@ var E0=1.55, A=7.5, alpha=0.26;   /* loss = E0 + A * N^(-alpha)，N=参数量(�
 var logN=1.4;
 function loss(lg){return E0+A*Math.pow(Math.pow(10,lg),-alpha);}
 var SVGNS="http://www.w3.org/2000/svg",W=460,H=280,pl=44,pr=16,pt=16,pb=34;
-var XLO=0,XHI=6, LYLO=Math.log10(E0+0.05), LYHI=Math.log10(loss(0)+0.5);
+var XLO=0,XHI=6, LYLO=Math.log10(E0)-0.015, LYHI=Math.log10(loss(0)+0.5);
 function px(lg){return pl+(lg-XLO)/(XHI-XLO)*(W-pl-pr);}
 function py(L){return (H-pb)-(Math.log10(L)-LYLO)/(LYHI-LYLO)*(H-pt-pb);}
 function E(p,t,a){var e=document.createElementNS(SVGNS,t);for(var k in a)e.setAttribute(k,a[k]);p.appendChild(e);return e;}
@@ -67,8 +67,8 @@ function draw(){
   E(svg,"text",{x:pl,y:pt-4,"text-anchor":"middle","class":"alab"}).textContent="损失";
   E(svg,"text",{x:W-pr,y:H-pb+26,"text-anchor":"end","class":"alab"}).textContent="参数量（对数）";
   // 下限
-  E(svg,"line",{x1:pl,y1:py(E0+0.012),x2:W-pr,y2:py(E0+0.012),"class":"floor"});
-  E(svg,"text",{x:W-pr,y:py(E0+0.012)-4,"text-anchor":"end","class":"alab",style:"fill:var(--color-gold)"}).textContent="不可约下限";
+  E(svg,"line",{x1:pl,y1:py(E0),x2:W-pr,y2:py(E0),"class":"floor"});
+  E(svg,"text",{x:W-pr,y:py(E0)-4,"text-anchor":"end","class":"alab",style:"fill:var(--color-gold)"}).textContent="不可约下限";
   // 实测段(0~2) + 外推段(2~6)
   function seg(a,b,cls){var p=[];for(var i=0;i<=40;i++){var lg=a+(b-a)*i/40;p.push(px(lg)+","+py(loss(lg)));}E(svg,"polyline",{points:p.join(" "),"class":cls});}
   seg(0,2,"curve");seg(2,6,"extra");

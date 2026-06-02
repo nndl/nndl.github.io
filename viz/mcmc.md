@@ -23,7 +23,7 @@ redirect_from:
 有时我们想从一个复杂分布里“抽样”（比如贝叶斯里的后验分布），但这个分布形状古怪、没法直接抽。MCMC（马尔可夫链蒙特卡洛）给了一个聪明的随机游走办法：从某个点出发，每步随机往旁边迈一小步——如果新位置概率更高就去，概率更低也按比例有机会去（这点很关键，让它不会卡在一个峰里）。走着走着，停留过的点就会**自动按目标分布的密度铺开**：高概率的地方点密、低概率的地方点疏。点“开始游走”，看金色样本怎么慢慢勾勒出背后的分布。
 
 <section class="mcmclab vizui" id="mcmclab">
-  <p class="vizui__lead">背景的青色浓淡是目标分布（越浓概率越高，这里是两个“山峰”）。红点是当前游走者，金点是它一路接受的样本。看金点怎么聚成和背景一样的形状。</p>
+  <p class="vizui__lead">背景的青色浓淡是目标分布（越浓概率越高，这里有几个“山峰”）。红点是当前游走者，金点是它一路接受的样本。看金点怎么聚成和背景一样的形状。</p>
 
   <div class="vizui-panel">
     <div class="vizui-bar">
@@ -75,7 +75,7 @@ function render(){draw();caption();}
 function caption(){
   var el=document.getElementById("caption");
   if(samples.length<5)el.innerHTML="点“开始游走”。红点从角落出发随机迈步，往概率高的山峰走，金色样本会慢慢堆积。";
-  else if(samples.length<300)el.innerHTML="走了 "+samples.length+" 步：金点开始往两个山峰聚拢，山谷里很稀疏——样本密度正在贴近目标分布。";
+  else if(samples.length<300)el.innerHTML="走了 "+samples.length+" 步：金点开始往几个山峰聚拢，山谷里很稀疏——样本密度正在贴近目标分布。";
   else el.innerHTML="已有 "+samples.length+" 个样本：金点的分布几乎和背景的青色浓淡一模一样了。这堆样本就可以代替那个难算的分布拿去做统计——这就是 MCMC 的本事。";
 }
 function stop(){playing=false;if(timer){clearInterval(timer);timer=null;}document.getElementById("go").textContent="▶ 开始游走";}
