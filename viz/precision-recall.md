@@ -50,7 +50,7 @@ redirect_from:
       <span class="vizui-spacer"></span>
       <button class="vizui-btn vizui-btn--go" id="auto" type="button">▶ 扫一遍阈值</button>
     </div>
-    <svg class="vizui-chart" id="strip" viewBox="0 0 460 110" role="img" aria-label="邮件分数分布与阈值"></svg>
+    <svg class="vizui-chart" id="strip" viewBox="0 -12 460 122" role="img" aria-label="邮件分数分布与阈值"></svg>
   </div>
 
   <div class="vizui-grid2">

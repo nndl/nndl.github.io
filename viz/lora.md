@@ -27,7 +27,7 @@ redirect_from:
 把一个几百亿参数的大模型微调到你的新任务上，如果每个权重都更新，既费显存又费时间，还得为每个任务存一整份模型。LoRA 的巧思是：**把原来的大权重矩阵冻住完全不动，只在旁边训练一个“低秩补丁”**——用两个又瘦又长的小矩阵 A、B 相乘得到一个修正量 ΔW = A·B，加到原权重上。因为 A、B 很小，要训练的参数从 d×d 骤降到 2×d×r（r 很小，比如 4、8）。一个几 GB 的模型，补丁可能只有几 MB。拖动维度和秩，看要训练的参数少了多少。
 
 <section class="lolab vizui" id="lolab">
-  <p class="vizui__lead"><span style="color:#9aa5a3;font-weight:600">灰=冻结的原权重 W（不训练）</span>，<span style="color:var(--color-accent);font-weight:600">蓝=要训练的小矩阵 A、B</span>。它俩相乘得到金色的修正 ΔW，加到 W 上。真正训练的只有蓝色那点。</p>
+  <p class="vizui__lead"><span style="color:#9aa5a3;font-weight:600">灰=冻结的原权重 W（不训练）</span>，<span style="color:var(--color-accent);font-weight:600">蓝=要训练的小矩阵 A、B</span>。A、B 相乘得到低秩修正 ΔW，与冻结的 W 相加，就是金色的更新后权重 W′。真正训练的只有蓝色那点。</p>
 
   <div class="vizui-panel">
     <div class="vizui-bar">
@@ -72,10 +72,14 @@ function draw(){
   var xB=xA+r*cs+24;grid(svg,xB,y0,d,r,"train",cs);
   E(svg,"text",{x:xB+Wd/2,y:y0-8,"class":"mlab"}).textContent="B";
   E(svg,"text",{x:xB+Wd+18,y:y0+Wd/2+6,"class":"op"}).textContent="=";
-  // ΔW = A·B (d×d, low rank)
+  // 结果：更新后的权重 W′ = W + A·B（d×d）
   var xD=xB+Wd+34;grid(svg,xD,y0,d,d,"delta",cs);
-  E(svg,"text",{x:xD+Wd/2,y:y0-8,"class":"mlab",style:"fill:var(--color-gold)"}).textContent="ΔW";
-  E(svg,"text",{x:xD+Wd/2,y:y0+Wd+16,"class":"mlab"}).textContent="秩 "+r;
+  E(svg,"text",{x:xD+Wd/2,y:y0-8,"class":"mlab",style:"fill:var(--color-gold)"}).textContent="W′";
+  E(svg,"text",{x:xD+Wd/2,y:y0+Wd+16,"class":"mlab"}).textContent="更新后";
+  // A·B 即低秩修正 ΔW —— 真正训练的只有这部分（秩 r）
+  E(svg,"text",{x:(xA+xB+Wd)/2,y:y0+Wd+16,"class":"mlab"}).textContent="A·B = ΔW（秩 "+r+"）";
+  // 动态 viewBox：随 d、r 自适应，矩阵再大也不会超出图框被裁剪
+  svg.setAttribute("viewBox","0 0 "+(xD+Wd+12)+" "+(y0+Wd+28));
 }
 function render(){
   document.getElementById("dVal").textContent=d;document.getElementById("rVal").textContent=r;

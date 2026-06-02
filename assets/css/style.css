@@ -2494,7 +2494,7 @@ a.pdf-badge:hover {
 /* ---------- 交互演示通用控件（/viz/ 自制交互页共用） ---------- */
 .vizui { font-family: var(--font-sans); color: var(--color-text); margin: 24px 0 8px; }
 .vizui * { box-sizing: border-box; }
-.vizui__lead { color: var(--color-text-soft); max-width: 62ch; margin: 0 0 20px; }
+.vizui__lead { color: var(--color-text-soft); margin: 0 0 20px; }
 .vizui-panel {
   background: var(--color-bg-pure); border: 1px solid var(--color-border);
   border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); padding: 18px 20px; margin: 14px 0;
