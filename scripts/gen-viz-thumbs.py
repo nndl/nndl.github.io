@@ -334,6 +334,360 @@ def _t_sparse_autoencoder():
     b.append(text(hx, 196, "稀疏隐层（多数为 0）", 10, AXIS))
     return svg("".join(b))
 
+def _t_l1_l2_geometry():
+    b = []
+    ox, oy = 70, 120          # origin on axes
+    # axes
+    b.append(line(ox, 178, ox, 28, AXIS, 1.4))
+    b.append(line(40, oy, 300, oy, AXIS, 1.4))
+    b.append(text(296, oy - 6, "w₁", 11, AXIS, 600, anchor="end"))
+    b.append(text(ox + 12, 34, "w₂", 11, AXIS, 600, anchor="start"))
+    # L2 unconstrained optimum w* (upper right)
+    cx, cy = 196, 66
+    import math
+    # two pale-teal elliptical contours around w*
+    for rad in (54, 34):
+        pts = []
+        for i in range(33):
+            t = 2 * math.pi * i / 32
+            pts.append((cx + rad * 1.25 * math.cos(t), cy + rad * 0.78 * math.sin(t)))
+        b.append(poly(pts, TEAL, 1.8))
+    b.append(circ(cx, cy, 3.5, TEAL, "#fff", 1.4))
+    b.append(text(cx + 8, cy - 4, "w*", 11, TEAL, 700, anchor="start"))
+    # L1 diamond constraint region (corners on axes)
+    d = 50
+    dia = [(ox + d, oy), (ox, oy - d), (ox - d, oy), (ox, oy + d), (ox + d, oy)]
+    b.append(poly(dia, BLUE, 2.6, fill="#e8eefb"))
+    b.append(text(ox - d + 4, oy + d - 8, "‖w‖₁≤t", 10, BLUE, 700, anchor="start"))
+    # red solution at the right corner (on w₁ axis, w₂=0)
+    sx, sy = ox + d, oy
+    b.append(circ(sx, sy, 6, RED, "#fff", 2))
+    # dashed drop to x-axis (already on axis: short tick label)
+    b.append(line(sx, sy, sx, oy + 30, RED, 1.6, dash="4 4"))
+    b.append(text(sx, oy + 44, "w₂=0", 10, RED, 700))
+    b.append(text(160, 190, "L1 解顶尖角 → 稀疏", 11, AXIS))
+    return svg("".join(b))
+
+def _t_eigenvectors():
+    b = []
+    ox, oy = 110, 140
+    # eigenvector direction: green dashed line through origin
+    dx, dy = 0.80, -0.60
+    b.append(line(ox - dx * 110, oy - dy * 110, ox + dx * 130, oy + dy * 130, FOREST, 2.2, dash="6 5"))
+    # origin dot
+    b.append(circ(ox, oy, 4, INK, "#fff", 1.5))
+    # v (teal) and Av (gold) from origin, slightly different directions
+    b.append(arrow(ox, oy, ox + 70, oy - 30, TEAL, 3, head=9))
+    b.append(arrow(ox, oy, ox + 95, oy - 88, GOLD, 3, head=9))
+    b.append(text(ox + 78, oy - 22, "v", 14, TEAL, 700, anchor="start"))
+    b.append(text(ox + 100, oy - 90, "Av", 14, GOLD, 700, anchor="start"))
+    # collinear short arrows along eigenvector direction: Av = λv (gold longer)
+    px, py = ox + dx * 150, oy + dy * 150
+    b.append(arrow(px, py, px + dx * 28, py + dy * 28, TEAL, 2.4, head=7))
+    b.append(arrow(px, py, px + dx * 52, py + dy * 52, GOLD, 2.8, head=8))
+    b.append(text(px + dx * 30 + 6, py + dy * 30 - 2, "Av=λv", 11, FOREST, 700, anchor="start"))
+    b.append(text(160, 190, "特征向量方向：只拉伸不转向", 11, AXIS))
+    return svg("".join(b))
+
+def _t_lr_schedule():
+    import math
+    b = []
+    x0, x1 = 40, 300; yb = 172; yt = 30
+    xpk = 110  # warmup peak x
+    rng = yb - yt
+    # warmup shaded region
+    b.append(rect(x0, yt, xpk - x0, yb - yt, TEALF, None, 0, op=0.55))
+    # axes
+    b.append(line(x0, yb, x1, yb, AXIS, 1)); b.append(line(x0, yt, x0, yb, AXIS, 1))
+    # build curve: linear warmup then cosine decay
+    pts = []
+    peak_y = yt + 6
+    for k in range(0, 21):
+        x = x0 + (xpk - x0) * k / 20
+        y = yb - (yb - peak_y) * (k / 20)
+        pts.append((x, y))
+    N = 40
+    for k in range(1, N + 1):
+        x = xpk + (x1 - xpk) * k / N
+        c = 0.5 * (1 + math.cos(math.pi * k / N))
+        y = yb - (yb - peak_y) * (0.04 + 0.96 * c)
+        pts.append((x, y))
+    b.append(poly(pts, TEAL, 3))
+    # peak marker
+    b.append(circ(xpk, peak_y, 4, GOLD, "#fff", 1.6))
+    b.append(text(xpk + 8, peak_y + 2, "峰值", 11, GOLD, 700, anchor="start"))
+    # warmup label
+    b.append(text((x0 + xpk) / 2, 150, "预热", 11, TEAL, 700))
+    b.append(text(160, 190, "预热 + 余弦退火", 11, AXIS))
+    return svg("".join(b))
+
+def _t_explaining_away():
+    b = []
+    # top two cause nodes
+    rx, ry = 78, 52      # rain (blue, left)
+    sx, sy = 242, 52     # sprinkler (gold, right)
+    gx, gy = 160, 138    # grass wet (forest, bottom center)
+    # edges from causes to effect
+    b.append(arrow(rx + 14, ry + 22, gx - 22, gy - 20, BLUE, 2.6, head=8))
+    b.append(arrow(sx - 14, sy + 22, gx + 22, gy - 20, GOLD, 2.6, head=8))
+    # nodes
+    b.append(circ(rx, ry, 26, BLUE, "#fff", 2)); b.append(text(rx, ry + 5, "下雨", 13, "#fff", 700))
+    b.append(circ(sx, sy, 26, GOLD, "#fff", 2)); b.append(text(sx, sy + 5, "洒水器", 12, "#fff", 700))
+    b.append(circ(gx, gy, 28, FOREST, "#fff", 2)); b.append(text(gx, gy + 5, "草湿", 13, "#fff", 700))
+    # probability hint beside sprinkler: up then down
+    b.append(rect(286, 40, 9, 24, TEALF, GOLD, 1.4, rx=2))   # tall bar (was high)
+    b.append(text(294, 30, "↑", 13, RED, 800))
+    b.append(text(294, 78, "↓", 13, BLUE, 800))
+    b.append(rect(286, 64, 9, 10, "#eef4f5", GOLD, 1.4, rx=2)) # short bar (now low)
+    # probability story
+    b.append(text(160, 178, "30% → 64% → 34%", 12, INK, 700))
+    b.append(text(160, 190, "解释消除", 11, AXIS))
+    return svg("".join(b))
+
+def _t_q_learning():
+    b = []
+    # 4x4 grid layout
+    ox, oy = 80, 20; cs = 40; cols, rows = 4, 4
+    walls = {(1, 1), (2, 2)}
+    trap = (3, 1)
+    goal = (3, 0)
+    start = (0, 3)
+    for r in range(rows):
+        for c in range(cols):
+            x = ox + c * cs; y = oy + r * cs
+            if (c, r) in walls:
+                fill = "#9aa6a3"
+            elif (c, r) == trap:
+                fill = "#f3cdc8"
+            elif (c, r) == goal:
+                fill = "#f7ecc8"
+            else:
+                fill = TEALF
+            b.append(rect(x, y, cs, cs, fill, EDGE, 1.2, rx=4))
+    # treasure star (goal)
+    gx = ox + goal[0] * cs + cs / 2; gy = oy + goal[1] * cs + cs / 2
+    b.append(text(gx, gy + 6, "★", 20, GOLD, 700))
+    # trap skull
+    tx = ox + trap[0] * cs + cs / 2; ty = oy + trap[1] * cs + cs / 2
+    b.append(text(tx, ty + 6, "☠", 18, RED, 700))
+    # start marker
+    sx = ox + start[0] * cs + cs / 2; sy = oy + start[1] * cs + cs / 2
+    b.append(circ(sx, sy, 9, FOREST, "#fff", 2))
+    b.append(text(sx, sy + 4, "S", 12, "#fff", 700))
+    # greedy path avoiding trap: (0,3)->(0,2)->(0,1)->(0,0)->(1,0)->(2,0)->(3,0)
+    path = [(0, 3), (0, 2), (0, 1), (0, 0), (1, 0), (2, 0), (3, 0)]
+    cen = lambda cc, rr: (ox + cc * cs + cs / 2, oy + rr * cs + cs / 2)
+    for i in range(len(path) - 1):
+        x1, y1 = cen(*path[i]); x2, y2 = cen(*path[i + 1])
+        dx, dy = x2 - x1, y2 - y1
+        L = (dx * dx + dy * dy) ** 0.5
+        pad = 11
+        ax1 = x1 + dx / L * pad; ay1 = y1 + dy / L * pad
+        ax2 = x2 - dx / L * pad; ay2 = y2 - dy / L * pad
+        b.append(arrow(ax1, ay1, ax2, ay2, GOLD, 2.8, head=7))
+    b.append(text(160, 190, "试错学策略（无模型）", 11, AXIS))
+    return svg("".join(b))
+
+def _t_rlhf_reward_model():
+    b = []
+    x0, x1 = 30, 300; yb = 92; yt = 22
+    b.append(line(x0, yb, x1, yb, AXIS, 1)); b.append(line(x0, yt, x0, yb, AXIS, 1))
+    rng = yb - yt - 6
+    b.append(poly([(x0 + (x1 - x0) * k / 30, yb - ((k / 30) ** 0.78) * rng) for k in range(31)], TEAL, 2.6))
+    b.append(text(296, 30, "r(x)", 11, TEAL, 700, anchor="end"))
+    for px, yg, yr in [(86, 60, 80), (160, 44, 64), (232, 30, 52)]:
+        b.append(line(px, yg + 2, px, yr - 2, EDGE, 1.4))
+        b.append(circ(px, yr, 4.5, RED, "#fff", 1.6)); b.append(circ(px, yg, 4.5, FOREST, "#fff", 1.6))
+    b.append(text(52, 36, "A\u227bB", 10, AXIS, 700, anchor="start"))
+    byb = 184; H = 56
+    def bump(cx, w, amp):
+        return [(30 + 270 * j / 40, byb - amp * math.exp(-((30 + 270 * j / 40 - cx) ** 2) / (2 * w * w))) for j in range(41)]
+    b.append(line(30, byb, 300, byb, AXIS, 1))
+    b.append(poly(bump(150, 30, H * 0.7), AXIS, 2, dash="5 4"))
+    b.append(poly(bump(232, 26, H), GOLD, 2.8))
+    b.append(text(150, 150, "\u03c0_ref", 10, AXIS, 700))
+    b.append(text(250, 132, "\u03c0", 13, GOLD, 700, anchor="start"))
+    b.append(text(160, 196, "\u504f\u597d \u2192 \u5956\u52b1 \u2192 \u7b56\u7565\u53f3\u79fb", 11, AXIS))
+    return svg("".join(b))
+
+def _t_learning_curve():
+    b = []; x0, x1 = 44, 300; yb = 162; yt = 30; N = 24
+    b.append(line(x0, yb, x1, yb, AXIS, 1)); b.append(line(x0, yt, x0, yb, AXIS, 1))
+    rng = yb - yt - 8; train = []; valid = []
+    for k in range(N + 1):
+        x = x0 + (x1 - x0) * k / N; t = k / N
+        vt = 0.06 + 0.40 * (1 - 2.718281828 ** (-3.0 * t))
+        vv = 0.92 - 0.46 * (1 - 2.718281828 ** (-3.0 * t))
+        train.append((x, yb - vt * rng)); valid.append((x, yb - vv * rng))
+    fillpts = valid + train[::-1]
+    b.append(poly(fillpts, "none", 0, TEALF, 0.7))
+    b.append(poly(valid, TEAL, 2.8)); b.append(poly(train, RED, 2.8))
+    b.append(text(296, 80, "训练", 11, RED, 700, anchor="end"))
+    b.append(text(296, 132, "验证", 11, TEAL, 700, anchor="end"))
+    b.append(text(172, 178, "数据量 →", 11, AXIS))
+    b.append(text(160, 192, "诊断 偏差 / 方差", 11, AXIS))
+    return svg("".join(b))
+
+def _t_confusion_matrix():
+    b = []
+    gx, gy = 56, 40; cell = 38
+    vals = [[31, 3, 2], [4, 27, 5], [2, 6, 29]]
+    for r in range(3):
+        for c in range(3):
+            x = gx + c * cell; y = gy + r * cell
+            diag = (r == c)
+            fill = TEALF if diag else "#f0f2f1"
+            stroke = TEAL if diag else EDGE
+            sw = 2.2 if diag else 1.2
+            b.append(rect(x, y, cell - 3, cell - 3, fill, stroke, sw, rx=4))
+            col = TEAL if diag else AXIS
+            wt = 700 if diag else 600
+            b.append(text(x + (cell - 3) / 2, y + (cell - 3) / 2 + 4, str(vals[r][c]), 12, col, wt))
+    b.append(text(40, gy + 1.5 * cell, "真", 12, INK, 700))
+    b.append(text(gx + 1.5 * cell - 1.5, gy - 12, "预测", 12, INK, 700))
+    bx = gx + 3 * cell + 14
+    accs = [0.86, 0.75, 0.78]
+    cols = [TEAL, GOLD, FOREST]
+    for i, (a, cc) in enumerate(zip(accs, cols)):
+        yb = gy + i * cell + 6
+        b.append(rect(bx, yb, 60, 14, "#eef2f1", EDGE, 1, rx=3))
+        b.append(rect(bx, yb, max(8, 60 * a), 14, cc, None, 0, rx=3))
+        b.append(text(bx + 64, yb + 11, "P" + str(i + 1), 10, AXIS, 600, anchor="start"))
+    b.append(text(160, 190, "混淆矩阵 · 宏平均 vs 微平均", 11, AXIS))
+    return svg("".join(b))
+
+def _t_calibration():
+    b = []
+    x0, x1 = 56, 292
+    yb, yt = 168, 36
+    # axis box
+    b.append(rect(x0, yt, x1 - x0, yb - yt, "none", AXIS, 1.4))
+    # perfect-calibration diagonal (gray dashed)
+    b.append(line(x0, yb, x1, yt, AXIS, 1.6, dash="5 5"))
+    b.append(text(x1 - 6, yt + 12, "完美", 10, AXIS, 600, anchor="end"))
+    # overconfident curve (blue dots) sagging BELOW the diagonal
+    pts = []
+    N = 6
+    for k in range(N + 1):
+        t = k / N
+        x = x0 + (x1 - x0) * t
+        # below diagonal: subtract a sag bump
+        sag = 0.30 * (t * (1 - t)) * 4
+        yv = t - sag
+        y = yb - (yb - yt) * yv
+        pts.append((x, y))
+    b.append(poly(pts, BLUE, 2.8))
+    for (px, py) in pts:
+        b.append(circ(px, py, 3.6, BLUE, "#fff", 1.4))
+    b.append(text(x0 + 70, yb - 26, "过度自信", 11, BLUE, 700, anchor="start"))
+    # arrow hinting calibration back up to the diagonal
+    midx = x0 + (x1 - x0) * 0.5
+    msag = yb - (yb - yt) * (0.5 - 0.30 * 0.25 * 4)
+    mdiag = yb - (yb - yt) * 0.5
+    b.append(arrow(midx, msag - 2, midx, mdiag + 4, GOLD, 2.4, head=7))
+    # axes labels
+    b.append(text(174, yb + 16, "把握", 11, INK, 600))
+    b.append(text(x0 - 8, 102, "正", 11, INK, 600, anchor="end"))
+    b.append(text(x0 - 8, 116, "确", 11, INK, 600, anchor="end"))
+    b.append(text(160, 190, "过度自信 → 校准回对角线", 11, AXIS))
+    return svg("".join(b))
+
+def _t_loss_functions():
+    b = []
+    x0, x1 = 40, 300; yb = 162; yt = 30; xc = (x0 + x1) / 2
+    b.append(line(x0, yb, x1, yb, AXIS, 1)); b.append(line(x0, yt, x0, yb, AXIS, 1))
+    b.append(line(xc, yt, xc, yb, EDGE, 1, dash="3 4"))
+    b.append(text(xc, 176, "0", 10, AXIS, 600))
+    rng = yb - yt - 6; N = 30
+    # cross-entropy log(1+e^-z): high at left, →0 at right
+    ce = []
+    for k in range(N + 1):
+        z = -3.0 + 6.0 * k / N
+        import math
+        v = math.log(1 + math.exp(-z * 1.3))
+        x = x0 + (x1 - x0) * k / N
+        ce.append((x, yb - min(v * 36, rng)))
+    b.append(poly(ce, TEAL, 3))
+    # hinge max(0, 1-z): kinked line
+    hg = [(x0, yb - min(2.0 * 36, rng))]
+    xk = x0 + (x1 - x0) * (4.3 / 6.0)
+    hg.append((xk, yb)); hg.append((x1, yb))
+    b.append(poly(hg, GOLD, 2.6))
+    # mse, flat low cap on left
+    ms = []
+    for k in range(N + 1):
+        z = -3.0 + 6.0 * k / N
+        v = (max(0.0, 1 - z * 0.6)) ** 2
+        x = x0 + (x1 - x0) * k / N
+        ms.append((x, yb - min(v * 7.5, rng)))
+    b.append(poly(ms, RED, 2.6))
+    # legend
+    b.append(line(208, 44, 226, 44, TEAL, 3)); b.append(text(230, 48, "交叉熵", 10, INK, 600, anchor="start"))
+    b.append(line(208, 58, 226, 58, GOLD, 2.6)); b.append(text(230, 62, "Hinge", 10, INK, 600, anchor="start"))
+    b.append(line(208, 72, 226, 72, RED, 2.6)); b.append(text(230, 76, "MSE", 10, INK, 600, anchor="start"))
+    b.append(text(46, 24, "损失", 10, AXIS, 600, anchor="start"))
+    b.append(text(160, 190, "MSE / 交叉熵 / Hinge / Focal", 11, AXIS))
+    return svg("".join(b))
+
+def _t_svd_lowrank():
+    b = []; cell = 13; n = 5
+    def grid(ox, oy, vals):
+        out = []
+        for r in range(n):
+            for c in range(n):
+                gg = int(255 * (1 - vals[r][c]))
+                out.append(rect(ox + c * cell, oy + r * cell, cell - 1, cell - 1, "rgb(%d,%d,%d)" % (gg, gg, gg), EDGE, 0.6))
+        return "".join(out)
+    orig = [[max(.06, min(.94, .5 + .42 * math.sin(c * 0.9) * math.cos(r * 0.7))) for c in range(n)] for r in range(n)]
+    recon = [[max(.1, min(.9, .5 + .34 * math.sin(c * 0.9))) for c in range(n)] for r in range(n)]
+    gy = 46
+    b.append(grid(40, gy, orig)); b.append(text(40 + n * cell / 2, gy - 8, "\u539f\u56fe", 11, AXIS))
+    b.append(arrow(116, gy + n * cell / 2, 150, gy + n * cell / 2, GOLD, 2.6, head=8))
+    b.append(grid(160, gy, recon)); b.append(text(160 + n * cell / 2, gy - 8, "\u524d k \u7247\u91cd\u5efa", 11, AXIS))
+    sigs = [54, 36, 22, 13, 8, 5, 3, 2]; bx = 240; bw = 8; base = 150
+    for i, h in enumerate(sigs):
+        b.append(rect(bx + i * (bw + 1), base - h, bw, h, TEAL if i < 3 else AXIS, op=1 if i < 3 else .5, rx=1))
+    b.append(text(bx + 4 * (bw + 1), 166, "\u03c3 \u8c31", 10, AXIS, 600))
+    b.append(text(160, 190, "\u524d\u51e0\u7247\u6251\u4f4f\u4e3b\u8981\u4fe1\u606f", 11, AXIS))
+    return svg("".join(b))
+
+def _t_gan_training():
+    b = []
+    x0, x1 = 30, 300
+    yb = 165
+    yt = 30
+    b.append(line(x0, yb, x1, yb, AXIS, 1.2))
+    b.append(line(x0, yt, x0, yb, AXIS, 1.2))
+    # bar layout
+    n = 9
+    bw = 22
+    gap = 6
+    # bell-shaped heights, peak shifted right
+    real_h = [10, 22, 40, 66, 96, 118, 100, 60, 24]
+    fake_h = [8, 18, 34, 58, 88, 110, 92, 54, 20]
+    for i in range(n):
+        cx = x0 + 14 + i * (bw + gap)
+        rh = real_h[i]
+        fh = fake_h[i]
+        # real data: pale gray, slightly back/wider
+        b.append(rect(cx - bw / 2, yb - rh, bw, rh, "#e4e8ea", "#c2cacd", 1, rx=2))
+        # fake data: gold, narrower, overlaid on real position
+        b.append(rect(cx - bw / 2 + 4, yb - fh, bw - 8, fh, GOLD, "#fff", 0.8, rx=2, op=0.92))
+    # D(x) discriminator curve: high on real-only, dipping toward 0.5
+    dpts = []
+    for i in range(n):
+        cx = x0 + 14 + i * (bw + gap)
+        # near where fake matches real, D drifts to ~0.5; edges higher
+        frac = abs(i - 4) / 4.0
+        dval = 0.5 + 0.42 * frac
+        dpts.append((cx, yt + 8 + (1 - dval) * 50))
+    b.append(poly(dpts, TEAL, 2.8))
+    b.append(line(x0, yt + 8 + 0.5 * 50, x1, yt + 8 + 0.5 * 50, TEAL, 1, dash="4 4", op=0.5))
+    b.append(text(298, yt + 6, "D(x)", 11, TEAL, 700, anchor="end"))
+    b.append(text(298, yt + 8 + 0.5 * 50 - 4, "0.5", 10, AXIS, 600, anchor="end"))
+    b.append(text(160, 190, "假分布贴上真分布", 11, AXIS))
+    return svg("".join(b))
+
 # slug -> draw function. Add new entries here.
 THUMBS = {
     "rnn-unroll": _t_rnn_unroll,
@@ -348,6 +702,18 @@ THUMBS = {
     "rbm-reconstruction": _t_rbm_reconstruction,
     "llm-internals": _t_llm_internals,
     "sparse-autoencoder": _t_sparse_autoencoder,
+    "l1-l2-geometry": _t_l1_l2_geometry,
+    "eigenvectors": _t_eigenvectors,
+    "lr-schedule": _t_lr_schedule,
+    "explaining-away": _t_explaining_away,
+    "q-learning": _t_q_learning,
+    "rlhf-reward-model": _t_rlhf_reward_model,
+    "learning-curve": _t_learning_curve,
+    "confusion-matrix": _t_confusion_matrix,
+    "calibration": _t_calibration,
+    "loss-functions": _t_loss_functions,
+    "svd-lowrank": _t_svd_lowrank,
+    "gan-training": _t_gan_training,
 }
 
 # ---------------------------------------------------------------- validation

@@ -14,6 +14,8 @@ redirect_from:
 
 <div class="viz-grid">
   {% include viz-card.html url="/viz/matrix-transform/" title="矩阵是空间变换" blurb="拖动 2×2 矩阵的四个数，看整个平面被旋转/缩放/剪切；列是基向量去向，行列式是面积缩放。" %}
+  {% include viz-card.html url="/viz/eigenvectors/" title="特征向量与特征值" blurb="拖动向量 v，看矩阵把多数方向掰歪；只有沿特征向量方向 Av=λv，只拉伸不转向——PCA / 谱分解的根基。" %}
+  {% include viz-card.html url="/viz/svd-lowrank/" title="SVD 与低秩近似" blurb="一张图就是个矩阵；SVD 拆成一摞秩 1 薄片，只留前几片重建就几乎看不出差别——压缩、PCA、LoRA 的共同直觉。" %}
   {% include viz-card.html url="/viz/dot-product/" title="点积与余弦相似度" blurb="拖两个向量，看点积=投影对齐、余弦相似度=夹角——注意力和向量检索的根基。" %}
   {% include viz-card.html url="/viz/entropy/" title="熵 / 交叉熵 / KL" blurb="拖动预测分布，看熵、交叉熵、KL 散度怎么变——几乎所有分类损失函数的根基。" %}
 </div>
@@ -36,9 +38,14 @@ redirect_from:
   {% include viz-card.html url="/viz/early-stopping/" title="早停：见好就收" blurb="训练误差一路降、验证误差先降后升，停在 U 形谷底——见好就收的早停。" %}
   {% include viz-card.html url="/viz/gradient-descent/" title="梯度下降下山" blurb="小球沿曲线下山找最低点；调学习率看收敛、震荡，体会局部最优陷阱。" %}
   {% include viz-card.html url="/viz/bias-variance/" title="偏差与方差" blurb="同复杂度在多份数据上学出多条曲线，看是‘齐刷刷地偏’还是‘乱七八糟地飘’。" %}
+  {% include viz-card.html url="/viz/learning-curve/" title="学习曲线：该加数据还是加模型" blurb="拖数据量看训练/验证误差怎么收敛：两条都卡高处=高偏差(该换强模型)、差距大且验证还在降=高方差(该加数据)。" %}
   {% include viz-card.html url="/viz/double-descent/" title="双下降现象" blurb="测试误差降→升→再降：模型大到参数比数据还多，反而比经典最优更好（挑战偏差方差）。" %}
   {% include viz-card.html url="/viz/precision-recall/" title="精确率与召回率" blurb="拖判定阈值，看混淆矩阵、精确率与召回率此消彼长，以及 ROC 曲线。" %}
+  {% include viz-card.html url="/viz/confusion-matrix/" title="混淆矩阵与多类指标" blurb="三类混淆矩阵 + 各类精确率/召回/F1：类别不平衡时一个准确率会掩盖稀有类的崩溃，宏平均与微平均就此分道扬镳。" %}
+  {% include viz-card.html url="/viz/calibration/" title="概率校准" blurb="模型说“90% 把握”真有 90% 对吗？可靠性图看点落在对角线下方=过度自信，调温度把它校准回对角线、ECE 降到最低。" %}
   {% include viz-card.html url="/viz/regularization/" title="正则化 L1 / L2" blurb="调正则强度，看 L2 让权重一起缩、L1 把一些权重压到 0（稀疏 / 特征选择）。" %}
+  {% include viz-card.html url="/viz/l1-l2-geometry/" title="L1 / L2 的几何（为什么 L1 稀疏）" blurb="损失椭圆碰上约束区域：L1 菱形的尖角落在坐标轴上，解顶在尖角→一个权重精确归 0；L2 的圆只能让权重一起缩。" %}
+  {% include viz-card.html url="/viz/loss-functions/" title="损失函数对比" blurb="对一个正样本拖动模型打分，并排看 MSE / 交叉熵 / Hinge / Focal 的惩罚曲线——交叉熵对“自信地答错”惩罚暴涨。" %}
   {% include viz-card.html url="/viz/decision-tree/" title="决策树与信息增益" blurb="按信息增益一刀刀切分平面，看决策树怎样把交叠的两类逐步分纯。" %}
   {% include viz-card.html url="/viz/knn/" title="k 近邻 KNN" blurb="拖查询点，看最近 k 个邻居投票分类；k 小决策边界碎、k 大边界平。" %}
   {% include viz-card.html url="/viz/bagging/" title="集成学习 Bagging" blurb="多个高方差弱模型一平均就变平滑、方差骤降，看一堆杂乱细线收敛成一条干净金线（随机森林核心）。" %}
@@ -123,6 +130,7 @@ redirect_from:
      thumb="/viz/opt-3d.gif" %}
   {% include viz-card.html url="/viz/momentum/" title="学习率与动量" blurb="窄长山谷里普通梯度下降 vs 动量两球赛跑，调学习率看震荡、发散与加速。" %}
   {% include viz-card.html url="/viz/adam/" title="自适应优化器 Adam" blurb="窄长山谷里 SGD / 动量 / Adam 三球赛跑，看 Adam 每参数自适应学习率又快又稳。" %}
+  {% include viz-card.html url="/viz/lr-schedule/" title="学习率调度" blurb="学习率随步数的“形状”才关键：没预热的大学习率开头就把损失冲飞；预热 + 余弦退火则平稳下降、收得更低。" %}
   {% include viz-card.html url="/viz/dropout/" title="Dropout" blurb="训练时随机关掉一部分神经元，逼网络学冗余表示、防过拟合；测试时再全开。" %}
   {% include viz-card.html url="/viz/batchnorm/" title="批归一化 BatchNorm" blurb="把每批激活减均值除标准差拉回‘均值0方差1’，让深层网络训练又快又稳。" %}
   {% include viz-card.html url="/viz/layernorm/" title="层归一化 vs 批归一化" blurb="切换 BatchNorm（按列跨样本）与 LayerNorm（按行跨特征），看归一化沿哪个方向算——Transformer 为何偏爱 LayerNorm。" %}
@@ -216,6 +224,7 @@ redirect_from:
   {% include viz-card.html url="/viz/bandit/" title="多臂老虎机" blurb="几台隐藏中奖率的老虎机，ε-greedy 在探索与利用之间权衡，估计逐渐变准。" %}
   {% include viz-card.html url="/viz/explore-exploit/" title="探索 vs 利用" blurb="拖探索率 ε，看总收益的倒 U 曲线：太贪会锁死次优、太浪等于乱试，中间有甜点。" %}
   {% include viz-card.html url="/viz/value-iteration/" title="价值迭代" blurb="网格世界里价值从宝藏一格格扩散，箭头连成一条避开陷阱、通往宝藏的最优路线。" %}
+  {% include viz-card.html url="/viz/q-learning/" title="Q-learning：从试错学策略" blurb="不给环境模型，智能体 ε-greedy 乱走 + TD 更新，几集后 Q 表收敛、箭头连成避开陷阱通往宝藏的策略——与价值迭代正好对照。" %}
 </div>
 
 ## 第 13 章 · 大语言模型与智能体
@@ -240,11 +249,13 @@ redirect_from:
   {% include viz-card.html url="/viz/speculative-decoding/" title="投机解码" blurb="小模型起草几个字、大模型并行核验采纳，看它如何在不改结果的前提下加速生成。" %}
   {% include viz-card.html url="/viz/quantization/" title="量化" blurb="把连续权重吸附到离散档位，fp32→int8/int4 看体积缩小与精度损失的权衡。" %}
   {% include viz-card.html url="/viz/lora/" title="LoRA 低秩微调" blurb="冻结大权重矩阵，只训两个小矩阵 A·B，微调参数从 d² 骤降到 2dr。" %}
+  {% include viz-card.html url="/viz/rlhf-reward-model/" title="RLHF：偏好 → 奖励模型" blurb="人类只说“A 比 B 好”，Bradley-Terry 拟合出奖励曲线；再把策略 π∝π_ref·exp(r/β) 推向高分区，β 是拴住别跑偏的 KL 缰绳。" %}
 </div>
 
 ## 第 14 章 · 概率图模型
 
 <div class="viz-grid">
+  {% include viz-card.html url="/viz/explaining-away/" title="解释消除（贝叶斯网络）" blurb="下雨和洒水器本独立；观测“草湿”后两者都更可能，再得知“下雨”→洒水器概率反被压回——对撞结构的解释消除。" %}
   {% include viz-card.html url="/viz/hmm-viterbi/" title="HMM 维特比解码" blurb="天气看不见，只看见带没带伞——用动态规划在网格里逐列挑最优前驱，回溯出最可能的隐藏天气序列。" %}
   {% include viz-card.html url="/viz/gmm/" title="高斯混合与 EM" blurb="含隐变量 z 的概率模型：每个点先选一个高斯、再采样得到坐标；EM 反推每个点的归属概率 P(z|x) 并更新各高斯。" %}
 </div>
@@ -265,6 +276,7 @@ redirect_from:
      thumb="https://lilianweng.github.io/posts/2021-07-11-diffusion-models/DDPM.png" %}
   {% include viz-card.html url="/viz/diffusion-noise/" title="扩散：加噪与去噪" blurb="把一张图的每个像素一步步掺成彩色雪花，再从噪声里去噪生成——亲手体会扩散模型画图的原理。" thumb="/assets/viz/diffusion-noise.jpg" %}
   {% include viz-card.html url="/viz/vae/" title="VAE 潜空间" blurb="拖动二维潜变量，看解码出的脸连续变形——潜空间平滑、随便取一点就能采样生成。" %}
+  {% include viz-card.html url="/viz/gan-training/" title="GAN：生成器与判别器的博弈" blurb="判别器当警察、生成器当造假者交替训练；看金色假直方图一步步贴上真分布，切到双峰还能演示模式崩溃。" %}
   {% include viz-card.html
      url="/viz/gan-lab/"
      title="GAN Lab"
