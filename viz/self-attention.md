@@ -150,7 +150,9 @@ function draw(){
 
 function caption(){
   var el=document.getElementById("caption"), names=["语义关联","相邻局部","句首锚点"];
-  var txt={0:"这一“头”专看含义关系：点“它”,连线最粗的指向“小猫”——模型就是这样判断代词指代谁的。",
+  var sem0=si===0?"这一“头”专看含义关系：点“它”,连线最粗的指向“小猫”——模型就是这样判断代词指代谁的。"
+                 :"这一“头”专看含义关系：点“首都”,连线最粗的指向“东京”——含义相关的词被连到一起。";
+  var txt={0:sem0,
            1:"这一“头”主要关注左右相邻的词，负责把短语粘合起来；语义上不相关的远处词几乎不看。",
            2:"这一“头”让大多数词都去看句子开头——这是真实模型里常见的一种“锚点”模式。"};
   el.innerHTML="<b>当前注意力头："+names[head]+"</b>　"+txt[head];
@@ -160,7 +162,7 @@ function setHead(h){head=h;document.querySelectorAll("#heads button").forEach(fu
 function loadSent(){buildMats();buildWords();sel=null;draw();}
 
 document.getElementById("heads").addEventListener("click",function(e){var b=e.target.closest("button");if(b)setHead(+b.dataset.h);});
-document.getElementById("sent").addEventListener("change",function(e){si=+e.target.value;loadSent();sel=SENTS[si].focus;draw();});
+document.getElementById("sent").addEventListener("change",function(e){si=+e.target.value;loadSent();sel=SENTS[si].focus;draw();caption();});
 window.addEventListener("resize",function(){if(sel!=null)draw();});
 
 /* 启动：默认选中“焦点词”演示一次 */

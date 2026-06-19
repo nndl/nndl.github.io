@@ -50,11 +50,11 @@ redirect_from:
 <script>
 (function(){
 "use strict";
-var R=5,C=6,gamma=0.92,STEP=-0.03,iter=0,playing=false,timer=null;
+var R=5,C=6,gamma=0.92,STEP=-0.03,iter=0,playing=false,timer=null,lastChange=Infinity;
 /* 地图：g=宝藏 p=陷阱 #=墙 .=普通 */
 var MAP=[".....g",".###..","....p.",".##...","......"];
 var type=[],V=[];
-function reset(){type=[];V=[];for(var r=0;r<R;r++){type.push([]);V.push([]);for(var c=0;c<C;c++){var ch=MAP[r][c];type[r].push(ch);V[r].push(ch==="g"?1:ch==="p"?-1:0);}}iter=0;}
+function reset(){type=[];V=[];for(var r=0;r<R;r++){type.push([]);V.push([]);for(var c=0;c<C;c++){var ch=MAP[r][c];type[r].push(ch);V[r].push(ch==="g"?1:ch==="p"?-1:0);}}iter=0;lastChange=Infinity;}
 function term(r,c){return type[r][c]==="g"||type[r][c]==="p";}
 function wall(r,c){return r<0||c<0||r>=R||c>=C||type[r][c]==="#";}
 var DIRS=[[-1,0,"↑"],[1,0,"↓"],[0,-1,"←"],[0,1,"→"]];
@@ -62,7 +62,7 @@ function next(r,c,d){var nr=r+d[0],nc=c+d[1];return wall(nr,nc)?[r,c]:[nr,nc];}
 function bestAction(r,c){var bv=-1e9,bd=null;DIRS.forEach(function(d){var n=next(r,c,d),v=STEP+gamma*V[n[0]][n[1]];if(v>bv){bv=v;bd=d;}});return {v:bv,d:bd};}
 function step(){var nV=V.map(function(row){return row.slice();});var ch=0;
   for(var r=0;r<R;r++)for(var c=0;c<C;c++){if(term(r,c)||type[r][c]==="#")continue;var b=bestAction(r,c);nV[r][c]=b.v;ch+=Math.abs(b.v-V[r][c]);}
-  V=nV;iter++;return ch;}
+  V=nV;iter++;lastChange=ch;return ch;}
 
 function vcol(v){if(v>=0){var t=Math.min(1,v);return "rgb("+Math.round(238-200*t)+","+Math.round(241-135*t)+","+Math.round(238-159*t)+")";}
   var u=Math.min(1,-v);return "rgb("+Math.round(238+(181-238)*u)+","+Math.round(241+(82-241)*u)+","+Math.round(238+(74-238)*u)+")";}
@@ -83,7 +83,7 @@ function render(){document.getElementById("iter").textContent="第 "+iter+" 轮"
 function caption(){
   var el=document.getElementById("caption");
   if(iter===0)el.innerHTML="开始：只有宝藏(+1)和陷阱(−1)有价值，其余格子都是 0、还没有方向。点“单步”，看价值怎样从宝藏一圈圈扩散。";
-  else if(iter<5)el.innerHTML="第 "+iter+" 轮：价值正从宝藏向外渗，靠近宝藏的格子先亮起来、箭头开始指向它。";
+  else if(lastChange>0.02)el.innerHTML="第 "+iter+" 轮：价值正从宝藏向外渗，靠近宝藏的格子先亮起来、箭头开始指向它。";
   else el.innerHTML="价值基本收敛了：每格都标好了价值，箭头连成一条避开陷阱、通往宝藏的最优路线。从任意格出发顺着箭头走，都是最划算的走法。";
 }
 function stop(){playing=false;if(timer){clearInterval(timer);timer=null;}document.getElementById("auto").textContent="▶ 自动迭代";}

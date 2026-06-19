@@ -41,7 +41,7 @@ redirect_from:
   <div class="vizui-caption" id="caption"></div>
 
   <div class="vizui-why">
-    <div class="card" style="--wc:var(--color-accent)"><b>幂律 = 直线</b><p>损失 ≈ 下限 + A·规模^(−α)。取对数后是一条直线，斜率就是 −α。</p></div>
+    <div class="card" style="--wc:var(--color-accent)"><b>幂律 ≈ 直线</b><p>损失 ≈ 下限 + A·规模^(−α)。把<b>可降的那部分</b>（损失减下限）取对数，是一条斜率 −α 的直线；总损失在贴近下限前也近乎笔直，之后逐渐变缓。</p></div>
     <div class="card" style="--wc:var(--color-forest)"><b>可外推预测</b><p>训几个小模型，就能预测大几个数量级的模型大概能到多低损失——省下大量试错。</p></div>
     <div class="card" style="--wc:var(--color-gold)"><b>有下限</b><p>存在一个不可约的损失下限（数据本身的噪声），无论怎么堆规模都突破不了。</p></div>
   </div>

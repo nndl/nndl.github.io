@@ -104,7 +104,7 @@ function render(){
   document.getElementById("lamVal").textContent=(lamUI/100).toFixed(2);
   fit();draw();
   var nz=w.filter(function(v){return Math.abs(v)>0.01;}).length;
-  document.getElementById("info").textContent=(mode==="l1"?nz+" / "+M+" 个权重非零":"权重和 "+w.reduce(function(a,b){return a+Math.abs(b);},0).toFixed(2));
+  document.getElementById("info").textContent=(mode==="l1"?nz+" / "+M+" 个权重非零":"权重绝对值和 "+w.reduce(function(a,b){return a+Math.abs(b);},0).toFixed(2));
   caption(nz);
 }
 function caption(nz){
@@ -117,7 +117,7 @@ document.getElementById("heads").addEventListener("click",function(e){var b=e.ta
 document.getElementById("lam").addEventListener("input",function(e){lamUI=+e.target.value;render();});
 render();
 setTimeout(function(){if(window.matchMedia&&window.matchMedia("(prefers-reduced-motion:reduce)").matches)return;
-  var seq=[2,30,70,2],n=0,sl=document.getElementById("lam");var iv=setInterval(function(){lamUI=seq[n];sl.value=lamUI;render();n++;if(n>=seq.length){mode="l1";document.querySelectorAll("#heads button").forEach(function(x){x.classList.toggle("on",x.dataset.m==="l1");});var s2=[2,40,80],m=0;var iv2=setInterval(function(){lamUI=s2[m];sl.value=lamUI;render();m++;if(m>=s2.length)clearInterval(iv2);},900);clearInterval(iv);}},900);},1100);
+  var seq=[2,30,70,2],n=0,sl=document.getElementById("lam");var iv=setInterval(function(){lamUI=seq[n];sl.value=lamUI;render();n++;if(n>=seq.length){mode="l1";document.querySelectorAll("#heads button").forEach(function(x){x.classList.toggle("on",x.dataset.m==="l1");});var s2=[2,40,80,40],m=0;var iv2=setInterval(function(){lamUI=s2[m];sl.value=lamUI;render();m++;if(m>=s2.length)clearInterval(iv2);},900);clearInterval(iv);}},900);},1100);
 })();
 </script>
 {% endraw %}

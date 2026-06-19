@@ -59,7 +59,7 @@ function face(svg,cx,cy,R,a,b){
   var er=0.07*R+0.06*R*(b+1)/2, sp=0.26*R;
   E(svg,"circle",{cx:cx-sp,cy:cy-0.18*R,r:er,fill:"#3a3a3a"});
   E(svg,"circle",{cx:cx+sp,cy:cy-0.18*R,r:er,fill:"#3a3a3a"});
-  var my=cy+0.34*R,ctrl=my-a*0.5*R;
+  var my=cy+0.34*R,ctrl=my+a*0.5*R;
   E(svg,"path",{d:"M "+(cx-0.4*R)+" "+my+" Q "+cx+" "+ctrl+" "+(cx+0.4*R)+" "+my,fill:"none",stroke:"#7a3b2e","stroke-width":Math.max(2,R*0.06),"stroke-linecap":"round"});
 }
 function render(){

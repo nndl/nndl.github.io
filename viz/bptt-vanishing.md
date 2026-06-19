@@ -71,9 +71,9 @@ function render(){
 }
 function caption(oldest){
   var el=document.getElementById("caption");
-  if(w<0.95)el.innerHTML="<b>w="+w.toFixed(2)+"（&lt;1）：</b>回传 "+(T-1)+" 步后，最久远那步的梯度只剩 <b>"+(oldest<0.001?oldest.toExponential(1):oldest.toFixed(3))+"</b>——几乎为 0。早期输入根本学不动，RNN 因此“记不住”长程信息（梯度消失）。";
-  else if(w>1.05)el.innerHTML="<b>w="+w.toFixed(2)+"（&gt;1）：</b>梯度被放大到 <b>"+(oldest>100?oldest.toExponential(1):oldest.toFixed(1))+"</b> 倍——指数爆炸，训练会数值溢出、发散（梯度爆炸）。";
-  else el.innerHTML="<b>w≈"+w.toFixed(2)+"：</b>梯度大致守恒（"+oldest.toFixed(2)+"），这是唯一稳定的窄缝——但训练里极难恰好维持。所以才需要 LSTM 的门控细胞，让信息近乎乘 1 地直传。";
+  if(oldest<0.1)el.innerHTML="<b>w="+w.toFixed(2)+"（&lt;1）：</b>回传 "+(T-1)+" 步后，最久远那步的梯度只剩 <b>"+(oldest<0.001?oldest.toExponential(1):oldest.toFixed(3))+"</b>——几乎为 0。早期输入根本学不动，RNN 因此“记不住”长程信息（梯度消失）。";
+  else if(oldest>10)el.innerHTML="<b>w="+w.toFixed(2)+"（&gt;1）：</b>梯度被放大到 <b>"+(oldest>100?oldest.toExponential(1):oldest.toFixed(1))+"</b> 倍——指数爆炸，训练会数值溢出、发散（梯度爆炸）。";
+  else el.innerHTML="<b>w="+w.toFixed(2)+"：</b>回传 "+(T-1)+" 步后久远梯度还剩 <b>"+oldest.toFixed(2)+"</b>，落在相对稳定的窄缝里——但训练里极难恰好维持。所以才需要 LSTM 的门控细胞，让信息近乎乘 1 地直传。";
 }
 document.getElementById("w").addEventListener("input",function(e){w=+e.target.value;render();});
 render();

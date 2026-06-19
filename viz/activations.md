@@ -87,7 +87,7 @@ var FN={
   tanh:{f:function(x){return Math.tanh(x);},d:function(x){var t=Math.tanh(x);return 1-t*t;},nm:"Tanh"},
   relu:{f:function(x){return Math.max(0,x);},d:function(x){return x>0?1:0;},nm:"ReLU"}
 };
-var cur="sigmoid", x0=2, depth=10;
+var cur="sigmoid", x0=2, depth=10, demoIv=null;
 var XMIN=-5,XMAX=5,YMIN=-1.2,YMAX=1.6;
 
 var SVGNS="http://www.w3.org/2000/svg",W=360,H=240,pad=22;
@@ -137,16 +137,16 @@ function caption(){
 }
 function render(){document.getElementById("x0Val").textContent=x0.toFixed(1);document.getElementById("depthVal").textContent=depth;drawPlot();drawLayers();caption();}
 
-document.getElementById("heads").addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;cur=b.dataset.f;document.querySelectorAll("#heads button").forEach(function(x){x.classList.toggle("on",x.dataset.f===cur);});render();});
-document.getElementById("x0").addEventListener("input",function(e){x0=+e.target.value;render();});
-document.getElementById("depth").addEventListener("input",function(e){depth=+e.target.value;render();});
+document.getElementById("heads").addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;if(demoIv){clearInterval(demoIv);demoIv=null;}cur=b.dataset.f;document.querySelectorAll("#heads button").forEach(function(x){x.classList.toggle("on",x.dataset.f===cur);});render();});
+document.getElementById("x0").addEventListener("input",function(e){if(demoIv){clearInterval(demoIv);demoIv=null;}x0=+e.target.value;render();});
+document.getElementById("depth").addEventListener("input",function(e){if(demoIv){clearInterval(demoIv);demoIv=null;}depth=+e.target.value;render();});
 
 /* 启动 + 自动演示：把 x 从 0 拖到饱和区，展示导数变小 */
 render();
 setTimeout(function(){
   if(window.matchMedia&&window.matchMedia("(prefers-reduced-motion:reduce)").matches)return;
   var seq=[0,1,2,3,4,2],k=0,sl=document.getElementById("x0");
-  var iv=setInterval(function(){if(k>=seq.length){clearInterval(iv);return;}x0=seq[k];sl.value=x0;render();k++;},700);
+  demoIv=setInterval(function(){if(k>=seq.length){clearInterval(demoIv);demoIv=null;return;}x0=seq[k];sl.value=x0;render();k++;},700);
 },900);
 })();
 </script>

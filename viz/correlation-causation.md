@@ -49,7 +49,7 @@ redirect_from:
 <script>
 (function(){
 "use strict";
-var data=[], ctrl=false, z0=0.5, BW=0.1;
+var data=[], ctrl=false, z0=0.5, BW=0.1, demoIv=null;
 function rng(s){return function(){s|=0;s=s+0x6D2B79F5|0;var x=Math.imul(s^s>>>15,1|s);x=x+Math.imul(x^x>>>7,61|x)^x;return((x^x>>>14)>>>0)/4294967296;};}
 function gss(r){var u=0,v=0;while(!u)u=r();while(!v)v=r();return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v);}
 (function(){var r=rng(7);for(var i=0;i<90;i++){var z=r();var x=0.22+0.62*z+gss(r)*0.06,y=0.2+0.66*z+gss(r)*0.06;data.push({x:x,y:y,z:z});}})();
@@ -81,12 +81,14 @@ function caption(rAll,rBand,nb){
   if(!ctrl)el.innerHTML="<b>总体相关 r = "+rAll.toFixed(2)+"</b>，很强——冰淇淋越多、溺水越多，一条清晰的上升趋势。勾上方框，把气温“控制”在一个小范围内再看。";
   else el.innerHTML="只看气温相近的那 "+nb+" 天（同色点），冰淇淋和溺水的相关掉到了 <b>r = "+rBand.toFixed(2)+"</b>——大幅减弱！原来那条强相关大半是<b>气温</b>这个共同原因造出来的假象，两者之间并没有直接因果。";
 }
-document.getElementById("ctrl").addEventListener("change",function(e){ctrl=e.target.checked;document.getElementById("zf").style.display=ctrl?"inline-flex":"none";draw();});
-document.getElementById("z").addEventListener("input",function(e){z0=+e.target.value;draw();});
+document.getElementById("ctrl").addEventListener("change",function(e){if(demoIv){clearInterval(demoIv);demoIv=null;}ctrl=e.target.checked;document.getElementById("zf").style.display=ctrl?"inline-flex":"none";draw();});
+document.getElementById("z").addEventListener("input",function(e){if(demoIv){clearInterval(demoIv);demoIv=null;}z0=+e.target.value;draw();});
 draw();
-setTimeout(function(){if(window.matchMedia&&window.matchMedia("(prefers-reduced-motion:reduce)").matches)return;
+setTimeout(function(){
+  if(window.matchMedia&&window.matchMedia("(prefers-reduced-motion:reduce)").matches){
+    document.getElementById("ctrl").checked=true;ctrl=true;document.getElementById("zf").style.display="inline-flex";z0=0.5;document.getElementById("z").value=0.5;draw();return;}
   setTimeout(function(){document.getElementById("ctrl").checked=true;ctrl=true;document.getElementById("zf").style.display="inline-flex";draw();
-    var zs=[0.35,0.6,0.5],k=0,sl=document.getElementById("z");var iv=setInterval(function(){z0=zs[k];sl.value=z0;draw();k++;if(k>=zs.length)clearInterval(iv);},1100);},1500);},1000);
+    var zs=[0.35,0.6,0.5],k=0,sl=document.getElementById("z");demoIv=setInterval(function(){z0=zs[k];sl.value=z0;draw();k++;if(k>=zs.length){clearInterval(demoIv);demoIv=null;}},1100);},1500);},1000);
 })();
 </script>
 {% endraw %}

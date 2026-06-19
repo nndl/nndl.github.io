@@ -92,7 +92,7 @@ function render(){
     if(s.ax===0)E(svg,"line",{x1:wx(s.th),y1:wy(r.y0),x2:wx(s.th),y2:wy(r.y1),"class":"split"});
     else E(svg,"line",{x1:wx(r.x0),y1:wy(s.th),x2:wx(r.x1),y2:wy(s.th),"class":"split"});});
   pts.forEach(function(p){E(svg,"circle",{cx:wx(p.x),cy:wy(p.y),r:5.5,"class":"pt "+(p.t?"c1":"c0")});});
-  var lv=leaves(tree,[]),pure=lv.filter(function(l){return true;}),err=0;
+  var lv=leaves(tree,[]),err=0;
   // 训练误差
   function predict(node,p){if(node.leaf)return node.cls;var s=node.s;return (p[s.key]<s.th?predict(node.left,p):predict(node.right,p));}
   pts.forEach(function(p){if(predict(tree,p)!==p.t)err++;});

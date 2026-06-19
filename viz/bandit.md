@@ -122,7 +122,7 @@ document.getElementById("reset").addEventListener("click",function(){stop();pull
 /* 启动 + 自动演示 */
 build();render();
 setTimeout(function(){
-  if(window.matchMedia&&window.matchMedia("(prefers-reduced-motion:reduce)").matches){for(var i=0;i<40;i++)autoStep();return;}
+  if(window.matchMedia&&window.matchMedia("(prefers-reduced-motion:reduce)").matches){for(var i=0;i<200;i++)autoStep();return;}
   document.getElementById("auto").click();
 },1000);
 })();

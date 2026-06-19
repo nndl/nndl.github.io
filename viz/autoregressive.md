@@ -103,7 +103,7 @@ function caption(){
   else el.innerHTML="生成结束：“<b>"+gen.join("")+"</b>”。整句话是一个字一个字、每次把已写内容喂回去接出来的。";
 }
 function next(){if(i>=steps.length)return;gen.push(steps[i].cand[0][0]);i++;render();}
-document.getElementById("step").addEventListener("click",next);
+document.getElementById("step").addEventListener("click",function(){if(timer){clearInterval(timer);timer=null;}next();});
 document.getElementById("auto").addEventListener("click",function(){if(timer)return;timer=setInterval(function(){next();if(i>=steps.length){clearInterval(timer);timer=null;}},700);});
 document.getElementById("reset").addEventListener("click",function(){if(timer){clearInterval(timer);timer=null;}gen=[];i=0;render();});
 render();

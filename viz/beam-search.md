@@ -81,7 +81,6 @@ function draw(){
   var greedyA=R.greedy.seq[0],greedyB=R.greedy.seq[1],beamA=R.beam.seq[0],beamB=R.beam.seq[1];
   // 边 root->L1
   L1.forEach(function(a,i){a._y=l1y[i];a._x=220;
-    var cls=(a.w===greedyA?"greedy":"")||(R.keptA.indexOf(a)>=0?"beam":"");
     E(svg,"path",{d:"M90,"+rootY+" C150,"+rootY+" 160,"+a._y+" 190,"+a._y,"class":"edge "+(a.w===greedyA?"greedy":a.w===beamA?"beam":"")});
     E(svg,"text",{x:150,y:(rootY+a._y)/2-4,"class":"np"}).textContent=a.p.toFixed(2);
   });

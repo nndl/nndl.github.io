@@ -87,9 +87,7 @@ function draw(){
   E(svg,"line",{x1:pad,y1:wy(0),x2:W-pad,y2:wy(0),"class":"axis"});
   // 目标
   curve(svg,target,"target");
-  // base 起始斜坡
   var md=model;
-  curve(svg,function(x){return md.y0+md.s0*(x-md.x0);},"base");
   // 各神经元（ReLU 折线）贡献
   for(var i=0;i<md.knees.length;i++){(function(i){curve(svg,function(x){return md.coefs[i]*Math.max(0,x-md.knees[i]);},"unit");
     E(svg,"circle",{cx:wx(md.knees[i]),cy:wy(0),r:2.6,"class":"knee"});})(i);}

@@ -106,7 +106,7 @@ document.getElementById("auto").addEventListener("click",function(){playing?stop
 document.getElementById("step").addEventListener("click",function(){stop();if(cur===E||!sent.length){sent=[];cur=S;}stepGen();render();});
 document.getElementById("reset").addEventListener("click",function(){stop();sent=[];cur=S;render();});
 render();
-setTimeout(function(){if(window.matchMedia&&window.matchMedia("(prefers-reduced-motion:reduce)").matches)return;startGen();},1000);
+setTimeout(function(){if(window.matchMedia&&window.matchMedia("(prefers-reduced-motion:reduce)").matches){sent=["小猫","喜欢","吃","鱼"];cur=E;render();return;}startGen();},1000);
 })();
 </script>
 {% endraw %}

@@ -72,7 +72,7 @@ var TOK=[
   {nm:"老鼠",q:[0.8,-0.7], k:[0.9,-0.6], col:[32,106,79]},
   {nm:"它",  q:[1.05,0.45],k:[0.2,0.15], col:[122,131,128]}
 ];
-var qi=3;
+var qi=3, demoIv=null;
 function hex(c){return "#"+c.map(function(v){v=Math.round(v);return (v<16?"0":"")+v.toString(16);}).join("");}
 function softmax(z){var m=Math.max.apply(null,z),e=z.map(function(v){return Math.exp(v-m);}),s=e.reduce(function(a,b){return a+b;},0);return e.map(function(v){return v/s;});}
 
@@ -81,7 +81,7 @@ function buildToks(){
   TOK.forEach(function(t,i){
     var d=document.createElement("div");d.className="tok"+(i===qi?" q":"");d.dataset.i=i;
     d.innerHTML='<b>'+t.nm+'</b><span class="sw" style="background:'+hex(t.col)+'"></span><span class="role">'+(i===qi?"查询方":"点选")+'</span>';
-    d.addEventListener("click",function(){qi=i;render();});
+    d.addEventListener("click",function(){if(demoIv){clearInterval(demoIv);demoIv=null;}qi=i;render();});
     host.appendChild(d);
   });
 }
@@ -125,7 +125,7 @@ function caption(near,w){
 render();
 setTimeout(function(){
   if(window.matchMedia&&window.matchMedia("(prefers-reduced-motion:reduce)").matches)return;
-  var seq=[0,2,1,3],k=0;var iv=setInterval(function(){qi=seq[k];render();k++;if(k>=seq.length)clearInterval(iv);},1400);
+  var seq=[0,2,1,3],k=0;demoIv=setInterval(function(){qi=seq[k];render();k++;if(k>=seq.length){clearInterval(demoIv);demoIv=null;}},1400);
 },1000);
 })();
 </script>

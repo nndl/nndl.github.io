@@ -68,7 +68,7 @@ function render(){
   if(gen.length===0)E(svg,"text",{x:70,y:46,"class":"lbl"},"（点“下一字”开始拼）");
   var h=hstate(step);
   E(svg,"text",{x:16,y:88,"class":"lbl"},"隐状态（记忆）：");
-  for(var d=0;d<D;d++){var bh=Math.abs(h[d])*30,bx=120+d*16;E(svg,"rect",{x:bx,y:120-(h[d]>0?bh:0),width:12,height:bh,fill:h[d]<0?"#2563eb":"#b5524a",rx:1});}
+  for(var d=0;d<D;d++){var bh=Math.abs(h[d])*30,bx=120+d*16;E(svg,"rect",{x:bx,y:108-(h[d]>0?bh:0),width:12,height:bh,fill:h[d]<0?"#2563eb":"#b5524a",rx:1});}
   if(step<WORDS[wi].length){
     E(svg,"text",{x:16,y:150,"class":"lbl"},"下一字预测：");
     var c=WORDS[wi][step][1],bx2=40;
@@ -87,8 +87,8 @@ function caption(){
   else el.innerHTML="拼完啦：“<b>"+gen.join("")+"</b>”。靠隐状态记住上文，字符级 RNN 也能稳稳拼出合理的词——这就是字符级语言模型。";
 }
 function next(){if(step>=WORDS[wi].length)return;gen.push(WORDS[wi][step][0]);step++;render();}
-document.getElementById("step").addEventListener("click",next);
-document.getElementById("auto").addEventListener("click",function(){if(timer)return;timer=setInterval(function(){next();if(step>=WORDS[wi].length){clearInterval(timer);timer=null;}},650);});
+document.getElementById("step").addEventListener("click",function(){if(timer){clearInterval(timer);timer=null;}next();});
+document.getElementById("auto").addEventListener("click",function(){if(timer){clearInterval(timer);timer=null;return;}timer=setInterval(function(){next();if(step>=WORDS[wi].length){clearInterval(timer);timer=null;}},650);});
 document.getElementById("nextw").addEventListener("click",function(){if(timer){clearInterval(timer);timer=null;}wi=(wi+1)%WORDS.length;gen=[];step=0;render();});
 render();
 setTimeout(function(){if(window.matchMedia&&window.matchMedia("(prefers-reduced-motion:reduce)").matches){while(step<WORDS[wi].length)next();return;}

@@ -113,7 +113,7 @@ function caption(){
   var st=rounds[step-1].st,e=trainErr(step);
   var dir=st.key==="x"?"竖":"横",a=rounds[step-1].alpha.toFixed(2),eps=(rounds[step-1].eps*100).toFixed(0);
   if(step===1){el.innerHTML="<b>第 1 个：</b>一刀"+dir+"切（加权错误率 "+eps+"%，权重 α="+a+"）。一根线分不开斜边，还错 <b>"+e+"</b> 个——被分错的点权重已被放大（变大了）。";return;}
-  if(e>0){el.innerHTML="<b>第 "+step+" 个：</b>又补一刀"+dir+"切（α="+a+"），专攻上一轮被放大的难点；当前还错 <b>"+e+"</b> 个，边界正一阶阶贴近斜线。继续加。";return;}
+  if(e>0){el.innerHTML="<b>第 "+step+" 个：</b>又补一刀"+dir+"切（α="+a+"），专攻上一轮被放大的难点；当前还错 <b>"+e+"</b> 个，加权投票边界在逐步重塑（个别轮错误可能短暂回升，正常）。继续加。";return;}
   el.innerHTML="<b>第 "+step+" 个：</b>这串横竖刀加权投票，已经拼出一道贴合斜线的“楼梯”，<b>全分对了</b>。这就是 AdaBoost：弱分类器一根接一根、串联纠错，合成一个强分类器。";
 }
 function go(){if(step>=MAXR)return false;step++;render();return true;}

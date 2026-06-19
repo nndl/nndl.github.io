@@ -45,7 +45,7 @@ redirect_from:
 
   <div class="vizui-panel">
     <div class="vizui-bar" style="justify-content:center">
-      <svg class="vizui-chart" id="plane" viewBox="0 0 360 320" style="max-width:420px;margin:0 auto" role="img" aria-label="SVM 最大间隔平面"></svg>
+      <svg class="vizui-chart" id="plane" viewBox="0 0 320 320" style="max-width:420px;margin:0 auto" role="img" aria-label="SVM 最大间隔平面"></svg>
     </div>
     <div style="text-align:center;margin-top:6px"><span id="status" class="vizui-pill">间隔宽度 —</span></div>
   </div>
@@ -79,7 +79,7 @@ function solve(){
   var mx=(sp.x+sn.x)/2,my=(sp.y+sn.y)/2, wx_=sp.x-sn.x, wy_=sp.y-sn.y, nl=Math.hypot(wx_,wy_)||1;
   line={mx:mx,my:my,w:[wx_/nl,wy_/nl],sp:sp,sn:sn,margin:bd/2};
 }
-var SVGNS="http://www.w3.org/2000/svg",W=360,H=320,pad=16;
+var SVGNS="http://www.w3.org/2000/svg",W=320,H=320,pad=16;
 function wx(x){return pad+(x+XR)/(2*XR)*(W-2*pad);}
 function wy(y){return (H-pad)-(y+XR)/(2*XR)*(H-2*pad);}
 function E(p,t,a){var e=document.createElementNS(SVGNS,t);for(var k in a)e.setAttribute(k,a[k]);p.appendChild(e);return e;}

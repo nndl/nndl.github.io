@@ -31,7 +31,7 @@ Transformer 同时看一整句话，本身分不清词的先后——“猫追�
       <span class="vizui-spacer"></span>
       <span class="vizui-pill" id="stat">—</span>
     </div>
-    <svg id="plane" viewBox="0 0 392 320" role="img" aria-label="位置编码热力图"></svg>
+    <svg id="plane" viewBox="0 0 410 320" role="img" aria-label="位置编码热力图"></svg>
   </div>
 
   <div class="vizui-caption" id="caption"></div>
@@ -87,7 +87,7 @@ function render(){
 function caption(){
   var el=document.getElementById("caption");
   var near=q+1<N?q+1:q-1, far=(q+12)%N;
-  el.innerHTML="位置 <b>"+q+"</b> 和邻近位置 "+near+" 的相似度高达 <b>"+sim(q,near).toFixed(2)+"</b>，和较远的位置 "+far+" 只有 <b>"+sim(q,far).toFixed(2)+"</b>。相似度随距离平滑下降——这就是模型分辨先后、感知相对距离的依据。";
+  el.innerHTML="位置 <b>"+q+"</b> 和邻近位置 "+near+" 的相似度高达 <b>"+sim(q,near).toFixed(2)+"</b>，和较远的位置 "+far+" 只有 <b>"+sim(q,far).toFixed(2)+"</b>。相似度大体随距离下降（近高远低，正弦编码会有些起伏）——这就是模型分辨先后、感知相对距离的依据。";
 }
 document.getElementById("q").addEventListener("input",function(e){q=+e.target.value;render();});
 setup();render();

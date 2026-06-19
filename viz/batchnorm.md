@@ -62,7 +62,7 @@ function gauss(r){var u=0,v=0;while(!u)u=r();while(!v)v=r();return Math.sqrt(-2*
 function regen(){var r=rng(13);base=[];for(var i=0;i<26;i++)base.push(gauss(r));}
 regen();
 function stats(a){var m=0;a.forEach(function(v){m+=v;});m/=a.length;var s=0;a.forEach(function(v){s+=(v-m)*(v-m);});return {m:m,s:Math.sqrt(s/a.length)};}
-var SVGNS="http://www.w3.org/2000/svg",W=460,H=220,pl=16,pr=16,XR=10;
+var SVGNS="http://www.w3.org/2000/svg",W=460,H=220,pl=16,pr=16,XR=14;
 function wx(x){return pl+(x+XR)/(2*XR)*(W-pl-pr);}
 function E(p,t,a){var e=document.createElementNS(SVGNS,t);for(var k in a)e.setAttribute(k,a[k]);p.appendChild(e);return e;}
 function gcurve(svg,m,s,yb,col){var pts=[];for(var i=0;i<=120;i++){var x=-XR+2*XR*i/120,g=Math.exp(-(x-m)*(x-m)/(2*s*s));pts.push(wx(x)+","+(yb-g*54));}E(svg,"polyline",{points:pts.join(" "),"class":"gauss "+col});}
@@ -72,7 +72,7 @@ function draw(){
   // 稳定带 [-2,2]
   E(svg,"rect",{x:wx(-2),y:8,width:wx(2)-wx(-2),height:H-26,"class":"zone"});
   E(svg,"line",{x1:pl,y1:H-18,x2:W-pr,y2:H-18,"class":"axis"});
-  [-8,-4,0,4,8].forEach(function(t){E(svg,"text",{x:wx(t),y:H-5,"text-anchor":"middle","class":"alab"}).textContent=t;});
+  [-12,-8,-4,0,4,8,12].forEach(function(t){E(svg,"text",{x:wx(t),y:H-5,"text-anchor":"middle","class":"alab"}).textContent=t;});
   E(svg,"line",{x1:wx(0),y1:8,x2:wx(0),y2:H-18,"class":"axis"});
   var raw=base.map(function(z){return mu+z*sg;}), st=stats(raw);
   var bn=raw.map(function(x){return (x-st.m)/(st.s||1);});

@@ -82,7 +82,7 @@ function render(){
 }
 function caption(sd){
   var el=document.getElementById("caption");
-  if(n===1)el.innerHTML="n=1：每次只抽 1 个，所谓“平均”就是它本身——所以蓝图和上面的原始分布一模一样，一点都不像钟形。把 n 拖大。";
+  if(n===1)el.innerHTML="n=1：每次只抽 1 个，所谓“平均”就是它本身——所以蓝图和上面的原始分布几乎一样（同一个分布抽出来的），一点都不像钟形。把 n 拖大。";
   else if(n<8)el.innerHTML="n="+n+"：开始抽 "+n+" 个求平均，分布在往中间收、慢慢鼓成钟形了，金色高斯越来越贴合。";
   else el.innerHTML="n="+n+"：平均值的分布已经是一条漂亮的<b>高斯钟形</b>，紧紧聚在原均值 "+stat.mean.toFixed(2)+" 附近（散布≈原std/√n）。原始分布是均匀/偏斜/双峰都无所谓——这就是中心极限定理。";
 }

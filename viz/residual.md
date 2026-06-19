@@ -50,7 +50,7 @@ redirect_from:
 <script>
 (function(){
 "use strict";
-var N=24, decay=0.82;
+var N=24, decay=0.82, demoIv=null;
 var SVGNS="http://www.w3.org/2000/svg",W=200,H=360,pad=14;
 function E(p,t,a){var e=document.createElementNS(SVGNS,t);for(var k in a)e.setAttribute(k,a[k]);p.appendChild(e);return e;}
 function tealOf(v){var lo=[233,238,235],hi=[21,94,117];return "rgb("+Math.round(lo[0]+(hi[0]-lo[0])*v)+","+Math.round(lo[1]+(hi[1]-lo[1])*v)+","+Math.round(lo[2]+(hi[2]-lo[2])*v)+")";}
@@ -77,10 +77,10 @@ function render(){
 function caption(rem){
   document.getElementById("caption").innerHTML="深度 "+N+" 层时，梯度传到最底层：普通网络只剩 <b style='color:#b5524a'>"+(rem<0.001?rem.toExponential(1):(rem*100).toFixed(1)+"%")+"</b>（底部几乎褪成白色——学不动），残差网络靠跳线<b style='color:var(--color-forest)'>≈100%</b>保住（整列都是深色）。深度越大，差距越悬殊。";
 }
-document.getElementById("n").addEventListener("input",function(e){N=+e.target.value;render();});
+document.getElementById("n").addEventListener("input",function(e){if(demoIv){clearInterval(demoIv);demoIv=null;}N=+e.target.value;render();});
 render();
 setTimeout(function(){if(window.matchMedia&&window.matchMedia("(prefers-reduced-motion:reduce)").matches)return;
-  var seq=[8,18,30,40,24],k=0,sl=document.getElementById("n");var iv=setInterval(function(){N=seq[k];sl.value=N;render();k++;if(k>=seq.length)clearInterval(iv);},900);},1000);
+  var seq=[8,18,30,40,24],k=0,sl=document.getElementById("n");demoIv=setInterval(function(){N=seq[k];sl.value=N;render();k++;if(k>=seq.length){clearInterval(demoIv);demoIv=null;}},900);},1000);
 })();
 </script>
 {% endraw %}

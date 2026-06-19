@@ -98,7 +98,7 @@ function render(){
   var bias=0,vari=0;
   for(var i=0;i<NS;i++){var x=XMIN+(XMAX-XMIN)*i/(NS-1),mean=0,vals=[];fits.forEach(function(co){var y=polyval(co,x);vals.push(y);mean+=y;});mean/=K;
     bias+=(mean-trueF(x))*(mean-trueF(x));var vv=0;vals.forEach(function(y){vv+=(y-mean)*(y-mean);});vari+=vv/K;}
-  bias/=NS;vari/=NS;var tot=bias+vari, SC=0.6;
+  bias/=NS;vari/=NS;var tot=bias+vari, SC=0.14;
   function setBar(id,val){document.getElementById(id+"V").textContent=val.toFixed(3);document.getElementById(id+"Bar").style.width=Math.min(100,val/SC*100)+"%";}
   setBar("bias",bias);setBar("var",vari);setBar("tot",tot);
   caption(bias,vari);

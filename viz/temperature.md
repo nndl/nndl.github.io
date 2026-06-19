@@ -114,9 +114,9 @@ function caption(p,keep){
   var top=p.map(function(v,i){return i;}).sort(function(a,b){return p[b]-p[a];})[0];
   var keptN=TOKS.filter(function(t,i){return keep[i];}).length;
   var msg;
-  if(T<=0.4)msg="<b>温度很低（"+T.toFixed(2)+"）：</b>“"+TOKS[top]+"”几乎独占概率，模型基本只会输出它——稳定但呆板。";
+  if(T<=0.3)msg="<b>温度很低（"+T.toFixed(2)+"）：</b>“"+TOKS[top]+"”的概率被推得很高，模型几乎总输出它——稳定但呆板。";
   else if(T>=1.5)msg="<b>温度很高（"+T.toFixed(2)+"）：</b>概率被拉平，连“蓝”“鸭”这种离谱的词都有机会——有创意，也容易胡说。";
-  else msg="温度 "+T.toFixed(2)+"：概率分布比较均衡。";
+  else msg="温度 "+T.toFixed(2)+"：“"+TOKS[top]+"”领先，但其他词也分到了概率；温度越高越随机。";
   if(topp<0.999)msg+=" top-p 把候选砍到最可能的 <b>"+keptN+"</b> 个，长尾里的离谱词被排除。";
   el.innerHTML=msg;
 }

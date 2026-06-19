@@ -78,7 +78,7 @@ function caption(rf){
 }
 document.getElementById("L").addEventListener("input",function(e){L=+e.target.value;render();});
 render();
-setTimeout(function(){if(window.matchMedia&&window.matchMedia("(prefers-reduced-motion:reduce)").matches){L=4;document.getElementById("L").value=4;render();return;}
+setTimeout(function(){if(window.matchMedia&&window.matchMedia("(prefers-reduced-motion:reduce)").matches){L=6;document.getElementById("L").value=6;render();return;}
   var seq=[2,3,4,5,6],k=0,sl=document.getElementById("L");
   var iv=setInterval(function(){L=seq[k];sl.value=L;render();k++;if(k>=seq.length)clearInterval(iv);},900);},1000);
 })();

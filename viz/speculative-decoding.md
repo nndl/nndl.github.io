@@ -80,8 +80,8 @@ function render(){
     E(svg,"text",{x:14,y:96,"class":"lbl"},"第 "+cur+" 轮 · 草稿提议："); 
     var x=24;
     for(var j=0;j<R.prop.length;j++){var pj=R.prop[j],w2=Math.max(40,pj.tok.length*15+14);box(svg,x,108,w2,pj.tok,pj.st==="ok"?"ok":pj.st==="rej"?"rej":"dis");x+=w2+6;}
-    E(svg,"text",{x:14,y:166,"class":"lbl"},"大模型核验 → 采纳 "+R.acc+" 个"+(R.corr?("，纠正/补：")+"":""));
-    if(R.corr){box(svg,150,152,Math.max(40,R.corr.length*15+14),R.corr,"cor");}
+    var lbl=E(svg,"text",{x:14,y:166,"class":"lbl"},"大模型核验 → 采纳 "+R.acc+" 个"+(R.corr?"，纠正/补：":""));
+    if(R.corr){var lx=14+(lbl.getComputedTextLength?lbl.getComputedTextLength():150)+10;box(svg,lx,152,Math.max(40,R.corr.length*15+14),R.corr,"cor");}
   }
   var normal=target.length;
   document.getElementById("stat").textContent="大模型前向 "+cur+" 次（普通需 "+normal+" 次）";

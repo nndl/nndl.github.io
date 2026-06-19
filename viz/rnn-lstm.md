@@ -208,7 +208,7 @@ function compute(){
   for(var i=1;i<T;i++){
     var x=feed[i];
     rnn.push(clamp(0.55*rnn[i-1]+0.45*x,0,100));           /* 旧记忆每步对半冲淡 */
-    lstm.push(clamp(forget*lstm[i-1]+0.05*x,0,100));        /* 闸门留住旧记忆，新内容只渗一点 */
+    lstm.push(clamp(forget*lstm[i-1]+(1-forget)*x,0,100));  /* 闸门 f 留旧记忆，(1−f) 写入新内容：f→1 记得牢，f→小 退化成随输入覆盖 */
   }
 }
 

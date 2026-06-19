@@ -62,7 +62,7 @@ function init(){
   pS=[{x:sgd.x,y:sgd.y}];pM=[{x:mom.x,y:mom.y}];pA=[{x:adam.x,y:adam.y}];step=0;
 }
 function stepAll(){
-  var lr=0.035,beta=0.85;
+  var lr=0.04,beta=0.9;
   var gS=grad(sgd);sgd={x:sgd.x-lr*gS.x,y:sgd.y-lr*gS.y};pS.push({x:sgd.x,y:sgd.y});
   var gM=grad(mom);mom.vx=beta*mom.vx-lr*gM.x;mom.vy=beta*mom.vy-lr*gM.y;mom.x+=mom.vx;mom.y+=mom.vy;pM.push({x:mom.x,y:mom.y});
   // Adam
@@ -95,7 +95,7 @@ function caption(){
   var el=document.getElementById("caption"),dS=dist(sgd),dM=dist(mom),dA=dist(adam);
   if(step===0)el.innerHTML="点“开始”。注意红球（SGD）会在山谷两壁间横跳，绿球（Adam）能压住横跳、沿谷底直奔谷底。";
   else if(dA<0.05&&dS>0.2)el.innerHTML="第 "+step+" 步：<b>Adam（绿）已经到底</b>，SGD 还在半路横跳。自适应学习率让它在窄谷里又快又稳。";
-  else el.innerHTML="第 "+step+" 步：离谷底——SGD "+dS.toFixed(2)+"、动量 "+dM.toFixed(2)+"、Adam "+dA.toFixed(2)+"。绿球几乎不横跳。";
+  else el.innerHTML="第 "+step+" 步：离谷底——SGD "+dS.toFixed(2)+"、动量 "+dM.toFixed(2)+"、Adam "+dA.toFixed(2)+"。"+(dM>dA+0.15?"<b>动量冲过了头</b>、在谷里来回弹，Adam 却几乎不横跳、稳稳逼近。":"绿球几乎不横跳。");
 }
 function stop(){playing=false;if(timer){clearInterval(timer);timer=null;}document.getElementById("go").textContent="▶ 开始";}
 function play(){if(dist(adam)<0.03&&dist(sgd)<0.05){init();render();}stop();playing=true;document.getElementById("go").textContent="⏸ 暂停";

@@ -99,7 +99,7 @@ document.getElementById("ecc").addEventListener("input",function(e){ecc=+e.targe
 document.getElementById("regen").addEventListener("click",function(){seed++;genBase();render();});
 genBase();render2();
 setTimeout(function(){if(window.matchMedia&&window.matchMedia("(prefers-reduced-motion:reduce)").matches)return;
-  var k=0,sl=document.getElementById("ang");var iv=setInterval(function(){k++;theta=(30+k*16)*Math.PI/180;sl.value=Math.round(theta*180/Math.PI)%170;render2();if(k>=9)clearInterval(iv);},480);},1000);
+  var k=0,sl=document.getElementById("ang");var iv=setInterval(function(){k++;var deg=Math.min(170,30+k*16);theta=deg*Math.PI/180;sl.value=deg;render2();if(k>=9)clearInterval(iv);},480);},1000);
 })();
 </script>
 {% endraw %}

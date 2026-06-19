@@ -55,15 +55,15 @@ function gss(r){var u=0,v=0;while(!u)u=r();while(!v)v=r();return Math.sqrt(-2*Ma
 function gen(){var r=rng(6);pts=[];
   for(var i=0;i<26;i++)pts.push({x:0.75+gss(r)*0.75,y:0.5+gss(r)*0.6});
   for(var j=0;j<26;j++)pts.push({x:-0.7+gss(r)*0.7,y:-0.45+gss(r)*0.8});}
-function init(){gauss2=[{mx:-1.4,my:1.2,s:1.0,pi:0.5},{mx:1.4,my:-1.2,s:1.0,pi:0.5}];iter=0;resp();}
-function N(p,g){var dx=p.x-g.mx,dy=p.y-g.my;return Math.exp(-(dx*dx+dy*dy)/(2*g.s*g.s))/(2*Math.PI*g.s*g.s);}
+function init(){gauss2=[{mx:-1.4,my:1.2,sx:1.0,sy:1.0,pi:0.5},{mx:1.4,my:-1.2,sx:1.0,sy:1.0,pi:0.5}];iter=0;resp();}
+function N(p,g){var dx=p.x-g.mx,dy=p.y-g.my;return Math.exp(-(dx*dx/(2*g.sx*g.sx)+dy*dy/(2*g.sy*g.sy)))/(2*Math.PI*g.sx*g.sy);}
 function resp(){pts.forEach(function(p){var a=gauss2[0].pi*N(p,gauss2[0]),b=gauss2[1].pi*N(p,gauss2[1]),s=a+b||1;p.r=a/s;});}
 function step(){
   resp();                       // E 步
   for(var k=0;k<K;k++){var w=k===0?function(p){return p.r;}:function(p){return 1-p.r;};
     var sw=0,sx=0,sy=0;pts.forEach(function(p){var rk=w(p);sw+=rk;sx+=rk*p.x;sy+=rk*p.y;});
-    var mx=sx/sw,my=sy/sw,sv=0;pts.forEach(function(p){var rk=w(p);sv+=rk*((p.x-mx)*(p.x-mx)+(p.y-my)*(p.y-my));});
-    gauss2[k].mx=mx;gauss2[k].my=my;gauss2[k].s=Math.max(0.25,Math.sqrt(sv/sw/2));gauss2[k].pi=sw/pts.length;}
+    var mx=sx/sw,my=sy/sw,svx=0,svy=0;pts.forEach(function(p){var rk=w(p);svx+=rk*(p.x-mx)*(p.x-mx);svy+=rk*(p.y-my)*(p.y-my);});
+    gauss2[k].mx=mx;gauss2[k].my=my;gauss2[k].sx=Math.max(0.25,Math.sqrt(svx/sw));gauss2[k].sy=Math.max(0.25,Math.sqrt(svy/sw));gauss2[k].pi=sw/pts.length;}
   iter++;resp();
 }
 var SVGNS="http://www.w3.org/2000/svg",W=320,H=320,pad=14;
@@ -75,8 +75,8 @@ function draw(){
   var svg=document.getElementById("plane");while(svg.firstChild)svg.removeChild(svg.firstChild);
   E(svg,"line",{x1:wx(0),y1:pad,x2:wx(0),y2:H-pad,"class":"axis"});E(svg,"line",{x1:pad,y1:wy(0),x2:W-pad,y2:wy(0),"class":"axis"});
   var sc=(W-2*pad)/(2*XR);
-  E(svg,"circle",{cx:wx(gauss2[0].mx),cy:wy(gauss2[0].my),r:gauss2[0].s*sc,"class":"ell0"});
-  E(svg,"circle",{cx:wx(gauss2[1].mx),cy:wy(gauss2[1].my),r:gauss2[1].s*sc,"class":"ell1"});
+  E(svg,"ellipse",{cx:wx(gauss2[0].mx),cy:wy(gauss2[0].my),rx:gauss2[0].sx*sc,ry:gauss2[0].sy*sc,"class":"ell0"});
+  E(svg,"ellipse",{cx:wx(gauss2[1].mx),cy:wy(gauss2[1].my),rx:gauss2[1].sx*sc,ry:gauss2[1].sy*sc,"class":"ell1"});
   pts.forEach(function(p){E(svg,"circle",{cx:wx(p.x),cy:wy(p.y),r:5,fill:pcol(p.r),"class":"pt"});});
   E(svg,"circle",{cx:wx(gauss2[0].mx),cy:wy(gauss2[0].my),r:5,fill:"#b5524a","class":"ctr"});
   E(svg,"circle",{cx:wx(gauss2[1].mx),cy:wy(gauss2[1].my),r:5,fill:"#2563eb","class":"ctr"});

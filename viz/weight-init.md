@@ -51,7 +51,7 @@ redirect_from:
 <script>
 (function(){
 "use strict";
-var D=24, L=18, gain=1.0;
+var D=24, L=18, gain=1.0, demoIv=null;
 function rng(s){return function(){s|=0;s=s+0x6D2B79F5|0;var x=Math.imul(s^s>>>15,1|s);x=x+Math.imul(x^x>>>7,61|x)^x;return((x^x>>>14)>>>0)/4294967296;};}
 function gauss(r){var u=0,v=0;while(!u)u=r();while(!v)v=r();return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v);}
 function propagate(){
@@ -88,11 +88,11 @@ function caption(fin){
   else el.innerHTML="<b>恰好（尺度 "+gain.toFixed(2)+"≈Xavier）：</b>曲线贴着绿色稳定线，信号强度逐层基本不变（第 18 层 "+fin.toFixed(2)+"）。这正是深层网络能正常训练的前提。";
 }
 function render(){document.getElementById("gVal").textContent=gain.toFixed(2);document.querySelectorAll("#heads button").forEach(function(b){b.classList.toggle("on",Math.abs(+b.dataset.g-gain)<0.03);});draw();}
-document.getElementById("heads").addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;gain=+b.dataset.g;document.getElementById("g").value=gain;render();});
-document.getElementById("g").addEventListener("input",function(e){gain=+e.target.value;render();});
+document.getElementById("heads").addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;if(demoIv){clearInterval(demoIv);demoIv=null;}gain=+b.dataset.g;document.getElementById("g").value=gain;render();});
+document.getElementById("g").addEventListener("input",function(e){if(demoIv){clearInterval(demoIv);demoIv=null;}gain=+e.target.value;render();});
 render();
 setTimeout(function(){if(window.matchMedia&&window.matchMedia("(prefers-reduced-motion:reduce)").matches)return;
-  var seq=[1.7,0.55,1.0],k=0,sl=document.getElementById("g");var iv=setInterval(function(){gain=seq[k];sl.value=gain;render();k++;if(k>=seq.length)clearInterval(iv);},1100);},1000);
+  var seq=[1.7,0.55,1.0],k=0,sl=document.getElementById("g");demoIv=setInterval(function(){gain=seq[k];sl.value=gain;render();k++;if(k>=seq.length){clearInterval(demoIv);demoIv=null;}},1100);},1000);
 })();
 </script>
 {% endraw %}

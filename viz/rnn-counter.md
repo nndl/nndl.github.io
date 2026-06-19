@@ -53,23 +53,24 @@ RNN 的隐状态到底存了什么？这个例子能让你“看见”。给 RNN
 (function(){
 "use strict";
 var SEQS=["(()(()))","((())()","(())())"],si=0,seq=SEQS[0].split(""),step=0,timer=null;
-var SVGNS="http://www.w3.org/2000/svg",W=470,H=230,pl=30,pr=14,pt=80,pb=28,MAXD=4;
+var SVGNS="http://www.w3.org/2000/svg",W=470,H=230,pl=30,pr=14,pt=80,pb=28,MAXD=4,MIND=-1;
 function E(p,t,a,txt){var e=document.createElementNS(SVGNS,t);for(var k in a)e.setAttribute(k,a[k]);if(txt!=null)e.textContent=txt;p.appendChild(e);return e;}
 function depths(){var d=[0],c=0,bad=false;for(var i=0;i<seq.length;i++){c+=(seq[i]==="(")?1:-1;if(c<0)bad=true;d.push(c);}return {d:d,bad:bad,end:c};}
 function px(i){return pl+i*((W-pl-pr)/seq.length);}
-function py(v){return (H-pb)-(v/MAXD)*(H-pt-pb);}
+function py(v){return (H-pb)-((v-MIND)/(MAXD-MIND))*(H-pt-pb);}
 function render(){
   var svg=document.getElementById("plane");while(svg.firstChild)svg.removeChild(svg.firstChild);
   var bw=(W-pl-pr)/seq.length;
   for(var i=0;i<seq.length;i++){var cur=(i===step-1);E(svg,"rect",{x:px(i)+bw/2-15,y:24,width:30,height:34,rx:5,"class":"br"+(cur?" cur":""),opacity:(i<step?1:0.3)});E(svg,"text",{x:px(i)+bw/2,y:47,"text-anchor":"middle","class":"btext",opacity:(i<step?1:0.3)},seq[i]);}
   // 坐标
-  E(svg,"line",{x1:pl,y1:H-pb,x2:W-pr,y2:H-pb,"class":"axis"});E(svg,"line",{x1:pl,y1:pt,x2:pl,y2:H-pb,"class":"axis"});
-  for(var v=0;v<=MAXD;v++)E(svg,"text",{x:pl-5,y:py(v)+3,"text-anchor":"end","class":"lbl"},v);
+  E(svg,"line",{x1:pl,y1:py(0),x2:W-pr,y2:py(0),"class":"axis"});E(svg,"line",{x1:pl,y1:pt,x2:pl,y2:H-pb,"class":"axis"});
+  for(var v=MIND;v<=MAXD;v++)E(svg,"text",{x:pl-5,y:py(v)+3,"text-anchor":"end","class":"lbl"},v);
   E(svg,"text",{x:pl-5,y:pt-4,"text-anchor":"end","class":"lbl"},"深度");
   // 深度折线（到 step）
-  var dd=depths().d,pts=[];var xd=function(s){return s===0?pl:pl+(s-0.5)*bw;};for(var s=0;s<=step;s++)pts.push(xd(s)+","+py(Math.max(0,dd[s])));
-  if(step>=1){E(svg,"polygon",{points:(pl)+","+(H-pb)+" "+pts.join(" ")+" "+xd(step)+","+(H-pb),"class":"area"});E(svg,"polyline",{points:pts.join(" "),"class":"depth"});}
-  for(var s2=0;s2<=step;s2++)E(svg,"circle",{cx:xd(s2),cy:py(Math.max(0,dd[s2])),r:3,fill:"var(--color-accent)"});
+  var dd=depths().d,pts=[];var xd=function(s){return s===0?pl:pl+(s-0.5)*bw;};for(var s=0;s<=step;s++)pts.push(xd(s)+","+py(dd[s]));
+  var y0=py(0);
+  if(step>=1){E(svg,"polygon",{points:(pl)+","+y0+" "+pts.join(" ")+" "+xd(step)+","+y0,"class":"area"});E(svg,"polyline",{points:pts.join(" "),"class":"depth"});}
+  for(var s2=0;s2<=step;s2++)E(svg,"circle",{cx:xd(s2),cy:py(dd[s2]),r:3,fill:dd[s2]<0?"#b5524a":"var(--color-accent)"});
   var curd=dd[step];
   document.getElementById("stat").textContent="深度 "+curd;
   caption(curd);

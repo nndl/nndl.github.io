@@ -108,5 +108,21 @@
       });
     })();
   </script>
+  <script>
+    // viz 详情页“可视化资源”返回链接：若是从可视化索引页点进来的，用 history.back()
+    // 返回，浏览器会恢复索引页原来的滚动位置（停在刚才那张卡片处），而不是回到顶部。
+    // 非从索引页进入（直链 / 新标签页 / 其他来源）则保持正常跳转。
+    (function () {
+      var back = document.querySelector('a.viz-back');
+      if (!back || !document.referrer) return;
+      try {
+        var ref = new URL(document.referrer), dest = new URL(back.href);
+        var norm = function (p) { return p.replace(/\/+$/, ''); };
+        if (ref.origin === dest.origin && norm(ref.pathname) === norm(dest.pathname) && window.history.length > 1) {
+          back.addEventListener('click', function (e) { e.preventDefault(); history.back(); });
+        }
+      } catch (e) {}
+    })();
+  </script>
 </body>
 </html>

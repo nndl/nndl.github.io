@@ -77,7 +77,7 @@ function render(){
 }
 function caption(P){
   var el=document.getElementById("caption");
-  if(mode==="g")el.innerHTML="<b>好模型：</b>对每个词都给了不低的概率，整句困惑度只有 <b>"+P.toFixed(1)+"</b>——它读这句话时基本不惊讶，像在两三个词里挑。";
+  if(mode==="g")el.innerHTML="<b>好模型：</b>对每个词都给了不低的概率，整句困惑度只有 <b>"+P.toFixed(1)+"</b>——它读这句话时基本不惊讶，像在两个词里挑。";
   else if(mode==="m")el.innerHTML="<b>一般模型：</b>概率给得没那么准，困惑度升到 <b>"+P.toFixed(1)+"</b>——它对这句话更没把握了。";
   else el.innerHTML="<b>随机模型：</b>对每个词都只给了 0.2% 的概率（在五百个词里瞎猜），困惑度高达 <b>"+P.toFixed(0)+"</b>——这就是完全没学会语言的样子。";
 }

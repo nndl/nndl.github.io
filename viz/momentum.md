@@ -30,12 +30,12 @@ redirect_from:
   <div class="vizui-panel">
     <div class="vizui-bar">
       <span class="vizui-field"><label for="lr">学习率</label>
-        <input type="range" id="lr" min="0.02" max="0.13" step="0.005" value="0.09" style="width:150px">
+        <input type="range" id="lr" min="0.02" max="0.13" step="0.005" value="0.090" style="width:150px">
         <output id="lrVal">0.090</output>
       </span>
       <span class="vizui-field"><label for="beta">动量</label>
-        <input type="range" id="beta" min="0" max="0.95" step="0.05" value="0.85" style="width:150px">
-        <output id="betaVal">0.85</output>
+        <input type="range" id="beta" min="0" max="0.95" step="0.05" value="0.40" style="width:150px">
+        <output id="betaVal">0.40</output>
       </span>
       <span class="vizui-spacer"></span>
       <button class="vizui-btn vizui-btn--go" id="go" type="button">▶ 开始</button>
@@ -68,7 +68,7 @@ redirect_from:
 "use strict";
 var A=1, B=18;                 /* 损失 f = 0.5(A x² + B y²)，窄长山谷 */
 var START={x:-2.45,y:0.95};
-var lr=0.09, beta=0.85;
+var lr=0.090, beta=0.40;
 var posS, posM, velM, pathS, pathM, step, playing=false, timer=null, divergedS=false;
 
 function grad(p){return {x:A*p.x, y:B*p.y};}
@@ -112,16 +112,16 @@ function draw(){
 }
 
 function caption(){
-  var el=document.getElementById("caption");
+  var el=document.getElementById("caption"), zig=lr*B>1;
   if(divergedS){
     if(dist(posM)>6)el.innerHTML="<b>两个球都发散了！</b>学习率 "+lr.toFixed(3)+" 太大——这个陡峭方向上步子过大，连动量也拉不住，双双冲出了山谷。把学习率调小些。";
     else el.innerHTML="<b>红球发散了！</b>学习率 "+lr.toFixed(3)+" 在陡峭方向上步子太大，普通梯度下降越跳越远冲出了山谷。绿球靠动量仍稳稳收敛——这正是动量的好处。";
     return;
   }
-  if(step===0){el.innerHTML="点“开始”。注意红球（普通梯度下降）会在山谷两壁间来回横跳，绿球（带动量）则顺着谷底加速。";return;}
+  if(step===0){el.innerHTML=zig?"点“开始”。红球（普通梯度下降）会在山谷两壁间来回横跳；绿球（带动量）在动量够大时能抵消横跳、顺谷底加速甩开红球——动量太小时它也会跟着晃。":"点“开始”。当前学习率偏小，红球只会稳稳地、慢慢地往谷底挪（步子太小、不横跳，很慢）；绿球靠动量快一点。想看“横跳”，把学习率往右调大。";return;}
   var dS=dist(posS), dM=dist(posM);
-  if(dM<0.05 && dS>0.3){el.innerHTML="第 "+step+" 步：<b>绿球已经到底</b>，红球还在半路横跳。同样的学习率，动量明显更快。";return;}
-  el.innerHTML="第 "+step+" 步：红球离谷底 "+dS.toFixed(2)+"，绿球 "+dM.toFixed(2)+"。"+(beta<0.3?"把“动量”调大些，看绿球如何甩开红球。":"");
+  if(dM<0.05 && dS>0.3){el.innerHTML="第 "+step+" 步：<b>绿球已经到底</b>，红球还在半路"+(zig?"横跳":"慢慢挪")+"。同样的学习率，动量明显更快。";return;}
+  el.innerHTML="第 "+step+" 步：红球离谷底 "+dS.toFixed(2)+"，绿球 "+dM.toFixed(2)+"。"+(zig?(beta<0.7?"动量偏小，绿球也跟着晃——把“动量”调大些，看它抵消横跳、甩开红球。":""):"学习率偏小、收敛慢——往右调大就能看到红球横跳。");
 }
 function render(){draw();caption();}
 
