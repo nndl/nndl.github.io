@@ -58,7 +58,7 @@ description: 邱锡鹏《神经网络与深度学习》《大模型与智能体�
 
 <div class="resource-grid">
   <div class="resource-card resource-card--list">
-    <h3>可视化资源</h3>
+    <h3><a class="resource-card__heading-link" href="{{ '/viz/' | relative_url }}">可视化资源 <span class="resource-card__go" aria-hidden="true">→</span></a></h3>
     <p>书中关键概念的动图与交互演示：</p>
     <div class="repo-chip-grid">
       <a class="repo-chip" href="{{ '/viz/#第-5-章--卷积神经网络' | relative_url }}">

@@ -2336,6 +2336,73 @@ a.pdf-badge:hover {
   min-height: calc(3 * 1.5 * 0.85rem);
 }
 
+/* ---------- viz index: chapter table-of-contents ---------- */
+/* A static index block at the top: all chapters wrap onto as many rows as
+   needed (17 entries take ~3 rows even on a wide screen, so a sticky bar would
+   eat too much height — an in-flow "目录" is lighter and more conventional).
+   It's a <details>: open on desktop (summary hidden), collapsible on phones
+   where the long names would otherwise stack to ~14 rows. */
+.viz-toc {
+  margin: 4px 0 26px;
+  background: rgba(248, 250, 249, 0.7);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+}
+.viz-toc__summary { display: none; }
+.viz-toc__inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 13px 15px;
+}
+.viz-toc a {
+  flex: 0 0 auto;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--color-text-soft);
+  padding: 5px 13px;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-pure);
+  white-space: nowrap;
+  text-decoration: none;
+  transition: background 0.15s var(--ease-out), color 0.15s var(--ease-out), border-color 0.15s var(--ease-out);
+}
+.viz-toc a:hover { border-color: var(--color-accent); color: var(--color-accent); }
+@media (max-width: 640px) {
+  .viz-toc__summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 11px 13px;
+    cursor: pointer;
+    list-style: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+  .viz-toc__summary::-webkit-details-marker { display: none; }
+  .viz-toc__chev {
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(45deg);
+    transition: transform 0.2s var(--ease-out);
+    margin: -3px 3px 0 0;
+  }
+  .viz-toc[open] .viz-toc__chev { transform: rotate(-135deg); margin-top: 3px; }
+  .viz-toc__inner { padding: 0 12px 12px; gap: 7px; }
+  .viz-toc a { font-size: 0.78rem; padding: 4px 11px; }
+}
+/* clicked chapter heading clears the (still sticky) site header; JS sets the
+   exact value since the header is taller when it wraps on mobile. */
+.viz-page h2 { scroll-margin-top: 88px; }
+
+/* viz detail pages: lighter title than the index/home (it's a demo, not an article) */
+.viz-page .site-content h1 { font-size: 2.25rem; font-weight: 700; line-height: 1.2; }
+.viz-page .site-content:has(.viz-grid) h1 { font-size: 3rem; font-weight: 900; line-height: 1.1; }
+
 /* ---------- Resource grid ---------- */
 .resource-grid {
   display: grid;
@@ -2396,6 +2463,23 @@ a.pdf-badge:hover {
 }
 
 .resource-card:hover h3 { color: var(--color-accent); }
+
+/* "可视化资源" card: make the heading itself a link to the /viz/ index
+   (the chips below jump to individual chapters). */
+.resource-card__heading-link {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 7px;
+  color: inherit;
+  text-decoration: none;
+}
+.resource-card__heading-link:hover { color: var(--color-accent); text-decoration: none; }
+.resource-card__go {
+  font-size: 0.85em;
+  color: var(--color-text-muted);
+  transition: transform 0.18s var(--ease-out), color 0.18s var(--ease-out);
+}
+.resource-card__heading-link:hover .resource-card__go { color: var(--color-accent); transform: translateX(4px); }
 
 .resource-card p {
   margin: 0;

@@ -124,5 +124,48 @@
       } catch (e) {}
     })();
   </script>
+  <script>
+    // viz 索引页：用各章节 h2[id] 自动生成一个“章节目录”，所有章节换行平铺、
+    // 点击跳转（仅在有卡片网格的索引页生成，详情页/其他页不出现）。桌面默认展开，
+    // 手机上 17 章会堆成十几行，故默认收起为一个可点开的“章节目录”。
+    (function () {
+      var grid = document.querySelector('.viz-grid');
+      if (!grid) return;
+      var heads = [].slice.call(document.querySelectorAll('.site-content h2[id]'));
+      if (heads.length < 3) return;
+      var header = document.querySelector('.site-header');
+      var details = document.createElement('details');
+      details.className = 'viz-toc';
+      var summary = document.createElement('summary');
+      summary.className = 'viz-toc__summary';
+      summary.innerHTML = '<span>章节目录</span><span class="viz-toc__chev" aria-hidden="true"></span>';
+      details.appendChild(summary);
+      var inner = document.createElement('div');
+      inner.className = 'viz-toc__inner';
+      heads.forEach(function (h) {
+        var a = document.createElement('a');
+        a.href = '#' + h.id;
+        a.textContent = h.textContent.trim();
+        inner.appendChild(a);
+      });
+      details.appendChild(inner);
+      heads[0].parentNode.insertBefore(details, heads[0]);
+      // Open on wide screens; collapsed on phones (where it would be ~14 rows).
+      var mq = window.matchMedia('(max-width: 640px)');
+      function sync() { details.open = !mq.matches; }
+      sync();
+      if (mq.addEventListener) mq.addEventListener('change', sync);
+      else if (mq.addListener) mq.addListener(sync);
+      // The site header stays sticky; offset anchor jumps so a clicked chapter
+      // lands just below it (the header is taller when it wraps on mobile).
+      function headerH() { return header ? header.offsetHeight : 72; }
+      function setMargin() {
+        var sm = headerH() + 14;
+        for (var i = 0; i < heads.length; i++) heads[i].style.scrollMarginTop = sm + 'px';
+      }
+      setMargin();
+      window.addEventListener('resize', setMargin);
+    })();
+  </script>
 </body>
 </html>
