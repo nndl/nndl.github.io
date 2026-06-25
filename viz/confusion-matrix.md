@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 混淆矩阵与多类指标
+description: "三类混淆矩阵 + 各类精确率/召回/F1：类别不平衡时一个准确率会掩盖稀有类的崩溃，宏平均与微平均就此分道扬镳。"
 permalink: /viz/confusion-matrix/
 redirect_from:
   - /v/confusion-matrix/

@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 决策树与信息增益
+description: "按信息增益一刀刀切分平面，看决策树怎样把交叠的两类逐步分纯。"
 permalink: /viz/decision-tree/
 redirect_from:
   - /v/decision-tree/

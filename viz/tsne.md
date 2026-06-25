@@ -1,6 +1,7 @@
 ---
 layout: default
 title: t-SNE 与降维
+description: "distill.pub 经典互动：如何正确解读 t-SNE 图，以及 perplexity / 迭代步数的影响。"
 permalink: /viz/tsne/
 redirect_from:
   - /v/tsne/

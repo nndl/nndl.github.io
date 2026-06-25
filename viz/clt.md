@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 中心极限定理
+description: "从任意分布反复抽 n 个求平均，n 越大，平均值的分布越收成漂亮的高斯钟形。"
 permalink: /viz/clt/
 redirect_from:
   - /v/clt/

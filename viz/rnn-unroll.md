@@ -1,6 +1,7 @@
 ---
 layout: default
 title: RNN 隐状态：滚动的记忆
+description: "一个词一个词地读，隐状态像一张滚动的便签把上文压进向量；每步都用同一套权重，所以能处理任意长度。"
 permalink: /viz/rnn-unroll/
 redirect_from:
   - /v/rnn-unroll/

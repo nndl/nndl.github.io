@@ -1,6 +1,7 @@
 ---
 layout: default
 title: GAN：生成器与判别器的博弈
+description: "判别器当警察、生成器当造假者交替训练；看金色假直方图一步步贴上真分布，切到双峰还能演示模式崩溃。"
 permalink: /viz/gan-training/
 redirect_from:
   - /v/gan-training/

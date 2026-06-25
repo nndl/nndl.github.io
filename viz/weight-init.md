@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 权重初始化
+description: "信号穿过 18 层：初始权重太大→爆炸、太小→消失，Xavier 恰好保持稳定。"
 permalink: /viz/weight-init/
 redirect_from:
   - /v/weight-init/

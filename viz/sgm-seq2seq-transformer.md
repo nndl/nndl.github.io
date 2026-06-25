@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 基于 Transformer 的序列到序列模型
+description: "基于自注意力机制，可并行处理整个序列，是当前大模型的基础架构。"
 permalink: /viz/sgm-seq2seq-transformer/
 redirect_from:
   - /v/sgm-seq2seq-transformer/

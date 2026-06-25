@@ -1,6 +1,7 @@
 ---
 layout: default
 title: RNN 当计数器
+description: "喂一串括号，看某个隐状态神经元自己学成计数器——遇“(”加一、遇“)”减一，隐状态里原来存着看得懂的信息。"
 permalink: /viz/rnn-counter/
 redirect_from:
   - /v/rnn-counter/

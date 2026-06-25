@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 点词看注意力
+description: "点句子里的一个词，看自注意力把它连向相关的词（如“它”指向“小猫”）。"
 permalink: /viz/self-attention/
 redirect_from:
   - /v/self-attention/
@@ -53,7 +54,7 @@ Transformer（也就是当下大模型的核心）能读懂长句子，靠的是
 
   <div class="vizui-panel">
     <div class="att-stage" id="stage">
-      <svg class="att-arcs" id="arcs"></svg>
+      <svg class="att-arcs" id="arcs" role="img" aria-label="自注意力连线图：连线越粗表示当前词对该词的注意力越强"></svg>
       <div class="att-words" id="words"></div>
     </div>
     <div class="att-readout" id="readout"></div>

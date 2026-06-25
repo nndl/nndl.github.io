@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 自回归：一个字一个字生成
+description: "一个字一个字预测、写下、再喂回输入，动态看 GPT 怎样把句子“接”出来。"
 permalink: /viz/autoregressive/
 redirect_from:
   - /v/autoregressive/

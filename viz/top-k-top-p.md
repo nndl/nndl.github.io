@@ -1,6 +1,7 @@
 ---
 layout: default
 title: top-k 与 top-p 采样
+description: "切 top-k / top-p，看截断候选词表怎么砍掉长尾、控制生成稳重还是放飞（配合温度）。"
 permalink: /viz/top-k-top-p/
 redirect_from:
   - /v/top-k-top-p/

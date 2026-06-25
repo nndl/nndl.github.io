@@ -3,6 +3,29 @@ layout: default
 ---
 {%- assign book = site.data.books | where: "key", page.book_key | first -%}
 {%- if book -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Book",
+  "@id": "{{ page.url | absolute_url }}#book",
+  "name": {{ book.title | jsonify }},
+  "url": "{{ page.url | absolute_url }}",
+  "image": "{{ book.cover | absolute_url }}",
+  "inLanguage": "zh-CN",
+  "bookFormat": "https://schema.org/EBook",
+  "author": { "@id": "{{ site.url }}/#person" },
+  "abstract": {{ book.blurb | jsonify }}
+  {%- if book.publisher and book.publisher != "" %},
+  "publisher": { "@type": "Organization", "name": {{ book.publisher | jsonify }} }
+  {%- endif %}
+  {%- if book.year and book.year != "" %},
+  "datePublished": "{{ book.year }}"
+  {%- endif %}
+  {%- if book.subtitle and book.subtitle != "" %},
+  "alternativeHeadline": {{ book.subtitle | jsonify }}
+  {%- endif %}
+}
+</script>
 <article class="book-page book-page--{{ book.key }}">
   <header class="book-hero">
     <div class="book-hero__cover">

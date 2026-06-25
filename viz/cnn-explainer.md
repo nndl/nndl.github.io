@@ -1,6 +1,7 @@
 ---
 layout: default
 title: CNN Explainer
+description: "PoloClub 出品的交互式 CNN 解释器，可逐层查看激活与卷积运算。"
 permalink: /viz/cnn-explainer/
 redirect_from:
   - /v/cnn-explainer/

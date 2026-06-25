@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 困惑度：模型有多惊讶
+description: "切换好/一般/随机模型，看同一句话的困惑度差多少——模型读句子时有多惊讶。"
 permalink: /viz/perplexity/
 redirect_from:
   - /v/perplexity/

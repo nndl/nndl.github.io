@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 特征向量与特征值
+description: "拖动向量 v，看矩阵把多数方向掰歪；只有沿特征向量方向 Av=λv，只拉伸不转向——PCA / 谱分解的根基。"
 permalink: /viz/eigenvectors/
 redirect_from:
   - /v/eigenvectors/

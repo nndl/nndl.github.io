@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 温度采样
+description: "调‘温度’看模型挑下一个词的概率条重塑：低温保守稳定、高温有创意也容易胡说。"
 permalink: /viz/temperature/
 redirect_from:
   - /v/temperature/

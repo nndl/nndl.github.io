@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 掩码语言模型（双向）
+description: "盖住一个词让模型双向猜（BERT），对照只看左的因果模型——双向理解为何更全面。"
 permalink: /viz/masked-lm/
 redirect_from:
   - /v/masked-lm/

@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 扩散模型
+description: "前向加噪、反向去噪过程，以及与 GAN / VAE 的对比。"
 permalink: /viz/diffusion/
 redirect_from:
   - /v/diffusion/

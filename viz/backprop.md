@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 反向传播
+description: "迷你计算图上一步步看：正向算误差、反向用链式法则传梯度、训练让 loss 下降。"
 permalink: /viz/backprop/
 redirect_from:
   - /v/backprop/

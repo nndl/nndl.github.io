@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 图神经网络：消息传递
+description: "节点沿边把特征传给邻居取平均，拖层数看信息扩散，以及层数太多时所有节点趋同的‘过平滑’。"
 permalink: /viz/gnn-message-passing/
 redirect_from:
   - /v/gnn-message-passing/

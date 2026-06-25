@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 对比学习与 CLIP
+description: "点训练，看图文相似度矩阵的对角线怎样点亮——CLIP 用配对图文拉近正样本、推远负样本。"
 permalink: /viz/contrastive/
 redirect_from:
   - /v/contrastive/

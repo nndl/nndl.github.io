@@ -1,6 +1,7 @@
 ---
 layout: default
 title: K-means 聚类
+description: "随机撒下中心，反复“投靠最近中心→中心移到群中央”，看点被自动分成几组。"
 permalink: /viz/kmeans/
 redirect_from:
   - /v/kmeans/

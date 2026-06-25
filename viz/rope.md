@@ -1,6 +1,7 @@
 ---
 layout: default
 title: RoPE 旋转位置编码
+description: "位置编码成旋转角度，两词的注意力分数只取决于相对位置——更稳、还能外推到更长序列。"
 permalink: /viz/rope/
 redirect_from:
   - /v/rope/

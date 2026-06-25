@@ -1,6 +1,7 @@
 ---
 layout: default
 title: GridWorld 强化学习
+description: "Karpathy 的 REINFORCEjs：在网格世界里实时观察价值迭代、Q-Learning、Policy Gradient。"
 permalink: /viz/rl-gridworld/
 redirect_from:
   - /v/rl-gridworld/

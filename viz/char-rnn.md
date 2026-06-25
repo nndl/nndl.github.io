@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 字符级 RNN：一个字母一个字母地写
+description: "一个字母一个字母地写：靠隐状态记着上文，q 后面自然接 u，字符拼成合理的词——更细颗粒的自回归。"
 permalink: /viz/char-rnn/
 redirect_from:
   - /v/char-rnn/

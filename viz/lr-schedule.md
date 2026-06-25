@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 学习率调度（预热 + 余弦退火）
+description: "学习率随步数的“形状”才关键：没预热的大学习率开头就把损失冲飞；预热 + 余弦退火则平稳下降、收得更低。"
 permalink: /viz/lr-schedule/
 redirect_from:
   - /v/lr-schedule/

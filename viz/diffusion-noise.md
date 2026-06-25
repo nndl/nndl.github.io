@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 扩散模型：加噪与去噪
+description: "把一张图的每个像素一步步掺成彩色雪花，再从噪声里去噪生成——亲手体会扩散模型画图的原理。"
 permalink: /viz/diffusion-noise/
 redirect_from:
   - /v/diffusion-noise/

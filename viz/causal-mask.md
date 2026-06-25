@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 因果掩码
+description: "给注意力盖上因果掩码，每个词只能看自己和左边，保证自回归生成不偷看答案。"
 permalink: /viz/causal-mask/
 redirect_from:
   - /v/causal-mask/

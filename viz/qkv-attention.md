@@ -1,6 +1,7 @@
 ---
 layout: default
 title: QKV 注意力计算
+description: "拆开注意力的算法：Query·Key 算分数→softmax→对 Value 加权，看“它”怎么算出指向“猫”。"
 permalink: /viz/qkv-attention/
 redirect_from:
   - /v/qkv-attention/

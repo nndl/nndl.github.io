@@ -5,7 +5,7 @@
   --color-bg-tint: #e8f1ec;
   --color-text: #111827;
   --color-text-soft: #374151;
-  --color-text-muted: #6b7280;
+  --color-text-muted: #646b77;
   --color-accent: #155e75;
   --color-accent-hover: #0f4a5e;
   --color-accent-light: #2563eb;
@@ -40,6 +40,44 @@
   --font-mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
 }
 
+/* ---------- Dark mode (auto, follows OS preference) ----------
+   Strategy: flip the semantic palette so everything that uses var(--color-*)
+   adapts; then patch the handful of rules with hard-coded light colors. The
+   interactive viz blocks (.vizui, ~90 hand-tuned demos) are re-lit to the
+   light palette and sit as light "figure islands" so their data colors stay
+   correct — a deliberate, common dark-mode pattern for viz-heavy pages.
+   Code blocks are already dark by design and need no change. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #14171b;
+    --color-bg-pure: #1c2128;
+    --color-bg-section: #222831;
+    --color-bg-tint: #182530;
+    --color-text: #e7e9ec;
+    --color-text-soft: #c1c6d0;
+    --color-text-muted: #949aa6;
+    --color-accent: #56c4e0;
+    --color-accent-hover: #7ad4ea;
+    --color-accent-light: #6ea8ff;
+    --color-accent-soft: rgba(86, 196, 224, 0.16);
+    --color-accent-glow: rgba(86, 196, 224, 0.30);
+    --color-gold: #e0b052;
+    --color-forest: #5cc093;
+    --color-border: #2c333d;
+    --color-border-strong: #3c4450;
+    --color-divider: rgba(255, 255, 255, 0.09);
+
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 4px 14px -2px rgba(0, 0, 0, 0.5), 0 2px 6px -2px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 12px 30px -8px rgba(0, 0, 0, 0.6), 0 4px 12px -4px rgba(0, 0, 0, 0.45);
+    --shadow-book:
+      0 1px 1px rgba(0, 0, 0, 0.4),
+      0 5px 12px rgba(0, 0, 0, 0.45),
+      0 22px 40px -10px rgba(0, 0, 0, 0.6);
+    --ring-focus: 0 0 0 3px rgba(110, 168, 255, 0.5);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
@@ -65,7 +103,7 @@ body {
   font-family: var(--font-sans);
   color: var(--color-text);
   line-height: 1.7;
-  background-color: #f7f8f4;
+  background-color: var(--color-bg);
   background-image:
     linear-gradient(180deg, #f8fbfb 0%, #f5f3eb 46%, #fbfbf8 100%);
   background-attachment: fixed;
@@ -456,62 +494,6 @@ tbody tr:hover { background: var(--color-bg-section); }
   background: currentColor;
   flex-shrink: 0;
 }
-
-/* ---------- Book card (Hero) ---------- */
-.book-card {
-  display: flex;
-  gap: 48px;
-  align-items: center;
-  margin: 36px 0 56px;
-  padding: 48px 44px;
-  background: linear-gradient(135deg, #ffffff 0%, #f4f9f8 58%, #fff7ed 100%);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-lg);
-  position: relative;
-  overflow: hidden;
-}
-
-.book-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 46%;
-  height: 100%;
-  background: linear-gradient(135deg, transparent 0%, rgba(21, 94, 117, 0.10) 58%, rgba(37, 99, 235, 0.08) 100%);
-  clip-path: polygon(34% 0, 100% 0, 100% 100%, 0 100%);
-  pointer-events: none;
-}
-
-.book-card::after {
-  display: none;
-}
-
-.book-card img {
-  width: 220px;
-  flex-shrink: 0;
-  border-radius: var(--radius-sm);
-  box-shadow: var(--shadow-book);
-  transform: rotate(-2deg) perspective(800px) rotateY(-4deg);
-  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  z-index: 1;
-}
-
-.book-card:hover img {
-  transform: rotate(0deg) perspective(800px) rotateY(0deg) scale(1.04);
-}
-
-.book-card .book-info {
-  flex: 1;
-  min-width: 0;
-  position: relative;
-  z-index: 1;
-}
-
-.book-card .book-info > :first-child { margin-top: 0; }
-.book-card .book-info > :last-child { margin-bottom: 0; }
 
 /* ---------- Buttons ---------- */
 .btn-row {
@@ -2745,7 +2727,8 @@ a.pdf-badge:hover {
   }
   .site-nav a {
     font-size: 0.82rem;
-    padding: 6px 8px;
+    padding: 9px 11px;
+    line-height: 1.2;
   }
   .site-content { padding: 36px 0 60px; }
   h1 { font-size: 2.1rem; }
@@ -2831,16 +2814,6 @@ a.pdf-badge:hover {
     flex-direction: column;
     gap: 8px;
     margin: 26px 0 16px;
-  }
-  .book-card {
-    flex-direction: column;
-    padding: 32px 24px;
-    gap: 28px;
-  }
-  .book-card img {
-    width: 170px;
-    align-self: center;
-    transform: rotate(-1deg);
   }
   .book-card-mini {
     flex-direction: column;
@@ -2957,4 +2930,103 @@ a.pdf-badge:hover {
     grid-template-columns: 1fr;
   }
   .btn-row { justify-content: center; }
+}
+
+/* ---------- Dark mode: element patches ----------
+   Placed at the end so these win over the light base rules (same specificity →
+   later source order). The dark :root palette lives up near the light :root.
+   Everything using var(--color-*) already adapts; this only patches rules with
+   hard-coded light colors, plus re-lights the interactive viz blocks. */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-image: linear-gradient(180deg, #15191f 0%, #121519 48%, #16181d 100%);
+  }
+  .site-header { background: rgba(20, 23, 28, 0.82); }
+  .btn-secondary { background: rgba(255, 255, 255, 0.05); }
+  .site-nav a:hover { background: rgba(255, 255, 255, 0.07); }
+  .site-nav a.is-active { background: var(--color-bg-pure); }
+
+  /* Brand gradients that read as text/CTA need brighter tones on dark */
+  .btn-primary {
+    background: linear-gradient(135deg, #1c6c86 0%, #3461c4 100%);
+    color: #fff;
+  }
+  .home-hero h1 .accent {
+    background: linear-gradient(120deg, #5fc8e6 0%, #6ea8ff 58%, #5cc093 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+
+  /* Card / panel surfaces that hard-code a white(ish) background or gradient */
+  .reading-choice-card,
+  .reading-route-card,
+  .reading-book-card,
+  .reading-matrix-wrap,
+  .reading-combo-card,
+  .reading-principles div,
+  .viz-toc,
+  .home-cover,
+  .reading-cover img { background: var(--color-bg-pure); }
+
+  .book-card-mini,
+  .resource-card,
+  .archive-note,
+  .reading-choice-card--primary,
+  .reading-route-card--focus,
+  .reading-book-card--main {
+    background: linear-gradient(145deg, #1f262e 0%, #191e25 100%);
+  }
+
+  /* Translucent white films (pills, chips, list rows) → faint light-on-dark */
+  .eyebrow,
+  .home-hero__stats span,
+  .reading-hero__metrics span,
+  .book-body > ol li,
+  .repo-chip,
+  .reading-matrix tbody th { background: rgba(255, 255, 255, 0.05); }
+
+  .reading-matrix thead th { background: rgba(86, 196, 224, 0.10); }
+  .douban-badge { background: rgba(224, 176, 82, 0.12); }
+
+  .cover-placeholder {
+    background: linear-gradient(160deg, #242b33 0%, #1c222a 50%, #161b22 100%);
+  }
+
+  /* Decorative hero washes and accent callouts */
+  .home-hero::before,
+  .book-hero::before,
+  .reading-hero::before {
+    background: linear-gradient(120deg, rgba(86, 196, 224, 0.06) 0%, rgba(120, 140, 160, 0.03) 60%, transparent 100%);
+  }
+  .book-body blockquote,
+  .reading-path-callout {
+    background: linear-gradient(120deg, rgba(86, 196, 224, 0.10), rgba(255, 255, 255, 0.02));
+  }
+
+  /* Keep interactive visualizations on their intended light palette so the
+     90+ hand-tuned demos render correctly; present them as light figure cards. */
+  .vizui {
+    --color-bg: #f7f8f4;
+    --color-bg-pure: #ffffff;
+    --color-bg-section: #eef3f5;
+    --color-bg-tint: #e8f1ec;
+    --color-text: #111827;
+    --color-text-soft: #374151;
+    --color-text-muted: #646b77;
+    --color-accent: #155e75;
+    --color-accent-hover: #0f4a5e;
+    --color-accent-light: #2563eb;
+    --color-accent-soft: rgba(21, 94, 117, 0.10);
+    --color-accent-glow: rgba(21, 94, 117, 0.24);
+    --color-gold: #b7791f;
+    --color-forest: #206a4f;
+    --color-border: #dde4e4;
+    --color-border-strong: #c3ced0;
+    --color-divider: rgba(17, 24, 39, 0.08);
+    background: var(--color-bg);
+    border: 1px solid #d7e0e0;
+    border-radius: var(--radius-lg);
+    padding: 16px 18px;
+    box-shadow: 0 4px 18px -4px rgba(0, 0, 0, 0.5);
+  }
 }

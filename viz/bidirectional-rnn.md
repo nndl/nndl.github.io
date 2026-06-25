@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 双向 RNN
+description: "“我买了苹果手机”——点词看单向只能看左边，双向再跑一个反向 RNN 补上右文，“苹果”才从水果变品牌。"
 permalink: /viz/bidirectional-rnn/
 redirect_from:
   - /v/bidirectional-rnn/

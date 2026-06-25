@@ -1,6 +1,7 @@
 ---
 layout: default
 title: GAN Lab
+description: "PoloClub 互动玩具：在浏览器中训练一个 2D GAN，逐步可视化判别器与生成器的对抗。"
 permalink: /viz/gan-lab/
 redirect_from:
   - /v/gan-lab/

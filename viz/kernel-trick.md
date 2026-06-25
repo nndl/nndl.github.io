@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 核技巧
+description: "同心环线性分不开，升一维 z=x²+y² 后被一个平面切开——核技巧的直觉。"
 permalink: /viz/kernel-trick/
 redirect_from:
   - /v/kernel-trick/

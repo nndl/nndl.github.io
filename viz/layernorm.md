@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 层归一化 vs 批归一化
+description: "切换 BatchNorm（按列跨样本）与 LayerNorm（按行跨特征），看归一化沿哪个方向算——Transformer 为何偏爱 LayerNorm。"
 permalink: /viz/layernorm/
 redirect_from:
   - /v/layernorm/

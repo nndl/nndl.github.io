@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 集成学习：平均的力量
+description: "多个高方差弱模型一平均就变平滑、方差骤降，看一堆杂乱细线收敛成一条干净金线（随机森林核心）。"
 permalink: /viz/bagging/
 redirect_from:
   - /v/bagging/

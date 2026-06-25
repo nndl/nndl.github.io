@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 正弦位置编码
+description: "拖查询位置看位置编码热力图：不同频率的正弦给每个位置唯一编码，相近位置编码也相近。"
 permalink: /viz/positional-encoding/
 redirect_from:
   - /v/positional-encoding/

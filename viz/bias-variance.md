@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 偏差与方差
+description: "同复杂度在多份数据上学出多条曲线，看是‘齐刷刷地偏’还是‘乱七八糟地飘’。"
 permalink: /viz/bias-variance/
 redirect_from:
   - /v/bias-variance/

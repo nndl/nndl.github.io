@@ -1,6 +1,7 @@
 ---
 layout: default
 title: AdaBoost 提升法
+description: "弱分类器一根接一根：每轮放大上轮分错的样本、最后加权投票，看一串横竖刀拼出贴合斜线的“楼梯”。"
 permalink: /viz/adaboost/
 redirect_from:
   - /v/adaboost/

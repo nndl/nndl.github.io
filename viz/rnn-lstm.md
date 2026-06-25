@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 循环神经网络与门控机制
+description: "交互实验台：切换三种结构、编辑输入序列、单步观察门的开合与记忆沿时间的演化。"
 permalink: /viz/rnn-lstm/
 redirect_from:
   - /v/rnn-lstm/

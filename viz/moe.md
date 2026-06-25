@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 混合专家 MoE
+description: "路由器把每个词只派给少数几个‘专家’子网络，参数海量但每次只算一小部分。"
 permalink: /viz/moe/
 redirect_from:
   - /v/moe/

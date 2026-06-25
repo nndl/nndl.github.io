@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 损失函数对比：MSE / 交叉熵 / Hinge / Focal
+description: "对一个正样本拖动模型打分，并排看 MSE / 交叉熵 / Hinge / Focal 的惩罚曲线——交叉熵对“自信地答错”惩罚暴涨。"
 permalink: /viz/loss-functions/
 redirect_from:
   - /v/loss-functions/

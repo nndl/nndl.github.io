@@ -1,6 +1,7 @@
 ---
 layout: default
 title: L1 与 L2 的几何（为什么 L1 稀疏）
+description: "损失椭圆碰上约束区域：L1 菱形的尖角落在坐标轴上，解顶在尖角→一个权重精确归 0；L2 的圆只能让权重一起缩。"
 permalink: /viz/l1-l2-geometry/
 redirect_from:
   - /v/l1-l2-geometry/

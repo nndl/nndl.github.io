@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 解释消除（贝叶斯网络）
+description: "下雨和洒水器本独立；观测“草湿”后两者都更可能，再得知“下雨”→洒水器概率反被压回——对撞结构的解释消除。"
 permalink: /viz/explaining-away/
 redirect_from:
   - /v/explaining-away/

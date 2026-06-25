@@ -1,6 +1,7 @@
 ---
 layout: default
 title: SVD 与低秩近似
+description: "一张图就是个矩阵；SVD 拆成一摞秩 1 薄片，只留前几片重建就几乎看不出差别——压缩、PCA、LoRA 的共同直觉。"
 permalink: /viz/svd-lowrank/
 redirect_from:
   - /v/svd-lowrank/

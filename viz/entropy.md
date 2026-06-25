@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 熵、交叉熵与 KL 散度
+description: "拖动预测分布，看熵、交叉熵、KL 散度怎么变——几乎所有分类损失函数的根基。"
 permalink: /viz/entropy/
 redirect_from:
   - /v/entropy/

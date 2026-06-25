@@ -1,6 +1,7 @@
 ---
 layout: default
 title: GCN 半监督节点分类
+description: "只标 2 个节点，标签沿边一层层扩散，看一张社交网络图自动分成两派——少量标签 + 图结构带动全图。"
 permalink: /viz/gcn-node-classification/
 redirect_from:
   - /v/gcn-node-classification/

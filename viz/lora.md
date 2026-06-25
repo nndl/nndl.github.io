@@ -1,6 +1,7 @@
 ---
 layout: default
 title: LoRA 低秩微调
+description: "冻结大权重矩阵，只训两个小矩阵 A·B，微调参数从 d² 骤降到 2dr。"
 permalink: /viz/lora/
 redirect_from:
   - /v/lora/

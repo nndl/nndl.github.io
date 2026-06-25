@@ -1,6 +1,7 @@
 ---
 layout: default
 title: BPE：合并出子词
+description: "从字符起步，反复合并最高频相邻对，看“est”“low”这样的子词怎样被一步步学出来。"
 permalink: /viz/bpe/
 redirect_from:
   - /v/bpe/

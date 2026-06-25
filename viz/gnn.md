@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 图神经网络
+description: "distill.pub 互动文章：节点 / 边特征如何在消息传递中聚合更新。"
 permalink: /viz/gnn/
 redirect_from:
   - /v/gnn/

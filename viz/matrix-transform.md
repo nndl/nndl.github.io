@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 矩阵是空间变换
+description: "拖动 2×2 矩阵的四个数，看整个平面被旋转/缩放/剪切；列是基向量去向，行列式是面积缩放。"
 permalink: /viz/matrix-transform/
 redirect_from:
   - /v/matrix-transform/

@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 稀疏自编码器
+description: "编码器把输入压成隐层、解码器再重构；稀疏约束逼大多数隐单元为 0——拖稀疏强度，看少数几个“特征”怎样既省又干净地重建信号。"
 permalink: /viz/sparse-autoencoder/
 redirect_from:
   - /v/sparse-autoencoder/

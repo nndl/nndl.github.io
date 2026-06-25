@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 投机解码：小模型起草、大模型核验
+description: "小模型起草几个字、大模型并行核验采纳，看它如何在不改结果的前提下加速生成。"
 permalink: /viz/speculative-decoding/
 redirect_from:
   - /v/speculative-decoding/

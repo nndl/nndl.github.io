@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 高斯混合与 EM
+description: "含隐变量 z 的概率模型：每个点先选一个高斯、再采样得到坐标；EM 反推每个点的归属概率 P(z|x) 并更新各高斯。"
 permalink: /viz/gmm/
 redirect_from:
   - /v/gmm/

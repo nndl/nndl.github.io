@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 大数定律
+description: "一直抛硬币，正面频率从剧烈抖动慢慢稳稳逼近真实概率——样本越多越准。"
 permalink: /viz/law-large-numbers/
 redirect_from:
   - /v/law-large-numbers/

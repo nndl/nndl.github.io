@@ -1,6 +1,7 @@
 ---
 layout: default
 title: VAE 的潜空间
+description: "拖动二维潜变量，看解码出的脸连续变形——潜空间平滑、随便取一点就能采样生成。"
 permalink: /viz/vae/
 redirect_from:
   - /v/vae/

@@ -1,6 +1,7 @@
 ---
 layout: default
 title: k 近邻 KNN
+description: "拖查询点，看最近 k 个邻居投票分类；k 小决策边界碎、k 大边界平。"
 permalink: /viz/knn/
 redirect_from:
   - /v/knn/

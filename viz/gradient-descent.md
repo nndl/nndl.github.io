@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 梯度下降下山
+description: "小球沿曲线下山找最低点；调学习率看收敛、震荡，体会局部最优陷阱。"
 permalink: /viz/gradient-descent/
 redirect_from:
   - /v/gradient-descent/

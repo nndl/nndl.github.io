@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 激活函数与梯度消失
+description: "Sigmoid/Tanh/ReLU 及其导数，看多层连乘后梯度怎样消失，以及 ReLU 为何取胜。"
 permalink: /viz/activations/
 redirect_from:
   - /v/activations/

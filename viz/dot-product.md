@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 点积与余弦相似度
+description: "拖两个向量，看点积=投影对齐、余弦相似度=夹角——注意力和向量检索的根基。"
 permalink: /viz/dot-product/
 redirect_from:
   - /v/dot-product/

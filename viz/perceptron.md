@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 感知器画线
+description: "平面上两类点，感知器逐步把分界线转到位，还能亲手加点试试。"
 permalink: /viz/perceptron/
 redirect_from:
   - /v/perceptron/

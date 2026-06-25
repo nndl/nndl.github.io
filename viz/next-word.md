@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 下一词预测
+description: "用 bigram 语言模型按概率接词成句，看“按概率接龙”为什么会跑题、重复。"
 permalink: /viz/next-word/
 redirect_from:
   - /v/next-word/

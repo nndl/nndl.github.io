@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Dropout
+description: "训练时随机关掉一部分神经元，逼网络学冗余表示、防过拟合；测试时再全开。"
 permalink: /viz/dropout/
 redirect_from:
   - /v/dropout/

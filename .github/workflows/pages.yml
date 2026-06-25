@@ -47,6 +47,14 @@ jobs:
           ruby-version: '3.2'
           bundler-cache: true
 
+      - name: Stamp CSS content hash (ephemeral, not committed)
+        # Cache-bust style.css by its content, not the build time, so returning
+        # visitors only re-download CSS when it actually changes. Read by
+        # _layouts/default.html via site.data.build.css_hash.
+        run: |
+          mkdir -p _data
+          printf 'css_hash: %s\n' "$(md5sum assets/css/style.css | cut -c1-12)" > _data/build.yml
+
       - name: Build with Jekyll
         env:
           JEKYLL_ENV: production

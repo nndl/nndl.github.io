@@ -1,6 +1,7 @@
 ---
 layout: default
 title: MCMC 采样
+description: "用 Metropolis 随机游走从复杂分布采样，样本逐渐铺成目标分布的形状。"
 permalink: /viz/mcmc/
 redirect_from:
   - /v/mcmc/

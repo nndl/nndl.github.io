@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 词元化
+description: "输入文字看它被切成一个个词元；也解释了模型为什么数不清 strawberry 里有几个 r。"
 permalink: /viz/tokenization/
 redirect_from:
   - /v/tokenization/

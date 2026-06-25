@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 注意力为什么除以 √d
+description: "拖维度看不缩放的 softmax 怎样饱和成一根独大，÷√d 后又稳住——缩放点积注意力的由来。"
 permalink: /viz/attention-scaling/
 redirect_from:
   - /v/attention-scaling/

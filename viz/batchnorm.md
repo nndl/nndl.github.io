@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 批归一化 BatchNorm
+description: "把每批激活减均值除标准差拉回‘均值0方差1’，让深层网络训练又快又稳。"
 permalink: /viz/batchnorm/
 redirect_from:
   - /v/batchnorm/

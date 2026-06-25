@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 多臂老虎机
+description: "几台隐藏中奖率的老虎机，ε-greedy 在探索与利用之间权衡，估计逐渐变准。"
 permalink: /viz/bandit/
 redirect_from:
   - /v/bandit/

@@ -1,6 +1,7 @@
 ---
 layout: default
 title: RLHF：从人类偏好到奖励模型
+description: "人类只说“A 比 B 好”，Bradley-Terry 拟合出奖励曲线；再把策略 π∝π_ref·exp(r/β) 推向高分区，β 是拴住别跑偏的 KL 缰绳。"
 permalink: /viz/rlhf-reward-model/
 redirect_from:
   - /v/rlhf-reward-model/

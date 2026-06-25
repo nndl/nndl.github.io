@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 卷积核手动滑动
+description: "3×3 核在图上一格格滑过，换边缘/竖线/锐化核，看同一张图被‘看’出不同特征。"
 permalink: /viz/conv-kernel/
 redirect_from:
   - /v/conv-kernel/

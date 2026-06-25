@@ -1,6 +1,7 @@
 ---
 layout: default
 title: RNN 为什么记不住：梯度消失
+description: "误差沿时间回传，每退一步乘一次循环权重 w；拖 w 看久远梯度按 wᵏ 消失或爆炸——RNN 记不住长程的根因。"
 permalink: /viz/bptt-vanishing/
 redirect_from:
   - /v/bptt-vanishing/

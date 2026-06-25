@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 束搜索与贪心解码
+description: "解码树上贪心 vs 束搜索：贪心掉进局部最优，束搜索留 k 条找到整体更优的句子。"
 permalink: /viz/beam-search/
 redirect_from:
   - /v/beam-search/

@@ -6,22 +6,71 @@
   <link rel="icon" type="image/svg+xml" href="{{ '/assets/favicon.svg' | relative_url }}">
   <title>{% if page.title and page.title != site.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
   <meta name="description" content="{{ page.description | default: site.description }}">
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
   <meta property="og:type" content="{% if page.layout == 'book' %}book{% else %}website{% endif %}">
+  <meta property="og:site_name" content="{{ site.title }}">
+  <meta property="og:locale" content="zh_CN">
   <meta property="og:title" content="{% if page.title and page.title != site.title %}{{ page.title }} · {% endif %}{{ site.title }}">
   <meta property="og:description" content="{{ page.description | default: site.description }}">
   <meta property="og:url" content="{{ page.url | absolute_url }}">
   {%- if page.book_key -%}
     {%- assign _ogbook = site.data.books | where: "key", page.book_key | first -%}
-    <meta property="og:image" content="{{ _ogbook.cover | absolute_url }}">
+    {%- assign _ogimg = _ogbook.cover -%}
+    {%- assign _ogalt = _ogbook.title -%}
   {%- else -%}
-    <meta property="og:image" content="{{ '/assets/covers/nndl-2-cover.png' | absolute_url }}">
+    {%- assign _ogimg = '/assets/covers/nndl-2-cover.png' -%}
+    {%- assign _ogalt = site.title -%}
   {%- endif -%}
+  {%- assign _ogtype = 'image/png' -%}{%- if _ogimg contains '.jpg' or _ogimg contains '.jpeg' -%}{%- assign _ogtype = 'image/jpeg' -%}{%- endif -%}
+  <meta property="og:image" content="{{ _ogimg | absolute_url }}">
+  <meta property="og:image:type" content="{{ _ogtype }}">
+  <meta property="og:image:width" content="600">
+  <meta property="og:image:height" content="848">
+  <meta property="og:image:alt" content="{{ _ogalt }} 封面">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="{{ _ogimg | absolute_url }}">
   {%- unless jekyll.environment == "preview" -%}
+  {%- comment -%}Noto Serif SC is used only for headings/titles (h1=900, h2-h4/titles=700,
+  subtitles=400); weight 600 is sans-only, so it's dropped. Loaded non-render-blocking
+  (media=print → onload swap) so the page paints immediately in the system serif fallback
+  and swaps when the webfont arrives — display=swap avoids any invisible-text flash.{%- endcomment -%}
   <link rel="preconnect" href="https://fonts.loli.net" crossorigin>
-  <link rel="stylesheet" href="https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@400;600;700;900&display=swap">
+  <link rel="preload" as="style" href="https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@400;700;900&display=swap">
+  <link rel="stylesheet" href="https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@400;700;900&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@400;700;900&display=swap"></noscript>
   {%- endunless -%}
-  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+  {%- comment -%}Cache-bust on CSS content, not build time: _data/build.yml is
+  stamped with the file's content hash by the Pages workflow, so returning
+  visitors keep their cached CSS across deploys that don't touch it. Falls back
+  to build time for local dev (no build.yml).{%- endcomment -%}
+  {%- assign css_v = site.data.build.css_hash -%}
+  {%- unless css_v -%}{%- assign css_v = site.time | date: '%s' -%}{%- endunless -%}
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}?v={{ css_v }}">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "{{ site.url }}/#website",
+        "url": "{{ site.url }}/",
+        "name": {{ site.title | jsonify }},
+        "description": {{ site.description | jsonify }},
+        "inLanguage": "zh-CN",
+        "publisher": { "@id": "{{ site.url }}/#person" }
+      },
+      {
+        "@type": "Person",
+        "@id": "{{ site.url }}/#person",
+        "name": {{ site.author | jsonify }},
+        "url": "https://xpqiu.github.io/",
+        "jobTitle": "教授",
+        "affiliation": { "@type": "Organization", "name": "复旦大学" },
+        "sameAs": ["https://xpqiu.github.io/", "https://github.com/xpqiu", "https://github.com/nndl"]
+      }
+    ]
+  }
+  </script>
 </head>
 <body{% if page.url contains '/viz/' %} class="viz-page"{% endif %}>
   <header class="site-header">

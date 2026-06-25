@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 缩放定律
+description: "损失随规模按幂律下降（log-log 直线），用小模型外推预测大模型，还有不可约下限。"
 permalink: /viz/scaling-laws/
 redirect_from:
   - /v/scaling-laws/

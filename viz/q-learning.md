@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Q-learning：从试错中学策略
+description: "不给环境模型，智能体 ε-greedy 乱走 + TD 更新，几集后 Q 表收敛、箭头连成避开陷阱通往宝藏的策略——与价值迭代正好对照。"
 permalink: /viz/q-learning/
 redirect_from:
   - /v/q-learning/

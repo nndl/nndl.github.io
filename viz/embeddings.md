@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 词向量类比
+description: "二维语义空间里‘国王−男人+女人≈王后’，看词与词的关系就是向量方向。"
 permalink: /viz/embeddings/
 redirect_from:
   - /v/embeddings/

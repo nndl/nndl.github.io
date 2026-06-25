@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 双下降现象
+description: "测试误差降→升→再降：模型大到参数比数据还多，反而比经典最优更好（挑战偏差方差）。"
 permalink: /viz/double-descent/
 redirect_from:
   - /v/double-descent/

@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 学习率与动量
+description: "窄长山谷里普通梯度下降 vs 动量两球赛跑，调学习率看震荡、发散与加速。"
 permalink: /viz/momentum/
 redirect_from:
   - /v/momentum/

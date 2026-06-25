@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 可视化资源
+description: "书中关键概念与模型的动图与交互演示，按《神经网络与深度学习》章节顺序排列，便于直观理解。"
 permalink: /viz/
 redirect_from:
   - /v/
@@ -67,7 +68,7 @@ redirect_from:
      url="https://playground.tensorflow.org/"
      title="TensorFlow Playground"
      blurb="在浏览器里直接搭一个浅层前馈网络，实时观察隐藏层学到的特征。"
-     thumb="https://playground.tensorflow.org/preview.png"
+     thumb="/assets/viz/ext/tf-playground.png"
      external=true %}
   {% include viz-card.html url="/viz/neurons-compose/" title="神经元拼曲线" blurb="几个 ReLU 神经元各画一条折线，叠加起来逼近复杂曲线——万能近似的直觉。" %}
   {% include viz-card.html url="/viz/activations/" title="激活函数与梯度消失" blurb="Sigmoid/Tanh/ReLU 及其导数，看多层连乘后梯度怎样消失，以及 ReLU 为何取胜。" %}
@@ -98,7 +99,7 @@ redirect_from:
      url="/viz/cnn-explainer/"
      title="CNN Explainer"
      blurb="PoloClub 出品的交互式 CNN 解释器，可逐层查看激活与卷积运算。"
-     thumb="https://poloclub.github.io/cnn-explainer/assets/figures/preview.png" %}
+     thumb="/assets/viz/ext/cnn-explainer.png" %}
   {% include viz-card.html url="/viz/conv-kernel/" title="卷积核手动滑动" blurb="3×3 核在图上一格格滑过，换边缘/竖线/锐化核，看同一张图被‘看’出不同特征。" %}
   {% include viz-card.html url="/viz/pooling/" title="汇聚（池化）" blurb="2×2 窗口扫过特征图，最大 / 平均汇聚把它缩小、保留要点（平移不变）。" %}
   {% include viz-card.html url="/viz/receptive-field/" title="感受野" blurb="拖层数，看顶层一个神经元的感受野（蓝色锥）怎样随深度张开——深度换广度。" %}
@@ -115,7 +116,7 @@ redirect_from:
      url="/viz/rnn-lstm/"
      title="RNN / LSTM / GRU"
      blurb="交互实验台：切换三种结构、编辑输入序列、单步观察门的开合与记忆沿时间的演化。"
-     thumb="https://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-chain.png" %}
+     thumb="/assets/viz/ext/lstm-colah.png" %}
   {% include viz-card.html url="/viz/bidirectional-rnn/" title="双向 RNN" blurb="“我买了苹果手机”——点词看单向只能看左边，双向再跑一个反向 RNN 补上右文，“苹果”才从水果变品牌。" %}
   {% include viz-card.html url="/viz/char-rnn/" title="字符级 RNN 生成" blurb="一个字母一个字母地写：靠隐状态记着上文，q 后面自然接 u，字符拼成合理的词——更细颗粒的自回归。" %}
 </div>
@@ -145,7 +146,7 @@ redirect_from:
      url="/viz/attention/"
      title="注意力机制"
      blurb="编码—解码注意力、自注意力与多头注意力的可视化。"
-     thumb="https://jalammar.github.io/images/t/transformer_decoding_2.gif" %}
+     thumb="/assets/viz/ext/attention-jalammar.jpg" %}
   {% include viz-card.html url="/viz/self-attention/" title="点词看注意力" blurb="点句子里的一个词，看自注意力把它连向相关的词（如“它”指向“小猫”）。" %}
   {% include viz-card.html url="/viz/embeddings/" title="词向量类比" blurb="二维语义空间里‘国王−男人+女人≈王后’，看词与词的关系就是向量方向。" %}
   {% include viz-card.html url="/viz/qkv-attention/" title="QKV 注意力计算" blurb="拆开注意力的算法：Query·Key 算分数→softmax→对 Value 加权，看“它”怎么算出指向“猫”。" %}
@@ -188,7 +189,7 @@ redirect_from:
      url="/viz/gnn/"
      title="GNN 消息传递"
      blurb="distill.pub 互动文章：节点 / 边特征如何在消息传递中聚合更新。"
-     thumb="https://distill.pub/2021/gnn-intro/thumbnail.jpg" %}
+     thumb="/assets/viz/ext/gnn-distill.jpg" %}
   {% include viz-card.html url="/viz/gnn-message-passing/" title="消息传递与过平滑" blurb="节点沿边把特征传给邻居取平均，拖层数看信息扩散，以及层数太多时所有节点趋同的‘过平滑’。" %}
   {% include viz-card.html url="/viz/gcn-node-classification/" title="GCN 半监督节点分类" blurb="只标 2 个节点，标签沿边一层层扩散，看一张社交网络图自动分成两派——少量标签 + 图结构带动全图。" %}
 </div>
@@ -204,7 +205,7 @@ redirect_from:
      url="/viz/tsne/"
      title="t-SNE 与降维"
      blurb="distill.pub 经典互动：如何正确解读 t-SNE 图，以及 perplexity / 迭代步数的影响。"
-     thumb="https://distill.pub/2016/misread-tsne/thumbnail.jpg" %}
+     thumb="/assets/viz/ext/tsne-distill.jpg" %}
 </div>
 
 ## 第 11 章 · 模型独立的学习方式
@@ -220,7 +221,7 @@ redirect_from:
      url="/viz/rl-gridworld/"
      title="GridWorld 强化学习"
      blurb="Karpathy 的 REINFORCEjs：在网格世界里实时观察价值迭代、Q-Learning、Policy Gradient。"
-     thumb="https://cs.stanford.edu/people/karpathy/reinforcejs/img/dpsolved.jpeg" %}
+     thumb="/assets/viz/ext/rl-reinforcejs.jpeg" %}
   {% include viz-card.html url="/viz/bandit/" title="多臂老虎机" blurb="几台隐藏中奖率的老虎机，ε-greedy 在探索与利用之间权衡，估计逐渐变准。" %}
   {% include viz-card.html url="/viz/explore-exploit/" title="探索 vs 利用" blurb="拖探索率 ε，看总收益的倒 U 曲线：太贪会锁死次优、太浪等于乱试，中间有甜点。" %}
   {% include viz-card.html url="/viz/value-iteration/" title="价值迭代" blurb="网格世界里价值从宝藏一格格扩散，箭头连成一条避开陷阱、通往宝藏的最优路线。" %}
@@ -273,7 +274,7 @@ redirect_from:
      url="/viz/diffusion/"
      title="扩散模型"
      blurb="前向加噪、反向去噪过程，以及与 GAN / VAE 的对比。"
-     thumb="https://lilianweng.github.io/posts/2021-07-11-diffusion-models/DDPM.png" %}
+     thumb="/assets/viz/ext/diffusion-lilianweng.png" %}
   {% include viz-card.html url="/viz/diffusion-noise/" title="扩散：加噪与去噪" blurb="把一张图的每个像素一步步掺成彩色雪花，再从噪声里去噪生成——亲手体会扩散模型画图的原理。" thumb="/assets/viz/diffusion-noise.jpg" %}
   {% include viz-card.html url="/viz/vae/" title="VAE 潜空间" blurb="拖动二维潜变量，看解码出的脸连续变形——潜空间平滑、随便取一点就能采样生成。" %}
   {% include viz-card.html url="/viz/gan-training/" title="GAN：生成器与判别器的博弈" blurb="判别器当警察、生成器当造假者交替训练；看金色假直方图一步步贴上真分布，切到双峰还能演示模式崩溃。" %}
@@ -281,7 +282,7 @@ redirect_from:
      url="/viz/gan-lab/"
      title="GAN Lab"
      blurb="PoloClub 互动玩具：在浏览器中训练一个 2D GAN，逐步可视化判别器与生成器的对抗。"
-     thumb="https://raw.githubusercontent.com/poloclub/ganlab/master/ganlab-teaser.png" %}
+     thumb="/assets/viz/ext/ganlab.png" %}
 </div>
 
 ---

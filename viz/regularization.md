@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 正则化 L1 / L2
+description: "调正则强度，看 L2 让权重一起缩、L1 把一些权重压到 0（稀疏 / 特征选择）。"
 permalink: /viz/regularization/
 redirect_from:
   - /v/regularization/

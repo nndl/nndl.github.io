@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 概率校准：模型说的90%靠谱吗
+description: "模型说“90% 把握”真有 90% 对吗？可靠性图看点落在对角线下方=过度自信，调温度把它校准回对角线、ECE 降到最低。"
 permalink: /viz/calibration/
 redirect_from:
   - /v/calibration/

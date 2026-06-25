@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 汇聚（池化）
+description: "2×2 窗口扫过特征图，最大 / 平均汇聚把它缩小、保留要点（平移不变）。"
 permalink: /viz/pooling/
 redirect_from:
   - /v/pooling/

@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 学习曲线：该加数据还是加模型
+description: "拖数据量看训练/验证误差怎么收敛：两条都卡高处=高偏差(该换强模型)、差距大且验证还在降=高方差(该加数据)。"
 permalink: /viz/learning-curve/
 redirect_from:
   - /v/learning-curve/

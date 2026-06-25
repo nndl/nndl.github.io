@@ -1,6 +1,7 @@
 ---
 layout: default
 title: SVM 最大间隔
+description: "在两类点之间修一条最宽的‘马路’，分界线走正中；拖点看支持向量怎么定。"
 permalink: /viz/svm-margin/
 redirect_from:
   - /v/svm-margin/

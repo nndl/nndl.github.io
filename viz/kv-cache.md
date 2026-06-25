@@ -1,6 +1,7 @@
 ---
 layout: default
 title: KV 缓存与注意力 O(n²)
+description: "自回归生成时注意力是 O(n²)，KV 缓存把历史键值存起来复用，降到线性。"
 permalink: /viz/kv-cache/
 redirect_from:
   - /v/kv-cache/

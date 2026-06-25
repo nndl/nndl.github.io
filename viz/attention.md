@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 注意力机制
+description: "编码—解码注意力、自注意力与多头注意力的可视化。"
 permalink: /viz/attention/
 redirect_from:
   - /v/attention/

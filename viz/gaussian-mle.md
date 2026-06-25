@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 高斯分布与最大似然
+description: "拖 μ、σ 的高斯去拟合一堆点，看最大似然为什么落在样本均值和标准差上。"
 permalink: /viz/gaussian-mle/
 redirect_from:
   - /v/gaussian-mle/

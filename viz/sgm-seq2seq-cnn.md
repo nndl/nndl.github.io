@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 基于卷积的序列到序列模型
+description: "WaveNet 与 fairseq 卷积 Seq2Seq：用卷积代替循环，可并行训练。"
 permalink: /viz/sgm-seq2seq-cnn/
 redirect_from:
   - /v/sgm-seq2seq-cnn/

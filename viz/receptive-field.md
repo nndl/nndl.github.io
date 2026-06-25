@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 卷积的感受野
+description: "拖层数，看顶层一个神经元的感受野（蓝色锥）怎样随深度张开——深度换广度。"
 permalink: /viz/receptive-field/
 redirect_from:
   - /v/receptive-field/

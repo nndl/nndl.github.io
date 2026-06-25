@@ -1,6 +1,7 @@
 ---
 layout: default
 title: HMM 维特比解码
+description: "天气看不见，只看见带没带伞——用动态规划在网格里逐列挑最优前驱，回溯出最可能的隐藏天气序列。"
 permalink: /viz/hmm-viterbi/
 redirect_from:
   - /v/hmm-viterbi/

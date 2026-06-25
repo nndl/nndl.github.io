@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 量化
+description: "把连续权重吸附到离散档位，fp32→int8/int4 看体积缩小与精度损失的权衡。"
 permalink: /viz/quantization/
 redirect_from:
   - /v/quantization/

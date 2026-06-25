@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 精确率与召回率
+description: "拖判定阈值，看混淆矩阵、精确率与召回率此消彼长，以及 ROC 曲线。"
 permalink: /viz/precision-recall/
 redirect_from:
   - /v/precision-recall/

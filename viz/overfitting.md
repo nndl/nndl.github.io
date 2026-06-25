@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 过拟合实验台
+description: "拖动模型复杂度，看曲线从欠拟合到过拟合，训练/测试误差的 U 型对比。"
 permalink: /viz/overfitting/
 redirect_from:
   - /v/overfitting/

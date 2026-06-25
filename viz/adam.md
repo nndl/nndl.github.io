@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 自适应优化器 Adam
+description: "窄长山谷里 SGD / 动量 / Adam 三球赛跑，看 Adam 每参数自适应学习率又快又稳。"
 permalink: /viz/adam/
 redirect_from:
   - /v/adam/

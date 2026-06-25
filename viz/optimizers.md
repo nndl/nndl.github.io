@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 优化算法对比
+description: "SGD / Momentum / Adam 等在三维损失面上的轨迹，附交互式资源。"
 permalink: /viz/optimizers/
 redirect_from:
   - /v/optimizers/

@@ -1,6 +1,7 @@
 ---
 layout: default
 title: GoogLeNet 结构
+description: "GoogLeNet（Inception）网络结构示意。"
 permalink: /viz/cnn-googlenet/
 redirect_from:
   - /v/cnn-googlenet/

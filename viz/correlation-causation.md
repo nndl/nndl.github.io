@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 相关不等于因果
+description: "冰淇淋与溺水强相关，控制住隐藏的‘气温’后相关消失——相关未必有因果。"
 permalink: /viz/correlation-causation/
 redirect_from:
   - /v/correlation-causation/

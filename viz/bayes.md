@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 贝叶斯更新
+description: "抛硬币更新对正面概率的信念：先验×数据→后验，抛得越多越笃定。"
 permalink: /viz/bayes/
 redirect_from:
   - /v/bayes/

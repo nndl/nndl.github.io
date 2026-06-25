@@ -1,6 +1,7 @@
 ---
 layout: default
 title: LSTM 的门控记忆
+description: "细胞状态像一条传送带，调遗忘 / 输入 / 输出三道门：遗忘门≈1 时，存进去的值能跨越很多步几乎不衰减。"
 permalink: /viz/lstm-gates/
 redirect_from:
   - /v/lstm-gates/

@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 多头注意力
+description: "三个注意力头并排，各看相邻 / 指代 / 句首一种关系——多头分工再合议。"
 permalink: /viz/multi-head/
 redirect_from:
   - /v/multi-head/

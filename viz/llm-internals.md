@@ -1,6 +1,7 @@
 ---
 layout: default
 title: LLM 内部结构（3D）
+description: "bbycroft.net/llm：3D 交互式 GPT 内部张量流动演示，从 token 到 logit 的全过程。"
 permalink: /viz/llm-internals/
 redirect_from:
   - /v/llm-internals/

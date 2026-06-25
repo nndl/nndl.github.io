@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 二维卷积演示
+description: "不同步长、填充下的二维卷积过程演示。"
 permalink: /viz/cnn-conv-2d/
 redirect_from:
   - /v/cnn-conv-2d/

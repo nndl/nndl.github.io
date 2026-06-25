@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 逻辑回归
+description: "两类点 + sigmoid 概率渐变背景，训练看决策边界和交叉熵损失怎么一步步学出来。"
 permalink: /viz/logistic-regression/
 redirect_from:
   - /v/logistic-regression/

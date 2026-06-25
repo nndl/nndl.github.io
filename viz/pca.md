@@ -1,6 +1,7 @@
 ---
 layout: default
 title: PCA 主成分分析
+description: "二维点云自动找出最铺得开的主成分方向，沿它投影把二维压成一维。"
 permalink: /viz/pca/
 redirect_from:
   - /v/pca/

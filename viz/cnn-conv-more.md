@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 转置卷积与空洞卷积演示
+description: "对比卷积、转置卷积；不同膨胀率下的空洞卷积。"
 permalink: /viz/cnn-conv-more/
 redirect_from:
   - /v/cnn-conv-more/

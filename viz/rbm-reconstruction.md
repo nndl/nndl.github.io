@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 受限玻尔兹曼机：编码与重构
+description: "两层网络来回采样：把带噪数字编码成几个特征隐单元，再只凭它们重构回来——噪声被滤掉，叠起来就是深度信念网络。"
 permalink: /viz/rbm-reconstruction/
 redirect_from:
   - /v/rbm-reconstruction/

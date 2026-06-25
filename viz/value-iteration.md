@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 价值迭代
+description: "网格世界里价值从宝藏一格格扩散，箭头连成一条避开陷阱、通往宝藏的最优路线。"
 permalink: /viz/value-iteration/
 redirect_from:
   - /v/value-iteration/

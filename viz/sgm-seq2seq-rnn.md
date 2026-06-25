@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 基于 RNN 的序列到序列模型
+description: "编码器—解码器结构的循环神经网络 Seq2Seq，常用于机器翻译。"
 permalink: /viz/sgm-seq2seq-rnn/
 redirect_from:
   - /v/sgm-seq2seq-rnn/

@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 早停：见好就收
+description: "训练误差一路降、验证误差先降后升，停在 U 形谷底——见好就收的早停。"
 permalink: /viz/early-stopping/
 redirect_from:
   - /v/early-stopping/

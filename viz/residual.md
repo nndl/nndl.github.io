@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 残差连接
+description: "对比有无跳连的深层网络梯度，残差给梯度修一条‘+1 高速路’，于是能训得很深。"
 permalink: /viz/residual/
 redirect_from:
   - /v/residual/

@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 神经元拼曲线
+description: "几个 ReLU 神经元各画一条折线，叠加起来逼近复杂曲线——万能近似的直觉。"
 permalink: /viz/neurons-compose/
 redirect_from:
   - /v/neurons-compose/
