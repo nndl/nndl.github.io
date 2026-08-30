@@ -115,7 +115,7 @@
   cover: /assets/covers/nndl-ge-cover.png
   pdf: https://github.com/nndl/nndl/releases/download/book-pdf/nndl-ge.pdf
   url: /nndl-ge/
-  blurb: 以更直观的方式介绍神经网络与深度学习的核心思想，弱化数学推导，适合非专业读者与入门学习。
+  blurb: 从机器学习和神经网络的直观基础出发，延伸到大语言模型、智能体、多模态、科学智能、具身智能与AI治理，弱化数学推导，适合非专业读者与入门学习。
   authors: 邱锡鹏
   publisher: 机械工业出版社
   year: 2026
@@ -126,37 +126,37 @@
   links: []
   chapters:
   - num: 1
-    title: 绪论
+    title: 智能的第三次浪潮
   - num: 2
-    title: 机器学习概述
+    title: 机器如何自己学习
   - num: 3
-    title: 前馈神经网络
+    title: 从神经元到深度网络
   - num: 4
-    title: 网络优化与正则化
+    title: 把网络训好的艺术
   - num: 5
-    title: 注意力机制与Transformer
+    title: 注意力：引爆大模型的引擎
   - num: 6
-    title: 无监督学习
+    title: 无师自通：从数据中自学
   - num: 7
-    title: 深度强化学习
+    title: 在试错中成长：强化学习
   - num: 8
-    title: 大语言模型
+    title: 语言的魔法：大语言模型
   - num: 9
-    title: 钢与硅
+    title: 钢与硅：AI的物理底座
   - num: 10
-    title: 智能体
+    title: 智能的延伸：AI智能体
   - num: 11
-    title: 扩散模型
+    title: 从噪声中创造：扩散模型
   - num: 12
-    title: 多模态
+    title: 看听说一体：多模态AI
   - num: 13
-    title: 科学智能
+    title: AI遇上科学：加速发现的新引擎
   - num: 14
-    title: 具身智能
+    title: 走进物理世界：具身智能与机器人
   - num: 15
-    title: 安全与挑战
+    title: 脆弱的巨人：AI的风险与挑战
   - num: 16
-    title: 通用智能
+    title: 通往通用智能：AI的下一站
 - key: llm-agent
   title: 大模型与智能体
   subtitle: 从基础原理到系统构建与未来展望
