@@ -2,12 +2,12 @@
 
 [蒲公英书系列](https://nndl.ai) 的导航门户（旧域 `nndl.github.io` 会自动 301 到 `nndl.ai`；备用域 `nndl.tech` 整域转发至此）。
 
-本仓库是 [nndl 组织](https://github.com/nndl) 下系列图书的总入口。每本书的章节正文、习题、勘误托管在各自的仓库：
+本仓库是 [nndl 组织](https://github.com/nndl) 下系列图书的总入口。各书的电子书入口、配套代码与勘误分别在以下仓库维护：
 
 | 书 | 仓库 |
 |---|---|
-| 神经网络与深度学习（v2） | [nndl/nndl](https://github.com/nndl/nndl) `v2/` |
-| 通识版 | [nndl/nndl](https://github.com/nndl/nndl) `ge/` |
+| 神经网络与深度学习（第二版） | [nndl/nndl · nndl-v2/](https://github.com/nndl/nndl/tree/main/nndl-v2) |
+| 通识版 | [nndl/nndl · nndl-ge/](https://github.com/nndl/nndl/tree/main/nndl-ge) |
 | 案例与实践 | [nndl/nndl-practice](https://github.com/nndl/nndl-practice) |
 | 大模型与智能体 | [nndl/llm-beginner](https://github.com/nndl/llm-beginner) |
 
@@ -29,7 +29,7 @@ python scripts/aggregate-books.py
 
 工作流：编辑某本书的 `_meta.yml`（在它自己的仓库里）→ 跑脚本 → commit 主站的 `_data/books.yml` 变更。
 
-> 当前阶段：per-book 仓库的 `_meta.yml` 尚未建立，`_data/books.yml` 为手工维护初始版本。脚本运行时若所有 `_meta.yml` 缺失，会跳过覆写。
+> 四本书的 `_meta.yml` 已分别维护在 `nndl/nndl-v2/`、`nndl/nndl-ge/`、`nndl-practice/` 与 `llm-beginner/`。聚合脚本要求四份文件齐全；缺少任意一份时会退出，避免写入不完整书目。
 
 ## GitHub Star 计数
 
