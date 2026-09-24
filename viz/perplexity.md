@@ -38,7 +38,7 @@ redirect_from:
     <svg id="plane" viewBox="0 0 460 250" role="img" aria-label="困惑度"></svg>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-accent)"><b>预测越准越好</b><p>给真实出现的词的概率越高，惊讶越小，困惑度越低。</p></div>

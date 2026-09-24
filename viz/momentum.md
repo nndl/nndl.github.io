@@ -54,7 +54,7 @@ redirect_from:
     <svg class="vizui-chart" id="surf" viewBox="0 0 480 240" role="img" aria-label="损失面与下降轨迹"></svg>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:#b5524a"><b>学习率太大</b><p>步子迈太大，在陡的方向上越跳越远，直接冲出山谷——训练“发散”。</p></div>

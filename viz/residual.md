@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 残差连接
-description: "对比有无跳连的深层网络梯度，残差给梯度修一条‘+1 高速路’，于是能训得很深。"
+description: "对比有无跳连的深层网络梯度，残差提供一条直接路径，通常能减轻深层网络中的梯度衰减。"
 permalink: /viz/residual/
 redirect_from:
   - /v/residual/
@@ -21,7 +21,7 @@ redirect_from:
 
 # 残差连接
 
-网络越深，本该越强，但早年一深就训不动——因为反向传播时，梯度要穿过每一层、一路连乘小于 1 的数，传到底层就几乎归零（梯度消失）。残差连接（ResNet 的核心）加了一条“跳线”：每个模块的输出 = 输入 + 这个模块学到的修正。反向求导时，这条跳线给梯度留了一条**直通的高速路**（导数里多了个 +1），于是梯度怎么都不会被乘没。正因如此，几百上千层的网络才训得起来，Transformer 里也到处是它。拖动深度，对比两边梯度传到底层还剩多少。
+网络越深，本该越强，但早年一深就训不动——因为反向传播时，梯度要穿过每一层、一路连乘小于 1 的数，传到底层就可能几乎归零（梯度消失）。残差连接（ResNet 的核心）加了一条“跳线”：每个模块的输出 = 输入 + 这个模块学到的修正。反向求导时，这条跳线给梯度留了一条**直通的路径**（导数中出现恒等映射项），通常能显著减轻衰减，但实际梯度仍取决于残差分支和训练状态。正因如此，更深的网络更容易优化，Transformer 里也广泛使用它。拖动深度，对比两边梯度传到底层还剩多少。
 
 <section class="reslab vizui" id="reslab">
   <p class="vizui__lead">每个色块是一层，颜色越深（浓）表示反向传播时梯度传到这一层还越强、越浅（发白）表示越弱。梯度从顶部（输出）往下传到底部（输入）。左边普通堆叠，右边每层带一条绿色跳线。</p>
@@ -38,11 +38,11 @@ redirect_from:
     </div>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:#b5524a"><b>普通：梯度连乘消失</b><p>每层梯度乘一个小于 1 的数，层数一多，传到底层就趋近于 0，底层学不动。</p></div>
-    <div class="card" style="--wc:var(--color-forest)"><b>残差：+1 高速路</b><p>跳线让导数里多了个 +1，梯度有一条不被衰减的直通路径，再深也传得下去。</p></div>
+    <div class="card" style="--wc:var(--color-forest)"><b>残差：直接路径</b><p>跳线让导数中保留恒等映射项，梯度多了一条较少受残差分支衰减影响的路径。</p></div>
     <div class="card" style="--wc:var(--color-accent)"><b>所以能更深</b><p>ResNet 把网络从几十层推到上百层；Transformer 每个子层也都有残差。</p></div>
   </div>
 </section>
@@ -72,11 +72,11 @@ function render(){
   document.getElementById("nVal").textContent=N;
   drawCol("plain",false);drawCol("res",true);
   var rem=Math.pow(decay,N-1);
-  document.getElementById("info").textContent="传到底层：普通 "+(rem<0.001?rem.toExponential(1):(rem*100).toFixed(1)+"%")+" · 残差 ≈100%";
+  document.getElementById("info").textContent="传到底层：普通 "+(rem<0.001?rem.toExponential(1):(rem*100).toFixed(1)+"%")+" · 直接路径示意 ≈100%";
   caption(rem);
 }
 function caption(rem){
-  document.getElementById("caption").innerHTML="深度 "+N+" 层时，梯度传到最底层：普通网络只剩 <b style='color:#b5524a'>"+(rem<0.001?rem.toExponential(1):(rem*100).toFixed(1)+"%")+"</b>（底部几乎褪成白色——学不动），残差网络靠跳线<b style='color:var(--color-forest)'>≈100%</b>保住（整列都是深色）。深度越大，差距越悬殊。";
+  document.getElementById("caption").innerHTML="深度 "+N+" 层时，在这个简化示意中，普通网络传到底层只剩 <b style='color:#b5524a'>"+(rem<0.001?rem.toExponential(1):(rem*100).toFixed(1)+"%")+"</b>（底部几乎褪成白色），而残差的直接路径保留<b style='color:var(--color-forest)'>≈100%</b>。真实网络的梯度还会受到残差分支、归一化和初始化等因素影响。";
 }
 document.getElementById("n").addEventListener("input",function(e){if(demoIv){clearInterval(demoIv);demoIv=null;}N=+e.target.value;render();});
 render();

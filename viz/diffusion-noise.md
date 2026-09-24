@@ -46,7 +46,7 @@ redirect_from:
     </div>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <details class="vizui-details">
     <summary>背后的公式（点开看）</summary>

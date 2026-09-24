@@ -38,7 +38,7 @@ redirect_from:
     <svg class="vizui-chart" id="plane" viewBox="0 0 320 320" style="max-width:380px;margin:0 auto" role="img" aria-label="KNN 决策边界"></svg>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-accent)"><b>邻居投票</b><p>找最近的 k 个点，多数表决——不需要训练，记住数据就能用。</p></div>

@@ -36,7 +36,7 @@ redirect_from:
     <svg class="vizui-chart" id="plane" viewBox="0 0 320 320" style="max-width:380px;margin:0 auto" role="img" aria-label="决策树切分"></svg>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-accent)"><b>熵 = 混乱度</b><p>一块区域里两类各占一半时最“乱”（熵最大）；只剩一类时最“纯”（熵为 0）。</p></div>

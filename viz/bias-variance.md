@@ -54,7 +54,7 @@ redirect_from:
     </div>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:#b5524a"><b>高偏差（太简单）</b><p>曲线齐刷刷地挤在一起，却整体偏离真实——模型表达力不够，欠拟合。</p></div>

@@ -76,7 +76,7 @@ redirect_from:
     </div>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 </section>
 
 {% raw %}

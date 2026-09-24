@@ -37,7 +37,7 @@ redirect_from:
     <svg id="plane" viewBox="0 0 360 340" role="img" aria-label="归一化网格"></svg>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-accent)"><b>BatchNorm：跨样本</b><p>对每个特征、在整批样本上算均值方差。依赖批大小，序列/小批量时不稳。</p></div>

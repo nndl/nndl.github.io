@@ -41,7 +41,7 @@ redirect_from:
     <div style="text-align:center;margin-top:14px" id="summary"></div>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-accent)"><b>路由器分配</b><p>一个小网络给每个词算出对各专家的“匹配分”，只选 top-k 个去处理这个词。</p></div>

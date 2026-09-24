@@ -39,7 +39,7 @@ redirect_from:
     <div class="pcompare" id="pcompare"></div>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:#9aa5a3"><b>冻结原权重</b><p>大矩阵 W 一个数都不改，省去对它求梯度、存优化器状态的开销。</p></div>

@@ -39,7 +39,7 @@ redirect_from:
     <svg class="vizui-chart" id="surf" viewBox="0 0 480 240" role="img" aria-label="三种优化器轨迹"></svg>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:#b5524a"><b>SGD：一刀切</b><p>所有方向同一个学习率，在陡的方向来回横跳，在缓的方向慢慢挪。</p></div>

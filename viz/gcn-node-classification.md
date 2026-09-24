@@ -37,7 +37,7 @@ redirect_from:
     <svg id="plane" viewBox="0 0 440 240" role="img" aria-label="GCN 节点分类"></svg>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-accent)"><b>半监督</b><p>只需极少量已标注节点，靠图结构把标签传播到大量未标注节点上。</p></div>

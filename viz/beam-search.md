@@ -39,7 +39,7 @@ redirect_from:
     <svg class="vizui-chart" id="tree" viewBox="0 0 520 300" role="img" aria-label="解码树"></svg>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:#b5524a"><b>贪心：每步最优</b><p>简单快，但只看眼前——第一步选了高分词，后面却接不下去好词，整句反而差。</p></div>

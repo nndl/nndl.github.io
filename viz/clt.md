@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 中心极限定理
-description: "从任意分布反复抽 n 个求平均，n 越大，平均值的分布越收成漂亮的高斯钟形。"
+description: "在独立同分布且方差有限等条件下，反复抽 n 个求平均；n 足够大时，平均值的分布逐渐接近高斯。"
 permalink: /viz/clt/
 redirect_from:
   - /v/clt/
@@ -23,7 +23,7 @@ redirect_from:
 
 # 中心极限定理
 
-随便挑一个分布——均匀的、偏斜的、双峰的，长得多奇怪都行。每次从它里面抽 n 个数、求个平均，把这些平均值的分布画出来。神奇的事发生了：只要 n 稍微大一点，这些**平均值的分布总会变成一个漂亮的高斯钟形**，跟原始分布长什么样几乎无关。这就是中心极限定理——它解释了为什么高斯分布在自然界和统计里无处不在。换个原始分布、拖动 n，看钟形怎么浮现。
+随便挑一个分布——均匀的、偏斜的、双峰的都可以。在独立同分布、方差有限等常见条件下，每次从它里面抽 n 个数、求个平均，把这些平均值的分布画出来；当 n 足够大时，平均值的分布会逐渐接近高斯。原始分布越偏斜、尾部越重，通常需要更大的 n 才能看出这种近似。这就是中心极限定理——它解释了为什么高斯分布在自然界和统计里无处不在。换个原始分布、拖动 n，看钟形怎么浮现。
 
 <section class="cltlab vizui" id="cltlab">
   <p class="vizui__lead">上面小图是<b>原始分布</b>（灰）。下面大图是“每次抽 n 个求平均”得到的<b>平均值分布</b>（蓝），金线是理论高斯。n 越大，蓝色直方图越像钟形、越窄。</p>
@@ -39,11 +39,11 @@ redirect_from:
     <svg class="vizui-chart" id="plot" viewBox="0 0 440 210" role="img" aria-label="样本均值分布"></svg>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-accent)"><b>平均“抹平”怪异</b><p>多个随机数相加平均，互相的高低起伏被中和，结果趋向规整的钟形。</p></div>
-    <div class="card" style="--wc:var(--color-gold)"><b>与原分布无关</b><p>不管原始分布多奇怪，n 够大时平均值都近似高斯，中心在原分布的均值。</p></div>
+    <div class="card" style="--wc:var(--color-gold)"><b>渐渐摆脱原形状</b><p>在定理条件成立且 n 足够大时，平均值逐渐近似高斯，中心在原分布的均值；偏斜或重尾分布往往收敛得更慢。</p></div>
     <div class="card" style="--wc:var(--color-forest)"><b>越平均越准</b><p>平均值的散布 = 原标准差 ÷ √n——样本越多，估计越集中、越可靠。</p></div>
   </div>
 </section>
@@ -85,7 +85,7 @@ function caption(sd){
   var el=document.getElementById("caption");
   if(n===1)el.innerHTML="n=1：每次只抽 1 个，所谓“平均”就是它本身——所以蓝图和上面的原始分布几乎一样（同一个分布抽出来的），一点都不像钟形。把 n 拖大。";
   else if(n<8)el.innerHTML="n="+n+"：开始抽 "+n+" 个求平均，分布在往中间收、慢慢鼓成钟形了，金色高斯越来越贴合。";
-  else el.innerHTML="n="+n+"：平均值的分布已经是一条漂亮的<b>高斯钟形</b>，紧紧聚在原均值 "+stat.mean.toFixed(2)+" 附近（散布≈原std/√n）。原始分布是均匀/偏斜/双峰都无所谓——这就是中心极限定理。";
+  else el.innerHTML="n="+n+"：在这个示例里，平均值的分布已经接近<b>高斯钟形</b>，聚在原均值 "+stat.mean.toFixed(2)+" 附近（散布≈原std/√n）。原始分布的形状影响收敛速度；这正是中心极限定理在定理条件下给出的渐近结论。";
 }
 document.getElementById("heads").addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;src=+b.dataset.s;document.querySelectorAll("#heads button").forEach(function(x){x.classList.toggle("on",+x.dataset.s===src);});stat=srcStats();render();});
 document.getElementById("n").addEventListener("input",function(e){n=+e.target.value;render();});

@@ -39,7 +39,7 @@ redirect_from:
     <svg class="vizui-chart" id="plane" viewBox="0 0 320 320" style="max-width:380px;margin:0 auto" role="img" aria-label="AdaBoost 提升"></svg>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-accent)"><b>串联纠错</b><p>每加一个弱分类器，就放大上一轮被分错样本的权重，逼下一个去专攻这些难点。</p></div>

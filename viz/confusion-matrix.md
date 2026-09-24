@@ -69,7 +69,7 @@ redirect_from:
     </div>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-accent)"><b>准确率会骗人</b><p>它只数对角线占总数的比例。多数类一大、稀有类一小，稀有类全错也拉不动这个总分。</p></div>

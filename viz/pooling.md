@@ -50,7 +50,7 @@ redirect_from:
     <div id="calc" style="text-align:center;margin-top:12px;font:600 .9rem var(--font-mono);color:var(--color-text-soft)"></div>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-accent)"><b>最大汇聚</b><p>只留窗口里最强的响应——“这一带有没有出现这个特征”，最常用。</p></div>

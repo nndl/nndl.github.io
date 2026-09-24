@@ -42,7 +42,7 @@ redirect_from:
     </div>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-accent)"><b>更少位数 = 更小</b><p>fp32→int8 体积缩到 1/4，int4 缩到 1/8；显存、带宽、能耗都跟着降。</p></div>

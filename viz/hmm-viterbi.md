@@ -45,7 +45,7 @@ redirect_from:
     <svg id="plane" viewBox="0 0 480 250" role="img" aria-label="HMM 维特比网格"></svg>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-accent)"><b>转移 × 发射</b><p>到某状态的得分＝前驱得分 × 转移概率 × 当天发射概率，逐天相乘。</p></div>

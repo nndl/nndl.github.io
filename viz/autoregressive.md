@@ -40,7 +40,7 @@ GPT 写文章，不是一次性吐出一整段，而是**一个字一个字往�
     <svg id="plane" viewBox="0 0 470 250" role="img" aria-label="自回归生成"></svg>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-accent)"><b>预测下一词</b><p>每步只做一件事：根据已有内容，给词表里每个词打一个概率。</p></div>

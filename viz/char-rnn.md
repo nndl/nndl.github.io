@@ -39,7 +39,7 @@ redirect_from:
     <svg id="plane" viewBox="0 0 470 240" role="img" aria-label="字符级 RNN"></svg>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-accent)"><b>颗粒到字符</b><p>词表只有几十个字符，却能拼出任意词——连没见过的新词也拼得出。</p></div>

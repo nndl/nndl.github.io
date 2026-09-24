@@ -48,7 +48,7 @@ redirect_from:
     <svg class="vizui-chart" id="plot" viewBox="0 0 480 280" role="img" aria-label="神经元叠加拟合曲线"></svg>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-accent)"><b>一个神经元 = 一条折线</b><p>ReLU 让每个神经元在某个位置“折一下”：之前是平的，之后是一段斜线。</p></div>

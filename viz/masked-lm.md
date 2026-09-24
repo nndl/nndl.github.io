@@ -39,7 +39,7 @@ GPT 这类模型从左到右写字，预测下一个词时**只能看左边**（
     <svg id="plane" viewBox="0 0 480 280" role="img" aria-label="掩码语言模型"></svg>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-gold)"><b>盖词填空</b><p>随机盖住 15% 的词让模型猜，这是 BERT 的核心预训练任务。</p></div>

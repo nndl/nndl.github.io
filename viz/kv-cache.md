@@ -1,7 +1,7 @@
 ---
 layout: default
-title: KV 缓存与注意力 O(n²)
-description: "自回归生成时注意力是 O(n²)，KV 缓存把历史键值存起来复用，降到线性。"
+title: KV 缓存：避免重复计算 K/V
+description: "自回归生成时注意力仍要访问历史上下文；KV 缓存把历史键值存起来复用，将 K/V 的重复计算从平方级降为线性。"
 permalink: /viz/kv-cache/
 redirect_from:
   - /v/kv-cache/
@@ -24,7 +24,7 @@ redirect_from:
 
 # KV 缓存与注意力 O(n²)
 
-大模型从左到右一个词一个词地生成，每生成一个新词，它都要回头“看”前面所有词——这就是注意力。麻烦在于：序列越长，要看的越多。如果每生成一步都把前面所有词重新算一遍“键(Key)和值(Value)”，那么生成 n 个词的总计算量是 1+2+…+n ≈ n²/2，随长度**平方级**增长，长上下文因此又慢又贵。KV 缓存的办法很简单：每个词的 K、V 只在它第一次出现时算一次、**存起来反复用**，后面就不重算了。于是总量降到约 n（线性）。点“生成下一个词”，对比开/关缓存的累计计算量。
+大模型从左到右一个词一个词地生成，每生成一个新词，它都要回头“看”前面所有词——这就是注意力。注意力仍然需要访问历史上下文；如果每一步都把前面所有词重新算一遍“键（Key）和值（Value）”，那么生成 n 个词的 K/V 重算量是 1+2+…+n ≈ n²/2。KV 缓存的办法很简单：每个词的 K、V 只在它第一次出现时算一次、**存起来反复用**，把这部分重算降到约 n（线性）。注意力本身的上下文访问和缓存占用仍会随序列变长。点“生成下一个词”，对比开/关缓存的 K/V 累计计算量。
 
 <section class="kvlab vizui" id="kvlab">
   <p class="vizui__lead">下面的三角格子表示“在第几步、给第几个词算 K/V”。<span style="color:var(--color-accent);font-weight:600">蓝=这步新算的</span>，<span style="color:#5a8;font-weight:600">浅青=从缓存直接取的</span>。开缓存时只有对角线要算，关缓存时整片三角都要重算。</p>
@@ -42,11 +42,11 @@ redirect_from:
     <div style="text-align:center;margin-top:14px;font:600 1rem var(--font-mono)" id="counter"></div>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
-    <div class="card" style="--wc:#b5524a"><b>注意力 ~ O(n²)</b><p>每步都重算前面所有词，生成 n 个词总量约 n²/2，随长度平方增长——长上下文贵在这里。</p></div>
-    <div class="card" style="--wc:var(--color-accent)"><b>KV 缓存 ~ O(n)</b><p>每个词的 K/V 只算一次存起来，后续直接取，总量降到线性，生成快得多。</p></div>
+    <div class="card" style="--wc:#b5524a"><b>K/V 重算 ~ O(n²)</b><p>每步都重算前面所有词的 K/V，生成 n 个词总量约 n²/2，随长度平方增长。</p></div>
+    <div class="card" style="--wc:var(--color-accent)"><b>缓存后 K/V ~ O(n)</b><p>每个词的 K/V 只算一次存起来，后续直接取；注意力读取历史 K/V 的开销仍需单独计算。</p></div>
     <div class="card" style="--wc:var(--color-forest)"><b>代价是显存</b><p>缓存要占显存，序列越长占得越多——这也是长上下文的另一道坎。</p></div>
   </div>
 </section>

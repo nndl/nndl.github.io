@@ -45,7 +45,7 @@ redirect_from:
     </div>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-accent)"><b>列 = 基向量去向</b><p>第一列是 (1,0) 变到哪、第二列是 (0,1) 变到哪。知道这两个，整个变换就定了。</p></div>

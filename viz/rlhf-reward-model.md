@@ -48,7 +48,7 @@ redirect_from:
     <svg class="vizui-chart" id="pplot" viewBox="0 0 460 150" role="img" aria-label="策略密度"></svg>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-accent)"><b>只用成对偏好</b><p>人类不打分、只说“A 比 B 好”。Bradley-Terry 用 σ(r_W − r_L) 解释每对胜负，最大化它就拟合出奖励曲线。</p></div>

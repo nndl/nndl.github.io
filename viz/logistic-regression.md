@@ -43,7 +43,7 @@ redirect_from:
     </div>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-accent)"><b>输出是概率</b><p>sigmoid 把任意分数压到 0~1，可以当作“属于蓝类的概率”，而不只是硬邦邦的是/否。</p></div>

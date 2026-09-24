@@ -35,7 +35,7 @@ redirect_from:
     <div class="hm" id="hm"></div>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-accent)"><b>只能看左边</b><p>对角线及左下方允许，右上方（未来词）全部屏蔽，保证“预测下一个”时不偷看答案。</p></div>

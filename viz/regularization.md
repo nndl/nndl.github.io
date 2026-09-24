@@ -43,7 +43,7 @@ redirect_from:
     <div class="wbars" id="wbars"></div>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-accent)"><b>L2（岭回归）</b><p>惩罚权重的平方和，让所有权重一起平滑地变小，曲线更平缓，但很少正好为 0。</p></div>

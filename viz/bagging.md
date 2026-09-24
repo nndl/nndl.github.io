@@ -37,7 +37,7 @@ redirect_from:
     <svg id="plane" viewBox="0 0 460 300" role="img" aria-label="集成平均"></svg>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-accent)"><b>弱模型高方差</b><p>单棵深树对数据子集很敏感，换批数据就给出很不一样的预测，曲线抖动大。</p></div>

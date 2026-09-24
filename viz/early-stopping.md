@@ -38,12 +38,12 @@ redirect_from:
     <svg id="plane" viewBox="0 0 460 290" role="img" aria-label="早停曲线"></svg>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-accent-light,#2563eb)"><b>训练误差骗人</b><p>它几乎总在降，单看它你会以为越训越好——其实是开始背噪声了。</p></div>
     <div class="card" style="--wc:#b5524a"><b>验证误差是真相</b><p>用没见过的数据衡量泛化。它的 U 形谷底，就是模型最会“举一反三”的时刻。</p></div>
-    <div class="card" style="--wc:var(--color-gold)"><b>早停=免费正则</b><p>在谷底停手，不用改模型就避免了过拟合，还省了算力，几乎零成本。</p></div>
+    <div class="card" style="--wc:var(--color-gold)"><b>早停也是一种正则化</b><p>在验证误差谷底附近停手，可以减轻过拟合并省下后续训练算力；实际仍需监控验证集来选择停止点。</p></div>
   </div>
 </section>
 

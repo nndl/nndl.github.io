@@ -71,7 +71,7 @@ redirect_from:
     </div>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:#b5524a"><b>交叉熵：答错重罚</b><p>p→0 时 −log p→∞。自信地答错会被狠狠惩罚，逼模型别犯笃定的错误。</p></div>

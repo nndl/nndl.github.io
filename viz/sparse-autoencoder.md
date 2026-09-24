@@ -46,7 +46,7 @@ redirect_from:
     </div>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-accent)"><b>编码 → 解码</b><p>编码器把输入压成隐层激活 h，解码器只凭 h 重构输入；没有标签，靠“重构得像不像”自我监督。</p></div>

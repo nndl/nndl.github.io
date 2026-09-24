@@ -44,7 +44,7 @@ redirect_from:
     </div>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-accent)"><b>PC1 = 最大方差方向</b><p>数据沿哪个方向铺得最开，PC1 就指向哪——它由数据的协方差矩阵算出。</p></div>

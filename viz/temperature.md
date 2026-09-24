@@ -56,7 +56,7 @@ redirect_from:
     <div class="samples" id="samples"></div>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-accent)"><b>低温（→0）</b><p>几乎总抽概率最高的词，输出稳定、可复现，但容易呆板、重复。</p></div>

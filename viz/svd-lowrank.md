@@ -47,7 +47,7 @@ redirect_from:
     </div>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-accent)"><b>σ 排好了队</b><p>奇异值从大到小排列，第一个就装下了大半信息；越往后越小，贡献越微弱。</p></div>

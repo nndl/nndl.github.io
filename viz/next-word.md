@@ -46,7 +46,7 @@ redirect_from:
     </div>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-accent)"><b>只是接龙</b><p>每一步都在“给定上文，下一个词的概率”里挑一个——没有计划，全靠统计。</p></div>

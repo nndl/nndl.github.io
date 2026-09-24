@@ -38,7 +38,7 @@ redirect_from:
     <svg id="plane" viewBox="0 0 460 250" role="img" aria-label="采样截断"></svg>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-accent)"><b>top-k：固定个数</b><p>永远留 k 个。简单，但分布很尖时留太多、很平时留太少。</p></div>

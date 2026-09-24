@@ -41,7 +41,7 @@ redirect_from:
     <svg class="vizui-chart" id="net" viewBox="0 0 460 320" style="max-width:480px;margin:0 auto" role="img" aria-label="下雨、洒水器、草湿的贝叶斯网络"></svg>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-accent)"><b>结果把原因都点亮</b><p>共同结果一旦被观测——草湿了，下雨和洒水器的概率会<b>同时</b>上升，因为总要有原因来解释它。</p></div>

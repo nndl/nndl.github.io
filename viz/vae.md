@@ -37,7 +37,7 @@ redirect_from:
     <svg id="plane" viewBox="0 0 460 250" role="img" aria-label="VAE 潜空间"></svg>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-accent)"><b>压成几个数</b><p>编码器把高维图压进低维潜变量，解码器再还原——逼模型抓住要点。</p></div>

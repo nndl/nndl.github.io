@@ -62,7 +62,7 @@ redirect_from:
     </div>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-gold)"><b>高偏差 / 欠拟合</b><p>两条线很快收到一起，却一起卡在高处下不来。模型表达力不够，再喂多少数据都没用——该换更强的模型。</p></div>

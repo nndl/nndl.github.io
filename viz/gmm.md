@@ -37,7 +37,7 @@ K-means 给每个点一个“硬”归属——非此即彼。但现实中两团
     <svg class="vizui-chart" id="plane" viewBox="0 0 320 320" style="max-width:380px;margin:0 auto" role="img" aria-label="高斯混合软聚类"></svg>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-accent)"><b>软归属</b><p>每个点对各簇都有一个概率，加起来为 1——比 K-means 的“非此即彼”更细腻。</p></div>

@@ -44,7 +44,7 @@ redirect_from:
     <div id="eq" style="text-align:center;font:600 1rem var(--font-mono);color:var(--color-text-soft);margin-top:6px"></div>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-accent)"><b>关系 = 方向</b><p>“男→女”和“国王→王后”是同一个方向、同一段位移——性别这层意思被编码成了一个向量。</p></div>

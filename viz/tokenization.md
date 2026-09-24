@@ -45,7 +45,7 @@ redirect_from:
     <div class="toks" id="toks"></div>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-accent)"><b>常见词一整块</b><p>越常见的词越可能是单独一个词元；生僻或长的词被拆成几片（子词）。</p></div>

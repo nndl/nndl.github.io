@@ -56,7 +56,7 @@ redirect_from:
     </div>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-accent)"><b>正向：算误差</b><p>输入沿计算图往前算，一路到输出 a 和误差 loss。</p></div>

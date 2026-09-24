@@ -37,7 +37,7 @@ redirect_from:
     <svg class="vizui-chart" id="plot" viewBox="0 0 360 300" style="max-width:420px;margin:0 auto" role="img" aria-label="相关与因果散点"></svg>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-accent)"><b>共同原因 = 混淆变量</b><p>气温同时推高冰淇淋和溺水，制造出两者的假相关——它叫“混淆变量”。</p></div>

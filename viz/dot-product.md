@@ -52,7 +52,7 @@ redirect_from:
     </div>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-forest)"><b>同向 → 大正数</b><p>方向一致，点积最大（=两长度相乘），余弦接近 +1，最“相似”。</p></div>

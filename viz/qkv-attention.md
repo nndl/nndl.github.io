@@ -54,7 +54,7 @@ redirect_from:
     </div>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-accent)"><b>分数 = 点积</b><p>Query 和 Key 越“同向”，点积越大，说明这个词越值得关注。</p></div>

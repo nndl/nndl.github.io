@@ -44,7 +44,7 @@ redirect_from:
     <svg class="vizui-chart" id="plane" viewBox="-20 -52 388 392" style="max-width:430px;margin:0 auto;display:block" role="img" aria-label="权重空间里的损失椭圆与约束区域"></svg>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-accent)"><b>L2 = 圆</b><p>约束区域是圆，没有尖角。最小的椭圆碰到的是一段光滑圆弧，切点处两个坐标一般都不为 0——所有权重一起被缩小，但很少正好等于 0。</p></div>

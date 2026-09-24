@@ -36,7 +36,7 @@ redirect_from:
     <svg class="vizui-chart" id="plane" viewBox="0 0 320 320" style="max-width:380px;margin:0 auto" role="img" aria-label="MCMC 采样"></svg>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-accent)"><b>随机游走</b><p>每步在附近随机提议一个新位置，不用知道分布的全貌，只要能比较两点的概率。</p></div>

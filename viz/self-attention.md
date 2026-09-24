@@ -61,7 +61,7 @@ Transformer（也就是当下大模型的核心）能读懂长句子，靠的是
     <div class="att-hint">点不同的词试试 · 切换上方“注意力头”看不同模式</div>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-accent)"><b>语义关联</b><p>把含义相关的词连起来，比如代词“它”连回“小猫”、“首都”连向“东京”。这是理解句子的关键。</p></div>

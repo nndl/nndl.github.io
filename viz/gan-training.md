@@ -47,7 +47,7 @@ redirect_from:
     </div>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-accent)"><b>D 学着分辨</b><p>判别器做梯度上升，在真数据处把 D(x) 推高、在假数据处压低——蓝曲线先拱出“真高假低”的形状。</p></div>

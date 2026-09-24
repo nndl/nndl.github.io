@@ -54,7 +54,7 @@ redirect_from:
     <div style="text-align:center;margin-top:6px"><span id="status" class="vizui-pill">第 0 轮 · 分错 0 个</span></div>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-accent)"><b>看一个点</b><p>感知器逐个检查数据点：分对了就跳过，分错了就动手调整。</p></div>

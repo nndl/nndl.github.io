@@ -55,7 +55,7 @@ redirect_from:
     <div style="margin-top:10px;text-align:center;font:600 .95rem var(--font-mono);color:var(--color-text)" id="score">拉了 0 次 · 赢了 0 次</div>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-accent)"><b>利用 Exploit</b><p>拉目前估计最好的那台，把已知的好机会用足。</p></div>

@@ -37,7 +37,7 @@ redirect_from:
     <svg class="vizui-chart" id="plot" viewBox="0 0 460 240" role="img" aria-label="频率收敛曲线"></svg>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:#b5524a"><b>少量样本会骗人</b><p>抛几次，频率可能离真实概率很远——小样本的随机波动很大。</p></div>

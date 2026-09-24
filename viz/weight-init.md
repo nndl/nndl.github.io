@@ -39,7 +39,7 @@ redirect_from:
     <svg class="vizui-chart" id="plot" viewBox="0 0 460 240" role="img" aria-label="各层信号强度"></svg>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:#b5524a"><b>太大 → 爆炸</b><p>每层放大一点，深层信号指数级冲高，梯度也跟着爆，训练直接发散。</p></div>

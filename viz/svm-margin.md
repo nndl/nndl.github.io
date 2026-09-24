@@ -51,7 +51,7 @@ redirect_from:
     <div style="text-align:center;margin-top:6px"><span id="status" class="vizui-pill">间隔宽度 —</span></div>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-accent)"><b>最宽的马路</b><p>分界线放在两类之间留白最宽处，离两边都尽量远，新样本更不容易判错。</p></div>

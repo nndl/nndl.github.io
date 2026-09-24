@@ -42,7 +42,7 @@ redirect_from:
     <svg id="plane" viewBox="0 0 500 250" role="img" aria-label="RBM 编码与重构"></svg>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-accent)"><b>受限＝层内无连接</b><p>只有可见↔隐藏之间相连，来回共用同一套权重——这让条件分布好算、能高效采样。</p></div>

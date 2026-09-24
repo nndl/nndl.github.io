@@ -35,7 +35,7 @@ Transformer 同时看一整句话，本身分不清词的先后——“猫追�
     <svg id="plane" viewBox="0 0 410 320" role="img" aria-label="位置编码热力图"></svg>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-accent)"><b>多频率正弦</b><p>每个维度是一条不同频率的波，组合起来给每个位置一个唯一编码。</p></div>

@@ -42,7 +42,7 @@ redirect_from:
     <svg class="vizui-chart" id="net" viewBox="0 0 420 260" role="img" aria-label="带 Dropout 的网络"></svg>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-accent)"><b>逼出冗余</b><p>随时可能被关掉，神经元就不能互相过度依赖，每个都得学到有用的东西。</p></div>

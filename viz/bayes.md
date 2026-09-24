@@ -38,7 +38,7 @@ redirect_from:
     <svg class="vizui-chart" id="plot" viewBox="0 0 460 250" role="img" aria-label="p 的后验分布"></svg>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-accent)"><b>先验：起点信念</b><p>没数据时，对 p 一无所知，分布是平的——任何值都有可能。</p></div>

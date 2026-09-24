@@ -35,7 +35,7 @@ redirect_from:
     <svg id="plane" viewBox="0 0 460 240" role="img" aria-label="梯度沿时间回传"></svg>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:#b5524a"><b>w&lt;1：消失</b><p>梯度按 wᵏ 指数衰减，回传几十步就≈0，早期输入学不到——长程记忆丢失。</p></div>

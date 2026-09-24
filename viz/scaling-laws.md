@@ -39,7 +39,7 @@ redirect_from:
     <svg class="vizui-chart" id="plot" viewBox="0 0 460 280" role="img" aria-label="损失随规模的幂律曲线"></svg>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-accent)"><b>幂律 ≈ 直线</b><p>损失 ≈ 下限 + A·规模^(−α)。把<b>可降的那部分</b>（损失减下限）取对数，是一条斜率 −α 的直线；总损失在贴近下限前也近乎笔直，之后逐渐变缓。</p></div>

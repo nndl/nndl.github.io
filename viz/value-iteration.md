@@ -38,7 +38,7 @@ redirect_from:
     <div class="grid" id="grid"></div>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-accent)"><b>价值从终点扩散</b><p>每轮：每格的价值 = 朝最好方向走一步能拿到的回报 + 打折后的下一格价值。一轮轮传开。</p></div>

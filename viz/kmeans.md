@@ -48,7 +48,7 @@ redirect_from:
     <div style="text-align:center;margin-top:6px"><span id="status" class="vizui-pill">第 0 步</span></div>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-accent)"><b>① 投靠最近的中心</b><p>每个点看看哪个中心离自己最近，就归到那一组、染上那个颜色。</p></div>

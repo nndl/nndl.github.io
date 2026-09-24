@@ -40,7 +40,7 @@ RNN 的隐状态到底存了什么？这个例子能让你“看见”。给 RNN
     <svg id="plane" viewBox="0 0 470 230" role="img" aria-label="RNN 计数器"></svg>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-accent)"><b>隐状态可解释</b><p>某个神经元的值正好等于嵌套深度——隐状态里装着看得懂的信息。</p></div>

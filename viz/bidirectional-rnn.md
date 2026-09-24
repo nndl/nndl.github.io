@@ -39,7 +39,7 @@ redirect_from:
     <svg id="plane" viewBox="0 0 480 220" role="img" aria-label="双向 RNN"></svg>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-accent-light,#2563eb)"><b>前向看左</b><p>从句首读到当前位置，隐状态汇总了左边的上下文。</p></div>

@@ -38,7 +38,7 @@ redirect_from:
     <svg id="plane" viewBox="0 0 470 300" role="img" aria-label="BPE 合并"></svg>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-accent)"><b>从字符起步</b><p>初始词表就是所有单字符，任何词都能拼出来（不会有“未登录词”）。</p></div>

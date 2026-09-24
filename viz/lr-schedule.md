@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 学习率调度（预热 + 余弦退火）
-description: "学习率随步数的“形状”才关键：没预热的大学习率开头就把损失冲飞；预热 + 余弦退火则平稳下降、收得更低。"
+description: "学习率随步数的“形状”很重要：预热与余弦退火是一种常见组合，但具体策略要结合模型、数据和优化器调整。"
 permalink: /viz/lr-schedule/
 redirect_from:
   - /v/lr-schedule/
@@ -28,7 +28,7 @@ redirect_from:
 
 # 学习率调度（预热 + 余弦退火）
 
-学习率不是设一个常数就完事——它**随训练步数变化的“形状”**才是关键。开头如果直接用大学习率，模型还没站稳就被一脚踹飞，损失瞬间爆掉；正确的做法是先**预热（warmup）**：用一小段时间把步长从很小慢慢拉到峰值，等参数稳住，再让学习率沿**余弦曲线**缓缓退火，稳稳落进谷底。上面是学习率随步数的曲线（真正要看的内容），下面是它带来的**损失（示意）**。切换调度方式，调峰值和预热步数，看上下两条线怎么联动。
+学习率不是设一个常数就完事——它**随训练步数变化的“形状”**往往很关键。对某些模型，开头直接用较大的学习率可能让训练不稳定；一种常见做法是先**预热（warmup）**，用一小段时间把步长从很小慢慢拉到峰值，再让学习率沿**余弦曲线**退火。上面是学习率随步数的曲线，下面是它带来的**损失（示意）**。切换调度方式，调峰值和预热步数，看上下两条线怎么联动。
 
 <section class="lrlab vizui" id="lrlab">
   <p class="vizui__lead">上图 <span style="color:var(--color-accent);font-weight:600">蓝线</span>是学习率随步数的调度曲线（<span style="color:var(--color-accent)">淡蓝带</span>是预热区间）；下图 <span style="color:#b5524a;font-weight:600">红线</span>是对应的损失（示意）。<span style="color:var(--color-gold);font-weight:600">金点</span>是当前步。</p>
@@ -53,12 +53,12 @@ redirect_from:
     <svg class="vizui-chart" id="lossPlot" viewBox="0 0 460 200" role="img" aria-label="损失随步数的示意曲线"></svg>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-accent)"><b>预热（warmup）</b><p>开头小步慢走，把学习率从接近 0 渐渐拉到峰值，等模型稳住再加速，避免一上来步子太大、直接发散冲飞。</p></div>
     <div class="card" style="--wc:var(--color-gold)"><b>余弦退火</b><p>后期沿余弦曲线把学习率逐渐减小到 0，相当于落地时收油门，稳稳落进损失谷底、收得更低。</p></div>
-    <div class="card" style="--wc:var(--color-forest)"><b>这是标配</b><p>从 ResNet 到大语言模型，几乎所有大规模训练都用“预热 + 余弦（或线性）退火”这套学习率调度。</p></div>
+    <div class="card" style="--wc:var(--color-forest)"><b>常见组合</b><p>预热加余弦或线性退火在许多视觉模型和语言模型训练中都很常见，但具体方案仍要结合模型、数据和优化器选择。</p></div>
   </div>
 </section>
 

@@ -36,7 +36,7 @@ redirect_from:
     <svg id="plane" viewBox="0 0 560 320" role="img" aria-label="感受野"></svg>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-gold)"><b>小窗口</b><p>每层只看相邻 3 个，参数少、计算省。单看一层确实“目光短浅”。</p></div>

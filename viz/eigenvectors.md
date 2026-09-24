@@ -55,7 +55,7 @@ redirect_from:
     </div>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-accent)"><b>多数方向被转向</b><p>随便挑一个 v，矩阵几乎都会把它掰到另一个方向——Av 和 v 不共线，夹角不为零。</p></div>

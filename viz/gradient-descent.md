@@ -53,7 +53,7 @@ redirect_from:
     <svg class="vizui-chart" id="surf" viewBox="0 0 480 270" role="img" aria-label="一维损失曲线与下降过程"></svg>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-text-muted)"><b>步子太小</b><p>每步只挪一点点，方向没错，但要走很多步才到底，训练很慢。</p></div>

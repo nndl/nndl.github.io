@@ -40,7 +40,7 @@ redirect_from:
     <div class="llbar"><i id="llBar"></i></div>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-accent)"><b>似然 = 数据的“顺理成章”度</b><p>每个点在曲线上的密度相乘；曲线越贴合数据，乘积越大。</p></div>

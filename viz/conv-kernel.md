@@ -56,7 +56,7 @@ redirect_from:
     <div id="calc" style="text-align:center;margin-top:12px;font:600 .9rem var(--font-mono);color:var(--color-text-soft)"></div>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-accent)"><b>核 = 一个小模式探测器</b><p>3×3 的权重决定它对什么敏感：边缘检测核在明暗交界处响应最大。</p></div>

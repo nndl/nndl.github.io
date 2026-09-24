@@ -40,7 +40,7 @@ redirect_from:
     <svg id="plane" viewBox="0 0 500 250" role="img" aria-label="RNN 隐状态展开"></svg>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-forest)"><b>隐状态=滚动记忆</b><p>它把读过的内容压缩进一个向量，一路携带、不断更新。</p></div>

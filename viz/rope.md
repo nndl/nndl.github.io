@@ -46,7 +46,7 @@ Transformer 本身分不清词的先后，得额外注入“位置”。RoPE（�
     </div>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-accent)"><b>位置 = 旋转</b><p>位置越靠后，向量转得越多——把顺序信息编进了角度里。</p></div>

@@ -48,7 +48,7 @@ redirect_from:
     <svg class="vizui-chart" id="rel" viewBox="0 0 360 300" style="max-width:420px;margin:0 auto;display:block" role="img" aria-label="可靠性图：平均把握对实际正确率"></svg>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:#b5524a"><b>低温 / 原始 → 过度自信</b><p>T≤1 时打分被放大，模型把话说太满，点落在对角线<b>下方</b>：说90%，实际只对70%。ECE 大。</p></div>

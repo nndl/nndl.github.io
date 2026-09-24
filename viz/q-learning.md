@@ -51,7 +51,7 @@ redirect_from:
     <div class="grid" id="grid" style="margin-top:12px"></div>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-accent)"><b>无模型</b><p>不知道转移和奖励规则，只从一次次试错的 (s, a, r, s′) 样本里学，不需要环境模型。</p></div>

@@ -65,7 +65,7 @@ redirect_from:
     </div>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-text-muted)"><b>欠拟合（太简单）</b><p>复杂度太低，曲线连训练点的大趋势都跟不上，训练和测试误差都高。</p></div>

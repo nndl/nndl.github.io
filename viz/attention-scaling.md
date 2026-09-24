@@ -35,7 +35,7 @@ redirect_from:
     <svg id="plane" viewBox="0 0 460 230" role="img" aria-label="注意力缩放"></svg>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-accent)"><b>点积随 d 变大</b><p>分数是 d 项之和，维度越高、数值波动越大（标准差∝√d）。</p></div>
@@ -65,6 +65,11 @@ function bars(svg,x0,probs,title){
   }
   E(svg,"text",{x:x0+95,y:204,"text-anchor":"middle","class":"lbl"},"最大权重 "+(maxP*100).toFixed(0)+"%");
 }
+var demoTimer=null,demoIv=null;
+function stopDemo(){
+  if(demoTimer){clearTimeout(demoTimer);demoTimer=null;}
+  if(demoIv){clearInterval(demoIv);demoIv=null;}
+}
 function render(){
   var svg=document.getElementById("plane");while(svg.firstChild)svg.removeChild(svg.firstChild);
   var pu=softmax(scores(false)),ps=softmax(scores(true));
@@ -79,10 +84,10 @@ function caption(mu,ms){
   if(d<=4)el.innerHTML="维度还小（d="+d+"）：不缩放与缩放的差距还不大。把维度往大拖，看左边怎么塌。";
   else el.innerHTML="维度 d="+d+"：不缩放那边最大权重已冲到 <b>"+(mu*100).toFixed(0)+"%</b>（几乎一根独大、softmax 饱和、梯度消失）；÷√d 那边仍只有 <b>"+(ms*100).toFixed(0)+"%</b>，分布柔和、可学。这就是为什么注意力要除以 √d。";
 }
-document.getElementById("d").addEventListener("input",function(e){d=+e.target.value;render();});
+document.getElementById("d").addEventListener("input",function(e){stopDemo();d=+e.target.value;render();});
 render();
-setTimeout(function(){if(window.matchMedia&&window.matchMedia("(prefers-reduced-motion:reduce)").matches){d=128;document.getElementById("d").value=128;render();return;}
-  var seq=[16,48,128],k=0,sl=document.getElementById("d");var iv=setInterval(function(){d=seq[k];sl.value=d;render();k++;if(k>=seq.length)clearInterval(iv);},1100);},1000);
+demoTimer=setTimeout(function(){demoTimer=null;if(window.matchMedia&&window.matchMedia("(prefers-reduced-motion:reduce)").matches){d=128;document.getElementById("d").value=128;render();return;}
+  var seq=[16,48,128],k=0,sl=document.getElementById("d");demoIv=setInterval(function(){d=seq[k];sl.value=d;render();k++;if(k>=seq.length)stopDemo();},1100);},1000);
 })();
 </script>
 {% endraw %}

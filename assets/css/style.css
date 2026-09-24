@@ -2608,6 +2608,12 @@ a.pdf-badge:hover {
 @media (max-width: 620px) {
   .vizui-grid2 { grid-template-columns: 1fr; }
   .vizui-bar .vizui-spacer { flex-basis: 100%; height: 0; }
+  /* Keep a range control on one line on phones. A fixed width from an
+     individual demo otherwise makes the label wrap and pushes the thumb
+     beyond the panel. */
+  .vizui-field { flex: 1 1 100%; min-width: 0; gap: 8px; }
+  .vizui-field label { white-space: nowrap; }
+  .vizui-field input[type=range] { flex: 1 1 auto; width: auto !important; min-width: 96px; }
 }
 
 /* ---------- Footer ---------- */

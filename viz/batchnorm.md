@@ -44,7 +44,7 @@ redirect_from:
     </div>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-accent)"><b>减均值除标准差</b><p>把每批激活拉到均值 0、方差 1，后面的层总能拿到分布稳定的输入。</p></div>

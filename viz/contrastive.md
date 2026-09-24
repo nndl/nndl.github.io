@@ -37,7 +37,7 @@ redirect_from:
     <svg id="plane" viewBox="0 0 340 320" role="img" aria-label="对比学习相似度矩阵"></svg>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-accent)"><b>拉近正样本</b><p>每张图和它对应的文字，在表示空间里靠得越近越好。</p></div>

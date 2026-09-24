@@ -39,7 +39,7 @@ redirect_from:
     <svg id="plane" viewBox="0 0 460 230" role="img" aria-label="LSTM 门控"></svg>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-gold)"><b>遗忘门：记多久</b><p>≈1 时细胞状态原样保留，记忆能跨越很多步不衰减；小了就漏光。</p></div>

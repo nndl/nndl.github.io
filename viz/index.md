@@ -178,7 +178,7 @@ redirect_from:
   {% include viz-card.html
      url="/viz/sgm-seq2seq-transformer/"
      title="Seq2Seq · 基于 Transformer"
-     blurb="基于自注意力机制，可并行处理整个序列，是当前大模型的基础架构。"
+     blurb="以自注意力为核心并结合交叉注意力，可并行处理训练序列；Transformer 是许多大模型的基础架构。"
      thumb="/viz/sgm-seq2seq-transformer.gif" %}
 </div>
 
@@ -246,7 +246,7 @@ redirect_from:
   {% include viz-card.html url="/viz/scaling-laws/" title="缩放定律" blurb="损失随规模按幂律下降（log-log 直线），用小模型外推预测大模型，还有不可约下限。" %}
   {% include viz-card.html url="/viz/contrastive/" title="对比学习与 CLIP" blurb="点训练，看图文相似度矩阵的对角线怎样点亮——CLIP 用配对图文拉近正样本、推远负样本。" %}
   {% include viz-card.html url="/viz/moe/" title="混合专家 MoE" blurb="路由器把每个词只派给少数几个‘专家’子网络，参数海量但每次只算一小部分。" %}
-  {% include viz-card.html url="/viz/kv-cache/" title="KV 缓存与 O(n²)" blurb="自回归生成时注意力是 O(n²)，KV 缓存把历史键值存起来复用，降到线性。" %}
+  {% include viz-card.html url="/viz/kv-cache/" title="KV 缓存：避免重复计算 K/V" blurb="注意力仍需访问历史上下文；KV 缓存复用历史键值，把 K/V 的重复计算从平方级降为线性。" %}
   {% include viz-card.html url="/viz/speculative-decoding/" title="投机解码" blurb="小模型起草几个字、大模型并行核验采纳，看它如何在不改结果的前提下加速生成。" %}
   {% include viz-card.html url="/viz/quantization/" title="量化" blurb="把连续权重吸附到离散档位，fp32→int8/int4 看体积缩小与精度损失的权衡。" %}
   {% include viz-card.html url="/viz/lora/" title="LoRA 低秩微调" blurb="冻结大权重矩阵，只训两个小矩阵 A·B，微调参数从 d² 骤降到 2dr。" %}

@@ -34,7 +34,7 @@ redirect_from:
     <svg id="plane" viewBox="0 0 360 220" role="img" aria-label="图消息传递"></svg>
   </div>
 
-  <div class="vizui-caption" id="caption"></div>
+  <div class="vizui-caption" id="caption" aria-live="polite"></div>
 
   <div class="vizui-why">
     <div class="card" style="--wc:var(--color-accent)"><b>消息传递</b><p>节点收邻居特征、取平均更新自己。这是几乎所有 GNN 的统一框架。</p></div>
